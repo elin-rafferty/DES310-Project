@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf094a8c8ed523418a6a0ee03016026, type: 3}
   m_Name: DefaultEnemy
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 4315472040670577283, guid: 7fe4275e41b21db4d8ba15265f6744fa, type: 3}
   speed: 5
   health: 5
   damage: 5
