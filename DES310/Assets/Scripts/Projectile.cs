@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -10,6 +11,7 @@ public class Projectile : MonoBehaviour
     private float speed;
     private float damage;
     [SerializeReference] private SpriteRenderer spriteRenderer;
+    private GameObject owner;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +22,29 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y) + direction * speed * Time.deltaTime;
+        Vector2 oldPos = transform.position;
+        float distance = speed * Time.deltaTime;
+        Vector2 newPos = oldPos + direction * distance;
+        RaycastHit2D[] hits;
+        hits = Physics2D.LinecastAll(oldPos, newPos);
+
+        Debug.Log(hits.Length);
+        foreach (RaycastHit2D hit in hits )
+        {
+            if (hit.collider.gameObject != owner.gameObject)
+            {
+                Debug.Log("Hit " + hit.collider.gameObject.name);
+                Destroy(gameObject);
+                break;
+            }
+        }
+        transform.position = newPos;
     }
 
     public void SetDirection(Vector2 newDirection)
     {
         direction = newDirection;
+        direction.Normalize();
         transform.rotation = Quaternion.identity;
         transform.Rotate(direction);
     }
@@ -36,5 +55,10 @@ public class Projectile : MonoBehaviour
         speed = type.speed;
         damage = type.damage;
         spriteRenderer.sprite = type.sprite;
+    }
+
+    public void SetOwner(GameObject owner)
+    {
+        this.owner = owner;
     }
 }
