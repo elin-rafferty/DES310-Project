@@ -9,11 +9,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private ProjectileType bulletType;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer crosshair;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         Vector2 screenMiddle = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 mouseDirection = mousePos - screenMiddle;
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0;
+        Cursor.visible = false;
+        crosshair.transform.position = mouseWorldPos;
         mouseDirection.Normalize();
         transform.rotation = Quaternion.identity;
         transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg);
