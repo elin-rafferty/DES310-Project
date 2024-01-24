@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 screenMiddle = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 mouseDirection = mousePos - screenMiddle;
         mouseDirection.Normalize();
+        transform.rotation = Quaternion.identity;
+        transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg);
         // Check if firing
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
