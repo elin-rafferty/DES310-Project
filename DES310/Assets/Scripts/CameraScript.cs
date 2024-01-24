@@ -6,6 +6,10 @@ public class CameraScript : MonoBehaviour
 {
     public PlayerMovement player;
 
+    private Vector3 offset = new Vector3(0, 0, -10);
+    private float smoothTime = 0.1f;
+    private Vector3 velocity = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +17,11 @@ public class CameraScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+        //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+
+        Vector3 targetPosition = player.transform.position + offset;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }
