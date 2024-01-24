@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         Vector2 screenMiddle = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 mouseDirection = mousePos - screenMiddle;
+        mouseDirection.Normalize();
         // Check if firing
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             Projectile newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             newProjectile.SetType(bulletType);
             newProjectile.SetDirection(mouseDirection);
+            newProjectile.SetOwner(gameObject);
             // Set projectile to despawn after a certain time has elapsed
             Destroy(newProjectile.gameObject, 1);
         }
