@@ -37,6 +37,11 @@ public class Projectile : MonoBehaviour
             {
                 Debug.Log("Hit " + hit.collider.gameObject.name);
                 Destroy(gameObject);
+
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    Destroy(hit.collider.gameObject);
+                }
                 break;
             }
         }
