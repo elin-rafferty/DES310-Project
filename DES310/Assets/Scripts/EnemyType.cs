@@ -11,4 +11,5 @@ public class EnemyType : ScriptableObject
     public float health;
     public float damage;
     public float aggroDist;
+    public float deaggroDist;
 }
