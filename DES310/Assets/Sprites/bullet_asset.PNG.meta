@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bullet_asset_0: -2618919267306285925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
