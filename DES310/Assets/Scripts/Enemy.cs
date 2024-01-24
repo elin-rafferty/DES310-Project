@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
             direction.Normalize();
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
-            //transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.transform.position, speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         } else
         {
