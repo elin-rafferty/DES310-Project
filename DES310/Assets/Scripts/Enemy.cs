@@ -45,5 +45,6 @@ public class Enemy : MonoBehaviour
 
         speed = type.speed;
         aggroDistance = type.aggroDist;
+        gameObject.GetComponent<SpriteRenderer>().sprite = type.Sprite;
     }
 }
