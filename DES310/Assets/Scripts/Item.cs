@@ -5,12 +5,13 @@ using System;
 
 public class Item : MonoBehaviour, ICollectable
 {
-    public static event Action OnItemCollected;
+    public static event ItemCollected OnItemCollected;
+    public delegate void ItemCollected(ItemData item);
+    public ItemData collectableData;
 
     public void Collect()
     {
-        Debug.Log("You collected an item!");
-        OnItemCollected?.Invoke();
+        OnItemCollected?.Invoke(collectableData);
         Destroy(gameObject);
     }
 }   
