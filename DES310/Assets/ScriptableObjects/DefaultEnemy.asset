@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c81ea8dc68e6704a8db88245e0c011f, type: 3}
-  m_Name: BasicBullet
+  m_Script: {fileID: 11500000, guid: caf094a8c8ed523418a6a0ee03016026, type: 3}
+  m_Name: DefaultEnemy
   m_EditorClassIdentifier: 
-  speed: 0.01
-  damage: 20
-  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 0}
+  speed: 5
+  health: 5
+  damage: 5
+  aggroDist: 5
