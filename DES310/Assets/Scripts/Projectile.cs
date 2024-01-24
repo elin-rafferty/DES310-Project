@@ -27,8 +27,6 @@ public class Projectile : MonoBehaviour
         Vector2 newPos = oldPos + direction * distance;
         RaycastHit2D[] hits;
         hits = Physics2D.LinecastAll(oldPos, newPos);
-
-        Debug.Log(hits.Length);
         foreach (RaycastHit2D hit in hits )
         {
             if (hit.collider.gameObject != owner.gameObject)
