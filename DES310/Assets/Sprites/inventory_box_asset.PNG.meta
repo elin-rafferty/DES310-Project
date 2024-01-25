@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      inventory_box_asset_0: 85740205444440549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

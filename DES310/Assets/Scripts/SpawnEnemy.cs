@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     // Enemy Game Objects
-    [SerializeField] private Enemy EnemyPrefab;
-    [SerializeField] private EnemyType EnemyType;
+    [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private EnemyType enemyType;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,8 @@ public class SpawnEnemy : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             // Spawn Enemy at spawn point location
-            Enemy newEnemy = Instantiate(EnemyPrefab, transform.position, EnemyPrefab.transform.rotation);
-            newEnemy.SetType(EnemyType);
+            Enemy newEnemy = Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation);
+            newEnemy.SetType(enemyType);
         }
     }
 }
