@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     private GameObject player;
     private bool lineOfSight;
+    private bool aggro = false;
 
     private float aggroDistance;
     private float deaggroDistance;
@@ -29,39 +30,65 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
-        // Follow player when within aggro range
-        if (distance < aggroDistance)
+        if (lineOfSight)
         {
-            Vector2 direction = player.transform.position - transform.position;
-            direction.Normalize();
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-        } 
+            // Aggro player within range
+            if (distance < aggroDistance) aggro = true;
+
+            if (aggro)
+            {
+                // Follow player when aggro
+                Vector2 direction = player.transform.position - transform.position;
+                direction.Normalize();
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
+                transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            }
+        }
         else
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
+
+        if (distance > deaggroDistance) aggro = false;
     }
 
     private void FixedUpdate()
     {
+        // Cast ray from enemy to player
         RaycastHit2D[] ray = Physics2D.RaycastAll(transform.position, player.transform.position - transform.position);
         foreach (RaycastHit2D collision in ray)
         {
             if (collision.collider.gameObject.tag == "Player")
             {
-                lineOfSight = collision.collider.CompareTag("Player");
-
-                if (lineOfSight)
-                {
-                    Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
-                }
-                else
-                {
-                    Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
-                }
+                // If first collision player enemy has LOS
+                lineOfSight = true;
+                break;
             }
+            else if (collision.collider.gameObject.tag == "Enemy")
+            {
+                // Ignore enemy colliders
+                continue;
+            }
+            else
+            {
+                // If any collision before player enemy hasn't got LOS
+                lineOfSight = false;
+                break;
+            }
+        }
+
+        if (lineOfSight)
+        {
+            Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
         }
     }
 
