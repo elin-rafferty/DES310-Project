@@ -46,12 +46,12 @@ public class inventoryMainPage : MonoBehaviour
 
     private void HandleBeginDrag(InventoryItem obj)
     {
-        Debug.Log(obj.name);
+        
     }
 
     private void HandleItemSelection(InventoryItem obj)
     {
-        
+        Debug.Log(obj.name);
     }
 
     public void Show()
