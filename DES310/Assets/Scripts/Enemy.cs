@@ -8,10 +8,10 @@ public class Enemy : MonoBehaviour
     [SerializeReference] private SpriteRenderer SpriteRenderer;
     private EnemyType type;
 
+    private LineOfSightCheck lineOfSightCheck;
     private GameObject player;
-    private bool lineOfSight;
-    private bool aggro = false;
 
+    private bool aggro = false;
     private float aggroDistance;
     private float deaggroDistance;
 
@@ -22,12 +22,17 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lineOfSightCheck = GetComponent<LineOfSightCheck>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Line of sight check
+        bool lineOfSight = LOScheck();
+
+        // Distance to player
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
         if (lineOfSight)
@@ -54,35 +59,15 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
 
+        // Deaggro when player greater than deaggro distance
         if (distance > deaggroDistance) aggro = false;
     }
 
-    private void FixedUpdate()
+    private bool LOScheck()
     {
-        // Cast ray from enemy to player
-        RaycastHit2D[] ray = Physics2D.RaycastAll(transform.position, player.transform.position - transform.position);
-        foreach (RaycastHit2D collision in ray)
-        {
-            if (collision.collider.gameObject.tag == "Player")
-            {
-                // If first collision player enemy has LOS
-                lineOfSight = true;
-                break;
-            }
-            else if (collision.collider.gameObject.tag == "Enemy")
-            {
-                // Ignore enemy colliders
-                continue;
-            }
-            else
-            {
-                // If any collision before player enemy hasn't got LOS
-                lineOfSight = false;
-                break;
-            }
-        }
+        bool los = lineOfSightCheck.isLineOfSight(player);
 
-        if (lineOfSight)
+        if (los)
         {
             Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
         }
@@ -90,6 +75,8 @@ public class Enemy : MonoBehaviour
         {
             Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
         }
+
+        return los;
     }
 
     public void SetType(EnemyType type)
