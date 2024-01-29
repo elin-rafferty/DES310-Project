@@ -1419,6 +1419,7 @@ GameObject:
   - component: {fileID: 14239539654070840}
   - component: {fileID: 8152349014126329613}
   - component: {fileID: 6093701363692354786}
+  - component: {fileID: 911432604803125696}
   m_Layer: 5
   m_Name: Inventary Description
   m_TagString: Untagged
@@ -1531,3 +1532,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &911432604803125696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538832359623763517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49494e01181d7d94fa30d490559587de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 4556416334386042710}
+  title: {fileID: 6618684587246864535}
+  description: {fileID: 823177233939128611}
