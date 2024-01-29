@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyType", menuName = "Types/EnemyType")]
 public class EnemyType : ScriptableObject
 {
-    public Sprite Sprite;
+    public Sprite sprite;
 
     public float speed;
     public float health;
