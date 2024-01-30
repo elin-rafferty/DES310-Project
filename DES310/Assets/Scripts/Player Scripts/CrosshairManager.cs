@@ -4,17 +4,36 @@ using UnityEngine;
 
 public class CrosshairManager : MonoBehaviour
 {
-    [SerializeField] GameObject crosshair;
+    private GameObject crosshair;
+    [SerializeField] GameObject crosshairPrefab;
+    [SerializeField] EventHandler eventHandler;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(crosshair);
+        crosshair = Instantiate(crosshairPrefab);
+        crosshair.SetActive(true);
+
+        eventHandler.InventoryChangeState.AddListener(toggleCursor);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void toggleCursor(bool value) 
+    {
+        Debug.Log(value);
+
+        if (value) 
+        { 
+            crosshair.SetActive(false); 
+        }
+        else 
+        { 
+            crosshair.SetActive(true);
+        }
     }
 }
