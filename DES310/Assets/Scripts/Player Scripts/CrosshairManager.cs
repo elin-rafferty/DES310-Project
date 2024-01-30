@@ -25,7 +25,6 @@ public class CrosshairManager : MonoBehaviour
 
     void toggleCursor(bool value) 
     {
-        Debug.Log(value);
 
         if (value) 
         { 

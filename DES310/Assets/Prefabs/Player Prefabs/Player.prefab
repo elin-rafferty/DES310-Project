@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634fdb6fee2727643a946f65f4a17e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshair: {fileID: 7864084244404401997, guid: 3026e92d21118654b8e29f2494ecfc4c, type: 3}
+  crosshairPrefab: {fileID: 7864084244404401997, guid: 3026e92d21118654b8e29f2494ecfc4c, type: 3}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
 --- !u!1 &8877960124969393563
 GameObject:

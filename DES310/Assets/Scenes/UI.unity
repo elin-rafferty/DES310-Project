@@ -484,10 +484,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 531942098874432596, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
-      propertyPath: crosshairPrefab
-      value: 
-      objectReference: {fileID: 7864084244404401997, guid: 3026e92d21118654b8e29f2494ecfc4c, type: 3}
     - target: {fileID: 2845275580175481336, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
       propertyPath: inventoryUI
       value: 
