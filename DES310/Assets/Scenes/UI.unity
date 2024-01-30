@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 885887974}
   - component: {fileID: 885887973}
   - component: {fileID: 885887972}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collectable Item (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 1225584494}
   - component: {fileID: 1225584493}
   - component: {fileID: 1225584492}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collectable Item (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2078,7 +2078,7 @@ GameObject:
   - component: {fileID: 2118597115}
   - component: {fileID: 2118597114}
   - component: {fileID: 2118597113}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collectable Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
