@@ -12,7 +12,7 @@ public class SpawnEnemy : MonoBehaviour
     void Start()
     {
 
-        Enemy newEnemy = Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation);
+        Enemy newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
         newEnemy.SetType(enemyType);
     }
 
@@ -22,7 +22,7 @@ public class SpawnEnemy : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             // Spawn Enemy at spawn point location
-            Enemy newEnemy = Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation);
+            Enemy newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
             newEnemy.SetType(enemyType);
         }
     }
