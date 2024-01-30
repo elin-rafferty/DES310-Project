@@ -19,8 +19,10 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Fixed camera follow
         //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
 
+        // Delayed camera follow
         Vector3 targetPosition = player.transform.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
