@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &623581420611878173
 Transform:
   m_ObjectHideFlags: 0
@@ -98,6 +98,9 @@ GameObject:
   - component: {fileID: 8467115422775393387}
   - component: {fileID: 8303486257816997614}
   - component: {fileID: 9078799622470109050}
+  - component: {fileID: 82825021864324185}
+  - component: {fileID: 2845275580175481336}
+  - component: {fileID: 531942098874432596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -292,6 +295,47 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.0021112561}
   m_Size: {x: 0.5, y: 1.3082417}
   m_Direction: 0
+--- !u!114 &82825021864324185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2790f1ca936e0e41b5abba8582fcb26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2845275580175481336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67eb80d80e15b843a2ed36e97789480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
+  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  inventorySize: 10
+--- !u!114 &531942098874432596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634fdb6fee2727643a946f65f4a17e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairPrefab: {fileID: 7864084244404401997, guid: 3026e92d21118654b8e29f2494ecfc4c, type: 3}
+  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
 --- !u!1 &8877960124969393563
 GameObject:
   m_ObjectHideFlags: 0

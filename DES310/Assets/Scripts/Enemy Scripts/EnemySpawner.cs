@@ -11,7 +11,9 @@ public class SpawnEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        Enemy newEnemy = Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation);
+        newEnemy.SetType(enemyType);
     }
 
     // Update is called once per frame
