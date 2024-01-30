@@ -6,6 +6,7 @@ public class InventoryController : MonoBehaviour
 {
     [SerializeField]
     private inventoryMainPage inventoryUI;
+    [SerializeField] private EventHandler eventHandler;
 
 
     public int inventorySize = 10;
@@ -25,12 +26,13 @@ public class InventoryController : MonoBehaviour
             if (inventoryUI.isActiveAndEnabled == false)
             {
                 inventoryUI.Show();
-
+                eventHandler.InventoryChangeState.Invoke(true);
             }
             else
             {
 
                 inventoryUI.Hide();
+                eventHandler.InventoryChangeState.Invoke(false);
             }
         }
     }

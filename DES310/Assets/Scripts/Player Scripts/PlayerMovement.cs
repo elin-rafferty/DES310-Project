@@ -10,17 +10,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ProjectileType bulletType;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer crosshair;
+    [SerializeField] private EventHandler eventHandler;
+
+    private bool inventoryOpen = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        eventHandler.InventoryChangeState.AddListener(InventoryStateChangeResponse);
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleInput();
+        if (!inventoryOpen)
+        {
+            HandleInput();
+        }
+        Cursor.visible = inventoryOpen;
     }
 
     void HandleInput()
@@ -35,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 mouseDirection = mousePos - screenMiddle;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
-        Cursor.visible = false;
         crosshair.transform.position = mouseWorldPos;
         mouseDirection.Normalize();
         transform.rotation = Quaternion.identity;
@@ -51,5 +57,10 @@ public class PlayerMovement : MonoBehaviour
             // Set projectile to despawn after a certain time has elapsed
             Destroy(newProjectile.gameObject, 1);
         }
+    }
+
+    void InventoryStateChangeResponse(bool open)
+    {
+        inventoryOpen = open;
     }
 }
