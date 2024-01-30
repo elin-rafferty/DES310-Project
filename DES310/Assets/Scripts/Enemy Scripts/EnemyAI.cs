@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Enemy : MonoBehaviour
 {
@@ -86,19 +87,20 @@ public class Enemy : MonoBehaviour
 
         if (!lineOfSight)
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             currentState = State.IDLE;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
-        else if (distance > deaggroDistance)
+        if (distance > deaggroDistance)
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            Debug.Log(deaggroDistance);
             currentState = State.IDLE;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
     }
 
     private void FindTarget()
     {
-        if (lineOfSight & distance < aggroDistance) 
+        if (lineOfSight && distance < aggroDistance) 
         {
             currentState = State.CHASE;
         }
@@ -127,6 +129,9 @@ public class Enemy : MonoBehaviour
 
         speed = type.speed;
         aggroDistance = type.aggroDist;
+        deaggroDistance = type.aggroDist;
+        health = type.health;
+        damage = type.damage;
         gameObject.GetComponent<SpriteRenderer>().sprite = type.sprite;
     }
 }
