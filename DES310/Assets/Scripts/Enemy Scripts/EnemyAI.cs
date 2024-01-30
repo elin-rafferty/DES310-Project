@@ -49,8 +49,6 @@ public class Enemy : MonoBehaviour
         // Distance to player
         distance = Vector2.Distance(transform.position, player.transform.position);
 
-        Debug.Log(currentState);
-
         // Enemy State Machine
         switch (currentState)
         {
@@ -92,7 +90,6 @@ public class Enemy : MonoBehaviour
         }
         if (distance > deaggroDistance)
         {
-            Debug.Log(deaggroDistance);
             currentState = State.IDLE;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
