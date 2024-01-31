@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<InventoryItem> inventory = new List<InventoryItem>();
-    private Dictionary<ItemData, InventoryItem> itemDictionary = new Dictionary<ItemData, InventoryItem>();
+    public List<InventoryItemUI> inventory = new List<InventoryItemUI>();
+    private Dictionary<ItemSO, InventoryItemUI> itemDictionary = new Dictionary<ItemSO, InventoryItemUI>();
 
     private void OnEnable()
     {
-        Item.OnItemCollected += Add;  
+        
     }
 
     private void OnDisabled()
     {
-        Item.OnItemCollected -= Add;
+       
     }
 
-    public void Add(ItemData ItemData)
+    public void Add(ItemSO ItemData)
     {
-        if (itemDictionary.TryGetValue(ItemData, out InventoryItem item))
+        if (itemDictionary.TryGetValue(ItemData, out InventoryItemUI item))
         {
             item.AddToStack();
-            Debug.Log($"{item.itemData.displayName} total stack is now {item.stackSize}");
+            Debug.Log($"{item.itemData.Name} total stack is now {item.stackSize}");
         }
         else
         {
-            InventoryItem newItem = new InventoryItem(ItemData);
+            InventoryItemUI newItem = new InventoryItemUI(ItemData);
             inventory.Add(newItem);
             itemDictionary.Add(ItemData, newItem);
             Debug.Log("You added this item to your inventory for the first time!");
         }
     }
 
-    public void Remove(ItemData ItemData)
+    public void Remove(ItemSO ItemData)
     {
-        if (itemDictionary.TryGetValue(ItemData, out InventoryItem item))
+        if (itemDictionary.TryGetValue(ItemData, out InventoryItemUI item))
         {
             item.RemoveFromStack();
             if (item.stackSize == 0)

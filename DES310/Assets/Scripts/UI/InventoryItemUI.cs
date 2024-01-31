@@ -5,12 +5,13 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
-public class InventoryItem : MonoBehaviour
+public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 
 {
     // https://www.youtube.com/watch?v=DS5Ss9SFHbs&list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D&index=7
-    public ItemData itemData;
+    public ItemSO itemData;
     public int stackSize;
 
     [SerializeField]
@@ -22,7 +23,7 @@ public class InventoryItem : MonoBehaviour
     [SerializeField]
     private Image borderImage;
 
-    public event Action<InventoryItem> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
+    public event Action<InventoryItemUI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
 
     private bool empty = true;
 
@@ -56,43 +57,17 @@ public class InventoryItem : MonoBehaviour
         borderImage.enabled = true;
     }
 
-    public void OnBeginDeag()
-    {
-        if (empty)
-            return;
-        OnItemBeginDrag?.Invoke(this);
-    }
-
-    public void OnDrop()
-    {
-        OnItemDropped?.Invoke(this);
-    }
-
-    public void OnEndDrag()
-    {
-        OnItemEndDrag?.Invoke(this);
-    }
-
-    public void OnPointerClick(BaseEventData data)
-    {
-        if (empty)
-            return;
-        PointerEventData pointerData = (PointerEventData)data;
-        if (pointerData.button == PointerEventData.InputButton.Right)
-        {
-            OnRightMouseBtnClick?.Invoke(this);
-        }
-        else
-        {
-            OnItemClicked?.Invoke(this);
-        }
-    }
-
     // https://youtu.be/geq7lQSBDAE?si=nyx-AL0fl1oXcjaf
-    public InventoryItem(ItemData item)
+    public InventoryItemUI(ItemSO item)
     {
         itemData = item;
         AddToStack();
+    }
+
+    public InventoryItemUI()
+    {
+        itemData = null;
+        stackSize = 0; 
     }
 
     public void AddToStack()
@@ -105,4 +80,41 @@ public class InventoryItem : MonoBehaviour
         stackSize--;
     }
 
+    public void OnPointerClick(PointerEventData pointerData)
+    {
+        if (pointerData.button == PointerEventData.InputButton.Right)
+        {
+            OnRightMouseBtnClick?.Invoke(this);
+        }
+        else
+        {
+            OnItemClicked?.Invoke(this);
+        }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (empty)
+            return;
+        OnItemBeginDrag?.Invoke(this);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        OnItemEndDrag?.Invoke(this); 
+    }
+
+
+    public void OnDrag(PointerEventData eventData)
+    {
+ 
+    }
+
+    void IDropHandler.OnDrop(PointerEventData eventData)
+    {
+        OnItemDropped?.Invoke(this);
+    }
+
+    
+    
 }

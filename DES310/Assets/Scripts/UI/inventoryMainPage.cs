@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,16 +16,25 @@ public class inventoryMainPage : MonoBehaviour
     [SerializeField]
     private InventoryDescription itemDescription;
 
+    [SerializeField]
+    private MouseFollow mouseFollow;
+
 
     List<InventoryItem> listOfUiItems = new List<InventoryItem>();
 
-    public Sprite image;
-    public int quantity;
-    public string title, description;
+
+    private int currentlyDraggedItemIndex = 1;
+
+    public event Action<int> OnDescriptionRequest, OnItemActionRequested, OnStartDragging;
+
+    public event Action<int, int> OnSwapItems;
+
+
 
     private void Awake()
     {
         Hide();
+        mouseFollow.Toggle(false);
         itemDescription.ResetDescription();
     }
 
@@ -44,43 +54,88 @@ public class inventoryMainPage : MonoBehaviour
         }
     }
 
-    private void HandleShowItemActions(InventoryItem obj)
+    public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
+    {
+        if (listOfUiItems.Count > itemIndex)
+        {
+            listOfUiItems[itemIndex].SetData(itemImage, itemQuantity);
+        }
+    }
+
+    private void HandleShowItemActions(InventoryItem inventoryItem)
     {
         
     }
 
-    private void HandleEndDrad(InventoryItem obj)
+    private void HandleEndDrad(InventoryItem inventoryItemUI)
     {
-        
+        ResetDraggedItem();
     }
 
-    private void HandleSwap(InventoryItem obj)
+    private void HandleSwap(InventoryItem inventoryItemUI)
     {
-        
+        int index = listOfUiItems.IndexOf(inventoryItemUI);
+        if (index == -1)
+        {
+            return;
+        }
+        OnSwapItems?.Invoke(currentlyDraggedItemIndex, index);
     }
 
-    private void HandleBeginDrag(InventoryItem obj)
+    private void ResetDraggedItem()
     {
-        
+        mouseFollow.Toggle(false);
+        currentlyDraggedItemIndex = -1;
     }
 
-    private void HandleItemSelection(InventoryItem obj)
+    private void HandleBeginDrag(InventoryItem inventoryItemUI)
     {
-        itemDescription.SetDescription(image, title, description);
-        listOfUiItems[0].Select();
+        int index = listOfUiItems.IndexOf(inventoryItemUI);
+        if (index == -1)
+            return;
+        currentlyDraggedItemIndex = index;
+
+        OnStartDragging?.Invoke(index);
+    }
+
+    public void CreatedDraggedItem (Sprite sprite, int quantity)
+    {
+        mouseFollow.Toggle(true);
+        mouseFollow.SetData(sprite, quantity);  
+    }
+
+    private void HandleItemSelection(InventoryItem inventoryItemUI)
+    {
+        int index = listOfUiItems.IndexOf(inventoryItemUI);
+        if (index == -1)
+            return;
+        OnDescriptionRequest?.Invoke(index);
     }
 
     public void Show()
     {
         gameObject.SetActive(true);
-        itemDescription.ResetDescription();
+        ResetSelection();
+    }
 
-        listOfUiItems[0].SetData(image, quantity);
+    private void ResetSelection()
+    {
+        itemDescription.ResetDescription();
+        DeselectAllItems();
+    }
+
+    private void DeselectAllItems()
+    {
+        foreach (InventoryItem item in listOfUiItems)
+        {
+            item.Deselect();
+        }
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+        ResetDraggedItem();
     }
 
 }
