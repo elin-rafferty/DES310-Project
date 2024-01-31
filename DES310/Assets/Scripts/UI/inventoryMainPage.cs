@@ -29,10 +29,7 @@ public class inventoryMainPage : MonoBehaviour
     public event Action<int> OnDescriptionRequest, OnItemActionRequested, OnStartDragging;
 
     public event Action<int, int> OnSwapItems;
-
-
-
- private void Awake()
+    private void Awake()
     {
         Hide();
         mouseFollow.Toggle(false);
@@ -45,6 +42,7 @@ public class inventoryMainPage : MonoBehaviour
         {
             InventoryItemUI UIItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
 
+            UIItem.transform.SetParent(contentPanel);
             listOfUiItems.Add(UIItem);
             UIItem.OnItemClicked += HandleItemSelection;
             UIItem.OnItemBeginDrag += HandleBeginDrag;
@@ -97,7 +95,7 @@ public class inventoryMainPage : MonoBehaviour
 
         OnStartDragging?.Invoke(index);
     }
-  public void CreatedDraggedItem(Sprite sprite, int quantity)
+    public void CreatedDraggedItem(Sprite sprite, int quantity)
     {
         mouseFollow.Toggle(true);
         mouseFollow.SetData(sprite, quantity);

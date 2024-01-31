@@ -8,13 +8,15 @@ public class InventoryController : MonoBehaviour
     private inventoryMainPage inventoryUI;
     [SerializeField] private EventHandler eventHandler;
 
+    [SerializeField]
+    private InventorySO inventoryData;
 
-    public int inventorySize = 10;
     
 
     public void Start()
     {
-        inventoryUI.InitializeInventoryUI(inventorySize);
+        inventoryUI.InitializeInventoryUI(inventoryData.Size);
+        //inventoryData.Initialize();
         inventoryUI.Show();
     }
 
@@ -26,6 +28,10 @@ public class InventoryController : MonoBehaviour
             if (inventoryUI.isActiveAndEnabled == false)
             {
                 inventoryUI.Show();
+                foreach (var item in inventoryData.GetCurrentInventoryState())
+                {
+                    inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+                }
                 eventHandler.InventoryChangeState.Invoke(true);
             }
             else
