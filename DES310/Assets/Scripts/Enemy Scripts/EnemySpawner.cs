@@ -7,6 +7,7 @@ public class SpawnEnemy : MonoBehaviour
     // Enemy Game Objects
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private EnemyType enemyType;
+    [SerializeField] private int spawnChancePercentage;
     private List<Enemy> spawnedEnemies;
 
     // Start is called before the first frame update
@@ -31,10 +32,13 @@ public class SpawnEnemy : MonoBehaviour
 
     void SpawnAnEnemy()
     {
-        // Spawn Enemy at spawn point location
-        Enemy newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
-        newEnemy.SetType(enemyType);
-        spawnedEnemies.Add(newEnemy);
+        if (Random.Range(0, 100) < spawnChancePercentage)
+        {
+            // Spawn Enemy at spawn point location
+            Enemy newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
+            newEnemy.SetType(enemyType);
+            spawnedEnemies.Add(newEnemy);
+        }
     }
 
     void DestroySpawnedEnemies()
