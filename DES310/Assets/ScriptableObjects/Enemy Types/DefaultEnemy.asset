@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 4315472040670577283, guid: 7fe4275e41b21db4d8ba15265f6744fa, type: 3}
   speed: 5
-  health: 5
+  health: 50
   damage: 5
   aggroDist: 5
   deaggroDist: 10
