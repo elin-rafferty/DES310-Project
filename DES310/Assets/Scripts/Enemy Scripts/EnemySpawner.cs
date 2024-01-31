@@ -32,6 +32,7 @@ public class SpawnEnemy : MonoBehaviour
 
     void SpawnAnEnemy()
     {
+        // RNG to determine whether to spawn or not
         if (UnityEngine.Random.Range(0, 100) < modifierBehaviour.spawnPercentChance)
         {
             // Spawn Enemy at spawn point location
@@ -42,6 +43,7 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
+    // Lil bit of cleanup
     void DestroySpawnedEnemies()
     {
         foreach (Enemy e in spawnedEnemies)
@@ -54,19 +56,23 @@ public class SpawnEnemy : MonoBehaviour
     EnemyType ChooseEnemyType()
     {
         EnemyType returnVal = null;
+        // Check modifier has been set up correctly
         if (modifierBehaviour.enemyTypes.Count != modifierBehaviour.enemyWeightings.Count)
         {
             Debug.Log("Modifier behaviour does not have equal enemy types and weightings");
         } else
         {
             int totalWeights = 0;
+            // Create and fill list of weightings for each enemy type with upper and lower bounds
             List<Tuple<int, int>> weightingRanges = new List<Tuple<int, int>>();
             foreach (int weighting in modifierBehaviour.enemyWeightings)
             {
                 weightingRanges.Add(new Tuple<int, int>(totalWeights, totalWeights + weighting));
                 totalWeights += weighting;
             }
+            // Choose a random number within total weighting range
             int random = UnityEngine.Random.Range(0, totalWeights);
+            // Find where that random number landed
             for (int i = 0; i < weightingRanges.Count; i++)
             {
                 if (random >= weightingRanges[i].Item1 && random < weightingRanges[i].Item2)
@@ -75,6 +81,7 @@ public class SpawnEnemy : MonoBehaviour
                 }
             }
         }
+        // This should never happen
         if (returnVal == null)
         {
             Debug.Log("Oopsie");

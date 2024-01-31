@@ -136,7 +136,9 @@ public class Enemy : MonoBehaviour
 
     public void SetModifiers(ModifierBehaviour modifier)
     {
+        // Keep reference to modifier
         modifierBehaviour = modifier;
+        // Apply modifiers
         health *= modifierBehaviour.enemyHealthMultiplier;
         damage *= modifierBehaviour.enemyDamageMultiplier;
         speed *= modifierBehaviour.enemySpeedMultiplier;
