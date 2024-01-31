@@ -9,6 +9,7 @@ public class EventHandler : ScriptableObject
 {
     public UnityEvent<bool> InventoryChangeState;
     public UnityEvent PlayerDeath;
+    public UnityEvent<float> PlayerHealthChange;
 
     private void OnEnable()
     {

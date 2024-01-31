@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
     public void Damage(float damage)
     {
         health -= damage;
+        eventHandler.PlayerHealthChange.Invoke(health);
         Debug.Log("I got attacked for " + damage + " damage! My health is now " + health);
         if (health <= 0)
         {
