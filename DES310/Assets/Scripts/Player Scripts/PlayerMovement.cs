@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     {
         eventHandler.InventoryChangeState.AddListener(InventoryStateChangeResponse);
         health = maxHealth;
-        Debug.Log(health);
     }
 
     // Update is called once per frame
