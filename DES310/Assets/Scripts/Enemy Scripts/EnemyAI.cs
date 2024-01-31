@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeReference] private SpriteRenderer SpriteRenderer;
     private EnemyType type;
+    private ModifierBehaviour modifierBehaviour;
 
     private enum State
     {
@@ -80,7 +81,7 @@ public class Enemy : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
+        gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed * modifierBehaviour.enemySpeedMultiplier;
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
         if (!lineOfSight)
@@ -88,7 +89,7 @@ public class Enemy : MonoBehaviour
             currentState = State.IDLE;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
-        if (distance > deaggroDistance)
+        if (distance > deaggroDistance * modifierBehaviour.enemyDeaggroRangeMultiplier)
         {
             currentState = State.IDLE;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
@@ -97,7 +98,7 @@ public class Enemy : MonoBehaviour
 
     private void FindTarget()
     {
-        if (lineOfSight && distance < aggroDistance) 
+        if (lineOfSight && distance < aggroDistance * modifierBehaviour.enemyAggroRangeMultiplier) 
         {
             currentState = State.CHASE;
         }
@@ -130,5 +131,10 @@ public class Enemy : MonoBehaviour
         health = type.health;
         damage = type.damage;
         gameObject.GetComponent<SpriteRenderer>().sprite = type.sprite;
+    }
+
+    public void SetModifiers(ModifierBehaviour modifier)
+    {
+        modifierBehaviour = modifier;
     }
 }

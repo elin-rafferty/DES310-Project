@@ -37,10 +37,7 @@ public class SpawnEnemy : MonoBehaviour
             // Spawn Enemy at spawn point location
             Enemy newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
             newEnemy.SetType(ChooseEnemyType());
-            if (spawnedEnemies.Count > 0 )
-            {
-                Debug.Log("list is real");
-            }
+            newEnemy.SetModifiers(modifierBehaviour);
             spawnedEnemies.Add(newEnemy);
         }
     }
