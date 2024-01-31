@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
 
     private LineOfSightCheck lineOfSightCheck;
     private GameObject player;
+    [SerializeField] private GameObject leftNode;
+    [SerializeField] private GameObject rightNode;
     private State currentState;
 
     private List<Vector3> breadCrumbs = new List<Vector3>();
@@ -80,7 +82,7 @@ public class Enemy : MonoBehaviour
         {
             // Idle State
             case State.IDLE:
-                FindTarget();
+                //FindTarget();
                 break;
             // Chase State
             case State.CHASE:
@@ -182,15 +184,16 @@ public class Enemy : MonoBehaviour
 
     private bool LOScheck()
     {
-        bool los = lineOfSightCheck.isLineOfSight(player);
+        bool los = lineOfSightCheck.isLineOfSight(player, leftNode);
+        //bool sos = lineOfSightCheck.isLineOfSight(player, rightNode);
 
         if (los)
         {
-            Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
+            //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
         }
         else
         {
-            Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
+            //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
         }
 
         return los;
