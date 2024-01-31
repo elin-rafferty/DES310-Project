@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.PlayerSettings;
 
 public class Enemy : MonoBehaviour
@@ -81,7 +82,7 @@ public class Enemy : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed * modifierBehaviour.enemySpeedMultiplier;
+        gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
         if (!lineOfSight)
@@ -89,7 +90,7 @@ public class Enemy : MonoBehaviour
             currentState = State.IDLE;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
-        if (distance > deaggroDistance * modifierBehaviour.enemyDeaggroRangeMultiplier)
+        if (distance > deaggroDistance)
         {
             currentState = State.IDLE;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
@@ -98,7 +99,7 @@ public class Enemy : MonoBehaviour
 
     private void FindTarget()
     {
-        if (lineOfSight && distance < aggroDistance * modifierBehaviour.enemyAggroRangeMultiplier) 
+        if (lineOfSight && distance < aggroDistance) 
         {
             currentState = State.CHASE;
         }
@@ -136,14 +137,29 @@ public class Enemy : MonoBehaviour
     public void SetModifiers(ModifierBehaviour modifier)
     {
         modifierBehaviour = modifier;
+        health *= modifierBehaviour.enemyHealthMultiplier;
+        damage *= modifierBehaviour.enemyDamageMultiplier;
+        speed *= modifierBehaviour.enemySpeedMultiplier;
+        aggroDistance *= modifierBehaviour.enemyAggroRangeMultiplier;
+        deaggroDistance *= modifierBehaviour.enemyDeaggroRangeMultiplier;
     }
 
+    // Change the hell out of this later, here for now just while AI gets worked on
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Attacking player");
             collision.gameObject.GetComponent<PlayerMovement>().Damage(damage * modifierBehaviour.enemyDamageMultiplier);
+        }
+    }
+
+    public void Damage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

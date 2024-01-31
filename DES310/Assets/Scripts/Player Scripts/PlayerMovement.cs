@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("I got attacked for " + damage + " damage! My health is now " + health);
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             Debug.Log("Player died");
             SceneManager.LoadScene((SceneManager.GetActiveScene().name));
