@@ -17,7 +17,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        DestroySpawnedEnemies();
+
     }
 
     // Update is called once per frame
