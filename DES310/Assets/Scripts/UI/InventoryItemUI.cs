@@ -7,12 +7,12 @@ using TMPro;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 
-public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 
+public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     // https://www.youtube.com/watch?v=DS5Ss9SFHbs&list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D&index=7
-    public ItemSO itemData;
-    public int stackSize;
+    public ItemSO item;
+    public int quantity;
 
     [SerializeField]
     private Image itemImage;
@@ -26,6 +26,7 @@ public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     public event Action<InventoryItemUI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
 
     private bool empty = true;
+    internal object transform;
 
     public void Awake()
     {
@@ -60,24 +61,23 @@ public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     // https://youtu.be/geq7lQSBDAE?si=nyx-AL0fl1oXcjaf
     public InventoryItemUI(ItemSO item)
     {
-        itemData = item;
         AddToStack();
     }
 
     public InventoryItemUI()
     {
-        itemData = null;
-        stackSize = 0; 
+        item = null;
+        quantity = 0; 
     }
 
     public void AddToStack()
     {
-        stackSize++;
+        quantity++;
     }
 
     public void RemoveFromStack()
     {
-        stackSize--;
+        quantity--;
     }
 
     public void OnPointerClick(PointerEventData pointerData)

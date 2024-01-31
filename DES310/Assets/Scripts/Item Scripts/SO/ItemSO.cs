@@ -5,7 +5,6 @@ using System;
 
 
 [CreateAssetMenu]
-
 public class ItemSO : ScriptableObject
 {
 
@@ -26,6 +25,5 @@ public class ItemSO : ScriptableObject
 
     [field: SerializeField]
     public Sprite ItemImage { get; set; }
-
 
 }

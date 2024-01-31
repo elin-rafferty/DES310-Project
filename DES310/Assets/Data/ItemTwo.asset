@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemTwo
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
-  <MaxStackSize>k__BackingField: 99
-  <Name>k__BackingField: Bubblegum
-  <Description>k__BackingField: Gum yum
+  <MaxStackSize>k__BackingField: 1
+  <Name>k__BackingField: 
+  <Description>k__BackingField: 
   <ItemImage>k__BackingField: {fileID: -179823393704841465, guid: 748e1000f937d11428b7ff5f58403de8, type: 3}

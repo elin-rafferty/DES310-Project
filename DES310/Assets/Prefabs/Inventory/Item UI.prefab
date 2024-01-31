@@ -189,11 +189,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 587747175987272282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9599eabae44428544bec55bfe95abd5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 37b5870b7ddf07a488cea28cefc3eb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
-  stackSize: 0
+  item: {fileID: 0}
+  quantity: 0
   itemImage: {fileID: 3161715969566925265}
   quantityTxt: {fileID: 674554895651043924}
   borderImage: {fileID: 4309953001449087679}

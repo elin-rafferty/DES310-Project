@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
         if (itemDictionary.TryGetValue(ItemData, out InventoryItemUI item))
         {
             item.AddToStack();
-            Debug.Log($"{item.itemData.Name} total stack is now {item.stackSize}");
+            Debug.Log($"{item.item.Name} total stack is now {item.quantity}");
         }
         else
         {
@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour
         if (itemDictionary.TryGetValue(ItemData, out InventoryItemUI item))
         {
             item.RemoveFromStack();
-            if (item.stackSize == 0)
+            if (item.quantity == 0)
             {
                 inventory.Remove(item);
                 itemDictionary.Remove(ItemData);
