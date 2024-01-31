@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     private float delayTime = 0;
     private float followTime = 0;
     private bool isRecording = false;
+    private float searchTimer = 0;
 
     private bool lineOfSight;
     private float distance;
@@ -53,8 +54,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentState);
-
         // Record player position at set interval 
         timer += Time.deltaTime;
         delayTime += Time.deltaTime;
@@ -77,12 +76,14 @@ public class Enemy : MonoBehaviour
         // Distance to player
         distance = Vector2.Distance(transform.position, player.transform.position);
 
+        //Debug.Log(currentState);
+
         // Enemy State Machine
         switch (currentState)
         {
             // Idle State
             case State.IDLE:
-                //FindTarget();
+                FindTarget();
                 break;
             // Chase State
             case State.CHASE:
@@ -105,98 +106,65 @@ public class Enemy : MonoBehaviour
 
     private void FindTarget()
     {
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         if (lineOfSight && distance < aggroDistance)
         {
-            isRecording = true;
-            delayTime = 0;
             currentState = State.CHASE;
         }
     }
 
-    private void ChasePlayer()
+    private void Chase(GameObject target)
     {
-        // Follow player when aggro
-        Vector2 direction = player.transform.position - transform.position;
+        // Follow Target
+        Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+    }
 
-        if (!lineOfSight)
+    private void ChasePlayer()
+    {
+        Chase(player);
+
+        if (!lineOfSight || distance > deaggroDistance)
         {
-            isRecording = false;
+            searchTimer = 0;
             currentState = State.SEARCH;
-        }
-        else if (distance > deaggroDistance)
-        {
-            isRecording = false;
-            currentState = State.SEARCH;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
     }
 
     private void SearchForPlayer()
     {
-        if (breadCrumbs.Count != 0)
+        // Copy list from player
+        List<GameObject> breadCrumbList = player.GetComponent<BreadCrumbList>().breadCrumbs;
+        int firstCrumbIndex = player.GetComponent<BreadCrumbList>().oldestCrumbIndex;
+
+        GameObject Target = breadCrumbList[firstCrumbIndex];
+
+        if (searchTimer < 3)
         {
-            // Follow player bread crumb trail
-            Vector2 direction = breadCrumbs[0] - transform.position;
-            direction.Normalize();
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-
-            float distToBreadCrumb = Vector2.Distance(transform.position, breadCrumbs[0]);
-
-            if (distToBreadCrumb < 0.5)
-            {
-                breadCrumbs.RemoveAt(0);
-                if (lineOfSight && distance < deaggroDistance)
-                {
-                    currentState = State.CHASE;
-                }
-            }
-            if (followTime > 0.3)
-            {
-                breadCrumbs.RemoveAt(0);
-                followTime = 0;
-                if (lineOfSight && distance < deaggroDistance)
-                {
-                    currentState = State.CHASE;
-                }
-            }
-            else
-            {
-                followTime += Time.deltaTime;
-            }
-
-        }
-        else if (lineOfSight && distance < deaggroDistance)
-        {
-            currentState = State.CHASE;
+            // Search for player
         }
         else
         {
+            // Return to idle
             currentState = State.IDLE;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
+
+        searchTimer += Time.deltaTime;
     }
 
     private bool LOScheck()
     {
-        bool los = lineOfSightCheck.isLineOfSight(player, leftNode);
-        //bool sos = lineOfSightCheck.isLineOfSight(player, rightNode);
+        bool lLos = lineOfSightCheck.isLineOfSight(player, leftNode);
+        bool rLos = lineOfSightCheck.isLineOfSight(player, rightNode);
 
-        if (los)
-        {
-            //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
+        if (lLos && rLos) 
+        { 
+            return true; 
         }
-        else
-        {
-            //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
-        }
-
-        return los;
+        return false;
     }
 
     public void SetType(EnemyType type)
@@ -206,7 +174,7 @@ public class Enemy : MonoBehaviour
 
         speed = type.speed;
         aggroDistance = type.aggroDist;
-        deaggroDistance = type.aggroDist;
+        deaggroDistance = type.deaggroDist;
         health = type.health;
         damage = type.damage;
         gameObject.GetComponent<SpriteRenderer>().sprite = type.sprite;
