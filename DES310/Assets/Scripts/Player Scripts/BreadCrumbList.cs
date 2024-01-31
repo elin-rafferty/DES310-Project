@@ -8,7 +8,7 @@ public class BreadCrumbList : MonoBehaviour
     public List<GameObject> breadCrumbs = new();
     public int oldestCrumbIndex = 0;
 
-    private float crumbCount = 20;
+    private float crumbCount = 50;
     private float crumbInterval = 0.1f;
     private float crumbTimer = 0;
 
@@ -32,8 +32,6 @@ public class BreadCrumbList : MonoBehaviour
 
             breadCrumbs[oldestCrumbIndex].transform.position = transform.position;
 
-            Debug.Log(oldestCrumbIndex);
-
             if (oldestCrumbIndex == crumbCount - 1)
             {
                 oldestCrumbIndex = 0;
@@ -47,9 +45,3 @@ public class BreadCrumbList : MonoBehaviour
         crumbTimer += Time.deltaTime;
     }
 }
-
-// Trail behaviour
-// Player keeps track of list
-// Enemy copies list when entering search state
-// Enemy iterates through list until time runs out
-// Return to idle

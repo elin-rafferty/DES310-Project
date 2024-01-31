@@ -25,13 +25,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject rightNode;
     private State currentState;
 
-    private List<Vector3> breadCrumbs = new List<Vector3>();
-    private float breadCrumbInterval = 0.1f;
-    private float timer = 0;
-    private float delayTime = 0;
-    private float followTime = 0;
-    private bool isRecording = false;
+    List<GameObject> breadCrumbList = new();
+    private int targetIndex;
     private float searchTimer = 0;
+    private bool ranSearch = false;
 
     private bool lineOfSight;
     private float distance;
@@ -54,29 +51,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Record player position at set interval 
-        timer += Time.deltaTime;
-        delayTime += Time.deltaTime;
-        if (timer > breadCrumbInterval && isRecording)
-        {
-            timer = 0;
-            // Add latest position
-            breadCrumbs.Add(player.transform.position);
-
-            if (delayTime > 1)
-            {
-                // Remove oldest position
-                breadCrumbs.RemoveAt(0);
-            }
-        }
-
         // Line of sight check
-        lineOfSight = LOScheck();
+        lineOfSight = LOScheck(player);
 
         // Distance to player
         distance = Vector2.Distance(transform.position, player.transform.position);
 
-        //Debug.Log(currentState);
+        Debug.Log(currentState);
 
         // Enemy State Machine
         switch (currentState)
@@ -136,29 +117,64 @@ public class Enemy : MonoBehaviour
 
     private void SearchForPlayer()
     {
-        // Copy list from player
-        List<GameObject> breadCrumbList = player.GetComponent<BreadCrumbList>().breadCrumbs;
-        int firstCrumbIndex = player.GetComponent<BreadCrumbList>().oldestCrumbIndex;
-
-        GameObject Target = breadCrumbList[firstCrumbIndex];
-
-        if (searchTimer < 3)
+        if (!ranSearch)
         {
-            // Search for player
+            // Copy list from player
+            breadCrumbList = player.GetComponent<BreadCrumbList>().breadCrumbs;
+            targetIndex = player.GetComponent<BreadCrumbList>().oldestCrumbIndex;
+
+            float distance = Vector2.Distance(transform.position, breadCrumbList[targetIndex].transform.position);
+
+            // Find nearest breadCrumb
+            for (int i = 0; i < breadCrumbList.Count; i++)
+            {
+                float newDistance = Vector2.Distance(transform.position, breadCrumbList[i].transform.position);
+                if (distance > newDistance)
+                {
+                    distance = newDistance;
+
+                    targetIndex = i;
+                }
+            }
+            ranSearch = true;
+        }
+
+        if (searchTimer < 10)
+        {
+            // Search for player using bread crumbs
+            if (ranSearch)
+            {
+                distance = Vector2.Distance(transform.position, breadCrumbList[targetIndex].transform.position);
+                if (distance < 0.1f)
+                {
+                    if (targetIndex == breadCrumbList.Count - 1)
+                    {
+                        targetIndex = 0;
+                    }
+                    else
+                    {
+                        targetIndex++;
+                    }
+                }
+                for (int i = 0; i < breadCrumbList.Count; i++) breadCrumbList[i].gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                breadCrumbList[targetIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                Chase(breadCrumbList[targetIndex]);
+            }
         }
         else
         {
             // Return to idle
+            ranSearch = false;
             currentState = State.IDLE;
         }
 
         searchTimer += Time.deltaTime;
     }
 
-    private bool LOScheck()
+    private bool LOScheck(GameObject target)
     {
-        bool lLos = lineOfSightCheck.isLineOfSight(player, leftNode);
-        bool rLos = lineOfSightCheck.isLineOfSight(player, rightNode);
+        bool lLos = lineOfSightCheck.isLineOfSight(target, leftNode);
+        bool rLos = lineOfSightCheck.isLineOfSight(target, rightNode);
 
         if (lLos && rLos) 
         { 
