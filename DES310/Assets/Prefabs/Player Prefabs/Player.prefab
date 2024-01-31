@@ -195,6 +195,7 @@ MonoBehaviour:
   rb: {fileID: 8467115422775393387}
   crosshair: {fileID: 5818553562493503052}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  maxHealth: 100
 --- !u!50 &8467115422775393387
 Rigidbody2D:
   serializedVersion: 4
