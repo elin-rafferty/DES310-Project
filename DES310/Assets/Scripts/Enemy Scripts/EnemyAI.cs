@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.PlayerSettings;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeReference] private SpriteRenderer SpriteRenderer;
     private EnemyType type;
+    private ModifierBehaviour modifierBehaviour;
 
     private enum State
     {
@@ -130,5 +132,36 @@ public class Enemy : MonoBehaviour
         health = type.health;
         damage = type.damage;
         gameObject.GetComponent<SpriteRenderer>().sprite = type.sprite;
+    }
+
+    public void SetModifiers(ModifierBehaviour modifier)
+    {
+        // Keep reference to modifier
+        modifierBehaviour = modifier;
+        // Apply modifiers
+        health *= modifierBehaviour.enemyHealthMultiplier;
+        damage *= modifierBehaviour.enemyDamageMultiplier;
+        speed *= modifierBehaviour.enemySpeedMultiplier;
+        aggroDistance *= modifierBehaviour.enemyAggroRangeMultiplier;
+        deaggroDistance *= modifierBehaviour.enemyDeaggroRangeMultiplier;
+    }
+
+    // Change the hell out of this later, here for now just while AI gets worked on
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Attacking player");
+            collision.gameObject.GetComponent<PlayerMovement>().Damage(damage * modifierBehaviour.enemyDamageMultiplier);
+        }
+    }
+
+    public void Damage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
