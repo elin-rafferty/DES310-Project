@@ -35,12 +35,11 @@ public class Projectile : MonoBehaviour
             // Don't hit the player that shot the bullet
             if (hit.collider.gameObject != owner.gameObject)
             {
-                Debug.Log("Hit " + hit.collider.gameObject.name);
                 Destroy(gameObject);
 
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
-                    Destroy(hit.collider.gameObject);
+                    hit.collider.gameObject.GetComponent<Enemy>().Damage(damage);
                 }
                 break;
             }

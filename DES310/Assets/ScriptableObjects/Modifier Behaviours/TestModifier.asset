@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf094a8c8ed523418a6a0ee03016026, type: 3}
-  m_Name: DefaultEnemy
+  m_Script: {fileID: 11500000, guid: fe44b579b78ca6345968fffe1b732499, type: 3}
+  m_Name: TestModifier
   m_EditorClassIdentifier: 
-  sprite: {fileID: 4315472040670577283, guid: 7fe4275e41b21db4d8ba15265f6744fa, type: 3}
-  speed: 5
-  health: 50
-  damage: 5
-  aggroDist: 5
-  deaggroDist: 10
+  enemyTypes:
+  - {fileID: 11400000, guid: 9c1c84e3d847b1c4a9221ff02c7b11b6, type: 2}
+  enemyWeightings: 01000000
+  spawnPercentChance: 50

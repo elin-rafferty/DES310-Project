@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8485492349524897872, guid: 68926c047b9d31f41be2b53ee73b84bb, type: 3}
-  enemyType: {fileID: 11400000, guid: 9c1c84e3d847b1c4a9221ff02c7b11b6, type: 2}
+  modifierBehaviour: {fileID: 11400000, guid: cf50298846d1e9b4c8c6b2789fcf265a, type: 2}
