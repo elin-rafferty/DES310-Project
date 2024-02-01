@@ -17,7 +17,7 @@ public class InventoryController : MonoBehaviour
     public void Start()
     {
         inventoryUI.InitializeInventoryUI(inventoryData.Size);
-        inventoryData.Initialize();
+        //inventoryData.Initialize();
         inventoryUI.Show();
     }
 
