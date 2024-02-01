@@ -363,7 +363,7 @@ PrefabInstance:
     - target: {fileID: 2845275580175481336, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
       propertyPath: inventoryUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2120161184}
     - target: {fileID: 2845275580175481336, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
       propertyPath: inventoryData
       value: 
@@ -1453,6 +1453,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120161184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4085214735864539480, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
+  m_PrefabInstance: {fileID: 3054895217075955464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf439daa60181a4892b7bb5519b19c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3054895217075955464
 PrefabInstance:
   m_ObjectHideFlags: 0

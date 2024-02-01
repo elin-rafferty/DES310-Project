@@ -6,6 +6,7 @@ public class InventoryController : MonoBehaviour
 {
     [SerializeField]
     private inventoryMainPage inventoryUI;
+
     [SerializeField] private EventHandler eventHandler;
 
     [SerializeField]
@@ -16,7 +17,7 @@ public class InventoryController : MonoBehaviour
     public void Start()
     {
         inventoryUI.InitializeInventoryUI(inventoryData.Size);
-        //inventoryData.Initialize();
+        inventoryData.Initialize();
         inventoryUI.Show();
     }
 
