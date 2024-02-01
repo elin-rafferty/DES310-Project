@@ -11,8 +11,10 @@ public class inventoryMainPage : MonoBehaviour
     [SerializeField]
     private InventoryItemUI itemPrefab;
 
+
     [SerializeField]
     private RectTransform contentPanel;
+
 
     [SerializeField]
     private InventoryDescription itemDescription;
@@ -41,9 +43,9 @@ public class inventoryMainPage : MonoBehaviour
         for (int i = 0; i < inventorySize; i++)
         {
             InventoryItemUI UIItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-
             UIItem.transform.SetParent(contentPanel);
             listOfUiItems.Add(UIItem);
+
             UIItem.OnItemClicked += HandleItemSelection;
             UIItem.OnItemBeginDrag += HandleBeginDrag;
             UIItem.OnItemDropped += HandleSwap;

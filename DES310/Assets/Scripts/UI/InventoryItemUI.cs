@@ -26,7 +26,8 @@ public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHa
     public event Action<InventoryItemUI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
 
     private bool empty = true;
-    internal object transform;
+
+
 
     public void Awake()
     {
