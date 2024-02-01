@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 82825021864324185}
   - component: {fileID: 2845275580175481336}
   - component: {fileID: 531942098874432596}
-  - component: {fileID: 4497668660800407470}
+  - component: {fileID: 3252368358895978072}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 0}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
-  inventorySize: 10
+  inventoryData: {fileID: 0}
 --- !u!114 &531942098874432596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairPrefab: {fileID: 7864084244404401997, guid: 3026e92d21118654b8e29f2494ecfc4c, type: 3}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
---- !u!114 &4497668660800407470
+--- !u!114 &3252368358895978072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,7 +350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762e09b8972a09141aa00f58e26fde76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BreadCrumbPrefab: {fileID: 159038092390000955, guid: 68926c047b9d31f41be2b53ee73b84bb, type: 3}
+  BreadCrumbPrefab: {fileID: 3417268541154919352, guid: 8c03d3a6a0b481945b3cb21cae6423f6, type: 3}
+  breadCrumbs: []
+  oldestCrumbIndex: 0
 --- !u!1 &8877960124969393563
 GameObject:
   m_ObjectHideFlags: 0

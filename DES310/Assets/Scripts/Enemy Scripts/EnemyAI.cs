@@ -59,8 +59,6 @@ public class Enemy : MonoBehaviour
         // Distance to player
         distance = Vector2.Distance(transform.position, player.transform.position);
 
-        Debug.Log(currentState);
-
         // Enemy State Machine
         switch (currentState)
         {
