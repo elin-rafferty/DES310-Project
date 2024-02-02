@@ -1,8 +1,10 @@
+using Inventory.Model;
+using Inventory.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class InventorySide : MonoBehaviour
 {
     public List<InventoryItemUI> inventory = new List<InventoryItemUI>();
     private Dictionary<ItemSO, InventoryItemUI> itemDictionary = new Dictionary<ItemSO, InventoryItemUI>();

@@ -1,3 +1,4 @@
+using Inventory.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class MouseFollow : MonoBehaviour
 
     public void SetData(Sprite sprite, int quantity)
     {
-        item.SetData(sprite, quantity);
+        //item.SetData(sprite, quantity);
     }
 
     void Update() 
@@ -32,7 +33,7 @@ public class MouseFollow : MonoBehaviour
             Input.mousePosition,
             canvas.worldCamera,
             out position
-            );
+                );
         transform.position = canvas.transform.TransformPoint(position);
     }
 
