@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   mainCam: {fileID: 0}
-  item: {fileID: 0}
+  item: {fileID: -9115099215720957760, guid: abded3f6891adcc4087f34c0cd3ba0cb, type: 3}
 --- !u!114 &1998087809
 MonoBehaviour:
   m_ObjectHideFlags: 0

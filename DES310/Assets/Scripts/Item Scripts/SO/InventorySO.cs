@@ -29,20 +29,53 @@ namespace Inventory.Model
             }
         }
 
-        public void AddItem(ItemSO item, int quantity)
+        public int AddItem(ItemSO item, int quantity)
         {
+            if (item.IsStackable == false)
+            {
+                for (int i = 0; i < inventoryItems.Count; i++)
+                {
+                    while (quantity > 0 && IsInventoryFull() == false)
+                    {
+                        quantity -= AddNonStackableItem(item, 1);
+                    }
+                    InformAboutChange();
+                    return quantity;
+                }
+            }
+            quantity = AddStackableItem(item, quantity);
+            InformAboutChange();
+            return quantity;
+        }
+
+        private int AddNonStackableItem(ItemSO item, int quantity)
+        {
+            InventoryItem newItem = new InventoryItem
+            {
+                item = item,
+                quantity = quantity
+            };
+
             for (int i = 0; i < inventoryItems.Count; i++)
             {
                 if (inventoryItems[i].IsEmpty)
                 {
-                    inventoryItems[i] = new InventoryItem
-                    {
-                        item = item,
-                        quantity = quantity
-                    };
-                    return;
+                    inventoryItems[i] = newItem;
+                    return quantity;
                 }
             }
+            return 0;
+        }
+
+        private bool IsInventoryFull()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        private int AddStackableItem(ItemSO item, int quantity)
+        {
+            throw new NotImplementedException();
         }
 
         public void AddItem(InventoryItem item)

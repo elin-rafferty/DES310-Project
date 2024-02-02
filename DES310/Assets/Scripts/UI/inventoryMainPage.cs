@@ -114,6 +114,7 @@ namespace Inventory.UI
             currentlyDraggedItemIndex = index;
 
             OnStartDragging?.Invoke(index);
+
         }
         public void CreatedDraggedItem(Sprite sprite, int quantity)
         {
