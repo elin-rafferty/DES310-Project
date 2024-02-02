@@ -55,7 +55,7 @@ public class InventoryController : MonoBehaviour
             return;
         }
         ItemSO item = inventoryItem.item;
-        inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, item.Description);
+        inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.Name, item.Description);
     }
 
     public void Update()
