@@ -8,24 +8,34 @@ using UnityEngine.UI;
 
 public class UISlider : MonoBehaviour
 {
-    [SerializeField]
-    private Image sliderImage;
+    public Slider slider;
+    [SerializeField] private FloatValueSO currentHealth;
 
-    [SerializeField]
-    private FloatValueSO floatValue;
+    private float damage;
+    private object modifierBehaviour;
 
-    private void OnEnable()
+    //public void Update()
+    //{
+    //        if (Input.GetKeyDown(KeyCode.E))
+    //        {
+    //            slider.value = slider.value - 10;
+    //            Debug.Log("10 health lost");
+    //        }
+    //}
+
+    private void Die()
     {
-        floatValue.OnValueChange += SetValue;
+        Debug.Log("Died");
     }
 
-    private void OnDisable()
-    {
-        floatValue.OnValueChange -= SetValue;
-    }
 
-    public void SetValue(float currentValue)
+    public void Reduce(int damage)
     {
-        sliderImage.fillAmount = Mathf.Clamp01(currentValue);
+        slider.value = slider.value - 10;
+        Debug.Log("I got attacked for " + damage + " damage! My health is now " + slider.value);
+        if (slider.value <= 0)
+        {
+            Die();
+        }
     }
 }

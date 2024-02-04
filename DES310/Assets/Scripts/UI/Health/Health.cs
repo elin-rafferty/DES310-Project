@@ -12,20 +12,35 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private FloatValueSO currentHealth;
     [SerializeField] private EventHandler eventHandler;
-    //[SerializeField] private Renderer render;
+    [SerializeField] private Renderer render;
+    public Slider slider;
 
+
+    public void Update()
+    {
+
+    }
 
     private void Start()
     {
         currentHealth.Value = 100;
-
     }
+
+    //public void Reduce(int damage)
+    //{
+    //    currentHealth.Value -= 5f;
+    //    Debug.Log("I got attacked for " + damage + " damage! My health is now " + currentHealth.Value);
+    //    if (currentHealth.Value <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
 
     public void Reduce(int damage)
     {
-        currentHealth.Value -= 5f;
-        Debug.Log("I got attacked for " + damage + " damage! My health is now " + currentHealth.Value);
-        if (currentHealth.Value <= 0)
+        slider.value = slider.value - 5f;
+        Debug.Log("I got attacked for " + damage + " damage! My health is now " + slider.value);
+        if (slider.value <= 0)
         {
             Die();
         }
