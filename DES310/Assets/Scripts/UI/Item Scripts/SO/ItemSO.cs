@@ -27,18 +27,19 @@ namespace Inventory.Model
         [field: SerializeField]
         public Sprite ItemImage { get; set; }
 
-//        [field: SerializeField]
-//        public List<ItemParameter> DefaultParametersList { get; set; }
-//    }
+        [field: SerializeField]
+        public List<ItemParameter> DefaultParametersList { get; set; }
+    }
 
-//    public class ItemParameter : IEquatable<ItemParameter>
-//    {
-//        public ItemParameterSO itemParameter;
-//        public float value;
+    [Serializable]
+    public struct ItemParameter : IEquatable<ItemParameter>
+    {
+        public ItemParameterSO itemparameter;
+        public float value;
 
-//        public bool Equals(ItemParameter other)
-//        {
-//            return other.itemParameter == itemParameter;
-//        }
+        public bool Equals (ItemParameter other)
+        {
+            return other.itemparameter == itemparameter;
+        }
     }
 }

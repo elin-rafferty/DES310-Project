@@ -1,3 +1,4 @@
+using Inventory.Model;
 using NUnit.Framework.Interfaces;
 using System;
 using System.Collections;
@@ -29,10 +30,15 @@ namespace Inventory.UI
 
 
         private int currentlyDraggedItemIndex = 1;
+        private InventoryItemUI inventoryItemUI;
 
         public event Action<int> OnDescriptionRequest, OnItemActionRequested, OnStartDragging;
 
         public event Action<int, int> OnSwapItems;
+
+        [SerializeField]
+        private ItemAction itemAction;
+
         private void Awake()
         {
             Hide();
@@ -80,9 +86,14 @@ namespace Inventory.UI
             }
         }
 
-        private void HandleShowItemActions(InventoryItemUI inventoryItem)
+        private void HandleShowItemActions(InventoryItemUI inventoryItemUI)
         {
-
+            int index = listOfUiItems.IndexOf(inventoryItemUI);
+            if (index == -1)
+            {
+                return;
+            }
+            OnItemActionRequested?.Invoke(index);
         }
 
         private void HandleEndDrad(InventoryItemUI inventoryItemUI)
@@ -142,16 +153,29 @@ namespace Inventory.UI
             DeselectAllItems();
         }
 
+        public void AddAction (string actionName, Action performAction)
+        {
+            itemAction.AddButton(actionName, performAction);
+        }
+
+        public void ShowItemAction(int itemIndex)
+        {
+            itemAction.Toggle(true);
+            itemAction.transform.position = listOfUiItems[itemIndex].transform.position; 
+        }
+
         private void DeselectAllItems()
         {
             foreach (InventoryItemUI item in listOfUiItems)
             {
                 item.Deselect();
             }
+            itemAction.Toggle(false);
         }
 
         public void Hide()
         {
+            itemAction.Toggle(false);
             gameObject.SetActive(false);
             ResetDraggedItem();
         }
