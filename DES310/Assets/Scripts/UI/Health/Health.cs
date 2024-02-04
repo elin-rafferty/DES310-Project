@@ -46,6 +46,13 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void AddHealth(int addHealth)
+    {
+        slider.value = slider.value + 5f;
+        Debug.Log("I ate and got " + addHealth + " health back! My health is now " + slider.value);
+
+    }
+
     private void Die()
     {
         Debug.Log("Died");

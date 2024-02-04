@@ -17,3 +17,6 @@ MonoBehaviour:
   <Name>k__BackingField: Bubblegum
   <Description>k__BackingField: yum yum
   <ItemImage>k__BackingField: {fileID: -179823393704841465, guid: 748e1000f937d11428b7ff5f58403de8, type: 3}
+  modifierDatas:
+  - statModifier: {fileID: 11400000, guid: b553505f840048f479fc4a291be98e9f, type: 2}
+    value: 5

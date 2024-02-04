@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,9 @@ namespace Inventory.Model
         [SerializeField]
         private List<ModifierData> modifierDatas = new List<ModifierData>();
         public string ActionName => "Consume";
-        public AudioClip actionSFX { get; private set; }
+
+        //public AudioClip actionSFX { get; private set; }
+
         public bool PerformAction (GameObject character)
         {
             foreach (ModifierData data in modifierDatas)
@@ -29,11 +32,11 @@ namespace Inventory.Model
     public interface IItemAction
     {
         public string ActionName { get; }
-        public AudioClip actionSFX { get;  }
+        //public AudioClip actionSFX { get;  }
         bool PerformAction(GameObject character);
     }
 
-    [SerializeField]
+    [Serializable]
     public class ModifierData
     {
         public CharacterStatModifierSO statModifier;

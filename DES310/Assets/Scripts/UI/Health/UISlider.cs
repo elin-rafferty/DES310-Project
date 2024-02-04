@@ -29,13 +29,13 @@ public class UISlider : MonoBehaviour
     }
 
 
-    public void Reduce(int damage)
-    {
-        slider.value = slider.value - 10;
-        Debug.Log("I got attacked for " + damage + " damage! My health is now " + slider.value);
-        if (slider.value <= 0)
-        {
-            Die();
-        }
-    }
+    //public void Reduce(int damage)
+    //{
+    //    slider.value = slider.value - 10;
+    //    Debug.Log("I got attacked for " + damage + " damage! My health is now " + slider.value);
+    //    if (slider.value <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
 }

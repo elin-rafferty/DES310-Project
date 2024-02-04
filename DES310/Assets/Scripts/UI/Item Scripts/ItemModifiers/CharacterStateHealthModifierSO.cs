@@ -9,6 +9,6 @@ public class CharacterStateHealthModifierSO : CharacterStatModifierSO
     {
         Health health = character.GetComponent<Health>();
         if (health != null)
-            Debug.Log("Dead");
+            health.AddHealth((int)val);
     }
 }
