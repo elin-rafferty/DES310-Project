@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dbae53c8db41f44a532dd7cddc0677, type: 3}
-  m_Name: ItemTwo
+  m_Script: {fileID: 11500000, guid: 97c6b78acb3243d429e2c71754048365, type: 3}
+  m_Name: Bubblegum
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
-  <Name>k__BackingField: bubblegum
-  <Description>k__BackingField: 'yum yum
-
-'
+  <Name>k__BackingField: Bubblegum
+  <Description>k__BackingField: yum yum
   <ItemImage>k__BackingField: {fileID: -179823393704841465, guid: 748e1000f937d11428b7ff5f58403de8, type: 3}

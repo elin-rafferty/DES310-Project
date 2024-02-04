@@ -12,17 +12,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer crosshair;
     [SerializeField] private EventHandler eventHandler;
-    [SerializeField] private float maxHealth = 100;
+
 
     private bool inventoryOpen = false;
-    private float health;
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         eventHandler.InventoryChangeState.AddListener(InventoryStateChangeResponse);
-        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -69,14 +69,7 @@ public class PlayerMovement : MonoBehaviour
         inventoryOpen = open;
     }
 
-    public void Damage(float damage)
-    {
-        health -= damage;
-        eventHandler.PlayerHealthChange.Invoke(health);
-        Debug.Log("I got attacked for " + damage + " damage! My health is now " + health);
-        if (health <= 0)
-        {
-            eventHandler.PlayerDeath.Invoke();
-        }
-    }
+
+
+
 }

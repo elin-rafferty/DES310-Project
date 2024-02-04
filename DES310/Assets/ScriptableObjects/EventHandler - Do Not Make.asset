@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809da17999f23c345950ad94cb68129f, type: 3}
   m_Name: EventHandler - Do Not Make
   m_EditorClassIdentifier: 
+  InventoryChangeState:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerHealthChange:
+    m_PersistentCalls:
+      m_Calls: []

@@ -214,7 +214,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Attacking player");
-            collision.gameObject.GetComponent<PlayerMovement>().Damage(damage * modifierBehaviour.enemyDamageMultiplier);
+            collision.gameObject.GetComponent<Health>().Reduce((int)(damage * modifierBehaviour.enemyDamageMultiplier));
         }
     }
 
