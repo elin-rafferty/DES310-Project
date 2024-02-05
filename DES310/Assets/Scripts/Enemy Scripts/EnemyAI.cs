@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // Line of sight check
-        lineOfSight = LOScheck(player);
+        lineOfSight = LOScheck(player, leftNode) && LOScheck(player, rightNode);
 
         // Distance to player
         distance = Vector2.Distance(transform.position, player.transform.position);
@@ -136,6 +136,7 @@ public class Enemy : MonoBehaviour
                     targetIndex = i;
                 }
             }
+
             ranSearch = true;
         }
 
@@ -144,6 +145,24 @@ public class Enemy : MonoBehaviour
             // Search for player using bread crumbs
             if (ranSearch)
             {
+                //for (int i = 0; i < breadCrumbList.Count; i++)
+                //{
+                //    if (targetIndex == breadCrumbList.Count - 1)
+                //    {
+                //        if (LOScheck(breadCrumbList[0], leftNode) && LOScheck(breadCrumbList[0], rightNode))
+                //        {
+                //            targetIndex = 0;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        if (LOScheck(breadCrumbList[targetIndex + 1], leftNode) && LOScheck(breadCrumbList[targetIndex + 1], rightNode))
+                //        {
+                //            targetIndex++;
+                //        }
+                //    }
+                //}
+
                 distance = Vector2.Distance(transform.position, breadCrumbList[targetIndex].transform.position);
                 if (distance < 0.1f)
                 {
@@ -171,12 +190,11 @@ public class Enemy : MonoBehaviour
         searchTimer += Time.deltaTime;
     }
 
-    private bool LOScheck(GameObject target)
+    private bool LOScheck(GameObject target, GameObject source)
     {
-        bool lLos = lineOfSightCheck.isLineOfSight(target, leftNode);
-        bool rLos = lineOfSightCheck.isLineOfSight(target, rightNode);
+        bool los = lineOfSightCheck.isLineOfSight(target, source);
 
-        if (lLos && rLos) 
+        if (los) 
         { 
             return true; 
         }
