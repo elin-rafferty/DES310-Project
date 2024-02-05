@@ -94,11 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5877425663777710331}
   - component: {fileID: 2352360200557903544}
-  - component: {fileID: 5565902372908549139}
   - component: {fileID: 8467115422775393387}
   - component: {fileID: 8303486257816997614}
   - component: {fileID: 9078799622470109050}
-  - component: {fileID: 82825021864324185}
+  - component: {fileID: 5565902372908549139}
   - component: {fileID: 2845275580175481336}
   - component: {fileID: 531942098874432596}
   - component: {fileID: 3252368358895978072}
@@ -178,25 +177,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5565902372908549139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5510123066543379324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecd5192844013fd43abf55ad62c91300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 10
-  projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
-  bulletType: {fileID: 11400000, guid: 7107aa10a80a69b4d9b214c2724bb202, type: 2}
-  rb: {fileID: 8467115422775393387}
-  crosshair: {fileID: 5818553562493503052}
-  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
-  maxHealth: 100
 --- !u!50 &8467115422775393387
 Rigidbody2D:
   serializedVersion: 4
@@ -297,7 +277,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.0021112561}
   m_Size: {x: 0.5, y: 1.3082417}
   m_Direction: 0
---- !u!114 &82825021864324185
+--- !u!114 &5565902372908549139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,9 +286,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5510123066543379324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2790f1ca936e0e41b5abba8582fcb26, type: 3}
+  m_Script: {fileID: 11500000, guid: ecd5192844013fd43abf55ad62c91300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 10
+  projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
+  bulletType: {fileID: 11400000, guid: 7107aa10a80a69b4d9b214c2724bb202, type: 2}
+  rb: {fileID: 8467115422775393387}
+  crosshair: {fileID: 5818553562493503052}
+  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
 --- !u!114 &2845275580175481336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +310,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 0}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   inventoryData: {fileID: 0}
+  initialItems: []
 --- !u!114 &531942098874432596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +332,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5510123066543379324}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 762e09b8972a09141aa00f58e26fde76, type: 3}
   m_Name: 

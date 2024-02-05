@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEditor.PlayerSettings;
 
-public class Enemy : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     [SerializeReference] private SpriteRenderer SpriteRenderer;
     private EnemyType type;
@@ -72,6 +72,10 @@ public class Enemy : MonoBehaviour
                 break;
             // Search State
             case State.SEARCH:
+                if (lineOfSight && distance < aggroDistance)
+                {
+                    currentState = State.CHASE;
+                }
                 SearchForPlayer();
                 break;
             // Attack State

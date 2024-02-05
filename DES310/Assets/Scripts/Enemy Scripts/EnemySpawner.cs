@@ -6,9 +6,9 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     // Enemy Game Objects
-    [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private EnemyAI enemyPrefab;
     [SerializeField] private ModifierBehaviour modifierBehaviour;
-    private List<Enemy> spawnedEnemies = new List<Enemy>();
+    private List<EnemyAI> spawnedEnemies = new List<EnemyAI>();
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class SpawnEnemy : MonoBehaviour
         if (UnityEngine.Random.Range(0, 100) < modifierBehaviour.spawnPercentChance)
         {
             // Spawn Enemy at spawn point location
-            Enemy newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
+            EnemyAI newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
             newEnemy.SetType(ChooseEnemyType());
             newEnemy.SetModifiers(modifierBehaviour);
             spawnedEnemies.Add(newEnemy);
@@ -46,7 +46,7 @@ public class SpawnEnemy : MonoBehaviour
     // Lil bit of cleanup
     void DestroySpawnedEnemies()
     {
-        foreach (Enemy e in spawnedEnemies)
+        foreach (EnemyAI e in spawnedEnemies)
         {
             Destroy(e);
         }
