@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
 
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
-                    hit.collider.gameObject.GetComponent<Enemy>().Damage(damage);
+                    hit.collider.gameObject.GetComponent<EnemyBase>().Damage(damage);
                 }
                 break;
             }

@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ModifierBehaviour")]
 public class ModifierBehaviour : ScriptableObject
 {
-    [SerializeField] public List<EnemyType> enemyTypes = new List<EnemyType>();
+    [SerializeField] public List<EnemyBase> enemyTypes = new List<EnemyBase>();
     [SerializeField] public List<int> enemyWeightings = new List<int>();
     [SerializeField] public int spawnPercentChance = 50;
     [SerializeField] public float enemySpeedMultiplier = 1;
