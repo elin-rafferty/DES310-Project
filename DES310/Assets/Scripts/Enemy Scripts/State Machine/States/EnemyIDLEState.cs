@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class EnemyIDLEState : EnemyState
 {
-    private Vector3 targetPos;
-    private Vector3 direction;
-
     public EnemyIDLEState(EnemyBase enemyBase, EnemyStateMachine enemyStateMachine) : base(enemyBase, enemyStateMachine)
     {
     }
@@ -15,49 +12,35 @@ public class EnemyIDLEState : EnemyState
     public override void AnimationTriggerEvent(EnemyBase.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);
+
+        enemyBase.EnemyIdleBaseInstance.DoAnimationTriggerEventLogic(triggerType);
     }
 
     public override void EnterState()
     {
         base.EnterState();
 
-        targetPos = GetRandomPointInCircle();
+        enemyBase.EnemyIdleBaseInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     {
         base.ExitState();
+
+        enemyBase.EnemyIdleBaseInstance.DoExitLogic();
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        if (enemyBase.IsAggro)
-        {
-            enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
-        }
-
-        direction = (targetPos - enemyBase.transform.position).normalized;
-
-        enemyBase.MoveEnemy(direction * enemyBase.RandomMovementRange);
-
-        if((enemyBase.transform.position - targetPos).sqrMagnitude < 0.01f)
-        {
-            targetPos = GetRandomPointInCircle();
-        }
+        enemyBase.EnemyIdleBaseInstance.DoFrameUpdateLogic();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }
 
-    #region State Specific Functions
-    private Vector3 GetRandomPointInCircle()
-    {
-        return enemyBase.transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * enemyBase.RandomMovementRange;
+        enemyBase.EnemyIdleBaseInstance.DoPhysicsLogic();
     }
-
-    #endregion
 }
