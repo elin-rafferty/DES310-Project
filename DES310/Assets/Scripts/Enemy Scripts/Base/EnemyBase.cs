@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public bool IsAggro { get; set; }
     public bool IsWithinAttackRange { get; set; }
+    public bool IsLineOfSight { get; set; }
 
     #region State Machine Variables
 
@@ -117,6 +118,11 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public void SetWithinAttackRange(bool withinAttackRange)
     {
         IsWithinAttackRange = withinAttackRange;
+    }
+
+    public void SetLineOfSightStatus(bool lineOfSightStatus)
+    {
+        IsLineOfSight = lineOfSightStatus;
     }
 
     #endregion

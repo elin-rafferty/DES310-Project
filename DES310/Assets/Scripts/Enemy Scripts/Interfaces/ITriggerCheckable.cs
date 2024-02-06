@@ -9,4 +9,5 @@ public interface ITriggerCheckable
 
     void SetAggroStatus(bool aggroStatus);
     void SetWithinAttackRange(bool withinAttackRange);
+    void SetLineOfSightStatus(bool lineOfSightStatus);
 }

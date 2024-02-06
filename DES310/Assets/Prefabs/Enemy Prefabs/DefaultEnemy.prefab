@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 5150010794969284084}
   - component: {fileID: 7038922258754375977}
   - component: {fileID: 6137973874363452598}
+  - component: {fileID: -7753595327533031350}
   m_Layer: 0
   m_Name: DefaultEnemy
   m_TagString: Enemy
@@ -303,6 +304,20 @@ MonoBehaviour:
   EnemyChaseBase: {fileID: 11400000, guid: fbdd20d836a63014492007f315c17ef8, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: f172ffb6db03ce84c8daa342d397db5f, type: 2}
+--- !u!114 &-7753595327533031350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179056178749437023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267982d6b2e4338498594b1773e8a4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftNode: {fileID: 2432702695998051943}
+  rightNode: {fileID: 2510965986950082064}
 --- !u!1 &7165846544206088843
 GameObject:
   m_ObjectHideFlags: 0
