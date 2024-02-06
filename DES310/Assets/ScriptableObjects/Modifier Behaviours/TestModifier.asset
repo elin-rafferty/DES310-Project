@@ -16,3 +16,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9c1c84e3d847b1c4a9221ff02c7b11b6, type: 2}
   enemyWeightings: 01000000
   spawnPercentChance: 50
+  enemySpeedMultiplier: 1
+  enemyDamageMultiplier: 1
+  enemyHealthMultiplier: 1
+  enemyAggroRangeMultiplier: 1
+  enemyDeaggroRangeMultiplier: 1
