@@ -6,9 +6,8 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     // Enemy Game Objects
-    [SerializeField] private EnemyAI enemyPrefab;
     [SerializeField] private ModifierBehaviour modifierBehaviour;
-    private List<EnemyAI> spawnedEnemies = new List<EnemyAI>();
+    private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +35,7 @@ public class SpawnEnemy : MonoBehaviour
         if (UnityEngine.Random.Range(0, 100) < modifierBehaviour.spawnPercentChance)
         {
             // Spawn Enemy at spawn point location
-            EnemyAI newEnemy = Instantiate(enemyPrefab, new Vector2(transform.position.x, transform.position.y), enemyPrefab.transform.rotation);
-            newEnemy.SetType(ChooseEnemyType());
+            EnemyBase newEnemy = Instantiate(ChooseEnemyType(), new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             newEnemy.SetModifiers(modifierBehaviour);
             spawnedEnemies.Add(newEnemy);
         }
@@ -46,16 +44,16 @@ public class SpawnEnemy : MonoBehaviour
     // Lil bit of cleanup
     void DestroySpawnedEnemies()
     {
-        foreach (EnemyAI e in spawnedEnemies)
+        foreach (EnemyBase enemy in spawnedEnemies)
         {
-            Destroy(e);
+            Destroy(enemy);
         }
         spawnedEnemies.Clear();
     }
 
-    EnemyType ChooseEnemyType()
+    EnemyBase ChooseEnemyType()
     {
-        EnemyType returnVal = null;
+        EnemyBase returnVal = null;
         // Check modifier has been set up correctly
         if (modifierBehaviour.enemyTypes.Count != modifierBehaviour.enemyWeightings.Count)
         {

@@ -74,6 +74,12 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
 
+    #region Modifier Functions;
+    public void SetModifiers(ModifierBehaviour modifier)
+    {
+        CurrentHealth *= modifier.enemyHealthMultiplier;
+    }
+    #endregion
 
     #region HP / Damage Functions
     public void Damage(float damageAmount)
