@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         if (!inventoryOpen)
         {
             HandleInput();
+        } else
+        {
+            rb.velocity = Vector3.zero;
         }
         Cursor.visible = inventoryOpen;
     }
