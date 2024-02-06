@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         // Line of sight check
-        lineOfSight = LOScheck(player, leftNode) && LOScheck(player, rightNode);
+       // lineOfSight = LOScheck(player, leftNode) && LOScheck(player, rightNode);
 
         // Distance to player
         distance = Vector2.Distance(transform.position, player.transform.position);
@@ -192,17 +192,6 @@ public class EnemyAI : MonoBehaviour
         }
 
         searchTimer += Time.deltaTime;
-    }
-
-    private bool LOScheck(GameObject target, GameObject source)
-    {
-        bool los = lineOfSightCheck.isLineOfSight(target, source);
-
-        if (los) 
-        { 
-            return true; 
-        }
-        return false;
     }
 
     public void SetType(EnemyType type)
