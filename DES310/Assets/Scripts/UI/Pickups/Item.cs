@@ -6,7 +6,10 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
- 
+    private bool trigger = false;
+    [SerializeField]
+    InventorySO inventoryItems;
+
     public int MyProperty { get; set; }
 
     [field: SerializeField]
@@ -21,7 +24,30 @@ public class Item : MonoBehaviour
     [SerializeField]
     private float duration = 0.3f;
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Set trigger true on collision with item
+        trigger = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Set trigger false on exit with item
+        trigger = false;
+    }
+
+    void Update()
+    {
+        // Pick up item
+        if (Input.GetKeyDown(KeyCode.E) && trigger == true)
+        {
+            inventoryItems.AddItem(InventoryItem, 1);
+            Destroy(gameObject);
+        }
+
+    }
+
+        private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = InventoryItem.ItemImage;
     }

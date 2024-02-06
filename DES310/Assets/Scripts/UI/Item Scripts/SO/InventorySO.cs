@@ -20,6 +20,7 @@ namespace Inventory.Model
 
         public event Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
 
+        private bool trigger = false;
 
         public void Initialize()
         {
