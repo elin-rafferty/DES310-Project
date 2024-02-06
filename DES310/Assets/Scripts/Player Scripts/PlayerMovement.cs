@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float movementSpeed = 10;
+    [SerializeField] private float dashStrength = 30;
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private ProjectileType bulletType;
     [SerializeField] private Rigidbody2D rb;
@@ -15,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private bool inventoryOpen = false;
-
+    private float dashTime = 0;
 
 
 
@@ -31,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         if (!inventoryOpen)
         {
             HandleInput();
+        } else
+        {
+            rb.velocity = Vector3.zero;
         }
         Cursor.visible = inventoryOpen;
     }
@@ -40,7 +46,17 @@ public class PlayerMovement : MonoBehaviour
         // Handle movement
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         velocity *= movementSpeed;
-        rb.velocity = velocity;
+        if (dashTime == 0)
+        {
+            rb.velocity = velocity;
+        } else
+        {
+            dashTime -= Time.deltaTime;
+            if (dashTime < 0)
+            {
+                dashTime = 0;
+            }
+        }
         // Get mouse direction
         Vector2 mousePos = Input.mousePosition;
         Vector2 screenMiddle = new Vector2(Screen.width / 2, Screen.height / 2);
@@ -54,13 +70,11 @@ public class PlayerMovement : MonoBehaviour
         // Check if firing
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            // Fire
-            Projectile newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            newProjectile.SetType(bulletType);
-            newProjectile.SetDirection(mouseDirection);
-            newProjectile.SetOwner(gameObject);
-            // Set projectile to despawn after a certain time has elapsed
-            Destroy(newProjectile.gameObject, 1);
+            Fire(mouseDirection);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Dash(velocity);
         }
     }
 
@@ -69,7 +83,23 @@ public class PlayerMovement : MonoBehaviour
         inventoryOpen = open;
     }
 
+    void Dash(Vector2 inputDir)
+    {
+        dashTime = 0.5f;
+        Vector2 direction = inputDir.normalized;
+        rb.velocity = direction * dashStrength;
+    }
 
+    void Fire(Vector2 mouseDirection)
+    {
+        // Fire
+        Projectile newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        newProjectile.SetType(bulletType);
+        newProjectile.SetDirection(mouseDirection);
+        newProjectile.SetOwner(gameObject);
+        // Set projectile to despawn after a certain time has elapsed
+        Destroy(newProjectile.gameObject, 1);
+    }
 
 
 }

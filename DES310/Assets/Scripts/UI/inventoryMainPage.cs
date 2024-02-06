@@ -37,7 +37,7 @@ namespace Inventory.UI
         public event Action<int, int> OnSwapItems;
 
         [SerializeField]
-        private ItemAction itemAction;
+        public ItemAction itemAction;
 
         private void Awake()
         {

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
+    //[SerializeField] private float maxHealth = 100;
     [SerializeField] private FloatValueSO currentHealth;
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private Renderer render;
