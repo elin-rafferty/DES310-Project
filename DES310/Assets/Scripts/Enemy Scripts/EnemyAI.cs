@@ -236,7 +236,7 @@ public class EnemyAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Attacking player");
-            collision.gameObject.GetComponent<Health>().Reduce((int)(damage * modifierBehaviour.enemyDamageMultiplier));
+            collision.gameObject.GetComponent<Health>().Damage((int)(damage));
         }
     }
 

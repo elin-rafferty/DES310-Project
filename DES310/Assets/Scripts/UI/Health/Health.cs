@@ -9,11 +9,9 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    //[SerializeField] private float maxHealth = 100;
-    [SerializeField] private FloatValueSO currentHealth;
+    [SerializeField] private float maxHealth = 100;
+    private float currentHealth;
     [SerializeField] private EventHandler eventHandler;
-    [SerializeField] private Renderer render;
-    public Slider slider;
 
 
     public void Update()
@@ -23,7 +21,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        currentHealth.Value = 100;
+        currentHealth = maxHealth;
     }
 
     //public void Reduce(int damage)
@@ -36,7 +34,7 @@ public class Health : MonoBehaviour
     //    }
     //}
 
-    public void Reduce(int damage)
+    /*public void Reduce(int damage)
     {
         slider.value = slider.value - 5f;
         Debug.Log("I got attacked for " + damage + " damage! My health is now " + slider.value);
@@ -44,14 +42,14 @@ public class Health : MonoBehaviour
         {
             Die();
         }
-    }
+    }*/
 
-    public void AddHealth(int addHealth)
+    /*public void AddHealth(int addHealth)
     {
         slider.value = slider.value + 5f;
         Debug.Log("I ate and got " + addHealth + " health back! My health is now " + slider.value);
 
-    }
+    }*/
 
     private void Die()
     {
@@ -62,12 +60,15 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
 
-        currentHealth.Value -= damage;
+        currentHealth -= damage;
+        eventHandler.PlayerHealthChange.Invoke(currentHealth);
 
-
-        if (currentHealth.Value <= 0)
+        if (currentHealth <= 0)
         {
             eventHandler.PlayerDeath.Invoke();
+        } else if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
         }
     }
 

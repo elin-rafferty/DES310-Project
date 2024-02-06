@@ -76,6 +76,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Dash(velocity);
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            gameObject.GetComponent<Health>().Damage(10);
+        }
     }
 
     void InventoryStateChangeResponse(bool open)

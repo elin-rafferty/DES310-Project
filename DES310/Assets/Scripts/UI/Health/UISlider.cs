@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class UISlider : MonoBehaviour
 {
     public Slider slider;
-    [SerializeField] private FloatValueSO currentHealth;
+    [SerializeField] private EventHandler eventHandler;
 
     private float damage;
     private object modifierBehaviour;
@@ -38,4 +38,15 @@ public class UISlider : MonoBehaviour
     //        Die();
     //    }
     //}
+
+    public void Start()
+    {
+        slider.value = 100;
+        eventHandler.PlayerHealthChange.AddListener(HealthChangeResponse);
+    }
+
+    private void HealthChangeResponse(float health)
+    {
+        slider.value = health;
+    }
 }
