@@ -13,5 +13,4 @@ public class ModifierBehaviour : ScriptableObject
     [SerializeField] public float enemyDamageMultiplier = 1;
     [SerializeField] public float enemyHealthMultiplier = 1;
     [SerializeField] public float enemyAggroRangeMultiplier = 1;
-    [SerializeField] public float enemyDeaggroRangeMultiplier = 1;
 }

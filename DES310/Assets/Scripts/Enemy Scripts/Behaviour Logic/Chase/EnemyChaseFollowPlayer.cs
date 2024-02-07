@@ -116,7 +116,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 
     private void UpdatePath()
     {
-        Debug.Log("update path");
+        //Debug.Log("update path");
         if(seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
