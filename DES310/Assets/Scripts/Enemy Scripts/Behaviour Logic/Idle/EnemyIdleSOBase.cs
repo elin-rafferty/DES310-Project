@@ -23,7 +23,7 @@ public class EnemyIdleSOBase : ScriptableObject
     public virtual void DoExitLogic() { ResetValues(); }
     public virtual void DoFrameUpdateLogic() 
     {
-        if (enemyBase.IsAggro)
+        if (true)
         {
             enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
         }

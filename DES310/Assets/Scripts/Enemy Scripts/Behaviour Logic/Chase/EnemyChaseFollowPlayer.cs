@@ -47,7 +47,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 
         if (!enemyBase.IsAggro)
         {
-            enemyBase.StateMachine.ChangeState(enemyBase.IDLEState);
+            //enemyBase.StateMachine.ChangeState(enemyBase.IDLEState);
         }
 
         // Update path every interval
@@ -116,7 +116,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 
     private void UpdatePath()
     {
-        Debug.Log("update path");
+        //Debug.Log("update path");
         if(seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
