@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         newProjectile.SetDirection(mouseDirection);
         newProjectile.SetOwner(gameObject);
         // Set projectile to despawn after a certain time has elapsed
-        Destroy(newProjectile.gameObject, 1);
+        Destroy(newProjectile.gameObject, 0.35f);
     }
 
 

@@ -20,4 +20,3 @@ MonoBehaviour:
   enemyDamageMultiplier: 1
   enemyHealthMultiplier: 1
   enemyAggroRangeMultiplier: 1
-  enemyDeaggroRangeMultiplier: 1

@@ -12,11 +12,13 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     private float currentHealth;
     [SerializeField] private EventHandler eventHandler;
+    [SerializeField] private ModifierBehaviour modifierBehaviour;
 
+    float invinsibliltyTimer = 0; 
 
     public void Update()
     {
-
+        invinsibliltyTimer += Time.deltaTime;
     }
 
     private void Start()
@@ -60,7 +62,7 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
 
-        currentHealth -= damage;
+        currentHealth -= damage * modifierBehaviour.enemyDamageMultiplier;
         eventHandler.PlayerHealthChange.Invoke(currentHealth);
 
         if (currentHealth <= 0)
@@ -72,6 +74,16 @@ public class Health : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            if (invinsibliltyTimer >= 0.2f)
+            {
+                Damage(collision.gameObject.GetComponent<EnemyBase>().meleeDamage);
+                invinsibliltyTimer = 0;
+            }
+        }
+    }
 
-    
 }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
+    [field: SerializeField] public float meleeDamage { get; set; } = 5f;
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
+    [SerializeField] private CircleCollider2D aggroZone;
+    private float speedMultiplier = 1f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
 
@@ -79,6 +82,8 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public void SetModifiers(ModifierBehaviour modifier)
     {
         CurrentHealth *= modifier.enemyHealthMultiplier;
+        aggroZone.radius *= modifier.enemyAggroRangeMultiplier;
+        speedMultiplier = modifier.enemySpeedMultiplier;
     }
     #endregion
 
@@ -103,7 +108,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void MoveEnemy(Vector2 velocity)
     {
-        rb.velocity = velocity;
+        rb.velocity = velocity * speedMultiplier;
     }
 
     #endregion

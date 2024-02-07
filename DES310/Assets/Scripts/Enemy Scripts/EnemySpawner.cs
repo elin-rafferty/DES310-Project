@@ -12,6 +12,8 @@ public class SpawnEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer.enabled = false;
         SpawnAnEnemy();
     }
 

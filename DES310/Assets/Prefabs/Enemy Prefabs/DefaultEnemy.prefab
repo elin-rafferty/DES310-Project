@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 7038922258754375977}
   - component: {fileID: 6137973874363452598}
   - component: {fileID: -7753595327533031350}
+  - component: {fileID: 7249385721131628545}
   m_Layer: 0
   m_Name: DefaultEnemy
   m_TagString: Enemy
@@ -200,7 +201,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -210,7 +211,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -300,7 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
-  EnemyIdleBase: {fileID: 11400000, guid: d748c788c6afc4b4085168ddacb05370, type: 2}
+  aggroZone: {fileID: 1997929849158650821}
+  EnemyIdleBase: {fileID: 11400000, guid: f1881b96a594e0d4094133b638cf8eb0, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: fbdd20d836a63014492007f315c17ef8, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: f172ffb6db03ce84c8daa342d397db5f, type: 2}
@@ -318,6 +320,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftNode: {fileID: 2432702695998051943}
   rightNode: {fileID: 2510965986950082064}
+--- !u!114 &7249385721131628545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179056178749437023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &7165846544206088843
 GameObject:
   m_ObjectHideFlags: 0

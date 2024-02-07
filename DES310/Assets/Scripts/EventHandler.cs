@@ -10,6 +10,7 @@ public class EventHandler : ScriptableObject
     public UnityEvent<bool> InventoryChangeState;
     public UnityEvent PlayerDeath;
     public UnityEvent<float> PlayerHealthChange;
+    public UnityEvent<string> PlaySound;
 
     private void OnEnable()
     {
@@ -19,6 +20,6 @@ public class EventHandler : ScriptableObject
     void PlayerDeathResponse()
     {
         Debug.Log("Player died");
-        SceneManager.LoadScene((SceneManager.GetActiveScene().name));
+        SceneManager.LoadScene("Hub");
     }
 }

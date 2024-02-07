@@ -19,7 +19,7 @@ namespace Inventory
 
         public List<InventoryItem> initialItems = new List<InventoryItem>();
 
-        public void Start()
+        public void Awake()
         {
             PrepareUI();
             PrepareInventoryData();

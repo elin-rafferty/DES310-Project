@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineOfSightCheck : MonoBehaviour
 {
     public GameObject Player { get; set; }
-    private EnemyBase enemy;
+    private EnemyBase enemyBase;
 
     [SerializeField] private GameObject leftNode;
     [SerializeField] private GameObject rightNode;
@@ -16,21 +16,24 @@ public class LineOfSightCheck : MonoBehaviour
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        enemy = GetComponent<EnemyBase>();
+        enemyBase = GetComponent<EnemyBase>();
     }
 
     private void Update()
     {
-        rLos = IsLineOfSight(rightNode.transform);
-        lLos = IsLineOfSight(leftNode.transform);
+        if(enemyBase.IsWithinAttackRange)
+        {
+            rLos = IsLineOfSight(rightNode.transform);
+            lLos = IsLineOfSight(leftNode.transform);
 
-        if (rLos && lLos)
-        {
-            enemy.SetLineOfSightStatus(true);
-        }
-        else
-        {
-            enemy.SetLineOfSightStatus(false);
+            if (rLos && lLos)
+            {
+                enemyBase.SetLineOfSightStatus(true);
+            }
+            else
+            {
+                enemyBase.SetLineOfSightStatus(false);
+            }
         }
     }
 
