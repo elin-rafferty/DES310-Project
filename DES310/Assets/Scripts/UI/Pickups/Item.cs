@@ -41,8 +41,8 @@ public class Item : MonoBehaviour
         // Pick up item
         if (Input.GetKeyDown(KeyCode.E) && trigger == true)
         {
-            inventoryItems.AddItem(InventoryItem, 1);
             Destroy(gameObject);
+            inventoryItems.AddItem(InventoryItem, 1);
         }
 
     }
