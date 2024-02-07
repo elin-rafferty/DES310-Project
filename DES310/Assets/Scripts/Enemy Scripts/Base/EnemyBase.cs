@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
+    [field: SerializeField] public float meleeDamage { get; set; } = 5f;
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
