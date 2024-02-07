@@ -215,7 +215,6 @@ public class EnemyAI : MonoBehaviour
         damage *= modifierBehaviour.enemyDamageMultiplier;
         speed *= modifierBehaviour.enemySpeedMultiplier;
         aggroDistance *= modifierBehaviour.enemyAggroRangeMultiplier;
-        deaggroDistance *= modifierBehaviour.enemyDeaggroRangeMultiplier;
     }
 
     // Change the hell out of this later, here for now just while AI gets worked on

@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     private float currentHealth;
     [SerializeField] private EventHandler eventHandler;
+    [SerializeField] private ModifierBehaviour modifierBehaviour;
 
 
     public void Update()
@@ -60,7 +61,7 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
 
-        currentHealth -= damage;
+        currentHealth -= damage * modifierBehaviour.enemyDamageMultiplier;
         eventHandler.PlayerHealthChange.Invoke(currentHealth);
 
         if (currentHealth <= 0)
