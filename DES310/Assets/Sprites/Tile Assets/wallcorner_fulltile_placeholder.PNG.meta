@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wallcorner_fulltile_placeholder_0: -4830192743883702441
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
