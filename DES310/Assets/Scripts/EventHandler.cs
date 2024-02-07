@@ -20,6 +20,6 @@ public class EventHandler : ScriptableObject
     void PlayerDeathResponse()
     {
         Debug.Log("Player died");
-        SceneManager.LoadScene((SceneManager.GetActiveScene().name));
+        SceneManager.LoadScene("Hub");
     }
 }
