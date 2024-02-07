@@ -13,10 +13,11 @@ public class Health : MonoBehaviour
     private float currentHealth;
     [SerializeField] private EventHandler eventHandler;
 
+    float invinsibliltyTimer = 0; 
 
     public void Update()
     {
-
+        invinsibliltyTimer += Time.deltaTime;
     }
 
     private void Start()
@@ -72,6 +73,16 @@ public class Health : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            if (invinsibliltyTimer >= 0.2f)
+            {
+                Damage(collision.gameObject.GetComponent<EnemyBase>().meleeDamage);
+                invinsibliltyTimer = 0;
+            }
+        }
+    }
 
-    
 }
