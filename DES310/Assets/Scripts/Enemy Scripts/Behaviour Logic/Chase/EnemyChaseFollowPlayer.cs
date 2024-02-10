@@ -45,7 +45,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     {
         base.DoFrameUpdateLogic();
 
-        if (!enemyBase.IsAggro)
+        if (!enemyBase.IsAggro || !enemyBase.IsLineOfSight)
         {
             enemyBase.StateMachine.ChangeState(enemyBase.IDLEState);
         }

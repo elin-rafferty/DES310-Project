@@ -21,7 +21,7 @@ public class LineOfSightCheck : MonoBehaviour
 
     private void Update()
     {
-        if(enemyBase.IsWithinAttackRange)
+        if(enemyBase.IsAggro)
         {
             rLos = IsLineOfSight(rightNode.transform);
             lLos = IsLineOfSight(leftNode.transform);
