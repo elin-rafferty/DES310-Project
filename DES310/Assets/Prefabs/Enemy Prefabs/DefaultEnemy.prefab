@@ -300,11 +300,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f881722c00d5b4e84c6a3b0af3e7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <meleeDamage>k__BackingField: 5
   <MaxHealth>k__BackingField: 100
   aggroZone: {fileID: 1997929849158650821}
   EnemyIdleBase: {fileID: 11400000, guid: f1881b96a594e0d4094133b638cf8eb0, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: fbdd20d836a63014492007f315c17ef8, type: 2}
-  EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
+  EnemySearchBase: {fileID: 11400000, guid: bef74bf9d10be5d4f960949f0cadc814, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: f172ffb6db03ce84c8daa342d397db5f, type: 2}
 --- !u!114 &-7753595327533031350
 MonoBehaviour:

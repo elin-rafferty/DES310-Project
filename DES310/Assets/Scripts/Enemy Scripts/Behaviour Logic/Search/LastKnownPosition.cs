@@ -2,11 +2,13 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Pathfinding.SimpleSmoothModifier;
+using static UnityEngine.GraphicsBuffer;
 
-[CreateAssetMenu(fileName = "Chase - Follow", menuName = "Enemy Logic/Chase Logic/Follow")]
-public class EnemyChaseFollowPlayer : EnemyChaseSOBase
+[CreateAssetMenu(fileName = "Search - Last Known Position", menuName = "Enemy Logic/Search Logic/Last Known Position")]
+public class LastKnownPosition : EnemySearchSOBase
 {
-    private Transform target;
+    private Transform playerLastKnownPosition;
     private float speed = 3;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
@@ -35,7 +37,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
         rb = enemyBase.GetComponent<Rigidbody2D>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        target = playerTransform;
+        playerLastKnownPosition = playerTransform;
 
         UpdatePath();
     }
@@ -43,28 +45,15 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     public override void DoExitLogic()
     {
         base.DoExitLogic();
-
-        enemyBase.IsLineOfSight = false;
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
 
-        if (!enemyBase.IsAggro || !enemyBase.IsLineOfSight)
+        if (enemyBase.IsAggro && enemyBase.IsLineOfSight)
         {
-            enemyBase.StateMachine.ChangeState(enemyBase.SEARCHState);
-        }
-
-        // Update path every interval
-        if(timer >= pathUpdateTime)
-        {
-            timer = 0f;
-            UpdatePath();
-        } 
-        else
-        {
-            timer += Time.deltaTime;
+            enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
         }
     }
 
@@ -81,29 +70,21 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
+            enemyBase.StateMachine.ChangeState(enemyBase.IDLEState);
             return;
         }
         else
         {
             reachedEndOfPath = false;
         }
-        
+
         // Move Enemy in direction of path
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        float angle;
 
-        if (enemyBase.IsLineOfSight)
-        {
-            // Look at Player
-            Vector2 playerDirection = ((Vector2)Player.transform.position - rb.position).normalized;
-            float targetAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
-        } else
-        {
-            // Look in direction of movement
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
-        }
+        // Look in direction of movement
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
+
         enemyBase.MoveEnemy(direction * speed);
         enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
@@ -127,7 +108,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 
     private void OnPathComplete(Path newPath)
     {
-        if(!newPath.error)
+        if (!newPath.error)
         {
             path = newPath;
             currentWaypoint = 0;
@@ -136,9 +117,9 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 
     private void UpdatePath()
     {
-        if(seeker.IsDone())
+        if (seeker.IsDone())
         {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+            seeker.StartPath(rb.position, playerLastKnownPosition.position, OnPathComplete);
         }
     }
 }
