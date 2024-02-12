@@ -1,26 +1,19 @@
-using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 [CreateAssetMenu(fileName = "Chase - Follow", menuName = "Enemy Logic/Chase Logic/Follow")]
 public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 {
     private Transform target;
+
     private float speed = 3;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
 
-    Path path;
-    private float nextWaypointDistance = 1.0f;
-    private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
     private float pathUpdateTime = 0.5f;
     private float timer;
-
-    Seeker seeker;
-    Rigidbody2D rb;
-    Transform playerTransform;
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -31,13 +24,8 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     {
         base.DoEnterLogic();
 
-        seeker = enemyBase.GetComponent<Seeker>();
-        rb = enemyBase.GetComponent<Rigidbody2D>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
-        target = playerTransform;
-
-        UpdatePath();
+        target = Player.transform;
+        UpdatePath(rb.position, target.position);
     }
 
     public override void DoExitLogic()
@@ -55,7 +43,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
         if(timer >= pathUpdateTime)
         {
             timer = 0f;
-            UpdatePath();
+            UpdatePath(rb.position, target.position);
         } 
         else
         {
@@ -67,6 +55,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     {
         base.DoPhysicsLogic();
 
+        // Check path for null
         if (path == null)
         {
             return;
@@ -82,7 +71,8 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
         {
             reachedEndOfPath = false;
         }
-        
+
+
         // Move Enemy in direction of path
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         float angle;
@@ -118,22 +108,5 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     public override void ResetValues()
     {
         base.ResetValues();
-    }
-
-    private void OnPathComplete(Path newPath)
-    {
-        if(!newPath.error)
-        {
-            path = newPath;
-            currentWaypoint = 0;
-        }
-    }
-
-    private void UpdatePath()
-    {
-        if(seeker.IsDone())
-        {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
-        }
     }
 }

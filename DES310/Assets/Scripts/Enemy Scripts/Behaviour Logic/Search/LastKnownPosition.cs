@@ -8,21 +8,9 @@ using static UnityEngine.GraphicsBuffer;
 [CreateAssetMenu(fileName = "Search - Last Known Position", menuName = "Enemy Logic/Search Logic/Last Known Position")]
 public class LastKnownPosition : EnemySearchSOBase
 {
-    private Transform playerLastKnownPosition;
     private float speed = 3;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
-
-    Path path;
-    private float nextWaypointDistance = 1.0f;
-    private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
-    private float pathUpdateTime = 0.5f;
-    private float timer;
-
-    Seeker seeker;
-    Rigidbody2D rb;
-    Transform playerTransform;
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -33,13 +21,7 @@ public class LastKnownPosition : EnemySearchSOBase
     {
         base.DoEnterLogic();
 
-        seeker = enemyBase.GetComponent<Seeker>();
-        rb = enemyBase.GetComponent<Rigidbody2D>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
-        playerLastKnownPosition = playerTransform;
-
-        UpdatePath();
+        UpdatePath(rb.position, Player.transform.position);
     }
 
     public override void DoExitLogic()
@@ -99,22 +81,5 @@ public class LastKnownPosition : EnemySearchSOBase
     public override void ResetValues()
     {
         base.ResetValues();
-    }
-
-    private void OnPathComplete(Path newPath)
-    {
-        if (!newPath.error)
-        {
-            path = newPath;
-            currentWaypoint = 0;
-        }
-    }
-
-    private void UpdatePath()
-    {
-        if (seeker.IsDone())
-        {
-            seeker.StartPath(rb.position, playerLastKnownPosition.position, OnPathComplete);
-        }
     }
 }

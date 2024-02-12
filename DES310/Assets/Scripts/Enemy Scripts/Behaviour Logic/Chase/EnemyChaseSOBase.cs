@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyChaseSOBase : ScriptableObject
 {
@@ -9,6 +10,14 @@ public class EnemyChaseSOBase : ScriptableObject
     protected GameObject gameObject;
 
     protected GameObject Player;
+    protected Rigidbody2D rb;
+    
+    protected Path path;
+    protected Seeker seeker;
+
+    protected float nextWaypointDistance = 1.0f;
+    protected int currentWaypoint = 0;
+    protected bool reachedEndOfPath = false;
 
     public virtual void Initialise(GameObject gameObject, EnemyBase enemyBase)
     {
@@ -20,8 +29,10 @@ public class EnemyChaseSOBase : ScriptableObject
     }
 
     public virtual void DoEnterLogic() 
-    { 
-        //Debug.Log("CHASE"); 
+    {
+        //Debug.Log("CHASE")
+        seeker = enemyBase.GetComponent<Seeker>();
+        rb = enemyBase.GetComponent<Rigidbody2D>();
     }
     public virtual void DoExitLogic() { ResetValues(); }
     public virtual void DoFrameUpdateLogic() 
@@ -34,4 +45,22 @@ public class EnemyChaseSOBase : ScriptableObject
     public virtual void DoPhysicsLogic() { }
     public virtual void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType) { }
     public virtual void ResetValues() { }
+
+
+    public void OnPathComplete(Path newPath)
+    {
+        if (!newPath.error)
+        {
+            path = newPath;
+            currentWaypoint = 0;
+        }
+    }
+
+    public void UpdatePath(Vector3 start, Vector3 end)
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(start, end, OnPathComplete);
+        }
+    }
 }
