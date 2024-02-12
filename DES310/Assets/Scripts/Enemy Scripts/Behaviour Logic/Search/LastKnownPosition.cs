@@ -1,19 +1,16 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+using static Pathfinding.SimpleSmoothModifier;
+using static UnityEngine.GraphicsBuffer;
 
-[CreateAssetMenu(fileName = "Chase - Follow", menuName = "Enemy Logic/Chase Logic/Follow")]
-public class EnemyChaseFollowPlayer : EnemyChaseSOBase
+[CreateAssetMenu(fileName = "Search - Last Known Position", menuName = "Enemy Logic/Search Logic/Last Known Position")]
+public class LastKnownPosition : EnemySearchSOBase
 {
-    private Transform target;
-
     private float speed = 3;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
-
-    private float pathUpdateTime = 0.5f;
-    private float timer;
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -24,38 +21,23 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     {
         base.DoEnterLogic();
 
-        target = Player.transform;
-        UpdatePath(rb.position, target.position);
+        UpdatePath(rb.position, Player.transform.position);
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
-
-        enemyBase.IsLineOfSight = false;
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
-
-        // Update path every interval
-        if(timer >= pathUpdateTime)
-        {
-            timer = 0f;
-            UpdatePath(rb.position, target.position);
-        } 
-        else
-        {
-            timer += Time.deltaTime;
-        }
     }
 
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
 
-        // Check path for null
         if (path == null)
         {
             return;
@@ -65,6 +47,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
+            enemyBase.StateMachine.ChangeState(enemyBase.IDLEState);
             return;
         }
         else
@@ -72,23 +55,13 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
             reachedEndOfPath = false;
         }
 
-
         // Move Enemy in direction of path
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        float angle;
 
-        if (enemyBase.IsLineOfSight)
-        {
-            // Look at Player
-            Vector2 playerDirection = ((Vector2)Player.transform.position - rb.position).normalized;
-            float targetAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
-        } else
-        {
-            // Look in direction of movement
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
-        }
+        // Look in direction of movement
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
+
         enemyBase.MoveEnemy(direction * speed);
         enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 

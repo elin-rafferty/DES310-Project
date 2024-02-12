@@ -19,7 +19,10 @@ public class EnemyIdleSOBase : ScriptableObject
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public virtual void DoEnterLogic() { }
+    public virtual void DoEnterLogic() 
+    { 
+        //Debug.Log("IDLE"); 
+    }
     public virtual void DoExitLogic() { ResetValues(); }
     public virtual void DoFrameUpdateLogic() 
     {
