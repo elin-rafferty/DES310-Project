@@ -51,11 +51,6 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     {
         base.DoFrameUpdateLogic();
 
-        if (!enemyBase.IsAggro || !enemyBase.IsLineOfSight)
-        {
-            enemyBase.StateMachine.ChangeState(enemyBase.SEARCHState);
-        }
-
         // Update path every interval
         if(timer >= pathUpdateTime)
         {

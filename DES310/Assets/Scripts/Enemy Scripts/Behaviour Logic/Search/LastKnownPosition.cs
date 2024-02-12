@@ -50,11 +50,6 @@ public class LastKnownPosition : EnemySearchSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
-
-        if (enemyBase.IsAggro && enemyBase.IsLineOfSight)
-        {
-            enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
-        }
     }
 
     public override void DoPhysicsLogic()

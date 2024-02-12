@@ -19,9 +19,18 @@ public class EnemySearchSOBase : ScriptableObject
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public virtual void DoEnterLogic() { }
+    public virtual void DoEnterLogic() 
+    { 
+        //Debug.Log("SEARCH"); 
+    }
     public virtual void DoExitLogic() { ResetValues(); }
-    public virtual void DoFrameUpdateLogic() { }
+    public virtual void DoFrameUpdateLogic() 
+    {
+        if (enemyBase.IsAggro && enemyBase.IsLineOfSight)
+        {
+            enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
+        }
+    }
     public virtual void DoPhysicsLogic() { }
     public virtual void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType) { }
     public virtual void ResetValues() { }
