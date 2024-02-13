@@ -26,7 +26,7 @@ public class LineOfSightCheck : MonoBehaviour
             rLos = IsLineOfSight(rightNode.transform);
             lLos = IsLineOfSight(leftNode.transform);
 
-            if (rLos && lLos)
+            if (rLos || lLos)
             {
                 enemyBase.SetLineOfSightStatus(true);
             }
