@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
                     lookDirection = new Vector2(Input.GetAxis("Look X"), Input.GetAxis("Look Y"));
                     lookDirection.Normalize();
                 }
-                crosshair.transform.position = gameObject.transform.position + new Vector3(lookDirection.x * 3, lookDirection.y * 3, 0);
+                crosshair.transform.position = gameObject.transform.position + new Vector3(lookDirection.x * 3, lookDirection.y * 3, -1);
             }
         else
         {
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 mouseDirection = mousePos - screenMiddle;
             lookDirection = mouseDirection;
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0;
+            mouseWorldPos.z = -1;
             mouseDirection.Normalize();
             crosshair.transform.position = mouseWorldPos;
         }

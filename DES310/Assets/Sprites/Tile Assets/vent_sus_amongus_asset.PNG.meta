@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vent_sus_amongus_asset_0: -5791648713757674492
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
