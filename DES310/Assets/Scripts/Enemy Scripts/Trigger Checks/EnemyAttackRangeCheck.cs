@@ -5,34 +5,26 @@ using UnityEngine;
 public class EnemyAttackRangeCheck : MonoBehaviour
 {
     public GameObject Player { get; set; }
-    private EnemyBase enemyBase;
-
-    private float attackRange;
+    private EnemyBase enemy;
 
     private void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        enemyBase = GetComponentInParent<EnemyBase>();
-    }
-    private void Start()
-    {
-        if (enemyBase.attackRange > 0)
-        {
-            attackRange = Mathf.Pow(enemyBase.attackRange, 2);
-        }
+        Player = GameObject.FindGameObjectWithTag("Trigger Check");
+        enemy = GetComponentInParent<EnemyBase>();
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        float distance = new Vector2(Player.transform.position.x - enemyBase.transform.position.x, Player.transform.position.y - enemyBase.transform.position.y).sqrMagnitude;
-
-        if (distance < attackRange)
+        if (collision.gameObject == Player)
         {
-            enemyBase.SetWithinAttackRange(true);
+            enemy.SetWithinAttackRange(true);
         }
-        else
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject == Player)
         {
-            enemyBase.SetWithinAttackRange(false);
+            enemy.SetWithinAttackRange(false);
         }
     }
 }
