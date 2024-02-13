@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bread Crumb
+  - Trigger Check
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - 
   - Obstacle
-  - 
-  - 
+  - Player Trigger
+  - Enemy Trigger
   - 
   - 
   - 
