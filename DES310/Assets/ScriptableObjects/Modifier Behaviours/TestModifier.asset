@@ -19,4 +19,4 @@ MonoBehaviour:
   enemySpeedMultiplier: 1
   enemyDamageMultiplier: 1
   enemyHealthMultiplier: 1
-  enemyAggroRangeMultiplier: 1
+  enemyAggroRangeMultiplier: 3
