@@ -692,6 +692,7 @@ GameObject:
   - component: {fileID: 3252368358895978072}
   - component: {fileID: 5268486756771489931}
   - component: {fileID: 4728356708384338274}
+  - component: {fileID: 4915550660991606701}
   - component: {fileID: 1048355653473945141}
   - component: {fileID: 182469337925821469}
   - component: {fileID: 6887874749130551436}
@@ -896,6 +897,22 @@ MonoBehaviour:
   rb: {fileID: 1048355653473945141}
   crosshair: {fileID: 5818553562493503052}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  inputManager: {fileID: 4915550660991606701}
+--- !u!114 &4915550660991606701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d136299d9c86f04eb52d450fb0bbe74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesToCheck:
+  - Fire1
+  - Dash
 --- !u!50 &1048355653473945141
 Rigidbody2D:
   serializedVersion: 4

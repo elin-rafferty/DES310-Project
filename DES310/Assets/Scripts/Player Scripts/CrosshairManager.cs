@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrosshairManager : MonoBehaviour
 {
-    private GameObject crosshair;
+    public GameObject crosshair;
     [SerializeField] GameObject crosshairPrefab;
     [SerializeField] EventHandler eventHandler;
 

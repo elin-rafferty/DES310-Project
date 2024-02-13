@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private ProjectileType bulletType;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private SpriteRenderer crosshair;
+    [SerializeField] private GameObject crosshair;
     [SerializeField] private EventHandler eventHandler;
+    [SerializeField] private InputManager inputManager;
 
 
     private bool inventoryOpen = false;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInput()
     {
+        inputManager.UpdateKeys();
         // Handle movement
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         velocity *= movementSpeed;
@@ -57,22 +59,35 @@ public class PlayerMovement : MonoBehaviour
                 dashTime = 0;
             }
         }
-        // Get mouse direction
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 screenMiddle = new Vector2(Screen.width / 2, Screen.height / 2);
-        Vector2 mouseDirection = mousePos - screenMiddle;
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPos.z = 0;
+        // Get joystick input
+        Vector2 joystickDirection = new Vector2(Input.GetAxis("Look X"), Input.GetAxis("Look Y"));
+        Vector2 mouseDirection;
+        Vector3 mouseWorldPos = Vector3.zero;
+        crosshair = GetComponent<CrosshairManager>().crosshair;
+        if (joystickDirection != Vector2.zero)
+        {
+            mouseDirection = joystickDirection.normalized * 3;
+            mouseWorldPos = gameObject.transform.position + new Vector3(mouseDirection.x, mouseDirection.y, 0);
+        }
+        else
+        {
+            // Get mouse direction 
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 screenMiddle = new Vector2(Screen.width / 2, Screen.height / 2);
+            mouseDirection = mousePos - screenMiddle;
+            mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouseWorldPos.z = 0;
+            mouseDirection.Normalize();
+        }
         crosshair.transform.position = mouseWorldPos;
-        mouseDirection.Normalize();
         transform.rotation = Quaternion.identity;
         transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg);
         // Check if firing
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (inputManager.GetButtonDown("Fire1"))
         {
             Fire(mouseDirection);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (inputManager.GetButtonDown("Dash"))
         {
             Dash(velocity);
         }
