@@ -9,6 +9,8 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     [SerializeField] private CircleCollider2D aggroZone;
     [SerializeField] private EventHandler eventHandler;
     private float speedMultiplier = 1f;
+    public float aggroRange { get; set; } = 7f;
+    public float attackRange { get; set; } = 2f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
 
@@ -79,13 +81,16 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
 
+
     #region Modifier Functions;
+
     public void SetModifiers(ModifierBehaviour modifier)
     {
         CurrentHealth *= modifier.enemyHealthMultiplier;
-        aggroZone.radius *= modifier.enemyAggroRangeMultiplier;
+        aggroRange *= modifier.enemyAggroRangeMultiplier;
         speedMultiplier = modifier.enemySpeedMultiplier;
     }
+
     #endregion
 
     #region HP / Damage Functions
