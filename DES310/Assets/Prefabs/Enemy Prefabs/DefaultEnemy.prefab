@@ -480,7 +480,7 @@ CircleCollider2D:
     m_Bits: 2052
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 4097
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -490,10 +490,10 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2052
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2052
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
