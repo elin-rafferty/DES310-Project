@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Mmmmmmmmmmm blue_0
+  m_Name: Vent Tile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 6469148580832284706, guid: 52d31d5b0d37f4f41b844947232f2023, type: 3}
+  m_Sprite: {fileID: -5791648713757674492, guid: 86cb48feb6106ad459c256481d7b8966, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
