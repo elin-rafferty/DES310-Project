@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TestModifier
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 6137973874363452598, guid: 0a3def9628c0cdd49be589fa49f6d3c9, type: 3}
+  - {fileID: 8082519446791655877, guid: 0a3def9628c0cdd49be589fa49f6d3c9, type: 3}
   enemyWeightings: 01000000
   spawnPercentChance: 50
   enemySpeedMultiplier: 1
   enemyDamageMultiplier: 1
   enemyHealthMultiplier: 1
-  enemyAggroRangeMultiplier: 1
+  enemyAggroRangeMultiplier: 0
