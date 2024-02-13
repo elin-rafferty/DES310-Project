@@ -5,14 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("PlayerMovementTestScene");
+        SceneManager.LoadScene("Hub");
     }
 
     public void QuitGame()
     {
         Debug.Log("QUIT");
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
         Application.Quit();
+    #endif
     }
 }

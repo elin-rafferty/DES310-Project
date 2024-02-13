@@ -7,6 +7,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     [field: SerializeField] public float meleeDamage { get; set; } = 5f;
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
     [SerializeField] private CircleCollider2D aggroZone;
+    [SerializeField] private EventHandler eventHandler;
     private float speedMultiplier = 1f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
@@ -99,6 +100,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void Die()
     {
+        eventHandler.ChangeEnemyCount.Invoke(-1);
         Destroy(gameObject);
     }
 

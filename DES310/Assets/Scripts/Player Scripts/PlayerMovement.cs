@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool inventoryOpen = false;
     private float dashTime = 0;
+    private Vector2 lastAimPosition = new Vector2(1, 0);
 
 
 
@@ -44,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInput()
     {
+        //THIS IS SUPER TEMPORARY DELETE LATER PLZ
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         inputManager.UpdateKeys();
         // Handle movement
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -59,38 +65,44 @@ public class PlayerMovement : MonoBehaviour
                 dashTime = 0;
             }
         }
-        // Get joystick input
-        Vector2 joystickDirection = new Vector2(Input.GetAxis("Look X"), Input.GetAxis("Look Y"));
-        Vector2 mouseDirection;
-        Vector3 mouseWorldPos = Vector3.zero;
         crosshair = GetComponent<CrosshairManager>().crosshair;
-        if (joystickDirection != Vector2.zero)
+        Vector2 lookDirection = lastAimPosition;
+        if (Input.GetJoystickNames().Length > 0)
+        if (Input.GetJoystickNames()[0].Length > 0)
         {
-            mouseDirection = joystickDirection.normalized * 3;
-            mouseWorldPos = gameObject.transform.position + new Vector3(mouseDirection.x, mouseDirection.y, 0);
-        }
+                if (Input.GetAxis("Look X") != 0 || Input.GetAxis("Look Y") != 0)
+                {
+                    // Get joystick input
+                    lookDirection = new Vector2(Input.GetAxis("Look X"), Input.GetAxis("Look Y"));
+                    lookDirection.Normalize();
+                }
+                crosshair.transform.position = gameObject.transform.position + new Vector3(lookDirection.x * 3, lookDirection.y * 3, 0);
+            }
         else
         {
             // Get mouse direction 
             Vector2 mousePos = Input.mousePosition;
             Vector2 screenMiddle = new Vector2(Screen.width / 2, Screen.height / 2);
-            mouseDirection = mousePos - screenMiddle;
-            mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouseDirection = mousePos - screenMiddle;
+            lookDirection = mouseDirection;
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;
             mouseDirection.Normalize();
+            crosshair.transform.position = mouseWorldPos;
         }
-        crosshair.transform.position = mouseWorldPos;
+        lastAimPosition = lookDirection;
         transform.rotation = Quaternion.identity;
-        transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg);
+        transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg);
         // Check if firing
         if (inputManager.GetButtonDown("Fire1"))
         {
-            Fire(mouseDirection);
+            Fire(lookDirection);
         }
         if (inputManager.GetButtonDown("Dash"))
         {
             Dash(velocity);
         }
+        // THIS IS ALSO SUPER TEMPORARY DELETE THIS LATER TOO
         if (Input.GetKeyDown(KeyCode.H))
         {
             gameObject.GetComponent<Health>().Damage(10);
