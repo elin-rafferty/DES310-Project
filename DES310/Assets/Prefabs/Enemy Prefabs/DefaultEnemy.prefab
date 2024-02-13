@@ -303,6 +303,7 @@ MonoBehaviour:
   <meleeDamage>k__BackingField: 5
   <MaxHealth>k__BackingField: 100
   aggroZone: {fileID: 1997929849158650821}
+  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   EnemyIdleBase: {fileID: 11400000, guid: f1881b96a594e0d4094133b638cf8eb0, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: fbdd20d836a63014492007f315c17ef8, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bef74bf9d10be5d4f960949f0cadc814, type: 2}

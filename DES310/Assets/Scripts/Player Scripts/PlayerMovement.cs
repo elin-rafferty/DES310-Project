@@ -45,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInput()
     {
+        //THIS IS SUPER TEMPORARY DELETE LATER PLZ
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         inputManager.UpdateKeys();
         // Handle movement
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -97,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Dash(velocity);
         }
+        // THIS IS ALSO SUPER TEMPORARY DELETE THIS LATER TOO
         if (Input.GetKeyDown(KeyCode.H))
         {
             gameObject.GetComponent<Health>().Damage(10);

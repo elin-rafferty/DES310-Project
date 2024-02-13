@@ -11,6 +11,7 @@ public class EventHandler : ScriptableObject
     public UnityEvent PlayerDeath;
     public UnityEvent<float> PlayerHealthChange;
     public UnityEvent<string> PlaySound;
+    public UnityEvent<int> ChangeEnemyCount;
 
     private void OnEnable()
     {

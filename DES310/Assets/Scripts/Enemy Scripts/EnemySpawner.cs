@@ -7,6 +7,7 @@ public class SpawnEnemy : MonoBehaviour
 {
     // Enemy Game Objects
     [SerializeField] private ModifierBehaviour modifierBehaviour;
+    [SerializeField] private EventHandler eventHandler;
     private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
     // Start is called before the first frame update
@@ -40,6 +41,7 @@ public class SpawnEnemy : MonoBehaviour
             EnemyBase newEnemy = Instantiate(ChooseEnemyType(), new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             newEnemy.SetModifiers(modifierBehaviour);
             spawnedEnemies.Add(newEnemy);
+            eventHandler.ChangeEnemyCount.Invoke(1);
         }
     }
 
