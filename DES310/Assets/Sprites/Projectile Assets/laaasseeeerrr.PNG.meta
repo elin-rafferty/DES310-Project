@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 52d31d5b0d37f4f41b844947232f2023
+guid: a2d2de93767a12641905939de095eab6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6469148580832284706
-    second: Mmmmmmmmmmm blue_0
+      213: 6823313046665803591
+    second: laaasseeeerrr_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mmmmmmmmmmm blue_0
+      name: laaasseeeerrr_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 47
+        y: 59
+        width: 34
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2201bb7fb5807c950800000000000000
-      internalID: 6469148580832284706
+      spriteID: 747bdc1801741be50800000000000000
+      internalID: 6823313046665803591
       vertices: []
       indices: 
       edges: []
@@ -188,8 +188,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Mmmmmmmmmmm blue_0: 6469148580832284706
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

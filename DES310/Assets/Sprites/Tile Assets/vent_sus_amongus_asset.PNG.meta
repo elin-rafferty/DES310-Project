@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 535a50a80afe27346ac30657b6c15162
+guid: 86cb48feb6106ad459c256481d7b8966
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3772237749206299264
-    second: player_asset 1_0
+      213: -5791648713757674492
+    second: vent_sus_amongus_asset_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_asset 1_0
+      name: vent_sus_amongus_asset_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 23
-        width: 178
-        height: 102
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08d4d36d0c156abc0800000000000000
-      internalID: -3772237749206299264
+      spriteID: 40430a82e2eef9fa0800000000000000
+      internalID: -5791648713757674492
       vertices: []
       indices: 
       edges: []
@@ -188,8 +188,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      player_asset 1_0: -3772237749206299264
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3ac55f5b73e97194482e2e39e0fefad2
+guid: 1c1388b702677b3408c71ca09b7931fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2514245446522158739
-    second: Mmmmmm red_0
+      213: -2718223174483497469
+    second: raagggghhh_enemy_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mmmmmm red_0
+      name: raagggghhh_enemy_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 19
         width: 128
-        height: 128
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6147e1661b9b1dd0800000000000000
-      internalID: -2514245446522158739
+      spriteID: 30e2da0bc6ee64ad0800000000000000
+      internalID: -2718223174483497469
       vertices: []
       indices: 
       edges: []
@@ -188,8 +188,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Mmmmmm red_0: -2514245446522158739
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

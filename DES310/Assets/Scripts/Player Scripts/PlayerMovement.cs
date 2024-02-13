@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private GameObject barrelEnd;
 
 
     private bool inventoryOpen = false;
@@ -124,10 +125,11 @@ public class PlayerMovement : MonoBehaviour
     void Fire(Vector2 mouseDirection)
     {
         // Fire
-        Projectile newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Projectile newProjectile = Instantiate(projectilePrefab, barrelEnd.transform.position, Quaternion.identity);
         newProjectile.SetType(bulletType);
         newProjectile.SetDirection(mouseDirection);
         newProjectile.SetOwner(gameObject);
+        newProjectile.transform.Rotate(0, 0, Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg);
         // Set projectile to despawn after a certain time has elapsed
         Destroy(newProjectile.gameObject, 0.35f);
     }
