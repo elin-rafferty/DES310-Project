@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,26 +6,32 @@ using UnityEngine;
 public class EnemyAggroCheck : MonoBehaviour
 {
     public GameObject Player { get; set; }
-    private EnemyBase enemy;
+    private EnemyBase enemyBase;
+
+    float aggroRange;
 
     private void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Trigger Check");
-        enemy = GetComponentInParent<EnemyBase>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        enemyBase = GetComponentInParent<EnemyBase>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {;
-        if (collision.gameObject == Player)
-        {
-            enemy.SetAggroStatus(true);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void Start()
     {
-        if (collision.gameObject == Player) 
+        aggroRange = Mathf.Pow(enemyBase.aggroRange, 2);
+    }
+
+    private void FixedUpdate()
+    {
+        float distance = new Vector2(Player.transform.position.x - enemyBase.transform.position.x, Player.transform.position.y - enemyBase.transform.position.y).sqrMagnitude;
+
+        if (distance < aggroRange)
         {
-            enemy.SetAggroStatus(false);
+            enemyBase.SetAggroStatus(true);
+        }
+        else
+        {
+            enemyBase.SetAggroStatus(false);
         }
     }
 }
