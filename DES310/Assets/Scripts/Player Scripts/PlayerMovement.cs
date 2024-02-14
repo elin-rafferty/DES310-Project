@@ -68,8 +68,7 @@ public class PlayerMovement : MonoBehaviour
         }
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
-        if (Input.GetJoystickNames().Length > 0)
-        if (Input.GetJoystickNames()[0].Length > 0)
+        if (false)
         {
                 if (Input.GetAxis("Look X") != 0 || Input.GetAxis("Look Y") != 0)
                 {
