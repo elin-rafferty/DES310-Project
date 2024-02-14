@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     private Vector3 offset = new Vector3(0, 0, -10);
     private float smoothTime = 0.1f;

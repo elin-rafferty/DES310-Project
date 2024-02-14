@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject barrelEnd;
-    [SerializeField] private AudioSource audioSource;
 
 
     private bool inventoryOpen = false;
@@ -124,11 +123,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Fire(Vector2 mouseDirection)
     {
-        // Play shoot sound
-        audioSource.Play();
-        if (audioSource.isPlaying) Debug.Log("Is Playing");
-        else if (!audioSource.isPlaying) Debug.Log("Not Playing");
-
         // Fire
         Projectile newProjectile = Instantiate(projectilePrefab, barrelEnd.transform.position, Quaternion.identity);
         newProjectile.SetType(bulletType);
