@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject barrelEnd;
     [SerializeField] private Slider overheatSlider;
     [SerializeField] private float fireDelay = 0.1f;
@@ -179,6 +180,9 @@ public class PlayerMovement : MonoBehaviour
         {
             overheated = true;
         }
+
+        // Play shoot sound
+        audioSource.Play();
     }
 
 
