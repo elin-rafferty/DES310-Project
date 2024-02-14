@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDirection = lastAimPosition;
         if (true)
         {
+
                 if (Input.GetAxis("Look X") != 0 || Input.GetAxis("Look Y") != 0)
                 {
                     // Get joystick input
