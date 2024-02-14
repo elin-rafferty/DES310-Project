@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public PlayerMovement player;
+    public Rigidbody2D rb;
 
     private Vector3 offset = new Vector3(0, 0, -10);
     private float smoothTime = 0.1f;
@@ -13,7 +13,7 @@ public class CameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class CameraScript : MonoBehaviour
         //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
 
         // Delayed camera follow
-        Vector3 targetPosition = player.transform.position + offset;
+        Vector3 targetPosition = ((Vector3)rb.position + offset);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }
