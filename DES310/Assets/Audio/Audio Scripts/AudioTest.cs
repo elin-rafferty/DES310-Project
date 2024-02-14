@@ -18,6 +18,7 @@ public class AudioTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             audioSource.Play();
+            Debug.Log("Play Sound");
         }
     }
 }
