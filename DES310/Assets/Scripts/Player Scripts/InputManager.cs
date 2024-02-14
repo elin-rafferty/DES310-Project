@@ -38,4 +38,13 @@ public class InputManager : MonoBehaviour
         }
         else return false;
     }
+
+    public bool GetButton(string axis)
+    {
+        if (downThisFrame.ContainsKey(axis))
+        {
+            return downThisFrame[axis];
+        }
+        else return false;
+    }
 }

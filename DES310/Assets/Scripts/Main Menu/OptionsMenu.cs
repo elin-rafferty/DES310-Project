@@ -20,6 +20,10 @@ public class OptionsMenu : MonoBehaviour
         enemySpeedSlider.value = modifierBehaviour.enemySpeedMultiplier;
         enemyDamageSlider.value = modifierBehaviour.enemyDamageMultiplier;
         enemyHealthSlider.value = modifierBehaviour.enemyHealthMultiplier;
+        if (modifierBehaviour.enemyAggroRangeMultiplier < 1)
+        {
+            modifierBehaviour.enemyAggroRangeMultiplier = 1;
+        }
         enemyAggroRangeSlider.value = modifierBehaviour.enemyAggroRangeMultiplier;
     }
 

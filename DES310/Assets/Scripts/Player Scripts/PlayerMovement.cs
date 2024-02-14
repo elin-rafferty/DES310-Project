@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,18 +18,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject barrelEnd;
+    [SerializeField] private Slider overheatSlider;
+    [SerializeField] private float fireDelay = 0.1f;
+    [SerializeField] private float dashCooldown = 1.5f;
+    [SerializeField] private float overheatCapacity = 5;
 
 
     private bool inventoryOpen = false;
     private float dashTime = 0;
     private Vector2 lastAimPosition = new Vector2(1, 0);
-
+    private float timeTilNextFire = 0;
+    private float dashCooldownTimer = 0;
+    private float overheatLevel;
+    private bool overheated;
 
 
     // Start is called before the first frame update
     void Start()
     {
         eventHandler.InventoryChangeState.AddListener(InventoryStateChangeResponse);
+        overheatSlider.value = 0;
     }
 
     // Update is called once per frame
@@ -46,8 +55,38 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInput()
     {
+        if (timeTilNextFire > 0)
+        {
+            timeTilNextFire -= Time.deltaTime;
+            if (timeTilNextFire < 0)
+            {
+                timeTilNextFire = 0;
+            }
+        }
+        if (dashCooldownTimer > 0)
+        {
+            dashCooldownTimer -= Time.deltaTime;
+            if (dashCooldownTimer < 0)
+            {
+                dashCooldownTimer = 0;
+            }
+        }
+        if (overheatLevel > 0)
+        {
+            if (overheated)
+            {
+                overheatLevel -= Time.deltaTime * 2;
+            }
+            overheatLevel -= Time.deltaTime;
+            if (overheatLevel < 0)
+            {
+                overheatLevel = 0;
+                overheated = false;
+            }
+            overheatSlider.value = overheatLevel;
+        }
         //THIS IS SUPER TEMPORARY DELETE LATER PLZ
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || inputManager.GetButtonDown("StartButton"))
         {
             SceneManager.LoadScene("Main Menu");
         }
@@ -68,8 +107,9 @@ public class PlayerMovement : MonoBehaviour
         }
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
-        if (false)
+        if (true)
         {
+
                 if (Input.GetAxis("Look X") != 0 || Input.GetAxis("Look Y") != 0)
                 {
                     // Get joystick input
@@ -94,11 +134,11 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.identity;
         transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg);
         // Check if firing
-        if (inputManager.GetButtonDown("Fire1"))
+        if (inputManager.GetButton("Fire1") && timeTilNextFire == 0 && !overheated)
         {
             Fire(lookDirection);
         }
-        if (inputManager.GetButtonDown("Dash"))
+        if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
         {
             Dash(velocity);
         }
@@ -116,9 +156,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Dash(Vector2 inputDir)
     {
-        dashTime = 0.5f;
+        dashTime = 0.15f;
         Vector2 direction = inputDir.normalized;
         rb.velocity = direction * dashStrength;
+        dashCooldownTimer = dashCooldown;
     }
 
     void Fire(Vector2 mouseDirection)
@@ -131,6 +172,13 @@ public class PlayerMovement : MonoBehaviour
         newProjectile.transform.Rotate(0, 0, Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg);
         // Set projectile to despawn after a certain time has elapsed
         Destroy(newProjectile.gameObject, 0.35f);
+        timeTilNextFire = fireDelay;
+        overheatLevel += fireDelay * 2;
+        overheatSlider.value = overheatLevel;
+        if (overheatLevel >= overheatCapacity)
+        {
+            overheated = true;
+        }
     }
 
 
