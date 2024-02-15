@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private GameObject barrelEnd;
     [SerializeField] private Slider overheatSlider;
     [SerializeField] private float fireDelay = 0.1f;
@@ -52,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
         Cursor.visible = inventoryOpen;
+
+        AdjustAudioMixer(audioMixer);
     }
 
     void HandleInput()
@@ -87,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
             overheatSlider.value = overheatLevel;
         }
         //THIS IS SUPER TEMPORARY DELETE LATER PLZ
-        if (Input.GetKeyDown(KeyCode.Escape) || inputManager.GetButtonDown("StartButton"))
+        if (Input.GetKeyDown(KeyCode.Tab) || inputManager.GetButtonDown("StartButton"))
         {
             SceneManager.LoadScene("Main Menu");
         }
@@ -182,8 +186,28 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Play shoot sound
-        audioSource.Play();
+        audioSource.PlayOneShot(audioSource.clip);
     }
 
-
+    // TEMPORARY AUDIO MIXER CONTROLS
+    void AdjustAudioMixer(AudioMixer audioMixer)
+    {
+        _ = audioMixer.GetFloat("SFXPitch", out float currentPitch);
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (audioMixer.SetFloat("SFXPitch", currentPitch + 0.5f))
+            {
+                Debug.Log("Pitch Up");
+            }
+            else { Debug.Log("Fail Pitch"); }
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            if (audioMixer.SetFloat("SFXPitch", currentPitch - 0.5f))
+            {
+                Debug.Log("Pitch Down");
+            }
+            else { Debug.Log("Fail Pitch"); }
+        }
+    }
 }
