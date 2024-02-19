@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private InputManager inputManager;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private GameObject barrelEnd;
     [SerializeField] private Slider overheatSlider;
     [SerializeField] private float fireDelay = 0.1f;
@@ -54,8 +52,6 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
         Cursor.visible = inventoryOpen;
-
-        AdjustAudioMixer(audioMixer);
     }
 
     void HandleInput()
@@ -186,28 +182,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Play shoot sound
-        audioSource.PlayOneShot(audioSource.clip);
-    }
-
-    // TEMPORARY AUDIO MIXER CONTROLS
-    void AdjustAudioMixer(AudioMixer audioMixer)
-    {
-        _ = audioMixer.GetFloat("SFXPitch", out float currentPitch);
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (audioMixer.SetFloat("SFXPitch", currentPitch + 0.5f))
-            {
-                Debug.Log("Pitch Up");
-            }
-            else { Debug.Log("Fail Pitch"); }
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            if (audioMixer.SetFloat("SFXPitch", currentPitch - 0.5f))
-            {
-                Debug.Log("Pitch Down");
-            }
-            else { Debug.Log("Fail Pitch"); }
-        }
+        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);
     }
 }
