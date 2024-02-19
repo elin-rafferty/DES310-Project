@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Pathfinding.SimpleSmoothModifier;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     private float overheatLevel;
     private bool overheated;
 
+    private float rotateSpeed;
+    private float smoothTime = 0.05f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +51,20 @@ public class PlayerMovement : MonoBehaviour
         if (!inventoryOpen)
         {
             HandleInput();
-        } else
+        } 
+        Cursor.visible = inventoryOpen;
+    }
+
+    void FixedUpdate()
+    {
+        if (!inventoryOpen) 
+        { 
+            HandlePlayerMovement();
+        }
+        else
         {
             rb.velocity = Vector3.zero;
         }
-        Cursor.visible = inventoryOpen;
     }
 
     void HandleInput()
@@ -92,20 +105,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene("Main Menu");
         }
         inputManager.UpdateKeys();
-        // Handle movement
-        Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        velocity *= movementSpeed;
-        if (dashTime == 0)
-        {
-            rb.velocity = velocity;
-        } else
-        {
-            dashTime -= Time.deltaTime;
-            if (dashTime < 0)
-            {
-                dashTime = 0;
-            }
-        }
+        
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
         if (true)
@@ -131,17 +131,24 @@ public class PlayerMovement : MonoBehaviour
             mouseDirection.Normalize();
             crosshair.transform.position = mouseWorldPos;
         }
+
+        // calculate player angle of rotation
+        float targetAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
+
+        // WHAT DOES THIS DO
         lastAimPosition = lookDirection;
         transform.rotation = Quaternion.identity;
-        transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg);
+
+        // Rotate player towards crosshair
+        transform.Rotate(new Vector3(0, 0, 1), angle);
+        // Old rotate code
+        //transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg);
+
         // Check if firing
         if (inputManager.GetButton("Fire1") && timeTilNextFire == 0 && !overheated)
         {
             Fire(lookDirection);
-        }
-        if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
-        {
-            Dash(velocity);
         }
         // THIS IS ALSO SUPER TEMPORARY DELETE THIS LATER TOO
         if (Input.GetKeyDown(KeyCode.H))
@@ -183,5 +190,31 @@ public class PlayerMovement : MonoBehaviour
 
         // Play shoot sound
         SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);
+    }
+
+    void HandlePlayerMovement()
+    {
+        // Handle directional movement
+        Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        velocity *= movementSpeed;
+        if (dashTime == 0)
+        {
+            rb.velocity = velocity;
+        }
+        else
+        {
+            dashTime -= Time.deltaTime;
+            if (dashTime < 0)
+            {
+                dashTime = 0;
+            }
+        }
+
+
+        // Player Dash
+        if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
+        {
+            Dash(velocity);
+        }
     }
 }
