@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Rotate player towards crosshair
         transform.Rotate(new Vector3(0, 0, 1), angle);
-        // Old rotate code
+        // Old rotate player code
         //transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg);
 
         // Check if firing
