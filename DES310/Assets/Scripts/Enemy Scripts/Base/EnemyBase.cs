@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
+    [SerializeField] private EventHandler eventHandler;
     [field: SerializeField] public float meleeDamage { get; set; } = 5f;
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
-    [SerializeField] private EventHandler eventHandler;
     private float speedMultiplier = 1f;
-    public float aggroRange { get; set; } = 7f;
-    public float attackRange { get; set; } = 2f;
+    [field: SerializeField] public float aggroRange { get; set; } = 7f;
+    [field: SerializeField] public float attackRange { get; set; } = 2f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
 

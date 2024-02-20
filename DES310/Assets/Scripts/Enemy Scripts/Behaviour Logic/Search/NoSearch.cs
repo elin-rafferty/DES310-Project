@@ -23,6 +23,8 @@ public class NoSearch : EnemySearchSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+
+        enemyBase.StateMachine.ChangeState(enemyBase.IDLEState);
     }
 
     public override void DoPhysicsLogic()

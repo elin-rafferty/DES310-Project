@@ -24,7 +24,10 @@ public class EnemyIdleNone : EnemyIdleSOBase
     {
         base.DoFrameUpdateLogic();
 
-        enemyBase.MoveEnemy(Vector2.zero);
+        if (enemyBase.rb.bodyType == RigidbodyType2D.Dynamic)
+        {
+            enemyBase.MoveEnemy(Vector2.zero);
+        }
     }
 
     public override void DoPhysicsLogic()
