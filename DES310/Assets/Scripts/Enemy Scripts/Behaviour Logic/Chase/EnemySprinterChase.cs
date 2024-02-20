@@ -8,11 +8,12 @@ public class EnemySprinterChase : EnemyChaseSOBase
 {
     private Transform target;
 
-    private float speed = 3;
+    private float speed = 9;
+    private float runDelayTimer;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
 
-    private float pathUpdateTime = 0.5f;
+    private float pathUpdateTime = 0.25f;
     private float timer;
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
@@ -25,6 +26,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
         base.DoEnterLogic();
 
         target = Player.transform;
+        runDelayTimer = 0;
         UpdatePath(rb.position, target.position);
     }
 
@@ -37,8 +39,6 @@ public class EnemySprinterChase : EnemyChaseSOBase
 
     public override void DoFrameUpdateLogic()
     {
-        base.DoFrameUpdateLogic();
-
         // Update path every interval
         if (timer >= pathUpdateTime)
         {
@@ -90,7 +90,19 @@ public class EnemySprinterChase : EnemyChaseSOBase
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
         }
-        enemyBase.MoveEnemy(direction * speed);
+
+        // Start sprinting after time delay
+        Debug.Log(runDelayTimer);
+        if (runDelayTimer > 1)
+        {
+            enemyBase.MoveEnemy(direction * speed);
+        }
+        else
+        {
+            enemyBase.rb.velocity = Vector2.zero;
+            runDelayTimer += Time.deltaTime;
+        }
+
         enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
         // If reached current waypoint increment waypoint 
