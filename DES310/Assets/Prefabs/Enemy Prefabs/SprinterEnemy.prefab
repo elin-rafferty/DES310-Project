@@ -144,8 +144,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2718223174483497469, guid: 1c1388b702677b3408c71ca09b7931fc, type: 3}
-  m_Color: {r: 0.4833336, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 6287148914130030213, guid: 7c709cc0b1fdb6d4695722bbcb4592b5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   EnemyChaseBase: {fileID: 11400000, guid: b4a29c1e9828afe42a90bc4d69c8f089, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: f172ffb6db03ce84c8daa342d397db5f, type: 2}
+  alertImage: {fileID: 0}
 --- !u!114 &7503835535890877872
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Pathfinding;
 
 [CreateAssetMenu(fileName = "Chase - Sprinter Chase", menuName = "Enemy Logic/Chase Logic/Sprinter Chase")]
