@@ -2,6 +2,7 @@ using Inventory.Model;
 using Inventory.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using UnityEngine;
 
@@ -28,13 +29,16 @@ namespace Inventory
 
         private void PrepareInventoryData()
         {
-            inventoryData.Initialize();
+            bool isFresh = inventoryData.Initialize();
             inventoryData.OnInventoryUpdated += UpdateInventoryUI;
-            foreach (InventoryItem item in initialItems)
+            if (isFresh)
             {
-                if (item.IsEmpty)
-                    continue;
-                inventoryData.AddItem(item);
+                foreach (InventoryItem item in initialItems)
+                {
+                    if (item.IsEmpty)
+                        continue;
+                    inventoryData.AddItem(item);
+                }
             }
         }
 
@@ -158,7 +162,6 @@ namespace Inventory
                 }
                 else
                 {
-
                     inventoryUI.Hide();
                     eventHandler.InventoryChangeState.Invoke(false);
                 }

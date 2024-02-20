@@ -14,10 +14,8 @@ namespace Inventory.UI
         [SerializeField]
         private InventoryItemUI itemPrefab;
 
-
         [SerializeField]
         private RectTransform contentPanel;
-
 
         [SerializeField]
         private InventoryDescription itemDescription;

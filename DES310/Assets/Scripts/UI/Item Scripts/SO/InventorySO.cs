@@ -19,10 +19,15 @@ namespace Inventory.Model
         public int Size { get; private set; } = 10;
 
         public event Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
+        public EventHandler eventHandler;
 
-        //private bool trigger = false;
+        public void OnEnable()
+        {
+            eventHandler.PlayerDeath.AddListener(WipeInventory);
+            WipeInventory();
+        }
 
-        public void Initialize()
+        public void WipeInventory()
         {
             inventoryItems = new List<InventoryItem>();
             for (int i = 0; i < Size; i++)
@@ -31,18 +36,32 @@ namespace Inventory.Model
             }
         }
 
+        public bool Initialize()
+        {
+            bool returnVal = true;
+            if (inventoryItems != null)
+            {
+                returnVal = false;
+            }
+            else
+            {
+                WipeInventory();
+            }
+            return returnVal;
+        }
+
         public int AddItem(ItemSO item, int quantity, List<ItemParameter> itemState = null)
         {
             if (item.IsStackable == false)
             {
-                //for (int i = 0; i < inventoryItems.Count; i++)
+                for (int i = 0; i < inventoryItems.Count; i++)
                 {
                     while (quantity > 0 && IsInventoryFull() == false)
                     {
                         quantity -= AddItemToFirstFreeSlot(item, 1, itemState);
                     }
-                    InformAboutChange();
-                    return quantity;
+                    //InformAboutChange();
+                    //return quantity;
                 }
             }
             quantity = AddStackableItem(item, quantity);
@@ -87,14 +106,12 @@ namespace Inventory.Model
 
                     if (quantity > amountPossibleToTake)
                     {
-                        inventoryItems[i] = inventoryItems[i]
-                            .ChangeQuantity(inventoryItems[i].item.MaxStackSize);
+                        inventoryItems[i] = inventoryItems[i].ChangeQuantity(inventoryItems[i].item.MaxStackSize);
                         quantity -= amountPossibleToTake;
                     }
                     else
                     {
-                        inventoryItems[i] = inventoryItems[i]
-                            .ChangeQuantity(inventoryItems[i].quantity + quantity);
+                        inventoryItems[i] = inventoryItems[i].ChangeQuantity(inventoryItems[i].quantity + quantity);
                         InformAboutChange();
                         return 0;
                     }
@@ -133,8 +150,8 @@ namespace Inventory.Model
 
         public Dictionary<int, InventoryItem> GetCurrentInventoryState()
         {
-            Dictionary<int, InventoryItem> returnValue =
-                new Dictionary<int, InventoryItem>();
+            Dictionary<int, InventoryItem> returnValue = new Dictionary<int, InventoryItem>();
+
             for (int i = 0; i < inventoryItems.Count; i++)
             {
                 if (inventoryItems[i].IsEmpty)
@@ -142,11 +159,13 @@ namespace Inventory.Model
                 returnValue[i] = inventoryItems[i];
             }
             return returnValue;
+
         }
 
         public InventoryItem GetItemAt(int itemIndex)
         {
             return inventoryItems[itemIndex];
+
         }
 
         public void SwapItems(int itemIndex1, int itemIndex2)
@@ -169,7 +188,6 @@ namespace Inventory.Model
         public int quantity;
         public ItemSO item;
         public List<ItemParameter> itemState;
-
         public bool IsEmpty => item == null;
 
         public InventoryItem ChangeQuantity(int newQuantity)
@@ -181,8 +199,7 @@ namespace Inventory.Model
                 itemState = new List<ItemParameter>(this.itemState)
             };
         }
-        public static InventoryItem GetEmptyItem()
-            => new InventoryItem
+        public static InventoryItem GetEmptyItem() => new InventoryItem
             {
                 item = null,
                 quantity = 0,
