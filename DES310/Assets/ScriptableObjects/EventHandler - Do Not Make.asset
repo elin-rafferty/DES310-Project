@@ -21,3 +21,10 @@ MonoBehaviour:
   PlayerHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  PlaySound:
+    m_PersistentCalls:
+      m_Calls: []
+  ChangeEnemyCount:
+    m_PersistentCalls:
+      m_Calls: []
+  persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: wall_fulltile_placeholder_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 8102305399422052163, guid: 84021e69d75e5864e8af4ef1c8ff10ac, type: 3}
+  m_Sprite: {fileID: 5463510760221244850, guid: cce6d0131d5a50244995fbb500bac7ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
