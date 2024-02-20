@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour
         PlayerShoot,
         PlayerFootsteps,
         EnemyScreech,
+        EnemyHit,
         EnemyDeath
     }
 

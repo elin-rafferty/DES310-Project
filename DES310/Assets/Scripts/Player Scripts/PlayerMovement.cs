@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
-        if (true)
+        if (false)
         {
 
                 if (Input.GetAxis("Look X") != 0 || Input.GetAxis("Look Y") != 0)
@@ -189,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Play shoot sound
-        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);
+        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);
     }
 
     void HandlePlayerMovement()
