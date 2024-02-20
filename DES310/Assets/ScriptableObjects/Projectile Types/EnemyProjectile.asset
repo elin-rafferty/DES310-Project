@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c81ea8dc68e6704a8db88245e0c011f, type: 3}
   m_Name: EnemyProjectile
   m_EditorClassIdentifier: 
-  speed: 0
-  damage: 0
-  sprite: {fileID: 0}
+  speed: 10
+  damage: 20
+  sprite: {fileID: 1462262062042380682, guid: 7c333e769a6c87848a504945d2fecfdb, type: 3}
