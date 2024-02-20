@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: wallcorner_fulltile_placeholder_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 7534462523779813288, guid: 8795ca154bfd9784e88d64f7199fd8f3, type: 3}
+  m_Sprite: {fileID: -7374035483006079825, guid: 967e77bcdce3d1248be25a65e85d1568, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
