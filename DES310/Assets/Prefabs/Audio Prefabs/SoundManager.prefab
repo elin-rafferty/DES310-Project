@@ -48,3 +48,5 @@ MonoBehaviour:
   audioClips:
   - SoundName: 0
     Clip: {fileID: 8300000, guid: a7bb860d65ba78c42aab329f3998bde6, type: 3}
+  - SoundName: 3
+    Clip: {fileID: 8300000, guid: b4961d15545690d44af8686b289fb30b, type: 3}

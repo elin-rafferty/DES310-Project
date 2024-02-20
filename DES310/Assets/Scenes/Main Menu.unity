@@ -1378,15 +1378,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5036935, g: 0.7264151, b: 0.6327374, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -8306162669194001637, guid: dc481ad9c65857644b73c5ba35771d7b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6912,11 +6912,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a6185dcb03f134aad56b4da087dfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifierBehaviour: {fileID: 11400000, guid: cf50298846d1e9b4c8c6b2789fcf265a, type: 2}
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
+  graphics: {fileID: 0}
   masterVolumeSlider: {fileID: 1000067287}
   musicVolumeSlider: {fileID: 969000290}
   sfxVolumeSlider: {fileID: 1050632784}
+  modifierBehaviour: {fileID: 11400000, guid: cf50298846d1e9b4c8c6b2789fcf265a, type: 2}
   spawnChanceSlider: {fileID: 1215603539}
   enemySpeedSlider: {fileID: 1617914962}
   enemyDamageSlider: {fileID: 862610498}
