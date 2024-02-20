@@ -1370,8 +1370,6 @@ MonoBehaviour:
   crosshair: {fileID: 5818553562493503052}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   inputManager: {fileID: 4915550660991606701}
-  audioSource: {fileID: 8136048259636555482}
-  audioMixer: {fileID: 24100000, guid: 290873273ede0514ba065143c3aa9408, type: 2}
   barrelEnd: {fileID: 6796015444636642066}
   overheatSlider: {fileID: 646787039511115557}
   fireDelay: 0.1
