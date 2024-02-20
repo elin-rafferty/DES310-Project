@@ -12,6 +12,7 @@ public class EventHandler : ScriptableObject
     public UnityEvent<float> PlayerHealthChange;
     public UnityEvent<string> PlaySound;
     public UnityEvent<int> ChangeEnemyCount;
+    public PersistentVariables persistentVariables;
 
     private void OnEnable()
     {
@@ -21,6 +22,7 @@ public class EventHandler : ScriptableObject
     void PlayerDeathResponse()
     {
         Debug.Log("Player died");
-        SceneManager.LoadScene("Hub");
+        persistentVariables.exitReason = LevelExitReason.DEATH;
+        SceneManager.LoadScene("Main Hub");
     }
 }

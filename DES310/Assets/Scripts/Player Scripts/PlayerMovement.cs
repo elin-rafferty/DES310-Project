@@ -155,6 +155,11 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<Health>().Damage(10);
         }
+        // Player Dash
+        if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
+        {
+            Dash(rb.velocity);
+        }
     }
 
     void InventoryStateChangeResponse(bool open)
@@ -211,10 +216,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        // Player Dash
-        if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
-        {
-            Dash(velocity);
-        }
+        
     }
 }
