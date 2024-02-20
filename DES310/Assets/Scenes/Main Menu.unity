@@ -3142,6 +3142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341bda200508dda4eb40b0d01b09d593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
 --- !u!1 &924256432
 GameObject:
   m_ObjectHideFlags: 0
