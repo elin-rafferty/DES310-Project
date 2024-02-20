@@ -25,9 +25,7 @@ namespace Inventory.UI
         [SerializeField]
         private MouseFollow mouseFollow;
 
-
         List<InventoryItemUI> listOfUiItems = new List<InventoryItemUI>();
-
 
         private int currentlyDraggedItemIndex = 1;
         private InventoryItemUI inventoryItemUI;
@@ -66,8 +64,12 @@ namespace Inventory.UI
         {
             foreach (var item in listOfUiItems)
             {
-                item.ResetData();
-                item.Deselect();
+                if (item != null)
+                {
+                    item.ResetData();
+                    item.Deselect();
+                }
+               
             }
         }
 
@@ -82,7 +84,11 @@ namespace Inventory.UI
         {
             if (listOfUiItems.Count > itemIndex)
             {
-                listOfUiItems[itemIndex].SetData(itemImage, itemQuantity);
+                if (listOfUiItems[itemIndex] != null)
+                {
+                    listOfUiItems[itemIndex].SetData(itemImage, itemQuantity);
+                }
+                
             }
         }
 
