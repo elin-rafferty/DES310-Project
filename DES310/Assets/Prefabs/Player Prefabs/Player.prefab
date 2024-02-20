@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 6011464589242071957}
   - component: {fileID: 646787039511115557}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: Overheat Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1725,7 +1725,7 @@ GameObject:
   - component: {fileID: 1745870195905575372}
   - component: {fileID: 9194410447521038738}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Bad Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
