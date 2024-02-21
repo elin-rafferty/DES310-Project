@@ -106,6 +106,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
         }
         else
         {
+            if (enemyBase.alertObject) enemyBase.alertObject.transform.position = enemyBase.transform.position + offset;
             enemyBase.rb.velocity = Vector2.zero;
             runDelayTimer += Time.deltaTime;
         }
