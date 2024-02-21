@@ -10,6 +10,8 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     private Transform weaponTransform;
     private Transform target;
 
+    private float attackTimer;
+
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -20,6 +22,7 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     {
         base.DoEnterLogic();
 
+        attackTimer = enemyBase.attackDelay;
         target = Player.transform;
         weaponTransform = enemyBase.gameObject.GetComponent<Spitter>().weaponTransfom;
     }
@@ -34,7 +37,15 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         base.DoFrameUpdateLogic();
 
         // Do Enemy Attack
-        Fire();
+        if (attackTimer >= enemyBase.attackDelay)
+        {
+            attackTimer = 0;
+            Fire();
+        }
+        else
+        {
+            attackTimer += Time.deltaTime;
+        }
     }
 
     public override void DoPhysicsLogic()
@@ -56,7 +67,7 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         Projectile newProjectile = Instantiate(projectilePrefab, weaponTransform.position, Quaternion.identity);
         newProjectile.SetType(projectileType);
         newProjectile.SetDirection(direction);
-        newProjectile.SetOwner(gameObject);
+        newProjectile.SetOwner(enemyBase.gameObject);
         newProjectile.transform.Rotate(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         // Set projectile to despawn after a certain time has elapsed
         Destroy(newProjectile.gameObject, 1f);

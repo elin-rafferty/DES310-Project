@@ -10,6 +10,11 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
+    enum WallDirection
+    {
+        UP, DOWN, LEFT, RIGHT, NONE
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +42,39 @@ public class SpawnEnemy : MonoBehaviour
         // RNG to determine whether to spawn or not
         if (UnityEngine.Random.Range(0, 100) < modifierBehaviour.spawnPercentChance)
         {
+            // Check if a spitter can spawn
+            EnemyBase chosenEnemy = ChooseEnemyType();
+            WallDirection wallDirection = IsAdjacentToWall();
+            while (chosenEnemy.gameObject.GetComponent<Spitter>() && wallDirection == WallDirection.NONE)
+            {
+                chosenEnemy = ChooseEnemyType();
+            }
+
+            // Calculate Rotation for Spitter
+            float enemyRotation = 0;
+            switch(wallDirection)
+            {
+                case WallDirection.UP:
+                    enemyRotation = 90;
+                    break;
+                case WallDirection.DOWN:
+                    enemyRotation = 270;
+                    break;
+                case WallDirection.LEFT:
+                    enemyRotation = 180;
+                    break;
+                case WallDirection.RIGHT:
+                    enemyRotation = 0;
+                    break;
+                case WallDirection.NONE:
+                    enemyRotation = 0;
+                    break;
+            }
+
+
             // Spawn Enemy at spawn point location
-            EnemyBase newEnemy = Instantiate(ChooseEnemyType(), new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            EnemyBase newEnemy = Instantiate(chosenEnemy, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            newEnemy.transform.Rotate(new Vector3(0, 0, 1), enemyRotation);
             newEnemy.SetModifiers(modifierBehaviour);
             spawnedEnemies.Add(newEnemy);
             eventHandler.ChangeEnemyCount.Invoke(1);
@@ -89,5 +125,26 @@ public class SpawnEnemy : MonoBehaviour
             Debug.Log("Oopsie");
         }
         return returnVal;
+    }
+
+    private WallDirection IsAdjacentToWall()
+    {
+        WallDirection wallDirection = WallDirection.NONE;
+
+        RaycastHit2D up = Physics2D.Raycast(transform.position, transform.up, 1.00f);
+        RaycastHit2D down = Physics2D.Raycast(transform.position, -transform.up, 1.00f);
+        RaycastHit2D left = Physics2D.Raycast(transform.position, -transform.right, 1.00f);
+        RaycastHit2D right = Physics2D.Raycast(transform.position, transform.right, 1.00f);
+        RaycastHit2D[] rays = { up, down, left, right };
+
+        for(int i = 0; i < rays.Length; i++) 
+        {
+            if (rays[i].collider && !rays[i].collider.gameObject.CompareTag("Enemy"))
+            {
+                wallDirection = (WallDirection)i;
+                return wallDirection;
+            }
+        }
+        return wallDirection;
     }
 }

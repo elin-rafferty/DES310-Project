@@ -39,8 +39,17 @@ public class Projectile : MonoBehaviour
 
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
+                    // Enemy Hit Sound
                     SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, hit.collider.transform, 1f);
+                    // Damage Enemy
                     hit.collider.gameObject.GetComponent<EnemyBase>().Damage(damage);
+                }
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    // Player Hit Sound
+
+                    // Damage Player
+                    hit.collider.gameObject.GetComponent<Health>().Damage(damage);
                 }
                 break;
             }

@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     private float speedMultiplier = 1f;
     [field: SerializeField] public float aggroRange { get; set; } = 7f;
     [field: SerializeField] public float attackRange { get; set; } = 2f;
+    [field: SerializeField] public float attackDelay { get; set; } = 1f;
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
 
