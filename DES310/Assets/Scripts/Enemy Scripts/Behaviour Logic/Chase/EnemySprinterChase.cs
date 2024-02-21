@@ -9,6 +9,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
 {
     private Transform target;
 
+    Vector3 offset = new Vector3(0, 1, -5);
     private float speed = 9;
     private float runDelayTimer;
     private float smoothTime = 0.25f;
@@ -28,6 +29,11 @@ public class EnemySprinterChase : EnemyChaseSOBase
 
         target = Player.transform;
         runDelayTimer = 0;
+
+        // Instantiate Alert Icon
+        Destroy(enemyBase.alertObject = Instantiate(enemyBase.alertIconPrefab, enemyBase.transform.position + offset, Quaternion.identity), enemyBase.attackDelay);
+
+        // Initial Path
         UpdatePath(rb.position, target.position);
     }
 

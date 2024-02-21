@@ -5,5 +5,5 @@ using UnityEngine.UI;
 
 public class Sprinter : EnemyBase
 {
-    [SerializeField] private Image alertImage;
+
 }
