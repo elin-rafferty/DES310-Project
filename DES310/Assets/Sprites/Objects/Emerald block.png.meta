@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Emerald block_0: -3960515944109080409
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

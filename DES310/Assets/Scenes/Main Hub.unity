@@ -5675,6 +5675,10 @@ PrefabInstance:
       propertyPath: sceneName
       value: PlayerMovementTestScene
       objectReference: {fileID: 0}
+    - target: {fileID: 579727596162255894, guid: e3f2db4c88921f44e8e82eefdcddd294, type: 3}
+      propertyPath: persistentVariables
+      value: 
+      objectReference: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
     - target: {fileID: 4932876867799654215, guid: e3f2db4c88921f44e8e82eefdcddd294, type: 3}
       propertyPath: m_Name
       value: Vent

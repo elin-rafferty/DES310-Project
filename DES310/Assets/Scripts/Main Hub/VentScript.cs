@@ -12,8 +12,11 @@ public class VentScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Set trigger true on collision with item
-        trigger = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Set trigger true on collision with item
+            trigger = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

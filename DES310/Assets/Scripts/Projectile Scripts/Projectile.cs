@@ -42,6 +42,13 @@ public class Projectile : MonoBehaviour
                     SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, hit.collider.transform, 1f);
                     hit.collider.gameObject.GetComponent<EnemyBase>().Damage(damage);
                 }
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    // Player Hit Sound
+
+                    // Damage Player
+                    hit.collider.gameObject.GetComponent<Health>().Damage(damage);
+                }
                 break;
             }
         }
