@@ -154,23 +154,23 @@ namespace Inventory
 
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                if (inventoryUI.isActiveAndEnabled == false)
-                {
-                    inventoryUI.Show();
-                    foreach (var item in inventoryData.GetCurrentInventoryState())
-                    {
-                        inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
-                    }
-                    eventHandler.InventoryChangeState.Invoke(true);
-                }
-                else
-                {
-                    inventoryUI.Hide();
-                    eventHandler.InventoryChangeState.Invoke(false);
-                }
-            }
+        //    if (Input.GetKeyDown(KeyCode.I))
+        //    {
+        //        if (inventoryUI.isActiveAndEnabled == false)
+        //        {
+        //            inventoryUI.Show();
+        //            foreach (var item in inventoryData.GetCurrentInventoryState())
+        //            {
+        //                inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+        //            }
+        //            eventHandler.InventoryChangeState.Invoke(true);
+        //        }
+        //        else
+        //        {
+        //            inventoryUI.Hide();
+        //            eventHandler.InventoryChangeState.Invoke(false);
+        //        }
+        //    }
         }
     }
 }
