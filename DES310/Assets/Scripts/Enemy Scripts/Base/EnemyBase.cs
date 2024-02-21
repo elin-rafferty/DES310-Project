@@ -6,7 +6,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 {
     [SerializeField] private EventHandler eventHandler;
     [field: SerializeField] public GameObject alertIconPrefab { get; set; }
-    [field: SerializeField] public GameObject alertObject { get; set; }
+    public GameObject alertObject { get; set; }
     [field: SerializeField] public float meleeDamage { get; set; } = 5f;
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
     private float speedMultiplier = 1f;
@@ -109,7 +109,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     {
         eventHandler.ChangeEnemyCount.Invoke(-1);
         Destroy(gameObject);
-        Destroy(alertObject);
+        if(alertObject) Destroy(alertObject);
     }
 
     #endregion

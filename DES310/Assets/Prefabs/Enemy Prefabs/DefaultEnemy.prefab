@@ -232,12 +232,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   <alertIconPrefab>k__BackingField: {fileID: 8588801196531009245, guid: 31aa6eac21ef3114792beb5866c897e5, type: 3}
+  <alertObject>k__BackingField: {fileID: 0}
   <meleeDamage>k__BackingField: 5
   <MaxHealth>k__BackingField: 100
   <aggroRange>k__BackingField: 7
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
-  EnemyIdleBase: {fileID: 11400000, guid: f1881b96a594e0d4094133b638cf8eb0, type: 2}
+  EnemyIdleBase: {fileID: 11400000, guid: 4f037ece1089f014ba33abb6d9516181, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: fbdd20d836a63014492007f315c17ef8, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bef74bf9d10be5d4f960949f0cadc814, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: f172ffb6db03ce84c8daa342d397db5f, type: 2}
