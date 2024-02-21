@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     private float rotateSpeed;
     private float smoothTime = 0.05f;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (!inventoryOpen) 
-        { 
+        {
             HandlePlayerMovement();
         }
         else
@@ -129,7 +128,6 @@ public class PlayerMovement : MonoBehaviour
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = -1;
             mouseDirection.Normalize();
-            crosshair.transform.position = mouseWorldPos;
         }
 
         // calculate player angle of rotation
