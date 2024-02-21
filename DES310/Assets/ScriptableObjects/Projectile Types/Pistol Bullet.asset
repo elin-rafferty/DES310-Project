@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pistol Bullet
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 100
+  damage: 50
   despawnTimer: 0.5
   sprite: {fileID: 6823313046665803591, guid: a2d2de93767a12641905939de095eab6, type: 3}
