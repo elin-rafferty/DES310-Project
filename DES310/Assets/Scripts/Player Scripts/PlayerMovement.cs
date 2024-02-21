@@ -33,11 +33,13 @@ public class PlayerMovement : MonoBehaviour
     private bool overheated;
     private float rotateSpeed;
     private float smoothTime = 0.05f;
+    private AgentWeapon agentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
         eventHandler.InventoryChangeState.AddListener(InventoryStateChangeResponse);
+        agentWeapon = GetComponent<AgentWeapon>();
     }
 
     // Update is called once per frame
@@ -140,7 +142,18 @@ public class PlayerMovement : MonoBehaviour
         //transform.Rotate(new Vector3(0, 0, 1), Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg);
 
         // Check if firing
-        if (inputManager.GetButton("Fire1") && timeTilNextFire == 0 && !overheated)
+        bool fireInput = false;
+        if (agentWeapon.weapon != null)
+        {
+            if (agentWeapon.weapon.weaponProperties.isSingleFire)
+            {
+                fireInput = inputManager.GetButtonDown("Fire1");
+            } else
+            {
+                fireInput = inputManager.GetButton("Fire1");
+            }
+        }
+        if (fireInput && timeTilNextFire == 0 && !overheated)
         {
             Fire(lookDirection);
         }
@@ -205,8 +218,5 @@ public class PlayerMovement : MonoBehaviour
                 dashTime = 0;
             }
         }
-
-
-        
     }
 }

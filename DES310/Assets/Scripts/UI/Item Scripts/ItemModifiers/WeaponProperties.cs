@@ -4,13 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[CreateAssetMenu]
+[CreateAssetMenu (menuName = "Weapon Properties/Weapon Properties")]
 public class WeaponProperties : ScriptableObject
 {
     public ProjectileType projectileType;
     public Projectile projectilePrefab;
     public float fireDelay = 0;
     public float overheatCapacity = 0;
+    public bool isSingleFire = false;
 
     public virtual void Fire(Vector2 position, Vector2 direction, GameObject owner)
     {
