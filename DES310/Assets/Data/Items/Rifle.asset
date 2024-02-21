@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Rifle
+  <Name>k__BackingField: Laser Rifle
   <Description>k__BackingField: Auto fire rifle
   <ItemImage>k__BackingField: {fileID: -5407244041523939393, guid: 0cab6bf77b03c6643b4d0e2b2d1c890f, type: 3}
   <DefaultParametersList>k__BackingField: []

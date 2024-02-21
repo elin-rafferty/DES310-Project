@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Persistent Variables
   m_EditorClassIdentifier: 
   exitReason: 0
+  equippedItem: {fileID: 11400000, guid: fe0c371b82406da4ca5d2c6a4e43d501, type: 2}

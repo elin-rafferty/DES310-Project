@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2bad5fca5e2af478075f049cb1a288, type: 3}
+  m_Name: Shotgun Properties
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 11400000, guid: a80c8d32ab7571c47a5c8a05bccde434, type: 2}
+  projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
+  fireDelay: 0.5
+  overheatCapacity: 1.5
+  isSingleFire: 1
+  sprayAngle: 10
