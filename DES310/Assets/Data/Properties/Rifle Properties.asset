@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b163ca3ec1aa4d142bbe7157f8442918, type: 3}
   m_Name: Rifle Properties
   m_EditorClassIdentifier: 
-  projectileType: {fileID: 11400000, guid: 7107aa10a80a69b4d9b214c2724bb202, type: 2}
+  projectileType: {fileID: 11400000, guid: 3110ddd675b4ebb46876a42b776d3a5f, type: 2}
   projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
   fireDelay: 0.1
   overheatCapacity: 5

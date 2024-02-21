@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c81ea8dc68e6704a8db88245e0c011f, type: 3}
-  m_Name: BasicBullet
+  m_Name: Pistol Bullet
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 20
+  damage: 100
   sprite: {fileID: 6823313046665803591, guid: a2d2de93767a12641905939de095eab6, type: 3}
