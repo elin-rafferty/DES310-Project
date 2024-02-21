@@ -20,6 +20,8 @@ namespace Inventory
 
         public List<InventoryItem> initialItems = new List<InventoryItem>();
 
+        [SerializeField] private Item itemPickupPrefab;
+
         public void Awake()
         {
             PrepareUI();
@@ -84,6 +86,9 @@ namespace Inventory
 
         private void DropItem(int itemIndex, int quantity)
         {
+            Item newPickup = Instantiate(itemPickupPrefab, GameObject.FindGameObjectWithTag("Player").transform.position, Quaternion.identity);
+            newPickup.InventoryItem = inventoryData.GetItemAt(itemIndex).item;
+            newPickup.Quantity = inventoryData.GetItemAt(itemIndex).quantity;
             inventoryData.RemoveItem(itemIndex, quantity);
             inventoryUI.ResetSelection();
         }

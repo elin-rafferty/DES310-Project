@@ -1356,6 +1356,7 @@ MonoBehaviour:
     itemState:
     - itemparameter: {fileID: 11400000, guid: 632681c663091144cbb80e1ba4cfde79, type: 2}
       value: 80
+  itemPickupPrefab: {fileID: 4497167517916249016, guid: a0f24dfafd6f21e4d8b0f28081e6bc9e, type: 3}
 --- !u!114 &7521459502205102297
 MonoBehaviour:
   m_ObjectHideFlags: 0
