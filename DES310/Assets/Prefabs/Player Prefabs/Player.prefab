@@ -1422,6 +1422,7 @@ MonoBehaviour:
   parametersToModify: []
   itemCurrentState: []
   overheatSlider: {fileID: 646787039511115557}
+  persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
 --- !u!1 &5713499253011613616
 GameObject:
   m_ObjectHideFlags: 0

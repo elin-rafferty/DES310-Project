@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Persistent Variables
   m_EditorClassIdentifier: 
   exitReason: 0
+  equippedItem: {fileID: 0}

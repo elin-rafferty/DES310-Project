@@ -18,8 +18,15 @@ public class AgentWeapon : MonoBehaviour
     [SerializeField]
     private Slider overheatSlider;
 
+    [SerializeField]
+    private PersistentVariables persistentVariables;
+
     public void Start()
     {
+        if (persistentVariables.equippedItem != null)
+        {
+            weapon = persistentVariables.equippedItem;
+        }
         overheatSlider.value = 0;
         if (GetComponent<AgentWeapon>().weapon != null)
         {
@@ -41,6 +48,7 @@ public class AgentWeapon : MonoBehaviour
         this.itemCurrentState = new List<ItemParameter>(itemState);
         ModifyParameters();
         overheatSlider.maxValue = weapon.weaponProperties.overheatCapacity;
+        persistentVariables.equippedItem = weapon;
     }
 
     private void ModifyParameters()
