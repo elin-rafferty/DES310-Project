@@ -14,15 +14,18 @@ public class VentScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Set trigger true on collision with item
+            // Set trigger true on collision
             trigger = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Set trigger false on exit with item
-        trigger = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Set trigger false on collision end
+            trigger = false;
+        }
     }
 
     void Update()
