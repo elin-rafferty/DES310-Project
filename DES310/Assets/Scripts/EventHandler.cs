@@ -12,6 +12,7 @@ public class EventHandler : ScriptableObject
     public UnityEvent<float> PlayerHealthChange;
     public UnityEvent<string> PlaySound;
     public UnityEvent<int> ChangeEnemyCount;
+    public UnityEvent LevelEnter;
     public PersistentVariables persistentVariables;
 
     private void OnEnable()
