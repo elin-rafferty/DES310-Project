@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
                 dashCooldownTimer = 0;
             }
         }
-        if (overheatLevel > 0)
+        if (overheatLevel > 0 && timeTilNextFire == 0)
         {
             if (overheated)
             {
@@ -189,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
             WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
             weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
             timeTilNextFire = weaponProperties.fireDelay;
-            overheatLevel += weaponProperties.fireDelay * 2;
+            overheatLevel += weaponProperties.fireDelay;
             overheatSlider.value = overheatLevel;
             if (overheatLevel >= weaponProperties.overheatCapacity)
             {
