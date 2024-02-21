@@ -7,5 +7,6 @@ public class ProjectileType : ScriptableObject
 {
     public float speed;
     public float damage;
+    public float despawnTimer;
     public Sprite sprite;
 }

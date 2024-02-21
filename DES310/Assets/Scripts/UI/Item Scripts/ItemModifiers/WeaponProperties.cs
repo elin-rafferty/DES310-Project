@@ -22,6 +22,6 @@ public class WeaponProperties : ScriptableObject
         newProjectile.transform.Rotate(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         newProjectile.SetOwner(owner);
         // Set projectile to despawn after a certain time has elapsed
-        Destroy(newProjectile.gameObject, 0.35f);
+        Destroy(newProjectile.gameObject, projectileType.despawnTimer);
     }
 }
