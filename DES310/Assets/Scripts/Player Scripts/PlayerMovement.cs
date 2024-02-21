@@ -21,9 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject barrelEnd;
     [SerializeField] private Slider overheatSlider;
-    [SerializeField] private float fireDelay = 0.1f;
     [SerializeField] private float dashCooldown = 1.5f;
-    [SerializeField] private float overheatCapacity = 5;
 
 
     private bool inventoryOpen = false;
@@ -33,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashCooldownTimer = 0;
     private float overheatLevel;
     private bool overheated;
-
     private float rotateSpeed;
     private float smoothTime = 0.05f;
 
@@ -41,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         eventHandler.InventoryChangeState.AddListener(InventoryStateChangeResponse);
-        overheatSlider.value = 0;
     }
 
     // Update is called once per frame
@@ -175,24 +171,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Fire(Vector2 mouseDirection)
     {
-        // Fire
-        Projectile newProjectile = Instantiate(projectilePrefab, barrelEnd.transform.position, Quaternion.identity);
-        newProjectile.SetType(bulletType);
-        newProjectile.SetDirection(mouseDirection);
-        newProjectile.SetOwner(gameObject);
-        newProjectile.transform.Rotate(0, 0, Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg);
-        // Set projectile to despawn after a certain time has elapsed
-        Destroy(newProjectile.gameObject, 0.35f);
-        timeTilNextFire = fireDelay;
-        overheatLevel += fireDelay * 2;
-        overheatSlider.value = overheatLevel;
-        if (overheatLevel >= overheatCapacity)
+        if (GetComponent<AgentWeapon>().weapon != null)
         {
-            overheated = true;
-        }
+            WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
+            weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
+            timeTilNextFire = weaponProperties.fireDelay;
+            overheatLevel += weaponProperties.fireDelay * 2;
+            overheatSlider.value = overheatLevel;
+            if (overheatLevel >= weaponProperties.overheatCapacity)
+            {
+                overheated = true;
+            }
 
-        // Play shoot sound
-        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);
+            // Play shoot sound
+            SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);
+        }
     }
 
     void HandlePlayerMovement()
