@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4514e57216f5ce4b950da5bef4acabc, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 0
+  <MaxStackSize>k__BackingField: 1
+  <Name>k__BackingField: Rifle
+  <Description>k__BackingField: Auto fire rifle
+  <ItemImage>k__BackingField: {fileID: -5407244041523939393, guid: 0cab6bf77b03c6643b4d0e2b2d1c890f, type: 3}
+  <DefaultParametersList>k__BackingField: []
+  weaponProperties: {fileID: 11400000, guid: fbcb2e15e03d0e641a517ff80d79dc40, type: 2}

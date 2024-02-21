@@ -1071,6 +1071,7 @@ GameObject:
   - component: {fileID: 6887874749130551436}
   - component: {fileID: 7521459502205102297}
   - component: {fileID: 8196851069569593267}
+  - component: {fileID: 772383854847497066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1139,9 +1140,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3772237749206299264, guid: 535a50a80afe27346ac30657b6c15162, type: 3}
+  m_Sprite: {fileID: -4970990212287679941, guid: 6b9ae0d0946f4d34588345534dc8a28f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.78, y: 1.02}
@@ -1403,9 +1404,25 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.66, y: 0}
+  m_Offset: {x: 0.66, y: 0.023}
   m_Size: {x: 0.47, y: 0.12}
   m_Direction: 1
+--- !u!114 &772383854847497066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957dfe5509836214a9d17353d7b6b2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  inventoryData: {fileID: 11400000, guid: 3159a824a09c3824b8be83d7dd8a45ae, type: 2}
+  parametersToModify: []
+  itemCurrentState: []
 --- !u!1 &5713499253011613616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1598,7 @@ Transform:
   m_GameObject: {fileID: 6796015444636642066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.875, y: 0, z: 0}
+  m_LocalPosition: {x: 0.925, y: 0.008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
