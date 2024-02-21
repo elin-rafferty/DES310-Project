@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2bad5fca5e2af478075f049cb1a288, type: 3}
   m_Name: Shotgun Properties
   m_EditorClassIdentifier: 
-  projectileType: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  fireDelay: 0
-  overheatCapacity: 0
-  isSingleFire: 0
-  sprayAngle: 20
+  projectileType: {fileID: 11400000, guid: 7107aa10a80a69b4d9b214c2724bb202, type: 2}
+  projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
+  fireDelay: 0.5
+  overheatCapacity: 2
+  isSingleFire: 1
+  sprayAngle: 10

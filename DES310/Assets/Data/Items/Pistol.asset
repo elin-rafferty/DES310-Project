@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: 
-  <Description>k__BackingField: 
-  <ItemImage>k__BackingField: {fileID: 0}
+  <Name>k__BackingField: Laser Pistol
+  <Description>k__BackingField: Powerful hand cannon
+  <ItemImage>k__BackingField: {fileID: -5407244041523939393, guid: 0cab6bf77b03c6643b4d0e2b2d1c890f, type: 3}
   <DefaultParametersList>k__BackingField: []
-  weaponProperties: {fileID: 0}
+  weaponProperties: {fileID: 11400000, guid: 0597bba96632bf647b98f2cb9953e6ce, type: 2}
