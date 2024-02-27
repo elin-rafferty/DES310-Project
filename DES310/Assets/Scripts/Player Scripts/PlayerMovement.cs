@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject barrelEnd;
     [SerializeField] private Slider overheatSlider;
     [SerializeField] private float dashCooldown = 1.5f;
+    [SerializeField] private SettingsSO settings;
 
 
     private bool inventoryOpen = false;
@@ -104,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
-        if (false)
+        if (settings.Controls == 1)
         {
 
                 if (Input.GetAxis("Look X") != 0 || Input.GetAxis("Look Y") != 0)

@@ -1632,6 +1632,7 @@ MonoBehaviour:
   barrelEnd: {fileID: 6796015444636642066}
   overheatSlider: {fileID: 646787039511115557}
   dashCooldown: 3
+  settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
 --- !u!114 &4915550660991606701
 MonoBehaviour:
   m_ObjectHideFlags: 0

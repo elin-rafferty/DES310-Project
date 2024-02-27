@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
+    [SerializeField] private TMP_Dropdown controls;
 
     // Modifiers
     [SerializeField] private ModifierBehaviour modifierBehaviour;
@@ -46,6 +48,7 @@ public class OptionsMenu : MonoBehaviour
         musicVolumeSlider.value = settings.MusicVolume;
         sfxVolumeSlider.value = settings.SFXVolume;
         //graphics.value = settings.Graphics;
+        controls.value = settings.Controls;
     }
 
     #region Volume Slider Functions
@@ -92,5 +95,9 @@ public class OptionsMenu : MonoBehaviour
     public void SetEnemyAggroRange(float enemyAggroRange)
     {
         modifierBehaviour.enemyAggroRangeMultiplier = enemyAggroRange;
+    }
+    public void SetControls(TMP_Dropdown dropDown)
+    {
+        settings.Controls = dropDown.value;
     }
 }
