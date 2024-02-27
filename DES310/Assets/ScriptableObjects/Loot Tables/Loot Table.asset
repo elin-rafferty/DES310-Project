@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ad3a984834cab4f952c9da2f33a8bc, type: 3}
   m_Name: Loot Table
   m_EditorClassIdentifier: 
-  lootRolls: 1
+  lootRolls: 4
   dropchance: 100
   itemQuantityVariation: 0.4
   items:
