@@ -2,6 +2,7 @@ using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SearchService;
 
@@ -9,6 +10,7 @@ public class LootableObject : MonoBehaviour
 {
     public LootTable lootTable;
     public Item pickupPrefab;
+    public float distanceToSpawn = 1.28f;
     bool trigger = false;
     bool looted = false;
 
@@ -36,11 +38,29 @@ public class LootableObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && trigger && !looted)
         {
             List<InventoryItem> itemsToDrop = lootTable.getLoot();
+            int posIndex = 0;
             foreach (InventoryItem item in itemsToDrop)
             {
-                Item pickup = Instantiate(pickupPrefab, gameObject.transform.position, Quaternion.identity);
+                Vector3 offset = Vector3.zero;
+                switch (posIndex % 4)
+                {
+                    case 0:
+                        offset = new Vector3(distanceToSpawn, 0, 0);
+                        break;
+                    case 1:
+                        offset = new Vector3(-distanceToSpawn, 0, 0);
+                        break;
+                    case 2:
+                        offset = new Vector3(0, distanceToSpawn, 0);
+                        break;
+                    case 3:
+                        offset = new Vector3(0, -distanceToSpawn, 0);
+                        break;
+                }
+                Item pickup = Instantiate(pickupPrefab, gameObject.transform.position + offset, Quaternion.identity);
                 pickup.Quantity = item.quantity;
                 pickup.InventoryItem = item.item;
+                posIndex++;
             }
             looted = true;
         }

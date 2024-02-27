@@ -59,7 +59,6 @@ public class LootTable : ScriptableObject
                 }
             }
         }
-        Debug.Log(itemsRolled);
         return itemsRolled;
     }
 }
