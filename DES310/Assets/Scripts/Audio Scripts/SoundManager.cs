@@ -20,7 +20,20 @@ public class SoundManager : MonoBehaviour
     public enum SFX
     {
         PlayerShoot,
-        PlayerFootsteps,
+        LaserRebound,
+        Overheat,
+        PlayerHit,
+
+        MetalFootsteps1,
+        MetalFootsteps2,
+        MetalFootsteps3,
+        MetalFootsteps4,
+
+        ItemPickUp,
+        ButtonSelect,
+        CrateOpen,
+
+        SpitterAttack,
         EnemyScreech,
         EnemyHit,
         EnemyDeath
