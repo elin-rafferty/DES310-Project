@@ -9,13 +9,14 @@ public class ModifierScreen : MonoBehaviour
     [SerializeField] Text text;
     [SerializeField] ModifierBehaviour modifierBehaviour;
     [SerializeField] PersistentVariables persistentVariables;
+    InputManager inputManager;
 
 
     void Update()
     {
         if (gameObject.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.E)) 
+            if (inputManager.GetButtonDown("Interact")) 
             {
                 gameObject.SetActive(false);
                 Time.timeScale = 1.0f;
@@ -25,6 +26,7 @@ public class ModifierScreen : MonoBehaviour
 
     private void OnEnable()
     {
+        inputManager = GetComponent<InputManager>();
         Time.timeScale = 0.0f;
 
         // Default Modifier Behaviour

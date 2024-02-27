@@ -8,7 +8,7 @@ public class InventoryAnimation : MonoBehaviour
     Animator anim;
     bool InventoryOpen = false;
     public EventHandler eventHandler;
-
+    public InputManager inputManager;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class InventoryAnimation : MonoBehaviour
     {
         if (!InventoryOpen)
         {
-            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.JoystickButton3))
+            if (inputManager.GetButtonDown("OpenInventory"))
             {
                 anim.Play("Open");
                 InventoryOpen = true;
@@ -31,7 +31,7 @@ public class InventoryAnimation : MonoBehaviour
 
         else if (InventoryOpen)
         {
-            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.JoystickButton1))
+            if (inputManager.GetButtonDown("OpenInventory") || inputManager.GetButtonDown("Back"))
             {
                 anim.Play("Close");
                 InventoryOpen = false;

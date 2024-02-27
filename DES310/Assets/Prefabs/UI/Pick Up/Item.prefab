@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9094595984962763816}
   - component: {fileID: 4497167517916249016}
   - component: {fileID: 2152720488195557135}
+  - component: {fileID: -1781282681591369058}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -140,6 +141,9 @@ MonoBehaviour:
   <Quantity>k__BackingField: 1
   audioSource: {fileID: 0}
   duration: 0.3
+  hasDestination: 0
+  destination: {x: 0, y: 0}
+  inputManager: {fileID: -1781282681591369058}
 --- !u!82 &2152720488195557135
 AudioSource:
   m_ObjectHideFlags: 0
@@ -236,3 +240,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1781282681591369058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984169167012943267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d136299d9c86f04eb52d450fb0bbe74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesToCheck:
+  - Interact

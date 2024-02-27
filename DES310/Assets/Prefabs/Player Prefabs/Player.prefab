@@ -1261,6 +1261,7 @@ GameObject:
   - component: {fileID: 3333799412055865313}
   - component: {fileID: 4353038199492701036}
   - component: {fileID: 1506384952409356424}
+  - component: {fileID: 6918064253512207645}
   m_Layer: 5
   m_Name: InGameMenu
   m_TagString: Untagged
@@ -1387,6 +1388,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  inputManager: {fileID: 6918064253512207645}
+--- !u!114 &6918064253512207645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405101752472525426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d136299d9c86f04eb52d450fb0bbe74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesToCheck:
+  - OpenInventory
+  - Back
 --- !u!1 &5510123066543379324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,7 +2404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Value
-      value: 1.0000011
+      value: 1.0000007
       objectReference: {fileID: 0}
     - target: {fileID: 2110666928486118847, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_AnchorMax.y

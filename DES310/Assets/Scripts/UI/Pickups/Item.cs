@@ -28,6 +28,7 @@ public class Item : MonoBehaviour
     public bool hasDestination = false;
     public Vector2 destination = Vector2.zero;
     private float moveSpeed = 5f;
+    public InputManager inputManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,7 +45,7 @@ public class Item : MonoBehaviour
     void Update()
     {
         // Pick up item
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)) && trigger && !hasDestination)
+        if (inputManager.GetButtonDown("Interact") && trigger && !hasDestination)
         {
             Destroy(gameObject);
             inventoryItems.AddItem(InventoryItem, Quantity);
