@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootRolls: 1
   dropchance: 100
-  itemQuantityVariation: 0
+  itemQuantityVariation: 0.4
   items:
   - quantity: 5
     item: {fileID: 11400000, guid: bfa17d5a9b64c6d439bcca79d6c1a39c, type: 2}

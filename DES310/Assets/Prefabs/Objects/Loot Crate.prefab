@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 7393274054475084800}
   - component: {fileID: 2929790417737803066}
   - component: {fileID: 922001325609801663}
-  - component: {fileID: 8793858651754694292}
-  - component: {fileID: 5085863701284515285}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Loot Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +31,8 @@ Transform:
   m_LocalPosition: {x: -0.64, y: -0.64, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4941947649001474449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7393274054475084800
@@ -161,13 +160,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &8793858651754694292
+--- !u!1 &8123985754744069862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4941947649001474449}
+  - component: {fileID: 351374272898713310}
+  - component: {fileID: 8157209640665937541}
+  m_Layer: 2
+  m_Name: Lootable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4941947649001474449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123985754744069862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7481590917452383494}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &351374272898713310
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2874292146761124389}
+  m_GameObject: {fileID: 8123985754744069862}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -197,13 +229,13 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.92
---- !u!114 &5085863701284515285
+--- !u!114 &8157209640665937541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2874292146761124389}
+  m_GameObject: {fileID: 8123985754744069862}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfd4e32ad2396eb4791a265394944f58, type: 3}
