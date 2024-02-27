@@ -19,4 +19,7 @@ MonoBehaviour:
   - quantity: 5
     item: {fileID: 11400000, guid: bfa17d5a9b64c6d439bcca79d6c1a39c, type: 2}
     itemState: []
-  weightings: 01000000
+  - quantity: 10
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+    itemState: []
+  weightings: 0100000001000000
