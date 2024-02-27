@@ -70,7 +70,7 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         newProjectile.SetOwner(enemyBase.gameObject);
         newProjectile.transform.Rotate(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         // Set projectile to despawn after a certain time has elapsed
-        Destroy(newProjectile.gameObject, 1f);
+        Destroy(newProjectile.gameObject, 1f * (1/enemyBase.attackDelay));
 
         // Play shoot sound
         SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);

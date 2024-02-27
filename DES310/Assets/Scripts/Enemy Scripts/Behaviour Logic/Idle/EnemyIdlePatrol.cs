@@ -9,7 +9,6 @@ using System;
 public class EnemyIdlePatrol : EnemyIdleSOBase
 {
     private float RandomMovementRange = 2f;
-    private float speed = 1f;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
     private float newPathTimer = 0;
@@ -91,7 +90,7 @@ public class EnemyIdlePatrol : EnemyIdleSOBase
         {
             // Move Enemy in direction of path
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - enemyBase.rb.position).normalized;
-            enemyBase.MoveEnemy(direction * speed);
+            enemyBase.MoveEnemy(direction * enemyBase.speed * 0.25f);
 
             // Look in direction of movement
             float angle;

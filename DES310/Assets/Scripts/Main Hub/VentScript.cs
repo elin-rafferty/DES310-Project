@@ -1,6 +1,7 @@
 using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,7 +38,23 @@ public class VentScript : MonoBehaviour
             // Modifier Load Screen
             if (sceneName != "Main Hub" && loadingScreen)
             {
-                persistentVariables.modifier = (Modifiers)Random.Range(0, 6);
+                Modifiers newModifier;
+                bool found;
+                do
+                {
+                    found = false;
+                    newModifier = (Modifiers)Random.Range(1, 6);
+
+                    foreach (Modifiers m in persistentVariables.modifier)
+                    {
+                        if (m == newModifier)
+                        {
+                            found = true;
+                        }
+                    }
+                }
+                while (found == true || persistentVariables.modifier.Count == 7);
+                persistentVariables.modifier.Add(newModifier);
                 loadingScreen.SetActive(true);
             }
             persistentVariables.exitReason = LevelExitReason.VENT_EXIT;

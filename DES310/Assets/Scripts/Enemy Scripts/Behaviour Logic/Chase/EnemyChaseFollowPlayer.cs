@@ -8,7 +8,6 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 {
     private Transform target;
 
-    private float speed = 3;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
 
@@ -89,7 +88,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
         }
-        enemyBase.MoveEnemy(direction * speed);
+        enemyBase.MoveEnemy(direction * enemyBase.speed);
         enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
         // If reached current waypoint increment waypoint 

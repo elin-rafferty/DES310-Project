@@ -8,7 +8,6 @@ using static UnityEngine.GraphicsBuffer;
 [CreateAssetMenu(fileName = "Search - Last Known Position", menuName = "Enemy Logic/Search Logic/Last Known Position")]
 public class LastKnownPosition : EnemySearchSOBase
 {
-    private float speed = 3;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
 
@@ -62,7 +61,7 @@ public class LastKnownPosition : EnemySearchSOBase
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
 
-        enemyBase.MoveEnemy(direction * speed);
+        enemyBase.MoveEnemy(direction * enemyBase.speed);
         enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
         // If reached current waypoint increment waypoint 

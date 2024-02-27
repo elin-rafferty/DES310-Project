@@ -10,5 +10,6 @@ public enum Modifiers
     WALKER_SPEED,
     SPITTER_FIRE_RATE,
     SPRINTER_SPEED,
+    SPITTER_RANGE,
     RESOURCE_DROPRATE,
 }

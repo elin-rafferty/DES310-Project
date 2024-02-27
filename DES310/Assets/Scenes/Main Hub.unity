@@ -2273,6 +2273,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5045071549418047126, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045071549418047126, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045071549418047126, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5877425663777710331, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -6202,17 +6214,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1037102227649646281, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
-      propertyPath: persistentVariables
-      value: 
-      objectReference: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
     - target: {fileID: 2367990351250271037, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
       propertyPath: m_Name
       value: Modifier Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 2367990351250271037, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7100953166378411233, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
       propertyPath: m_LocalPosition.x

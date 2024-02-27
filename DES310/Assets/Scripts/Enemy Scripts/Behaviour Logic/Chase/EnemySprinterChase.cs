@@ -10,7 +10,6 @@ public class EnemySprinterChase : EnemyChaseSOBase
     private Transform target;
 
     Vector3 offset = new Vector3(0, 1, -5);
-    private float speed = 9;
     private float runDelayTimer;
     private float smoothTime = 0.25f;
     private float rotateSpeed;
@@ -102,7 +101,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
         Debug.Log(runDelayTimer);
         if (runDelayTimer > 1)
         {
-            enemyBase.MoveEnemy(direction * speed);
+            enemyBase.MoveEnemy(direction * enemyBase.speed);
         }
         else
         {
