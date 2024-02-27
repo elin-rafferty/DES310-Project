@@ -71,6 +71,7 @@ public class Health : MonoBehaviour
         } else if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
+            eventHandler.PlayerHealthChange.Invoke(currentHealth);
         }
     }
 

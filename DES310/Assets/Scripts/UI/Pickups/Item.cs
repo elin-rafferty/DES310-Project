@@ -42,7 +42,7 @@ public class Item : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && trigger == true)
         {
             Destroy(gameObject);
-            inventoryItems.AddItem(InventoryItem, 1);
+            inventoryItems.AddItem(InventoryItem, Quantity);
         }
 
     }

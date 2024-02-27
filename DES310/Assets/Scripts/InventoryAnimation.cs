@@ -21,7 +21,7 @@ public class InventoryAnimation : MonoBehaviour
     {
         if (InventoryOpen != true)
         {
-            if (Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 anim.Play("Open");
                 InventoryOpen = true;
@@ -31,7 +31,7 @@ public class InventoryAnimation : MonoBehaviour
 
         else if (InventoryOpen != false)
         {
-            if (Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 anim.Play("Close");
                 InventoryOpen = false;

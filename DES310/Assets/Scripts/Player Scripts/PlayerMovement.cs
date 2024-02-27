@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             overheatSlider.value = overheatLevel;
         }
         //THIS IS SUPER TEMPORARY DELETE LATER PLZ
-        if (Input.GetKeyDown(KeyCode.Tab) || inputManager.GetButtonDown("StartButton"))
+        if (Input.GetKeyDown(KeyCode.M) || inputManager.GetButtonDown("StartButton"))
         {
             SceneManager.LoadScene("Main Menu");
         }
@@ -156,12 +156,12 @@ public class PlayerMovement : MonoBehaviour
         if (fireInput && timeTilNextFire == 0 && !overheated)
         {
             Fire(lookDirection);
-        }
+        }/*
         // THIS IS ALSO SUPER TEMPORARY DELETE THIS LATER TOO
         if (Input.GetKeyDown(KeyCode.H))
         {
             gameObject.GetComponent<Health>().Damage(10);
-        }
+        }*/
         // Player Dash
         if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
         {
