@@ -20,5 +20,5 @@ MonoBehaviour:
   spawnPercentChance: 50
   enemySpeedMultiplier: 1
   enemyDamageMultiplier: 1
-  enemyHealthMultiplier: 1
+  enemyHealthMultiplier: 1.1
   enemyAggroRangeMultiplier: 1
