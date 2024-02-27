@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 592823870015317923}
   - component: {fileID: 579727596162255894}
   - component: {fileID: 8452401790917136526}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Vent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Main Hub
+  timeBeforeOpen: 0
   persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
   inputManager: {fileID: 8452401790917136526}
   loadingScreen: {fileID: 0}
