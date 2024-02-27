@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Inventory.Model
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu (menuName = "Items/Edible Item SO")]
     public class EdibleItemSO : ItemSO, IDestroyableItem, IItemAction
     {
         [SerializeField]

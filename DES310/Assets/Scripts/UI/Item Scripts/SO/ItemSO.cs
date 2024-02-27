@@ -5,8 +5,8 @@ using System;
 
 namespace Inventory.Model
 {
-
-    public abstract class ItemSO : ScriptableObject
+    [CreateAssetMenu (menuName = "Items/Item SO")]
+    public class ItemSO : ScriptableObject
     {
 
         [field: SerializeField]

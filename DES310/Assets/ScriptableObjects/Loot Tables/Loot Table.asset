@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ad3a984834cab4f952c9da2f33a8bc, type: 3}
   m_Name: Loot Table
   m_EditorClassIdentifier: 
-  lootRolls: 1
+  lootRolls: 4
   dropchance: 100
-  itemQuantityVariation: 0
-  items: []
-  weightings: 
+  itemQuantityVariation: 0.4
+  items:
+  - quantity: 5
+    item: {fileID: 11400000, guid: bfa17d5a9b64c6d439bcca79d6c1a39c, type: 2}
+    itemState: []
+  - quantity: 10
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+    itemState: []
+  weightings: 0100000001000000
