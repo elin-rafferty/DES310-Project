@@ -51,7 +51,10 @@ public class LootTable : ScriptableObject
                         }
                         newItem.item = items[i].item;
                         newItem.itemState = items[i].itemState;
-                        itemsRolled.Add(newItem);
+                        if (newItem.item != null && newItem.quantity != 0)
+                        {
+                            itemsRolled.Add(newItem);
+                        }
                     }
                 }
             }
