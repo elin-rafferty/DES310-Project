@@ -42,6 +42,7 @@ namespace Inventory
                     inventoryData.AddItem(item);
                 }
             }
+            UpdateInventoryUI(inventoryData.GetCurrentInventoryState());
         }
 
         private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
