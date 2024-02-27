@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootRolls: 1
   dropchance: 100
+  itemQuantityVariation: 0
   items: []
   weightings: 
