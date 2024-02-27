@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 4941947649001474449}
   - component: {fileID: 351374272898713310}
   - component: {fileID: 8157209640665937541}
+  - component: {fileID: 4106831542994268797}
   m_Layer: 2
   m_Name: Lootable
   m_TagString: Untagged
@@ -241,5 +242,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd4e32ad2396eb4791a265394944f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 4106831542994268797}
   lootTable: {fileID: 11400000, guid: a02b7586a01313441a7db6cd5434d4fb, type: 2}
   pickupPrefab: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
+  distanceToSpawn: 1.28
+--- !u!114 &4106831542994268797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123985754744069862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d136299d9c86f04eb52d450fb0bbe74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesToCheck:
+  - Interact

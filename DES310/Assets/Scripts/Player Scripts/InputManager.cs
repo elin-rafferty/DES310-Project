@@ -16,6 +16,11 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        UpdateKeys();
+    }
+
     public void UpdateKeys()
     {
         downLastFrame.Clear();

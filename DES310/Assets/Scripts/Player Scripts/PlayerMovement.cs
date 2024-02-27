@@ -101,11 +101,10 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene("Main Menu");
         }
-        inputManager.UpdateKeys();
         
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
-        if (false)
+        if (true)
         {
 
                 if (Input.GetAxis("Look X") != 0 || Input.GetAxis("Look Y") != 0)

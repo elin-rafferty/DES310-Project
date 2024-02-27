@@ -9,6 +9,7 @@ public class VentScript : MonoBehaviour
 {
     public string sceneName;
     public PersistentVariables persistentVariables;
+    public InputManager inputManager;
     private bool trigger = false;
     [SerializeField] GameObject loadingScreen;
 
@@ -33,7 +34,7 @@ public class VentScript : MonoBehaviour
     void Update()
     {
         // Load new scene
-        if (Input.GetKeyDown(KeyCode.E) && trigger == true)
+        if (inputManager.GetButtonDown("Interact") && trigger == true)
         {
             // Modifier Load Screen
             if (sceneName != "Main Hub" && loadingScreen)

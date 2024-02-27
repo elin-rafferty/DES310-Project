@@ -8,6 +8,7 @@ using UnityEngine.SearchService;
 
 public class LootableObject : MonoBehaviour
 {
+    private InputManager inputManager;
     public LootTable lootTable;
     public Item pickupPrefab;
     public float distanceToSpawn = 1.28f;
@@ -32,10 +33,15 @@ public class LootableObject : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        inputManager = GetComponent<InputManager>();
+    }
+
     void Update()
     {
         // Pick up item
-        if (Input.GetKeyDown(KeyCode.E) && trigger && !looted)
+        if (inputManager.GetButtonDown("Interact") && trigger && !looted)
         {
             List<InventoryItem> itemsToDrop = lootTable.getLoot();
             int posIndex = 0;

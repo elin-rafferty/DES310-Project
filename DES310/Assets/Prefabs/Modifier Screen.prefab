@@ -186,6 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7100953166378411233}
   - component: {fileID: 1037102227649646281}
+  - component: {fileID: 8762616237348937191}
   m_Layer: 0
   m_Name: Modifier Screen
   m_TagString: Untagged
@@ -225,6 +226,20 @@ MonoBehaviour:
   text: {fileID: 7705488290948537899}
   modifierBehaviour: {fileID: 11400000, guid: cf50298846d1e9b4c8c6b2789fcf265a, type: 2}
   persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
+--- !u!114 &8762616237348937191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367990351250271037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d136299d9c86f04eb52d450fb0bbe74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesToCheck:
+  - Interact
 --- !u!1 &3591304233741423646
 GameObject:
   m_ObjectHideFlags: 0
