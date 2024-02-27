@@ -9,6 +9,7 @@ public class VentScript : MonoBehaviour
     public string sceneName;
     public PersistentVariables persistentVariables;
     private bool trigger = false;
+    [SerializeField] GameObject loadingScreen;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,6 +34,12 @@ public class VentScript : MonoBehaviour
         // Load new scene
         if (Input.GetKeyDown(KeyCode.E) && trigger == true)
         {
+            // Modifier Load Screen
+            if (sceneName != "Main Hub" && loadingScreen)
+            {
+                persistentVariables.modifier = (Modifiers)Random.Range(0, 6);
+                loadingScreen.SetActive(true);
+            }
             persistentVariables.exitReason = LevelExitReason.VENT_EXIT;
             SceneManager.LoadScene(sceneName);
         }
