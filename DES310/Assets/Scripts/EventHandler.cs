@@ -24,6 +24,7 @@ public class EventHandler : ScriptableObject
     {
         Debug.Log("Player died");
         persistentVariables.exitReason = LevelExitReason.DEATH;
+        persistentVariables.modifier.Clear();
         SceneManager.LoadScene("Main Hub");
     }
 }

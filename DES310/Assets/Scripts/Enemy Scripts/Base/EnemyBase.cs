@@ -8,11 +8,12 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     [field: SerializeField] public GameObject alertIconPrefab { get; set; }
     public GameObject alertObject { get; set; }
     [field: SerializeField] public float meleeDamage { get; set; } = 5f;
+    [field: SerializeField] public float rangedDamage { get; set; } = 0f;
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
-    private float speedMultiplier = 1f;
     [field: SerializeField] public float aggroRange { get; set; } = 7f;
     [field: SerializeField] public float attackRange { get; set; } = 2f;
     [field: SerializeField] public float attackDelay { get; set; } = 1f;
+    [field: SerializeField] public float speed { get; set; }
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
 
@@ -86,11 +87,15 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     #region Modifier Functions;
 
-    public void SetModifiers(ModifierBehaviour modifier)
+    virtual public void SetModifiers(ModifierBehaviour modifier)
     {
-        CurrentHealth *= modifier.enemyHealthMultiplier;
+        MaxHealth *= modifier.enemyHealthMultiplier;
+        meleeDamage *= modifier.enemyDamageMultiplier;
+        rangedDamage *= modifier.enemyDamageMultiplier;
+        speed *= modifier.enemySpeedMultiplier;
+        attackDelay /= modifier.enemyAttackSpeedMultiplier;
+        attackRange *= modifier.enemyAttackRangeMultiplier;
         aggroRange *= modifier.enemyAggroRangeMultiplier;
-        speedMultiplier = modifier.enemySpeedMultiplier;
     }
 
     #endregion
@@ -118,7 +123,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void MoveEnemy(Vector2 velocity)
     {
-        rb.velocity = velocity * speedMultiplier;
+        rb.velocity = velocity;
     }
 
     #endregion
