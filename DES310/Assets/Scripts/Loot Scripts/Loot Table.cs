@@ -43,6 +43,12 @@ public class LootTable : ScriptableObject
                         // Add that item to the rolls
                         InventoryItem newItem = new();
                         newItem.quantity = items[i].quantity;
+                        if (itemQuantityVariation != 0f)
+                        {
+                            float newQuantity = newItem.quantity;
+                            newQuantity *= UnityEngine.Random.Range(1 -  itemQuantityVariation, 1 + itemQuantityVariation);
+                            newItem.quantity = (int)MathF.Round(newQuantity);
+                        }
                         newItem.item = items[i].item;
                         newItem.itemState = items[i].itemState;
                         itemsRolled.Add(newItem);
