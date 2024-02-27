@@ -24,6 +24,10 @@ public class Item : MonoBehaviour
     [SerializeField]
     private float duration = 0.3f;
 
+    public bool hasDestination = false;
+    public Vector2 destination = Vector2.zero;
+    private float moveSpeed = 5f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Set trigger true on collision with item
@@ -39,15 +43,34 @@ public class Item : MonoBehaviour
     void Update()
     {
         // Pick up item
-        if (Input.GetKeyDown(KeyCode.E) && trigger == true)
+        if (Input.GetKeyDown(KeyCode.E) && trigger && !hasDestination)
         {
             Destroy(gameObject);
             inventoryItems.AddItem(InventoryItem, Quantity);
         }
-
     }
 
-        private void Start()
+    private void FixedUpdate()
+    {
+
+        // Move towards destination
+        if (hasDestination)
+        {
+            Vector2 position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+            Vector2 distance = destination - position;
+            Vector2 movement = distance.normalized * moveSpeed * Time.deltaTime;
+            if (distance.sqrMagnitude > movement.sqrMagnitude)
+            {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x + movement.x, gameObject.transform.position.y + movement.y, gameObject.transform.position.z);
+            } else
+            {
+                gameObject.transform.position = new Vector3(destination.x, destination.y, gameObject.transform.position.z);
+                hasDestination = false;
+            }
+        }
+    }
+
+    private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = InventoryItem.ItemImage;
     }

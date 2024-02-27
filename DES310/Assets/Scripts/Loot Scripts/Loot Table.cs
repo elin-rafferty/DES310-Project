@@ -45,14 +45,17 @@ public class LootTable : ScriptableObject
                         newItem.quantity = items[i].quantity;
                         if (itemQuantityVariation != 0f)
                         {
+                            // Vary the quantity a bit
                             float newQuantity = newItem.quantity;
                             newQuantity *= UnityEngine.Random.Range(1 -  itemQuantityVariation, 1 + itemQuantityVariation);
                             newItem.quantity = (int)MathF.Round(newQuantity);
                         }
+                        // Copy item data
                         newItem.item = items[i].item;
                         newItem.itemState = items[i].itemState;
                         if (newItem.item != null && newItem.quantity != 0)
                         {
+                            // Add to item list
                             itemsRolled.Add(newItem);
                         }
                     }

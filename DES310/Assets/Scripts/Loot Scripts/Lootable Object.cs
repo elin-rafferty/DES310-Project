@@ -57,7 +57,9 @@ public class LootableObject : MonoBehaviour
                         offset = new Vector3(0, -distanceToSpawn, 0);
                         break;
                 }
-                Item pickup = Instantiate(pickupPrefab, gameObject.transform.position + offset, Quaternion.identity);
+                Item pickup = Instantiate(pickupPrefab, gameObject.transform.position, Quaternion.identity);
+                pickup.hasDestination = true;
+                pickup.destination = pickup.transform.position + offset;
                 pickup.Quantity = item.quantity;
                 pickup.InventoryItem = item.item;
                 posIndex++;
