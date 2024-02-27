@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 3108813626426328733, guid: 2c64f19b98176124fa60edd80672f7f5, type: 3}
   enemyWeightings: 010000000100000001000000
   spawnPercentChance: 50
-  enemyHealthMultiplier: 2
-  sprinterHealthMultiplier: 2
+  enemyHealthMultiplier: 1
+  sprinterHealthMultiplier: 1
   walkerHealthMultiplier: 1
   spitterHealthMultiplier: 1
   enemyDamageMultiplier: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
   walkerDamageMultiplier: 1
   spitterDamageMultiplier: 1
   enemySpeedMultiplier: 1
-  sprinterSpeedMultiplier: 1
+  sprinterSpeedMultiplier: 1.1
   walkerSpeedMultiplier: 1
   enemyAttackSpeedMultiplier: 1
   sprinterAttackSpeedMultiplier: 1

@@ -29,6 +29,9 @@ public class EnemySprinterChase : EnemyChaseSOBase
         target = Player.transform;
         runDelayTimer = 0;
 
+        // Play Aggro Sound
+        SoundManager.instance.PlaySound(SoundManager.SFX.EnemyScreech, transform, 1f);
+
         // Instantiate Alert Icon
         Destroy(enemyBase.alertObject = Instantiate(enemyBase.alertIconPrefab, enemyBase.transform.position + offset, Quaternion.identity), enemyBase.attackDelay);
 
