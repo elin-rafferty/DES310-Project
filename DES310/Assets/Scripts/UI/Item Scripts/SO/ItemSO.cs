@@ -5,7 +5,7 @@ using System;
 
 namespace Inventory.Model
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu (menuName = "Items/Item SO")]
     public class ItemSO : ScriptableObject
     {
 
