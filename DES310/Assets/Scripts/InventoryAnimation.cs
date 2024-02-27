@@ -19,9 +19,9 @@ public class InventoryAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InventoryOpen != true)
+        if (!InventoryOpen)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 anim.Play("Open");
                 InventoryOpen = true;
@@ -29,9 +29,9 @@ public class InventoryAnimation : MonoBehaviour
             }
         }
 
-        else if (InventoryOpen != false)
+        else if (InventoryOpen)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
                 anim.Play("Close");
                 InventoryOpen = false;

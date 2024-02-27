@@ -1,6 +1,7 @@
 using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -43,7 +44,7 @@ public class Item : MonoBehaviour
     void Update()
     {
         // Pick up item
-        if (Input.GetKeyDown(KeyCode.E) && trigger && !hasDestination)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)) && trigger && !hasDestination)
         {
             Destroy(gameObject);
             inventoryItems.AddItem(InventoryItem, Quantity);
