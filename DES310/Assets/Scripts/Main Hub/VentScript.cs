@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class VentScript : MonoBehaviour
 {
     public string sceneName;
+    public float timeBeforeOpen = 2;
     public PersistentVariables persistentVariables;
     public InputManager inputManager;
     private bool trigger = false;
@@ -31,10 +32,18 @@ public class VentScript : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (timeBeforeOpen > 0)
+        {
+            timeBeforeOpen -= Time.deltaTime;
+            if (timeBeforeOpen < 0)
+            {
+                timeBeforeOpen = 0;
+            }
+        }
         // Load new scene
-        if (inputManager.GetButtonDown("Interact") && trigger == true)
+        if (inputManager.GetButtonDown("Interact") && trigger && timeBeforeOpen == 0)
         {
             // Modifier Load Screen
             if (sceneName != "Main Hub" && loadingScreen)

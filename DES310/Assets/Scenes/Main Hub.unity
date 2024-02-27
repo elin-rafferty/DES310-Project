@@ -2191,7 +2191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872256357477036187, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -474.9234
+      value: -474.92422
       objectReference: {fileID: 0}
     - target: {fileID: 4036384152379016029, guid: b1a698f9f0ca7b84baac0c35c480cab0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6122,6 +6122,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1711586865}
     - target: {fileID: 579727596162255894, guid: e3f2db4c88921f44e8e82eefdcddd294, type: 3}
+      propertyPath: timeBeforeOpen
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 579727596162255894, guid: e3f2db4c88921f44e8e82eefdcddd294, type: 3}
       propertyPath: persistentVariables
       value: 
       objectReference: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
@@ -6189,6 +6193,10 @@ PrefabInstance:
     - target: {fileID: 2367990351250271037, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
       propertyPath: m_Name
       value: Modifier Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367990351250271037, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7100953166378411233, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
       propertyPath: m_LocalPosition.x
