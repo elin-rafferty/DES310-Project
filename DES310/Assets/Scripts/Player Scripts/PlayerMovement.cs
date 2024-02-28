@@ -97,11 +97,11 @@ public class PlayerMovement : MonoBehaviour
             }
             overheatSlider.value = overheatLevel;
         }
-        //THIS IS SUPER TEMPORARY DELETE LATER PLZ
+        /*//THIS IS SUPER TEMPORARY DELETE LATER PLZ
         if (Input.GetKeyDown(KeyCode.M) || inputManager.GetButtonDown("StartButton"))
         {
             SceneManager.LoadScene("Main Menu");
-        }
+        }*/
         
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
