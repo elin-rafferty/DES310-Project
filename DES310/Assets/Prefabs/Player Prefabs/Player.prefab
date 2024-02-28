@@ -1427,6 +1427,7 @@ GameObject:
   - component: {fileID: 7521459502205102297}
   - component: {fileID: 8196851069569593267}
   - component: {fileID: 772383854847497066}
+  - component: {fileID: 4964699903416701041}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1780,6 +1781,28 @@ MonoBehaviour:
   itemCurrentState: []
   overheatSlider: {fileID: 646787039511115557}
   persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
+--- !u!95 &4964699903416701041
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fb10691c7f29c247b3db126f5d6150e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5713499253011613616
 GameObject:
   m_ObjectHideFlags: 0
