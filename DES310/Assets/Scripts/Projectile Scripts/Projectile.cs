@@ -44,10 +44,13 @@ public class Projectile : MonoBehaviour
                 }
                 if (hit.collider.gameObject.tag == "Player")
                 {
-                    // Player Hit Sound
-
                     // Damage Player
                     hit.collider.gameObject.GetComponent<Health>().Damage(damage);
+                }
+                else if (hit.collider)
+                {
+                    // Play Laser Rebound
+                    SoundManager.instance.PlaySound(SoundManager.SFX.LaserRebound, transform, 1f);
                 }
                 break;
             }

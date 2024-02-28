@@ -61,6 +61,8 @@ public class Health : MonoBehaviour
 
     public void Damage(float damage)
     {
+        // Play Sound
+        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerHit, transform, 0.8f);
 
         currentHealth -= damage * modifierBehaviour.enemyDamageMultiplier;
         eventHandler.PlayerHealthChange.Invoke(currentHealth);

@@ -43,6 +43,8 @@ public class LootableObject : MonoBehaviour
         // Pick up item
         if (inputManager.GetButtonDown("Interact") && trigger && !looted)
         {
+            SoundManager.instance.PlaySound(SoundManager.SFX.CrateOpen, transform, 1f);
+
             List<InventoryItem> itemsToDrop = lootTable.getLoot();
             int posIndex = 0;
             foreach (InventoryItem item in itemsToDrop)

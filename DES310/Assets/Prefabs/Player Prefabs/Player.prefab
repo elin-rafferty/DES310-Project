@@ -1631,7 +1631,7 @@ MonoBehaviour:
   inputManager: {fileID: 4915550660991606701}
   barrelEnd: {fileID: 6796015444636642066}
   overheatSlider: {fileID: 646787039511115557}
-  dashCooldown: 3
+  dashCooldown: 1.5
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
 --- !u!114 &4915550660991606701
 MonoBehaviour:
@@ -2536,11 +2536,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Size
-      value: 0.5075199
+      value: 0.5365925
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Value
-      value: 0.9999999
+      value: 0.99999946
       objectReference: {fileID: 0}
     - target: {fileID: 2110666928486118847, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_AnchorMax.y
