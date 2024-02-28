@@ -32,7 +32,7 @@ public class VentScript : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (timeBeforeOpen > 0)
         {

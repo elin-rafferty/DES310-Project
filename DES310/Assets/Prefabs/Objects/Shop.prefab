@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7650073414948069230}
   - component: {fileID: 5245850340677133059}
   - component: {fileID: 7660983394530422021}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shop Trigger Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
