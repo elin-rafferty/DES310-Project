@@ -57,6 +57,14 @@ public class OptionsMenu : MonoBehaviour
         controls.value = settings.Controls;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.JoystickButton1))
+        {
+            OpenMainMenu();
+        }
+    }
+
     public void OpenMainMenu()
     {
         mainMenu.SetActive(true);
