@@ -5,7 +5,12 @@ using UnityEngine;
 public class ChestTrigger : MonoBehaviour
 {
     private bool trigger = false;
+    private InputManager inputManager;
 
+    private void Start()
+    {
+        inputManager = GetComponent<InputManager>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -27,7 +32,7 @@ public class ChestTrigger : MonoBehaviour
     void Update()
     {
         // Load chest menu
-        if (Input.GetKeyDown(KeyCode.E) && trigger == true)
+        if (inputManager.GetButtonDown("Interact") && trigger == true)
         {
             // Put code to do that here
             Debug.Log("Chest will open here eventually");

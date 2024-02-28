@@ -7262,8 +7262,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3997381727081057819, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6490645288514383781}
   m_SourcePrefab: {fileID: 100100000, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
+--- !u!1 &6490645288514383780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3997381727081057819, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
+  m_PrefabInstance: {fileID: 6490645288514383779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6490645288514383781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6490645288514383780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bbe8bbe6b074341a16ab71d33a7ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: 3159a824a09c3824b8be83d7dd8a45ae, type: 2}
+  itemToBuy: {fileID: 11400000, guid: bfa17d5a9b64c6d439bcca79d6c1a39c, type: 2}
+  quantity: 1
+  currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+  cost: 5
 --- !u!1001 &6887345451192018847
 PrefabInstance:
   m_ObjectHideFlags: 0
