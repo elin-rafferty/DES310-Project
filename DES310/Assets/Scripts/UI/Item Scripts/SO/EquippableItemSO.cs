@@ -1,3 +1,4 @@
+using Inventory.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,11 @@ namespace Inventory.Model
             {
                 weaponSystem.SetWeapon(this, itemState == null ?
                     DefaultParametersList : itemState);
+                inventoryMainPage inventoryMainPage = character.GetComponentInChildren<inventoryMainPage>();
+                if (inventoryMainPage != null)
+                {
+                    inventoryMainPage.HideItemAction();
+                }
                 return true;
             }
             return false;

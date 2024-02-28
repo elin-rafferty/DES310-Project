@@ -1,3 +1,5 @@
+using Inventory.Model;
+using Inventory.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +11,7 @@ public class InventoryAnimation : MonoBehaviour
     bool InventoryOpen = false;
     public EventHandler eventHandler;
     public InputManager inputManager;
+    public inventoryMainPage inventoryMainPage;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class InventoryAnimation : MonoBehaviour
         {
             if (inputManager.GetButtonDown("OpenInventory") || inputManager.GetButtonDown("Back"))
             {
+                inventoryMainPage.HideItemAction();
                 anim.Play("Close");
                 InventoryOpen = false;
                 eventHandler.InventoryChangeState.Invoke(false);
