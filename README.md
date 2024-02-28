@@ -23,6 +23,7 @@ Shift - Dash
 
 Known Bugs:
 1. No support for controller in inventory. *Temp solution* use mouse instead.
-2. Enemies can push player through walls sometimes (fixes known, will be applied soon). *Temp solution* None.
+2. Enemies can push player through walls sometimes. *Temp solution* None. Fixes known, will be applied soon.
 3. Audio doesn't work unless you open options. *Temp solution* Open options when you first start game.
+4. UI elements do not have the correct font. *Temp solution* fix known, this can be ignored
 
