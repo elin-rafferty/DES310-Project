@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VentScript : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class VentScript : MonoBehaviour
     public InputManager inputManager;
     private bool trigger = false;
     [SerializeField] GameObject loadingScreen;
+    [SerializeField] Canvas canvas;
+    [SerializeField] Text text;
+    [SerializeField] SettingsSO settings;
+
+    private void Start()
+    {
+        text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to enter";
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,6 +51,7 @@ public class VentScript : MonoBehaviour
                 timeBeforeOpen = 0;
             }
         }
+        canvas.gameObject.SetActive(trigger && timeBeforeOpen == 0);
         // Load new scene
         if (inputManager.GetButtonDown("Interact") && trigger && timeBeforeOpen == 0)
         {
