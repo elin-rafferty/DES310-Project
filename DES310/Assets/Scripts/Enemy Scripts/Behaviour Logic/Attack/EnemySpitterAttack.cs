@@ -73,6 +73,6 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         Destroy(newProjectile.gameObject, 1f * (1/enemyBase.attackDelay));
 
         // Play shoot sound
-        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);
+        SoundManager.instance.PlaySound(SoundManager.SFX.SpitterAttack, transform, 1f);
     }
 }

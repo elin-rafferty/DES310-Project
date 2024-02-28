@@ -59,6 +59,9 @@ namespace Inventory.UI
 
         public void Select()
         {
+            // Play Select Sound
+            SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+
             borderImage.enabled = true;
         }
 
