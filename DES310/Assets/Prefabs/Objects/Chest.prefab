@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 3506097599090268125}
   - component: {fileID: 8460859936551384208}
   - component: {fileID: 1579321486018155289}
+  - component: {fileID: 5443150564885762119}
   m_Layer: 2
   m_Name: Chest Trigger Zone
   m_TagString: Untagged
@@ -251,3 +252,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd19bfc82e9220648bcbee47f3ca92dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5443150564885762119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558749866921970140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d136299d9c86f04eb52d450fb0bbe74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesToCheck:
+  - Interact

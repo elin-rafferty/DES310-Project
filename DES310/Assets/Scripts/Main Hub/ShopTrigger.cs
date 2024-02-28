@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class ShopTrigger : MonoBehaviour
 {
     private bool trigger = false;
+    private InputManager inputManager;
+
+    private void Start()
+    {
+        inputManager = GetComponent<InputManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,10 +34,11 @@ public class ShopTrigger : MonoBehaviour
     void Update()
     {
         // Load shop menu
-        if (Input.GetKeyDown(KeyCode.E) && trigger == true)
+        if (inputManager.GetButtonDown("Interact") && trigger == true)
         {
             // Put code to do that here
             Debug.Log("The shop will open here eventually");
+            GetComponent<BuyItem>().PurchaseItem();
         }
     }
 }
