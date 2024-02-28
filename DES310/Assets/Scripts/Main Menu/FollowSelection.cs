@@ -15,6 +15,12 @@ public class FollowSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = eventSystem.currentSelectedGameObject.transform.position + new Vector3(250, 0, 0);
+        if (eventSystem.currentSelectedGameObject != null)
+        {
+            transform.position = eventSystem.currentSelectedGameObject.transform.position + new Vector3(250, 0, 0);
+        } else
+        {
+            transform.position = new Vector3(1000000, 100000000);
+        }
     }
 }
