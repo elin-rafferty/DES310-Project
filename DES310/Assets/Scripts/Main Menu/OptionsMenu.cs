@@ -5,9 +5,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class OptionsMenu : MonoBehaviour
 {
+    // Menu objects
+    [SerializeField] private EventSystem eventSystem;
+    [SerializeField] private GameObject mainMenu, optionsMenu;
+    [SerializeField] private GameObject optionsButton;
+
     // Settings
     [SerializeField] private SettingsSO settings;
     [SerializeField] private Dropdown graphics;
@@ -49,6 +55,13 @@ public class OptionsMenu : MonoBehaviour
         sfxVolumeSlider.value = settings.SFXVolume;
         //graphics.value = settings.Graphics;
         controls.value = settings.Controls;
+    }
+
+    public void OpenMainMenu()
+    {
+        mainMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+        eventSystem.SetSelectedGameObject(optionsButton);
     }
 
     #region Volume Slider Functions
