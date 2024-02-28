@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7393274054475084800}
   - component: {fileID: 2929790417737803066}
   - component: {fileID: 922001325609801663}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Loot Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd4e32ad2396eb4791a265394944f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 4106831542994268797}
   lootTable: {fileID: 11400000, guid: a02b7586a01313441a7db6cd5434d4fb, type: 2}
   pickupPrefab: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
   distanceToSpawn: 1.28

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c81ea8dc68e6704a8db88245e0c011f, type: 3}
   m_Name: Shotgun Bullet
   m_EditorClassIdentifier: 
-  speed: 20
-  damage: 70
+  speed: 30
+  damage: 40
   despawnTimer: 0.2
   sprite: {fileID: 6823313046665803591, guid: a2d2de93767a12641905939de095eab6, type: 3}

@@ -7492,7 +7492,7 @@ MonoBehaviour:
   itemToBuy: {fileID: 11400000, guid: bfa17d5a9b64c6d439bcca79d6c1a39c, type: 2}
   quantity: 1
   currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
-  cost: 5
+  cost: 100
 --- !u!1001 &6887345451192018847
 PrefabInstance:
   m_ObjectHideFlags: 0
