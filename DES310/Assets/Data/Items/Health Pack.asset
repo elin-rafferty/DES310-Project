@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
-  <Name>k__BackingField: Bubblegum
-  <Description>k__BackingField: yum yum
+  <Name>k__BackingField: Health Pack
+  <Description>k__BackingField: This could be useful in a pinch
   <ItemImage>k__BackingField: {fileID: -2818011823274637903, guid: 7e28d63ea85cf1445b73d8f7c0f07164, type: 3}
   <DefaultParametersList>k__BackingField: []
   modifierDatas:
   - statModifier: {fileID: 11400000, guid: b553505f840048f479fc4a291be98e9f, type: 2}
-    value: 5
+    value: 40

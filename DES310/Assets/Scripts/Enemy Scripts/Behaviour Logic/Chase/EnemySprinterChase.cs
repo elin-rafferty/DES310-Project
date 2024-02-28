@@ -101,7 +101,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
         }
 
         // Start sprinting after time delay
-        Debug.Log(runDelayTimer);
+        //Debug.Log(runDelayTimer);
         if (runDelayTimer > 1)
         {
             enemyBase.MoveEnemy(direction * enemyBase.speed);
