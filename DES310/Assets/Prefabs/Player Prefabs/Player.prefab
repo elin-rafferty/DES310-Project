@@ -1390,6 +1390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   inputManager: {fileID: 6918064253512207645}
+  inventoryMainPage: {fileID: 2161480753922219962}
 --- !u!114 &6918064253512207645
 MonoBehaviour:
   m_ObjectHideFlags: 0

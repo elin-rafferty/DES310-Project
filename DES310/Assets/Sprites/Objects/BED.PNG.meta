@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3851b4f3d6f87e94fa643eb60a03c5e7
+guid: a69332c39f9e9304f8a84b79065017f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7942796802960772483
-    second: scrap_item_asset_0
+      213: 8343486958697136428
+    second: BED_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scrap_item_asset_0
+      name: BED_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 27
-        width: 98
-        height: 82
+        x: 11
+        y: 23
+        width: 106
+        height: 230
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d723a64f36485c190800000000000000
-      internalID: -7942796802960772483
+      spriteID: c214f39ee250ac370800000000000000
+      internalID: 8343486958697136428
       vertices: []
       indices: 
       edges: []
@@ -188,8 +188,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      scrap_item_asset_0: -7942796802960772483
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
