@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 3506097599090268125}
   - component: {fileID: 8460859936551384208}
   - component: {fileID: 1579321486018155289}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chest Trigger Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
