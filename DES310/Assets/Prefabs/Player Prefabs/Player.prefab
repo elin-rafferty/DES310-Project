@@ -214,7 +214,7 @@ RectTransform:
   m_GameObject: {fileID: 790249798625469206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 3.2248, z: 1}
+  m_LocalScale: {x: 2.1625, y: 2.2131665, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 709927765457503838}
@@ -222,7 +222,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1900, y: -955}
+  m_SizeDelta: {x: -1884, y: -939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7828443622901171438
 CanvasRenderer:
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -282,11 +282,11 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
 --- !u!114 &5637319197423591304
 MonoBehaviour:
@@ -2372,7 +2372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1221463716746200697, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -474.92404
+      value: -474.92294
       objectReference: {fileID: 0}
     - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Spacing.x
@@ -2400,11 +2400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Size
-      value: 0.51157176
+      value: 0.5075199
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Value
-      value: 1.0000007
+      value: 0.9999999
       objectReference: {fileID: 0}
     - target: {fileID: 2110666928486118847, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_AnchorMax.y
