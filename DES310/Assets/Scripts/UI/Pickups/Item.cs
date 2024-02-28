@@ -46,6 +46,9 @@ public class Item : MonoBehaviour
         // Pick up item
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)) && trigger && !hasDestination)
         {
+            // Play Pickup Sound
+            SoundManager.instance.PlaySound(SoundManager.SFX.ItemPickUp, transform, 1f);
+
             Destroy(gameObject);
             inventoryItems.AddItem(InventoryItem, Quantity);
         }
