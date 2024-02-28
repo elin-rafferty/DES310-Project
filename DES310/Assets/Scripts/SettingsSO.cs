@@ -9,4 +9,5 @@ public class SettingsSO : ScriptableObject
     public float MusicVolume = 0.5f;
     public float SFXVolume = 0.5f;
     public int Graphics = 2;
+    public int Controls = 0;
 }
