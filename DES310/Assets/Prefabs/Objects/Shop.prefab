@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7650073414948069230}
   - component: {fileID: 5245850340677133059}
   - component: {fileID: 7660983394530422021}
+  - component: {fileID: 7167002747647708304}
   m_Layer: 2
   m_Name: Shop Trigger Zone
   m_TagString: Untagged
@@ -91,6 +92,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fded632a58c7046801d0eb9f0fca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7167002747647708304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997381727081057819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d136299d9c86f04eb52d450fb0bbe74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axesToCheck:
+  - Interact
 --- !u!1 &7614079513108470704
 GameObject:
   m_ObjectHideFlags: 0
