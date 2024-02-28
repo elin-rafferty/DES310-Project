@@ -1,5 +1,5 @@
 # DES310-Project
-Our professional DES310 project with a client from Modern Wolf. Our code name is "One More Run".
+Our professional DES310 project with a client from Modern Wolf. Our name is Squid Kid Studios and our game is called Operation Exodus.
 
 About:
 The game is a top down rogue like with element of survival and resource management. The game utilises tilemaps to create a seamless environment. It will have a detailed pixelated art style.
