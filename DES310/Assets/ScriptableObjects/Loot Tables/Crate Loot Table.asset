@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crate Loot Table
   m_EditorClassIdentifier: 
   lootRolls: 4
-  dropchance: 100
+  dropchance: 50
   itemQuantityVariation: 0.4
   items:
   - quantity: 1
@@ -22,4 +22,4 @@ MonoBehaviour:
   - quantity: 10
     item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  weightings: 0100000002000000
+  weightings: 0100000006000000

@@ -17,4 +17,4 @@ MonoBehaviour:
   fireDelay: 0.5
   overheatCapacity: 1.5
   isSingleFire: 1
-  sprayAngle: 10
+  sprayAngle: 15

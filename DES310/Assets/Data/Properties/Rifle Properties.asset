@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: {fileID: 11400000, guid: 3110ddd675b4ebb46876a42b776d3a5f, type: 2}
   projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
-  fireDelay: 0.1
-  overheatCapacity: 5
+  fireDelay: 0.15
+  overheatCapacity: 3
   isSingleFire: 0
