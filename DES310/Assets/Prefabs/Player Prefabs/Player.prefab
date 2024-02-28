@@ -1428,6 +1428,7 @@ GameObject:
   - component: {fileID: 8196851069569593267}
   - component: {fileID: 772383854847497066}
   - component: {fileID: 4964699903416701041}
+  - component: {fileID: 8065663312008827745}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1803,6 +1804,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8065663312008827745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db596b2b9fd505446adc1759b80220c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  metalFootsteps: 04000000050000000600000007000000
+  glassFootsteps: 
+  rb: {fileID: 1048355653473945141}
 --- !u!1 &5713499253011613616
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,7 +66,7 @@ public class SoundManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
-    public void PlayRandomSound(AudioClip[] audioClip, Transform transform, float volume)
+    public void PlayRandomSound(SFX[] audioClip, Transform transform, float volume)
     {
         // Get random clip
         int rand = Random.Range(0, audioClip.Length);
@@ -75,7 +75,7 @@ public class SoundManager : MonoBehaviour
         AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
 
         // Assign Audio Clip
-        audioSource.clip = audioClip[rand];
+        audioSource.clip = GetAudioClip(audioClip[rand]);
 
         // Change Volume
         audioSource.volume = volume;
