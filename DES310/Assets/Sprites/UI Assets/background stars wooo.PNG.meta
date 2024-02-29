@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background stars wooo_0: 8937846981592648405
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

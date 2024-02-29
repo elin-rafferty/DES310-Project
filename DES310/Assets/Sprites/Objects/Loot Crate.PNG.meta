@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Loot Crate_0: 5981687634460740809
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
