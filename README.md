@@ -3,7 +3,9 @@ Our professional DES310 project with a client from Modern Wolf. Our name is Squi
 
 About:
 The game is a top down rogue like with element of survival and resource management. The game utilises tilemaps to create a seamless environment. It will have a detailed pixelated art style.
-Our game consists of three runs which each last a maximum of 5 minutes. Each run is different with one being an indoor map, one being an outdoor map and last being a boss match. Between each run is a hub where you can relax and sort your inventory, storage and buy possibly items from the traders shop.
+Our game will consist of three runs which each last a maximum of 5 minutes. Each run is different with one being an indoor map, one being an outdoor map and last being a boss match. Between each run is a hub where you can relax and sort your inventory, storage and buy possibly items from the traders shop.
+
+Currently it contains the main hub and one run.
 
 To Play:
 You double left-click on the build which has the the game name and inky (squid) on it. It will then take you to the main menu. 
