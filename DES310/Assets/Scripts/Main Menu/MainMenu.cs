@@ -46,4 +46,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     #endif
     }
+
+    public void PlaySelectSound()
+    {
+        SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+    }
 }

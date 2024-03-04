@@ -36,4 +36,9 @@ public class PauseMenu : MonoBehaviour
         persistentVariables.exitReason = LevelExitReason.NONE;
         SceneManager.LoadScene("Main Menu");
     }
+
+    public void PlaySelectSound()
+    {
+        SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+    }
 }

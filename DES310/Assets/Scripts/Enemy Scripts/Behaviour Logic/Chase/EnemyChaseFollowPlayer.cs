@@ -8,8 +8,12 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
 {
     private Transform target;
 
-    private float smoothTime = 0.25f;
+    private float angleSmoothTime = 0.25f;
     private float rotateSpeed;
+    private float velocitySmoothTime = 0.005f;
+    private float refSpeedX;
+    private float refSpeedY;
+    Vector2 currentDirection = new(0, 0);
 
     private float pathUpdateTime = 0.5f;
     private float timer;
@@ -81,13 +85,16 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
             // Look at Player
             Vector2 playerDirection = ((Vector2)Player.transform.position - rb.position).normalized;
             float targetAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
+            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, angleSmoothTime);
         } else
         {
             // Look in direction of movement
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
+            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, angleSmoothTime);
         }
+        // Direction Damping
+        direction.x = Mathf.SmoothDamp(currentDirection.x, direction.x, ref refSpeedX, velocitySmoothTime);
+        direction.y = Mathf.SmoothDamp(currentDirection.y, direction.y, ref refSpeedY, velocitySmoothTime);
         enemyBase.MoveEnemy(direction * enemyBase.speed);
         enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
@@ -96,6 +103,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
+            currentDirection = direction;
         }
     }
 
