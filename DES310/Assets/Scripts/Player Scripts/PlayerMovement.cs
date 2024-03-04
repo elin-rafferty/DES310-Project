@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Slider overheatSlider;
     [SerializeField] private float dashCooldown = 1.5f;
     [SerializeField] private SettingsSO settings;
+    [SerializeField] private GameObject pauseMenu;
 
 
     private bool inventoryOpen = false;
@@ -50,7 +52,14 @@ public class PlayerMovement : MonoBehaviour
         {
             HandleInput();
         } 
-        Cursor.visible = inventoryOpen;
+        if (!pauseMenu.activeSelf)
+        {
+            Cursor.visible = inventoryOpen;
+        }
+        else if (pauseMenu.activeSelf)
+        {
+            Cursor.visible = true;
+        }
     }
 
     void FixedUpdate()
@@ -97,12 +106,23 @@ public class PlayerMovement : MonoBehaviour
             }
             overheatSlider.value = overheatLevel;
         }
+
+        // Pause Menu
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (pauseMenu)
+            {
+                pauseMenu.SetActive(!pauseMenu.activeSelf);
+            }
+
+            if(!pauseMenu.activeSelf) Time.timeScale = 1.0f;
+        }
         /*//THIS IS SUPER TEMPORARY DELETE LATER PLZ
         if (Input.GetKeyDown(KeyCode.M) || inputManager.GetButtonDown("StartButton"))
         {
             SceneManager.LoadScene("Main Menu");
         }*/
-        
+
         crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
         if (settings.Controls == 1)
@@ -184,20 +204,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Fire(Vector2 mouseDirection)
     {
-        if (GetComponent<AgentWeapon>().weapon != null)
+        if (!pauseMenu.activeSelf)
         {
-            WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
-            weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
-            timeTilNextFire = weaponProperties.fireDelay;
-            overheatLevel += weaponProperties.fireDelay;
-            overheatSlider.value = overheatLevel;
-            if (overheatLevel >= weaponProperties.overheatCapacity)
+            if (GetComponent<AgentWeapon>().weapon != null)
             {
-                overheated = true;
-            }
+                WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
+                weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
+                timeTilNextFire = weaponProperties.fireDelay;
+                overheatLevel += weaponProperties.fireDelay;
+                overheatSlider.value = overheatLevel;
+                if (overheatLevel >= weaponProperties.overheatCapacity)
+                {
+                    overheated = true;
+                }
 
-            // Play shoot sound
-            SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);
+                // Play shoot sound
+                SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);
+            }
         }
     }
 
