@@ -1450,6 +1450,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7684737901045505813}
   - {fileID: 5114870430616643166}
   - {fileID: 623581420611878173}
   - {fileID: 582828877067996415}
@@ -1636,6 +1637,7 @@ MonoBehaviour:
   overheatSlider: {fileID: 646787039511115557}
   dashCooldown: 1.5
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
+  pauseMenu: {fileID: 5007900693741809109}
 --- !u!114 &4915550660991606701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3391,4 +3393,75 @@ MonoBehaviour:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4508340363908404688, guid: 7db5062195a3bd344b965b0eba6727c3, type: 3}
   m_PrefabInstance: {fileID: 5840184375850849087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7665949720489581483
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5877425663777710331}
+    m_Modifications:
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 5373378258914130720}
+    - target: {fileID: 3394957114997798526, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_Name
+      value: Pause Menu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+--- !u!1 &5007900693741809109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3394957114997798526, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+  m_PrefabInstance: {fileID: 7665949720489581483}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7684737901045505813 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 56084715555587262, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+  m_PrefabInstance: {fileID: 7665949720489581483}
   m_PrefabAsset: {fileID: 0}

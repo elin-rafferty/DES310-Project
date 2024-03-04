@@ -10,16 +10,24 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private PersistentVariables persistentVariables;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject playButton, optionsBackButton;
+    [SerializeField] private SettingsSO defaultSettings;
+    [SerializeField] private SoundMixerManager soundMixer;
+
     private void Start()
     {
         Cursor.visible = true;
         eventSystem.SetSelectedGameObject(playButton);
+
+        soundMixer.SetMasterVolume(defaultSettings.MasterVolume);
+        soundMixer.SetSFXVolume(defaultSettings.SFXVolume);
+        soundMixer.SetMusicVolume(defaultSettings.MusicVolume);
     }
 
     public void PlayGame()
     {
         persistentVariables.exitReason = LevelExitReason.NONE;
         SceneManager.LoadScene("Main Hub");
+        Time.timeScale = 1.0f;
     }
 
     public void OpenOptionsMenu()
