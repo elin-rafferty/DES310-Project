@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Pathfinding;
+using UnityEditor.Experimental.GraphView;
 
 [CreateAssetMenu(fileName = "Chase - Sprinter Chase", menuName = "Enemy Logic/Chase Logic/Sprinter Chase")]
 public class EnemySprinterChase : EnemyChaseSOBase
@@ -11,8 +12,12 @@ public class EnemySprinterChase : EnemyChaseSOBase
 
     Vector3 offset = new Vector3(0, 1, -5);
     private float runDelayTimer;
-    private float smoothTime = 0.25f;
+    private float angleSmoothTime = 0.25f;
     private float rotateSpeed;
+    private float velocitySmoothTime = 0.05f;
+    private float refSpeedX;
+    private float refSpeedY;
+    Vector2 currentDirection = new(0, 0);
 
     private float pathUpdateTime = 0.25f;
     private float timer;
@@ -81,7 +86,6 @@ public class EnemySprinterChase : EnemyChaseSOBase
             reachedEndOfPath = false;
         }
 
-
         // Move Enemy in direction of path
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         float angle;
@@ -91,19 +95,22 @@ public class EnemySprinterChase : EnemyChaseSOBase
             // Look at Player
             Vector2 playerDirection = ((Vector2)Player.transform.position - rb.position).normalized;
             float targetAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
+            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, angleSmoothTime);
         }
         else
         {
             // Look in direction of movement
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
+            angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, angleSmoothTime);
         }
 
         // Start sprinting after time delay
         //Debug.Log(runDelayTimer);
         if (runDelayTimer > 1)
         {
+            // Direction Damping
+            direction.x = Mathf.SmoothDamp(currentDirection.x, direction.x, ref refSpeedX, velocitySmoothTime);
+            direction.y = Mathf.SmoothDamp(currentDirection.y, direction.y, ref refSpeedY, velocitySmoothTime);
             enemyBase.MoveEnemy(direction * enemyBase.speed);
         }
         else
@@ -120,6 +127,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
+            currentDirection = direction;
         }
     }
 
