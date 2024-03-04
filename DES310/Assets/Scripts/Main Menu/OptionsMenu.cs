@@ -121,4 +121,9 @@ public class OptionsMenu : MonoBehaviour
     {
         settings.Controls = dropDown.value;
     }
+
+    public void PlaySelectSound()
+    {
+        SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+    }
 }
