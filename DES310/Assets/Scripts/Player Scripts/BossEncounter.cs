@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BossEncounter : MonoBehaviour
 {
-    [SerializeField] GameObject boss; 
+    [SerializeField] GameObject boss;
+    [SerializeField] HorizontalDoor door;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Boss Trigger"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Trigger");
             // Close Door
@@ -16,7 +17,8 @@ public class BossEncounter : MonoBehaviour
 
             // Set Boss Active
             boss.SetActive(true);
-
+            door.Lock();
+            door.Close();
 
             // Camera Sequence
         }
