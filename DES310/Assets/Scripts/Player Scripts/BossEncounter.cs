@@ -2,11 +2,13 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossEncounter : MonoBehaviour
 {
     [SerializeField] GameObject boss;
     [SerializeField] HorizontalDoor door;
+    [SerializeField] Slider bossHealthSlider;
 
     [SerializeField] GameObject playerCam;
     [SerializeField] GameObject bossCam;
@@ -52,6 +54,7 @@ public class BossEncounter : MonoBehaviour
         {
             mainCam.GetComponent<CinemachineBrain>().m_UpdateMethod = CinemachineBrain.UpdateMethod.FixedUpdate;
             Time.timeScale = 1f;
+            bossHealthSlider.gameObject.SetActive(true);
         }
     }
 
