@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 using Inventory.Model;
+using UnityEngine.UI;
 
 namespace Inventory.UI
 {
@@ -20,7 +20,7 @@ namespace Inventory.UI
         private Image itemImage;
 
         [SerializeField]
-        private TMP_Text quantityTxt;
+        private Text quantityTxt;
 
         [SerializeField]
         private Image borderImage;

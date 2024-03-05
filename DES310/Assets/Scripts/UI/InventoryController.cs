@@ -16,7 +16,7 @@ namespace Inventory
         [SerializeField] private EventHandler eventHandler;
 
         [SerializeField]
-        private Model.InventorySO inventoryData;
+        private InventorySO inventoryData;
 
         public List<InventoryItem> initialItems = new List<InventoryItem>();
 
