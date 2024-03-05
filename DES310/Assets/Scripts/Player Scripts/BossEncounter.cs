@@ -17,12 +17,6 @@ public class BossEncounter : MonoBehaviour
     float frequency = 1.0f;
     float cameraTimer = 0;
 
-    void Start()
-    {
-        amplitude = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain;
-        frequency = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain;
-    }
-
     void Update()
     {
         if (boss.activeSelf)
@@ -63,6 +57,11 @@ public class BossEncounter : MonoBehaviour
 
     private void OnEnable()
     {
+        if (bossCam)
+        {
+            amplitude = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain;
+            frequency = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain;
+        }
         cameraTimer = 0;
     }
 

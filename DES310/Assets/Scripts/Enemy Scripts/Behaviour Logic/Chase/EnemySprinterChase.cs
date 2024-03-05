@@ -35,7 +35,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
         runDelayTimer = 0;
 
         // Play Aggro Sound
-        SoundManager.instance.PlaySound(SoundManager.SFX.EnemyScreech, transform, 0.3f);
+        SoundManager.instance.PlaySound(SoundManager.SFX.EnemyScreech, transform, 0.1f);
 
         // Instantiate Alert Icon
         Destroy(enemyBase.alertObject = Instantiate(enemyBase.alertIconPrefab, enemyBase.transform.position + offset, Quaternion.identity), enemyBase.attackDelay);

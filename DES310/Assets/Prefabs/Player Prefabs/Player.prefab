@@ -1819,7 +1819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db596b2b9fd505446adc1759b80220c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  metalFootsteps: 04000000050000000600000007000000
+  metalFootsteps: 060000000700000008000000
   glassFootsteps: 
   rb: {fileID: 1048355653473945141}
 --- !u!1 &5713499253011613616

@@ -67,6 +67,10 @@ public class Health : MonoBehaviour
         currentHealth -= damage * modifierBehaviour.enemyDamageMultiplier;
         eventHandler.PlayerHealthChange.Invoke(currentHealth);
 
+        if (currentHealth < 20)
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.PlayerHPLow, transform, 1f);
+        }
         if (currentHealth <= 0)
         {
             eventHandler.PlayerDeath.Invoke();
