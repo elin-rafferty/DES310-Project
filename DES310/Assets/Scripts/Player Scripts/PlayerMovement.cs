@@ -220,6 +220,7 @@ public class PlayerMovement : MonoBehaviour
                 if (overheatLevel >= weaponProperties.overheatCapacity)
                 {
                     overheated = true;
+                    SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);
                 }
 
                 // Play shoot sound

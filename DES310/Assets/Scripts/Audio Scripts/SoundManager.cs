@@ -22,12 +22,17 @@ public class SoundManager : MonoBehaviour
         PlayerShoot,
         LaserRebound,
         Overheat,
+        HighHeat,
         PlayerHit,
+        PlayerHPLow,
 
         MetalFootsteps1,
         MetalFootsteps2,
         MetalFootsteps3,
         MetalFootsteps4,
+
+        GlassFootsteps1,
+        GlassFootsteps2,
 
         ItemPickUp,
         ButtonSelect,

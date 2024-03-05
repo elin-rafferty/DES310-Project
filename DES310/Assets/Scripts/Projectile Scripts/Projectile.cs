@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
                 else if (hit.collider)
                 {
                     // Play Laser Rebound
-                    SoundManager.instance.PlaySound(SoundManager.SFX.LaserRebound, transform, 1f);
+                    SoundManager.instance.PlaySound(SoundManager.SFX.LaserRebound, transform, 0.1f);
                 }
                 break;
             }
