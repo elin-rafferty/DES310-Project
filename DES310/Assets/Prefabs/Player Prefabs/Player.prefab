@@ -1364,7 +1364,7 @@ Animator:
   m_GameObject: {fileID: 5405101752472525426}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1878ed96d27cdfb4090927715e36b1f9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1fb10691c7f29c247b3db126f5d6150e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85836f22c2be24248b1fa4d1da5aad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 8594137558061582285, guid: 98b54be75b795de498aade70feba6baa, type: 3}
+  boss: {fileID: 976054126961434265, guid: c6e86d96f19962647862b5148e606998, type: 3}
 --- !u!1 &5713499253011613616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3464,6 +3464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 7394642057225860602, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 5373378258914130720}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
