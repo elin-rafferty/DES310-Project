@@ -274,15 +274,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 39
-    m_Right: 15
-    m_Top: 35
-    m_Bottom: 15
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 90, y: 90}
-  m_Spacing: {x: 40, y: 40}
+  m_CellSize: {x: 150, y: 150}
+  m_Spacing: {x: 15, y: 15}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &4444312303217425224
@@ -1235,8 +1235,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7968584352857183023}
   m_HandleRect: {fileID: 896139336443081798}
   m_Direction: 2
-  m_Value: 0.999998
-  m_Size: 0.6496755
+  m_Value: 0.9999972
+  m_Size: 0.6496754
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1563,5 +1563,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 4556416334386042710}
-  title: {fileID: 6618684587246864535}
-  description: {fileID: 823177233939128611}
+  title: {fileID: 0}
+  description: {fileID: 0}
