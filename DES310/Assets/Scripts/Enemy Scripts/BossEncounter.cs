@@ -52,6 +52,7 @@ public class BossEncounter : MonoBehaviour
         {
             mainCam.GetComponent<CinemachineBrain>().m_UpdateMethod = CinemachineBrain.UpdateMethod.FixedUpdate;
             Time.timeScale = 1f;
+            Destroy(gameObject);
         }
     }
 
