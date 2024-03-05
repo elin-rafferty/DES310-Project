@@ -12,7 +12,7 @@ public class OptionsMenu : MonoBehaviour
     // Menu objects
     private EventSystem eventSystem;
     [SerializeField] private GameObject mainMenu, optionsMenu;
-    [SerializeField] private GameObject optionsButton;
+    [SerializeField] private GameObject optionsButton, backButton;
 
     // Settings
     [SerializeField] private SettingsSO settings;
@@ -64,6 +64,10 @@ public class OptionsMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             OpenMainMenu();
+        }
+        if (eventSystem.currentSelectedGameObject == null)
+        {
+            eventSystem.SetSelectedGameObject(backButton);
         }
     }
 

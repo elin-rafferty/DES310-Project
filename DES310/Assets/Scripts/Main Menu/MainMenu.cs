@@ -23,6 +23,14 @@ public class MainMenu : MonoBehaviour
         soundMixer.SetMusicVolume(defaultSettings.MusicVolume);
     }
 
+    private void Update()
+    {
+        if (eventSystem.currentSelectedGameObject == null)
+        {
+            eventSystem.SetSelectedGameObject(playButton);
+        }
+    }
+
     public void PlayGame()
     {
         persistentVariables.exitReason = LevelExitReason.NONE;

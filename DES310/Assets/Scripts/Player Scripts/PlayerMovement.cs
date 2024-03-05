@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashCooldown = 1.5f;
     [SerializeField] private SettingsSO settings;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private OptionsMenu optionsMenu;
 
 
     private bool inventoryOpen = false;
@@ -112,8 +113,12 @@ public class PlayerMovement : MonoBehaviour
     void HandleInput()
     {
         // Pause Menu
-        if (Input.GetKeyDown(KeyCode.M))
+        if (inputManager.GetButtonDown("Pause"))
         {
+            if (optionsMenu.gameObject.activeSelf)
+            {
+                optionsMenu.OpenMainMenu();
+            }
             if (pauseMenu)
             {
                 pauseMenu.SetActive(!pauseMenu.activeSelf);

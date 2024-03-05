@@ -275,6 +275,7 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   playButton: {fileID: 4936828250615540791}
   optionsBackButton: {fileID: 4260725867350907102}
+  settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
 --- !u!1 &4462744870151028394
 GameObject:
   m_ObjectHideFlags: 0
