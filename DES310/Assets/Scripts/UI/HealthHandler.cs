@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthHandler : MonoBehaviour
 {
     [SerializeField] EventHandler eventHandler;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] Text text;
     private float health = 0;
 
     // Start is called before the first frame update
@@ -24,6 +25,6 @@ public class HealthHandler : MonoBehaviour
     void PlayerHealthChangeResponse(float newHealth)
     {
         health = newHealth;
-        text.text = "Health: " + health;
+        text.text = "" + Mathf.RoundToInt(health);
     }
 }
