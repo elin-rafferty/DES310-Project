@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 public class OptionsMenu : MonoBehaviour
 {
     // Menu objects
-    [SerializeField] private EventSystem eventSystem;
+    private EventSystem eventSystem;
     [SerializeField] private GameObject mainMenu, optionsMenu;
     [SerializeField] private GameObject optionsButton;
 
@@ -32,6 +32,8 @@ public class OptionsMenu : MonoBehaviour
 
     void Start()
     {
+        eventSystem = FindAnyObjectByType<EventSystem>();
+
         spawnChanceSlider.value = modifierBehaviour.spawnPercentChance;
         enemySpeedSlider.value = modifierBehaviour.enemySpeedMultiplier;
         enemyDamageSlider.value = modifierBehaviour.enemyDamageMultiplier;
