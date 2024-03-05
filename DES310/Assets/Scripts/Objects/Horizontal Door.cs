@@ -27,15 +27,21 @@ public class HorizontalDoor : MonoBehaviour
     {
         if (animating)
         {
+            // Move doors
             doorLeft.transform.position += moveAmount * Time.deltaTime * (isOpen ? -openSpeed : closeSpeed);
             doorRight.transform.position += moveAmount * Time.deltaTime * (isOpen ? openSpeed : -closeSpeed);
+            // Check if door is fully open
             if (isOpen && doorLeft.transform.position.x <= transform.position.x - offset.x - moveAmount.x && doorRight.transform.position.x >= transform.position.x + offset.x + moveAmount.x)
             {
+                // Lock in place
                 doorLeft.transform.position = transform.position - offset - moveAmount;
                 doorRight.transform.position = transform.position + offset + moveAmount;
                 animating = false;
-            } else if (!isOpen && doorLeft.transform.position.x >= transform.position.x - offset.x && doorRight.transform.position.x <= transform.position.x + offset.x)
+            }
+            // Check if door is fully closed
+            else if (!isOpen && doorLeft.transform.position.x >= transform.position.x - offset.x && doorRight.transform.position.x <= transform.position.x + offset.x)
             {
+                // Lock in place
                 doorLeft.transform.position = transform.position - offset;
                 doorRight.transform.position = transform.position + offset;
                 animating = false;

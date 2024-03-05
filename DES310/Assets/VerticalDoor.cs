@@ -11,6 +11,7 @@ public class VerticalDoor : MonoBehaviour
     [SerializeField] bool locked = false;
     Vector3 moveAmount = new Vector3(0, 1.92f, 0);
     Vector3 offset = new Vector3(0, 0.96f, 0);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +27,21 @@ public class VerticalDoor : MonoBehaviour
     {
         if (animating)
         {
+            // Move doors
             doorBottom.transform.position += moveAmount * Time.deltaTime * (isOpen ? -openSpeed : closeSpeed);
             doorTop.transform.position += moveAmount * Time.deltaTime * (isOpen ? openSpeed : -closeSpeed);
+            // Check if door is fully open
             if (isOpen && doorBottom.transform.position.y <= transform.position.y - offset.y - moveAmount.y && doorTop.transform.position.y >= transform.position.y + offset.y + moveAmount.y)
             {
+                // Lock in place
                 doorBottom.transform.position = transform.position - offset - moveAmount;
                 doorTop.transform.position = transform.position + offset + moveAmount;
                 animating = false;
             }
+            // Check if door is fully closed
             else if (!isOpen && doorBottom.transform.position.y >= transform.position.y - offset.y && doorTop.transform.position.y <= transform.position.y + offset.y)
             {
+                // Lock in place
                 doorBottom.transform.position = transform.position - offset;
                 doorTop.transform.position = transform.position + offset;
                 animating = false;
