@@ -180,6 +180,39 @@ namespace Inventory.Model
         {
             OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
         }
+
+        public bool HasItem(ItemSO item)
+        {
+            foreach (InventoryItem inventoryItem in inventoryItems)
+            {
+                if (inventoryItem.item == null)
+                {
+                    continue;
+                }
+                if (item.Name == inventoryItem.item.Name)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool RemoveItem(ItemSO item, int count = 1)
+        {
+            for (int i = 0; i < inventoryItems.Count; i++)
+            {
+                if (inventoryItems[i].item == null)
+                {
+                    continue;
+                }
+                if (item.Name == inventoryItems[i].item.Name)
+                {
+                    RemoveItem(i, count);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     [Serializable]
