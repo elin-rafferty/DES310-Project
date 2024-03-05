@@ -16,7 +16,7 @@ namespace Inventory.Model
         {
             GameObject button = Instantiate(buttonPrefab, transform);
             button.GetComponent<Button>().onClick.AddListener(() => onClickAction());
-            button.GetComponentInChildren<TMPro.TMP_Text>().text = name;
+            button.GetComponentInChildren<Text>().text = name;
         }
 
         public void Toggle(bool val)
