@@ -61,10 +61,12 @@ public class VerticalDoor : MonoBehaviour
         {
             if (inputManager.GetButtonDown("Interact"))
             {
-                inventory.RemoveItem(key);
-                Unlock();
-                Open();
-                canvas.gameObject.SetActive(false);
+                if (inventory.RemoveItem(key))
+                {
+                    Unlock();
+                    Open();
+                    canvas.gameObject.SetActive(false);
+                }
             }
         }
     }
