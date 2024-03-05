@@ -1656,6 +1656,7 @@ MonoBehaviour:
   dashCooldown: 1.5
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
   pauseMenu: {fileID: 5007900693741809109}
+  optionsMenu: {fileID: 4421008845974883295}
 --- !u!114 &4915550660991606701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,6 +1673,8 @@ MonoBehaviour:
   - Fire1
   - Dash
   - StartButton
+  - Pause
+  - Back
 --- !u!50 &1048355653473945141
 Rigidbody2D:
   serializedVersion: 4
@@ -3579,6 +3582,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+--- !u!114 &4421008845974883295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6284906014197682292, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+  m_PrefabInstance: {fileID: 7665949720489581483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a6185dcb03f134aad56b4da087dfcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5007900693741809109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3394957114997798526, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}

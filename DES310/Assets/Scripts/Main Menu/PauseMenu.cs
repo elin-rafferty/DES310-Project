@@ -10,11 +10,26 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private PersistentVariables persistentVariables;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject playButton, optionsBackButton;
+    [SerializeField] private SettingsSO settings;
 
     private void OnEnable()
     {
-        Cursor.visible = true;
+        if (settings.Controls == 0)
+        {
+            Cursor.visible = true;
+        } else
+        {
+            eventSystem.SetSelectedGameObject(playButton);
+        }
         Time.timeScale = 0f;
+    }
+
+    private void Update()
+    {
+        if (eventSystem.currentSelectedGameObject == null)
+        {
+            eventSystem.SetSelectedGameObject(playButton);
+        }
     }
 
     public void ResumeGame()
