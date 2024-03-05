@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      healthbar_overheat_base_0: 4631014898921582540
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
