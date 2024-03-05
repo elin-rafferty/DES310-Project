@@ -19,7 +19,7 @@ Controls:
 WASD - Walk
 TAB - Open/Close Inventory
 Left-Click - To click on buttons and shoot
-Right-Click - On inventory item to equip, eat or drop
+Right-Click - On inventory slot with item to equip, eat or drop
 E - Pick up items
 Shift - Dash
 
