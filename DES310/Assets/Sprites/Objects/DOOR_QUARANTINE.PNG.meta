@@ -212,7 +212,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DOOR_QUARANTINE_0: -4431813467859643891
+      DOOR_QUARANTINE_1: 568450378458968602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
