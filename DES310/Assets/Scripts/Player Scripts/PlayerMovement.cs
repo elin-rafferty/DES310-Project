@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleTimers();
         if (!inventoryOpen)
         {
             HandleInput();
@@ -74,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void HandleInput()
+    void HandleTimers()
     {
         if (timeTilNextFire > 0)
         {
@@ -106,7 +107,10 @@ public class PlayerMovement : MonoBehaviour
             }
             overheatSlider.value = overheatLevel;
         }
+    }
 
+    void HandleInput()
+    {
         // Pause Menu
         if (Input.GetKeyDown(KeyCode.M))
         {
