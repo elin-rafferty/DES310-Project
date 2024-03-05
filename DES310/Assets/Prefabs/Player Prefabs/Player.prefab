@@ -1430,7 +1430,6 @@ GameObject:
   - component: {fileID: 772383854847497066}
   - component: {fileID: 4964699903416701041}
   - component: {fileID: 8065663312008827745}
-  - component: {fileID: 7712717848508785346}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1823,19 +1822,6 @@ MonoBehaviour:
   metalFootsteps: 04000000050000000600000007000000
   glassFootsteps: 
   rb: {fileID: 1048355653473945141}
---- !u!114 &7712717848508785346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5510123066543379324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85836f22c2be24248b1fa4d1da5aad5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boss: {fileID: 0}
 --- !u!1 &5713499253011613616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,7 +2626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1221463716746200697, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -474.9243
+      value: -474.92392
       objectReference: {fileID: 0}
     - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Spacing.x
@@ -2680,7 +2666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Value
-      value: 1.000001
+      value: 1.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_NumberOfSteps
