@@ -101,7 +101,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     #endregion
 
     #region HP / Damage Functions
-    public void Damage(float damageAmount)
+    virtual public void Damage(float damageAmount)
     {
         CurrentHealth -= damageAmount;
         if (CurrentHealth <= 0)
