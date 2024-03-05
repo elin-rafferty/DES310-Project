@@ -20,7 +20,7 @@ namespace Inventory.UI
         private Image itemImage;
 
         [SerializeField]
-        private TMP_Text quantityTxt;
+        private Text quantityTxt;
 
         [SerializeField]
         private Image borderImage;
