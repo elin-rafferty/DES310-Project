@@ -11,9 +11,9 @@ namespace Inventory.UI
         [SerializeField]
         private Image itemImage;
         [SerializeField]
-        private TMP_Text title;
+        private Text title;
         [SerializeField]
-        private TMP_Text description;
+        private Text description;
 
         public void Awake()
         {
