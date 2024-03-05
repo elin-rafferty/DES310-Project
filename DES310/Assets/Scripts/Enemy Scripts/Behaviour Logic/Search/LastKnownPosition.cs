@@ -10,6 +10,10 @@ public class LastKnownPosition : EnemySearchSOBase
 {
     private float smoothTime = 0.25f;
     private float rotateSpeed;
+    private float velocitySmoothTime = 0.005f;
+    private float refSpeedX;
+    private float refSpeedY;
+    Vector2 currentDirection = new(0, 0);
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -61,6 +65,9 @@ public class LastKnownPosition : EnemySearchSOBase
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
 
+        // Direction Damping
+        direction.x = Mathf.SmoothDamp(currentDirection.x, direction.x, ref refSpeedX, velocitySmoothTime);
+        direction.y = Mathf.SmoothDamp(currentDirection.y, direction.y, ref refSpeedY, velocitySmoothTime);
         enemyBase.MoveEnemy(direction * enemyBase.speed);
         enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
@@ -69,6 +76,7 @@ public class LastKnownPosition : EnemySearchSOBase
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
+            currentDirection = direction;
         }
     }
 

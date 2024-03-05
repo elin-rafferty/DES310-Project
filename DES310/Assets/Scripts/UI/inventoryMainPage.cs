@@ -183,5 +183,10 @@ namespace Inventory.UI
             gameObject.SetActive(false);
             ResetDraggedItem();
         }
+
+        public void HideItemAction()
+        {
+            itemAction.Toggle(false);
+        }
     }
 }
