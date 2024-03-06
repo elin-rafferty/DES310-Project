@@ -184,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (fireInput && timeTilNextFire == 0 && !overheated)
         {
+            eventHandler.PlayerBulletFired.Invoke();
             Fire(lookDirection);
         }/*
         // THIS IS ALSO SUPER TEMPORARY DELETE THIS LATER TOO

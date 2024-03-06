@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
-    [SerializeField] private EventHandler eventHandler;
+    [field: SerializeField] public EventHandler eventHandler { get; set; }
     [field: SerializeField] public GameObject alertIconPrefab { get; set; }
     public GameObject alertObject { get; set; }
     [field: SerializeField] public float meleeDamage { get; set; } = 5f;
@@ -113,6 +113,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public void Die()
     {
         eventHandler.ChangeEnemyCount.Invoke(-1);
+        eventHandler.PlayerBulletFired.RemoveAllListeners();
         Destroy(gameObject);
         if(alertObject) Destroy(alertObject);
     }

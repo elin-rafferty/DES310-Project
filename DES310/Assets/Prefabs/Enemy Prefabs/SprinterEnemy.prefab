@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34052e5aeac0bf047baac7b3623bee17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  <eventHandler>k__BackingField: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   <alertIconPrefab>k__BackingField: {fileID: 8588801196531009245, guid: 31aa6eac21ef3114792beb5866c897e5, type: 3}
   <meleeDamage>k__BackingField: 5
   <rangedDamage>k__BackingField: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   <aggroRange>k__BackingField: 7
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
-  <speed>k__BackingField: 9
+  <speed>k__BackingField: 12
   EnemyIdleBase: {fileID: 11400000, guid: 4f037ece1089f014ba33abb6d9516181, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: b4a29c1e9828afe42a90bc4d69c8f089, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
