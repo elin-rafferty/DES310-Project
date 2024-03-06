@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5995770658760920065}
   - component: {fileID: 8025483227112521487}
   - component: {fileID: 2244167137343124094}
+  - component: {fileID: 1220767296568285634}
   m_Layer: 0
   m_Name: MiniBoss
   m_TagString: Enemy
@@ -181,6 +182,8 @@ MonoBehaviour:
   EnemyChaseBase: {fileID: 11400000, guid: f9875bdefa575bb4dabe66c76cae53fc, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: 4edae2bbfc36a3e4ca314bab4b97bc60, type: 2}
+  bossHealthSlider: {fileID: 0}
+  door: {fileID: 0}
 --- !u!114 &1714404285640921242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +250,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791220f5950f46f43902b0b247085402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1220767296568285634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976054126961434265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c011db77ee99e94c9a28d742b96a4bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefab: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
+  lootTable: {fileID: 11400000, guid: 8b197918855dbed488e9afa209be1015, type: 2}
 --- !u!1 &1553613958343976014
 GameObject:
   m_ObjectHideFlags: 0

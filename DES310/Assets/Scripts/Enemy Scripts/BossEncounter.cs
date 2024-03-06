@@ -61,7 +61,7 @@ public class BossEncounter : MonoBehaviour
 
     private void OnEnable()
     {
-        if (bossCam)
+        if (bossCam.activeSelf)
         {
             amplitude = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain;
             frequency = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain;
