@@ -9,7 +9,7 @@ public class InventoryAnimation : MonoBehaviour
 {
 
     Animator anim;
-    bool InventoryOpen = false;
+    public bool InventoryOpen = false;
     public EventHandler eventHandler;
     public InputManager inputManager;
     public inventoryMainPage inventoryMainPage;
@@ -29,13 +29,7 @@ public class InventoryAnimation : MonoBehaviour
         {
             if (inputManager.GetButtonDown("OpenInventory"))
             {
-                anim.Play("Open");
-                InventoryOpen = true;
-                eventHandler.InventoryChangeState.Invoke(true);
-                if (settings.Controls == 1)
-                {
-                    virtualMouse.SetActive(true);
-                }
+                OpenInventory();
             }
         }
 
@@ -43,14 +37,30 @@ public class InventoryAnimation : MonoBehaviour
         {
             if (inputManager.GetButtonDown("OpenInventory") || inputManager.GetButtonDown("Back"))
             {
-                inventoryMainPage.HideItemAction();
-                anim.Play("Close");
-                InventoryOpen = false;
-                eventHandler.InventoryChangeState.Invoke(false);
-                virtualMouse.SetActive(false);
+                CloseInventory();
             }
         }
 
+    }
+
+    public void OpenInventory()
+    {
+        anim.Play("Open");
+        InventoryOpen = true;
+        eventHandler.InventoryChangeState.Invoke(true);
+        if (settings.Controls == 1)
+        {
+            virtualMouse.SetActive(true);
+        }
+    }
+
+    public void CloseInventory()
+    {
+        inventoryMainPage.HideItemAction();
+        anim.Play("Close");
+        InventoryOpen = false;
+        eventHandler.InventoryChangeState.Invoke(false);
+        virtualMouse.SetActive(false);
     }
 
 }
