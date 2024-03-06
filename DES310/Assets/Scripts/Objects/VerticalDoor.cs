@@ -84,7 +84,6 @@ public class VerticalDoor : MonoBehaviour
         if (key != null && collision.gameObject.CompareTag("Player") && locked)
         {
             canvas.gameObject.SetActive(true);
-            Debug.Log(key + key.Name);
             if (inventory.HasItem(key))
             {
                 text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open";
