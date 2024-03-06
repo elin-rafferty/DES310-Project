@@ -25,7 +25,7 @@ public class TimerHandler : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
             // Add 1 cause floor
-            text.text = "Time Remaining: " + ((int)timeLeft + 1);
+            //text.text = "Time Remaining: " + ((int)timeLeft + 1);
             if (timeLeft <= 0)
             {
                 eventHandler.PlayerDeath.Invoke();
