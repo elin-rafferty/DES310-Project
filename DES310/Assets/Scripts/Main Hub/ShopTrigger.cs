@@ -27,6 +27,7 @@ public class ShopTrigger : MonoBehaviour
             // Set trigger true on collision
             trigger = true;
             canvas.gameObject.SetActive(true);
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to purchase " + buyItemComponent.quantity + " " + buyItemComponent.itemToBuy.Name + " for " + buyItemComponent.cost + " " + buyItemComponent.currencyItem;
         }
     }
 
