@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 7f4e2df0d5e5e374986752015fc19bfd
+guid: c04e92ccbf6ac3845a4bb3cd811c2561
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4741972400938485202
-    second: overheat_colours_0
-  - first:
-      213: 5398612237380590838
-    second: overheat_colours_1
-  - first:
-      213: -6277282619092172959
-    second: overheat_colours_2
-  - first:
-      213: -2207836154600618191
-    second: overheat_colours_3
+      213: -7783238217235902858
+    second: IMG_5768_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -167,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: overheat_colours_0
+      name: IMG_5768_0
       rect:
         serializedVersion: 2
-        x: 1207
-        y: 131
-        width: 54
-        height: 30
+        x: 1159
+        y: 15
+        width: 110
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,71 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d505ac46cedec140800000000000000
-      internalID: 4741972400938485202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheat_colours_1
-      rect:
-        serializedVersion: 2
-        x: 1187
-        y: 95
-        width: 74
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6fc95211a39bbea40800000000000000
-      internalID: 5398612237380590838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheat_colours_2
-      rect:
-        serializedVersion: 2
-        x: 1171
-        y: 59
-        width: 90
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16ff64667bc92e8a0800000000000000
-      internalID: -6277282619092172959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheat_colours_3
-      rect:
-        serializedVersion: 2
-        x: 1163
-        y: 23
-        width: 98
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 13704ca07b03c51e0800000000000000
-      internalID: -2207836154600618191
+      spriteID: 67ec86b24126cf390800000000000000
+      internalID: -7783238217235902858
       vertices: []
       indices: 
       edges: []

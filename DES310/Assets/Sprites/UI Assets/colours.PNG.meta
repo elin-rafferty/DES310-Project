@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 595da7488a768ee4b970c4b3a1db3fd6
+guid: c525b2f5717bdd443ad836c2a6c98fcd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3976170299039151379
-    second: overheat_colours_together_0
+      213: -1001620445235128599
+    second: colours_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: overheat_colours_together_0
+      name: colours_0
       rect:
         serializedVersion: 2
-        x: 1155
+        x: 1159
         y: 15
-        width: 114
-        height: 154
+        width: 110
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 315ffa002d13e2730800000000000000
-      internalID: 3976170299039151379
+      spriteID: 9e6ddf903878912f0800000000000000
+      internalID: -1001620445235128599
       vertices: []
       indices: 
       edges: []
