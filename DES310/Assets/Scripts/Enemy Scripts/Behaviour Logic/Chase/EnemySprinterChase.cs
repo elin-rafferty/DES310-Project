@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Pathfinding;
-using UnityEditor.Experimental.GraphView;
 
 [CreateAssetMenu(fileName = "Chase - Sprinter Chase", menuName = "Enemy Logic/Chase Logic/Sprinter Chase")]
 public class EnemySprinterChase : EnemyChaseSOBase
@@ -21,6 +20,11 @@ public class EnemySprinterChase : EnemyChaseSOBase
 
     private float pathUpdateTime = 0.25f;
     private float timer;
+
+    private float dodgeTimer = 0;
+    private float dodgeCooldownTimer = 3;
+    private bool canDodge = false;
+    Vector2 dodgeDirection = new(0, 0);
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -105,13 +109,45 @@ public class EnemySprinterChase : EnemyChaseSOBase
         }
 
         // Start sprinting after time delay
-        //Debug.Log(runDelayTimer);
-        if (runDelayTimer > 1)
+        if (runDelayTimer >= 1)
         {
-            // Direction Damping
-            direction.x = Mathf.SmoothDamp(currentDirection.x, direction.x, ref refSpeedX, velocitySmoothTime);
-            direction.y = Mathf.SmoothDamp(currentDirection.y, direction.y, ref refSpeedY, velocitySmoothTime);
-            enemyBase.MoveEnemy(direction * enemyBase.speed);
+            // Listen for dodge command after cooldown
+            if (dodgeCooldownTimer < 0 && !canDodge)
+            {
+                enemyBase.eventHandler.PlayerBulletFired.AddListener(CanDodge);
+            }
+
+            // Move Normally
+            if (dodgeTimer > 0.1f)
+            {
+                // Update Path after dodge
+                if (canDodge)
+                {
+                    enemyBase.eventHandler.PlayerBulletFired.RemoveListener(Dodge);
+                    canDodge = false;
+
+                    UpdatePath(rb.position, target.position);
+                    
+                    dodgeCooldownTimer = 3;
+                }
+
+                // Direction Damping
+                direction.x = Mathf.SmoothDamp(currentDirection.x, direction.x, ref refSpeedX, velocitySmoothTime);
+                direction.y = Mathf.SmoothDamp(currentDirection.y, direction.y, ref refSpeedY, velocitySmoothTime);
+                enemyBase.MoveEnemy(direction * enemyBase.speed);
+            }
+            
+            // Dodge for 0.1s
+            if (dodgeTimer <= 0.1f && enemyBase.IsLineOfSight && canDodge) 
+            {
+                Dodge();
+                direction = dodgeDirection.normalized + direction.normalized;
+                enemyBase.MoveEnemy(1.5f * enemyBase.speed * direction);
+            }
+
+            // Increment timers
+            dodgeTimer += Time.deltaTime;
+            dodgeCooldownTimer -= Time.deltaTime;
         }
         else
         {
@@ -139,5 +175,58 @@ public class EnemySprinterChase : EnemyChaseSOBase
     public override void ResetValues()
     {
         base.ResetValues();
+    }
+
+    void Dodge()
+    {
+        Vector2 perpDirection = Vector2.Perpendicular(target.position - rb.transform.position).normalized;
+
+        LayerMask mask = LayerMask.GetMask("Obstacle");
+
+        RaycastHit2D rightRay = Physics2D.Raycast(perpDirection, Vector2.right, 7, mask);
+        RaycastHit2D leftRay = Physics2D.Raycast(-perpDirection, Vector2.left, 7, mask);
+
+        if (rightRay.collider && leftRay.collider)
+        {
+            // Don't Dodge
+            dodgeDirection = Vector2.zero;
+        }
+
+        if (!rightRay.collider && !leftRay.collider) 
+        {
+            // Dodge Random Direction
+            int rand = Random.Range(0, 100);
+
+            if (rand < 50)
+            {
+                dodgeDirection = perpDirection;
+            }
+
+            if (rand >= 1)
+            {
+                dodgeDirection = -perpDirection;
+            }
+        }
+
+        if (rightRay.collider && !leftRay.collider) 
+        {
+            // Dodge Left
+            dodgeDirection = perpDirection;
+        }
+
+        if (!rightRay.collider && leftRay.collider)
+        {
+            // Dodge Right
+            dodgeDirection = -perpDirection;
+        }
+    }
+
+    void CanDodge()
+    { 
+        if (dodgeCooldownTimer < 0)
+        {
+            dodgeTimer = 0;
+            canDodge = true;
+        }
     }
 }
