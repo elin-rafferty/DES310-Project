@@ -85,7 +85,6 @@ public class HorizontalDoor : MonoBehaviour
         if (key != null && collision.gameObject.CompareTag("Player") && locked)
         {
             canvas.gameObject.SetActive(true);
-            Debug.Log(key + key.Name);
             if (inventory.HasItem(key))
             {
                 text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open";
@@ -94,6 +93,10 @@ public class HorizontalDoor : MonoBehaviour
             {
                 text.text = "Requires " + key.Name + " to open";
             }
+        } else if (key == null && collision.gameObject.CompareTag("Player") && locked)
+        {
+            canvas.gameObject.SetActive(true);
+            text.text = "Locked";
         }
         if (respondToTrigger && (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player")))
         {
@@ -103,7 +106,7 @@ public class HorizontalDoor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (key != null && collision.gameObject.CompareTag("Player") && locked)
+        if (collision.gameObject.CompareTag("Player") && locked)
         {
             canvas.gameObject.SetActive(false);
             allowUnlocking = false;

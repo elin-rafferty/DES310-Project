@@ -95,6 +95,11 @@ public class VerticalDoor : MonoBehaviour
                 text.text = "Requires " + key.Name + " to open";
             }
         }
+        else if (key == null && collision.gameObject.CompareTag("Player") && locked)
+        {
+            canvas.gameObject.SetActive(true);
+            text.text = "Locked";
+        }
         if (respondToTrigger && (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player")))
         {
             Open();
@@ -103,7 +108,7 @@ public class VerticalDoor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (key != null && collision.gameObject.CompareTag("Player") && locked)
+        if (collision.gameObject.CompareTag("Player") && locked)
         {
             canvas.gameObject.SetActive(false);
             allowUnlocking = false;
