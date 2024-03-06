@@ -13,17 +13,12 @@ public class BuyItem : MonoBehaviour
 
     public void PurchaseItem()
     {
-        for (int i = 0; i < playerInventory.Size; i++)
+        if (playerInventory.RemoveItem(currencyItem, cost)) 
         {
-            InventoryItem item = playerInventory.GetItemAt(i);
-            if (item.item == currencyItem && item.quantity >= cost)
-            {
-                playerInventory.RemoveItem(i, cost);
-                InventoryItem purchasedItem = new();
-                purchasedItem.quantity = quantity;
-                purchasedItem.item = itemToBuy;
-                playerInventory.AddItem(purchasedItem);
-            }
+            InventoryItem purchasedItem = new();
+            purchasedItem.quantity = quantity;
+            purchasedItem.item = itemToBuy;
+            playerInventory.AddItem(purchasedItem);
         }
     }
 }

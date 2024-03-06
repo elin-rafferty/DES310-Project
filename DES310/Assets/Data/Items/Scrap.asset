@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scrap
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
-  <MaxStackSize>k__BackingField: 1000
+  <MaxStackSize>k__BackingField: 999
   <Name>k__BackingField: Scrap
   <Description>k__BackingField: Broken metal scrap. Perhaps someone will trade for
     it?

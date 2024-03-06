@@ -16,6 +16,8 @@ public class VentScript : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] Text text;
     [SerializeField] SettingsSO settings;
+    [SerializeField] InventorySO inventory;
+    [SerializeField] List<ItemSO> keys = new();
 
     private void Start()
     {
@@ -58,6 +60,10 @@ public class VentScript : MonoBehaviour
         // Load new scene
         if (inputManager.GetButtonDown("Interact") && trigger && timeBeforeOpen == 0)
         {
+            foreach (ItemSO key in keys)
+            {
+                while (inventory.RemoveItem(key));
+            }
             // Modifier Load Screen
             if (sceneName != "Main Hub" && loadingScreen)
             {
