@@ -3,6 +3,7 @@ using Inventory.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;
 
 public class InventoryAnimation : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class InventoryAnimation : MonoBehaviour
     public EventHandler eventHandler;
     public InputManager inputManager;
     public inventoryMainPage inventoryMainPage;
+    public GameObject virtualMouse;
+    public SettingsSO settings;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,10 @@ public class InventoryAnimation : MonoBehaviour
                 anim.Play("Open");
                 InventoryOpen = true;
                 eventHandler.InventoryChangeState.Invoke(true);
+                if (settings.Controls == 1)
+                {
+                    virtualMouse.SetActive(true);
+                }
             }
         }
 
@@ -40,6 +47,7 @@ public class InventoryAnimation : MonoBehaviour
                 anim.Play("Close");
                 InventoryOpen = false;
                 eventHandler.InventoryChangeState.Invoke(false);
+                virtualMouse.SetActive(false);
             }
         }
 
