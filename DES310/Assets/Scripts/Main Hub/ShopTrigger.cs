@@ -6,18 +6,17 @@ using UnityEngine.UI;
 
 public class ShopTrigger : MonoBehaviour
 {
-    [SerializeField] Canvas canvas;
+    [SerializeField] Canvas canvas, shopCanvas;
     [SerializeField] Text text;
     [SerializeField] SettingsSO settings;
+    [SerializeField] InventoryAnimation inventoryAnimation;
     private bool trigger = false;
     private InputManager inputManager;
-    private BuyItem buyItemComponent;
 
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
-        buyItemComponent = GetComponent<BuyItem>();
-        text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to purchase " + buyItemComponent.quantity + " " + buyItemComponent.itemToBuy.Name + " for " + buyItemComponent.cost + " " + buyItemComponent.currencyItem;
+        text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open shop";
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +26,7 @@ public class ShopTrigger : MonoBehaviour
             // Set trigger true on collision
             trigger = true;
             canvas.gameObject.SetActive(true);
-            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to purchase " + buyItemComponent.quantity + " " + buyItemComponent.itemToBuy.Name + " for " + buyItemComponent.cost + " " + buyItemComponent.currencyItem;
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open shop";
         }
     }
 
@@ -44,11 +43,14 @@ public class ShopTrigger : MonoBehaviour
     void Update()
     {
         // Load shop menu
-        if (inputManager.GetButtonDown("Interact") && trigger == true)
+        if (inputManager.GetButtonDown("Interact") && trigger == true && !shopCanvas.gameObject.activeSelf)
         {
-            // Put code to do that here
-            Debug.Log("The shop will open here eventually");
-            buyItemComponent.PurchaseItem();
+            shopCanvas.gameObject.SetActive(true);
+            inventoryAnimation.OpenInventory();
+        }
+        if (!inventoryAnimation.InventoryOpen && shopCanvas.gameObject.activeSelf)
+        {
+            shopCanvas.gameObject.SetActive(false);
         }
     }
 }
