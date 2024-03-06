@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8025483227112521487}
   - component: {fileID: 2244167137343124094}
   - component: {fileID: 1220767296568285634}
+  - component: {fileID: 3509616665964896340}
   m_Layer: 0
   m_Name: MiniBoss
   m_TagString: Enemy
@@ -83,8 +84,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
-  m_Color: {r: 0, g: 0.8773585, b: 0.14523561, a: 1}
+  m_Sprite: {fileID: 686224861891244348, guid: 1bc98f1124e5ac140979e9d0e8fabcd3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -128,8 +129,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.03, y: 0}
+  m_Radius: 1.38
 --- !u!50 &388881729782639087
 Rigidbody2D:
   serializedVersion: 4
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb101e84e3c8dd046958f4c97d7dd27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  <eventHandler>k__BackingField: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   <alertIconPrefab>k__BackingField: {fileID: 8588801196531009245, guid: 31aa6eac21ef3114792beb5866c897e5, type: 3}
   <meleeDamage>k__BackingField: 5
   <rangedDamage>k__BackingField: 0
@@ -264,6 +265,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
   lootTable: {fileID: 11400000, guid: 8b197918855dbed488e9afa209be1015, type: 2}
+--- !u!114 &3509616665964896340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976054126961434265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1187bbed366ebf044b08be497aebdb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1553613958343976014
 GameObject:
   m_ObjectHideFlags: 0

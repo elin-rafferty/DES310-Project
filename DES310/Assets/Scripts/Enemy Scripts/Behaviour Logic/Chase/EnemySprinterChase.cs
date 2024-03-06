@@ -22,7 +22,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
     private float timer;
 
     private float dodgeTimer = 0;
-    private float dodgeCooldownTimer = 3;
+    private float dodgeCooldownTimer = 2;
     private bool canDodge = false;
     Vector2 dodgeDirection = new(0, 0);
 
@@ -37,6 +37,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
 
         target = Player.transform;
         runDelayTimer = 0;
+        dodgeCooldownTimer = 0;
 
         // Play Aggro Sound
         SoundManager.instance.PlaySound(SoundManager.SFX.EnemyScreech, transform, 0.1f);
@@ -128,7 +129,7 @@ public class EnemySprinterChase : EnemyChaseSOBase
 
                     UpdatePath(rb.position, target.position);
                     
-                    dodgeCooldownTimer = 3;
+                    dodgeCooldownTimer = 2;
                 }
 
                 // Direction Damping
