@@ -181,7 +181,7 @@ namespace Inventory.Model
             OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
         }
 
-        public bool HasItem(ItemSO item)
+        public bool HasItem(ItemSO item, int amountToFind = 1)
         {
             foreach (InventoryItem inventoryItem in inventoryItems)
             {
@@ -191,7 +191,11 @@ namespace Inventory.Model
                 }
                 if (item.Name == inventoryItem.item.Name)
                 {
-                    return true;
+                    amountToFind -= inventoryItem.quantity;
+                    if (amountToFind <= 0)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -199,19 +203,27 @@ namespace Inventory.Model
 
         public bool RemoveItem(ItemSO item, int count = 1)
         {
-            for (int i = 0; i < inventoryItems.Count; i++)
-            {
-                if (inventoryItems[i].item == null)
+            int amountToRemove = count;
+            if (HasItem(item, count)) {
+                for (int i = 0; i < inventoryItems.Count; i++)
                 {
-                    continue;
+                    if (inventoryItems[i].item == null)
+                    {
+                        continue;
+                    }
+                    if (item.Name == inventoryItems[i].item.Name)
+                    {
+                        int temp = inventoryItems[i].quantity > amountToRemove ? amountToRemove : inventoryItems[i].quantity;
+                        amountToRemove -= temp;
+                        RemoveItem(i, temp);
+                        if (amountToRemove == 0)
+                        {
+                            return true;
+                        }
+                    }
                 }
-                if (item.Name == inventoryItems[i].item.Name)
-                {
-                    RemoveItem(i, count);
-                    return true;
-                }
-            }
-            return false;
+                return false;
+            } else { return false; }
         }
     }
 
