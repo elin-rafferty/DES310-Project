@@ -112,8 +112,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void Die()
     {
-        eventHandler.ChangeEnemyCount.Invoke(-1);
-        eventHandler.PlayerBulletFired.RemoveAllListeners();
+        //eventHandler.ChangeEnemyCount.Invoke(-1);
         Destroy(gameObject);
         if(alertObject) Destroy(alertObject);
     }
@@ -162,4 +161,9 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     }
 
     #endregion
+
+    void Nothing()
+    {
+
+    }
 }
