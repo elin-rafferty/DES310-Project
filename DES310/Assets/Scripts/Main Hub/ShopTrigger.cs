@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ShopTrigger : MonoBehaviour
 {
-    [SerializeField] Canvas canvas;
+    [SerializeField] Canvas canvas, shopCanvas;
     [SerializeField] Text text;
     [SerializeField] SettingsSO settings;
     private bool trigger = false;
@@ -49,6 +49,7 @@ public class ShopTrigger : MonoBehaviour
             // Put code to do that here
             Debug.Log("The shop will open here eventually");
             buyItemComponent.PurchaseItem();
+            shopCanvas.gameObject.SetActive(!shopCanvas.gameObject.activeSelf);
         }
     }
 }
