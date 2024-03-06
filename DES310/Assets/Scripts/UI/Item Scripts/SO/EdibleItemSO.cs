@@ -10,7 +10,7 @@ namespace Inventory.Model
     {
         [SerializeField]
         private List<ModifierData> modifierDatas = new List<ModifierData>();
-        public string ActionName => "Eat";
+        public string ActionName => "Use";
 
         //public AudioClip actionSFX { get; private set; }
 
