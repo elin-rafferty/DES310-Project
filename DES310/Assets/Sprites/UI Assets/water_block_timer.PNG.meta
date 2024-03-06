@@ -404,7 +404,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      water_block_timer_0: -7754832591950118323
+      water_block_timer_1: 3867507241768784139
+      water_block_timer_2: -7428130707720667004
+      water_block_timer_3: 8170077990039392854
+      water_block_timer_4: 3097422130991229364
+      water_block_timer_5: 3276804386906589082
+      water_block_timer_6: -2281567189346034572
+      water_block_timer_7: -676418921707451714
+      water_block_timer_8: -7180138617990636680
+      water_block_timer_9: -2595990171788280436
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
