@@ -3,7 +3,14 @@ guid: 026f4dc829e377040b6dd8de1d9dd22b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - persistentVariables: {instanceID: 0}
+  - inputManager: {instanceID: 0}
+  - loadingScreen: {instanceID: 0}
+  - canvas: {instanceID: 0}
+  - text: {instanceID: 0}
+  - settings: {instanceID: 0}
+  - inventory: {fileID: 11400000, guid: 3159a824a09c3824b8be83d7dd8a45ae, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
