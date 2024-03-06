@@ -16,7 +16,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     [field: SerializeField] public float speed { get; set; }
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }
-
+    public string colliderTag { get; set; } = string.Empty;
     public bool IsAggro { get; set; }
     public bool IsWithinAttackRange { get; set; }
     public bool IsLineOfSight { get; set; }
@@ -112,7 +112,8 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void Die()
     {
-        //eventHandler.ChangeEnemyCount.Invoke(-1);
+        eventHandler.ChangeEnemyCount.Invoke(-1);
+        eventHandler.PlayerBulletFired.RemoveAllListeners();
         Destroy(gameObject);
         if(alertObject) Destroy(alertObject);
     }
@@ -161,9 +162,4 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     }
 
     #endregion
-
-    void Nothing()
-    {
-
-    }
 }

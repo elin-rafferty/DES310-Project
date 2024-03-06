@@ -16,6 +16,7 @@ public class BossChase : EnemyChaseSOBase
 
     private float pathUpdateTime = 0.5f;
     private float timer;
+    private float tempTimer;
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -28,6 +29,7 @@ public class BossChase : EnemyChaseSOBase
 
         target = Player.transform;
         UpdatePath(rb.position, target.position);
+        tempTimer = 5;
     }
 
     public override void DoExitLogic()
@@ -37,6 +39,8 @@ public class BossChase : EnemyChaseSOBase
 
     public override void DoFrameUpdateLogic()
     {
+        Debug.Log("Chase State");
+
         // Update path every interval
         if (timer >= pathUpdateTime)
         {
@@ -46,6 +50,15 @@ public class BossChase : EnemyChaseSOBase
         else
         {
             timer += Time.deltaTime;
+        }
+
+        if (tempTimer > 0)
+        {
+            tempTimer -= Time.deltaTime;
+        }
+        else
+        {
+            enemyBase.StateMachine.ChangeState(enemyBase.ATTACKState);
         }
     }
 

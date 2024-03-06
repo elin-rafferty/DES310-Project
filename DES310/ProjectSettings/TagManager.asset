@@ -8,6 +8,7 @@ TagManager:
   - Bread Crumb
   - Trigger Check
   - Boss Trigger
+  - Wall
   layers:
   - Default
   - TransparentFX
