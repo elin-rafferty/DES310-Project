@@ -1829,8 +1829,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 408, y: 537}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: -218, y: 537}
+  m_SizeDelta: {x: 782, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6575572778543863114
 CanvasRenderer:
@@ -1900,6 +1900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbbd53f576f1ad479188ed8b49a1314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InventoryOpen: 0
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   inputManager: {fileID: 6918064253512207645}
   inventoryMainPage: {fileID: 2161480753922219962}
@@ -1940,7 +1941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: bd60f5aa79a8943408bb34d944cf716a, type: 3}
+  m_Texture: {fileID: 2800000, guid: db845379c23ad3b4ea9d5397a20b9f16, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
