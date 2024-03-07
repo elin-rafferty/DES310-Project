@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mini-boss_placeholder_0: 686224861891244348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
