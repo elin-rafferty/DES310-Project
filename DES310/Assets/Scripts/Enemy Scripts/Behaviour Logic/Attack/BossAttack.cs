@@ -8,19 +8,46 @@ public class BossAttack : EnemyAttackSOBase
     private enum AttackState
     {
         NONE,
+
+        // Charge
         WINDUP,
         CHARGE,
-        STUNNED
+        STUNNED,
+
+        // Leap
+        READY_JUMP,
+        JUMP,
+        SLAM,
+
+        //Tenatcle
     }
 
     private AttackState currentAttackState;
-    Vector2 playerDirection = new();
+
+    // General Vars
+    Vector2 targetDirection = new();
+    Vector2 targetPosition = new();
 
     private float angleSmoothTime = 0.25f;
     private float rotateSpeed;
 
-    // Cooldown Timers
+    #region Charge Variables
+
     private float chargeTimer = 2;
+
+    #endregion
+
+    #region Leap Variables
+
+    private float jumpTimer = 1;
+
+    Vector2 bossScale = new();
+
+    #endregion
+
+    #region Tentacle Variables
+
+    #endregion
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -31,7 +58,7 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoEnterLogic();
 
-        currentAttackState = AttackState.WINDUP;
+        currentAttackState = AttackState.READY_JUMP;
         chargeTimer = 2;
         enemyBase.colliderTag = string.Empty;
     }
@@ -50,7 +77,13 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoPhysicsLogic();
 
-        ChargeAttack();
+        Debug.Log(currentAttackState.ToString());
+
+        //ChargeAttack();
+
+        LeapAttack();
+
+        //TentacleAttack();
     }
 
     public override void ResetValues()
@@ -60,13 +93,67 @@ public class BossAttack : EnemyAttackSOBase
 
     void LeapAttack()
     {
+        switch (currentAttackState)
+        {
+            case AttackState.READY_JUMP:
 
+                // Set jump direction
+                targetDirection = ((Vector2)Player.transform.position - enemyBase.rb.position).normalized;
+                targetPosition = Player.transform.position;
+
+                // Save current scale
+                bossScale = enemyBase.transform.localScale;
+
+                jumpTimer = 0;
+                currentAttackState = AttackState.JUMP;
+
+                break;
+
+            // Leap into the air
+            case AttackState.JUMP:
+
+                // Move to player's position
+                if (new Vector2(targetPosition.x - enemyBase.transform.position.x, targetPosition.y - enemyBase.transform.position.y).sqrMagnitude <= 1 || enemyBase.colliderTag == "Wall")
+                {
+                    // Stop on target position
+                    enemyBase.MoveEnemy(Vector2.zero);
+                    jumpTimer = 0.4f;
+                    bossScale = enemyBase.transform.localScale;
+                    currentAttackState = AttackState.SLAM;
+                }
+                else
+                {
+                    jumpTimer += Time.deltaTime;
+                    enemyBase.MoveEnemy(targetDirection * enemyBase.speed * 2);
+                    enemyBase.transform.localScale = Vector2.Lerp(bossScale, Vector2.one * 2.5f, jumpTimer);
+                }
+
+                break;
+
+            // Crash back down
+            case AttackState.SLAM:
+
+                if (jumpTimer <= 0)
+                {
+                    enemyBase.transform.localScale = Vector2.one * 2;
+
+                    currentAttackState = AttackState.READY_JUMP;
+                    enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
+                }
+                else
+                {
+                    // Scale down over time
+                    enemyBase.transform.localScale = Vector2.Lerp(Vector2.one * 2, bossScale, jumpTimer * 2.5f);
+
+                    jumpTimer -= Time.deltaTime;
+                }
+
+                break;
+        }
     }
 
     void ChargeAttack()
     {
-        Debug.Log(currentAttackState.ToString());
-
         float angle;
 
         switch (currentAttackState)
@@ -79,8 +166,8 @@ public class BossAttack : EnemyAttackSOBase
                     chargeTimer -= Time.deltaTime;
 
                     // Look at Player
-                    playerDirection = ((Vector2)Player.transform.position - enemyBase.rb.position).normalized;
-                    float targetAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
+                    targetDirection = ((Vector2)Player.transform.position - enemyBase.rb.position).normalized;
+                    float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
                     angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, angleSmoothTime);
                     enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
@@ -98,7 +185,7 @@ public class BossAttack : EnemyAttackSOBase
                 if (enemyBase.colliderTag != "Wall")
                 {
                     // Charge Player's Current Position
-                    enemyBase.MoveEnemy(playerDirection * enemyBase.speed * 3);
+                    enemyBase.MoveEnemy(targetDirection * enemyBase.speed * 3);
                 }
 
                 else if (enemyBase.colliderTag == "Wall")
@@ -130,6 +217,6 @@ public class BossAttack : EnemyAttackSOBase
 
     void TentacleAttack()
     {
-
+       
     }
 }
