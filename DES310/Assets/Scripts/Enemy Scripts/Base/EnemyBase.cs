@@ -14,6 +14,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     [field: SerializeField] public float attackRange { get; set; } = 2f;
     [field: SerializeField] public float attackDelay { get; set; } = 1f;
     [field: SerializeField] public float speed { get; set; }
+    [field: SerializeField] public float damageReduction { get; set; } = 0f;
     public string colliderTag { get; set; } = string.Empty;
     public float CurrentHealth { get; set; }
     public Rigidbody2D rb { get; set; }

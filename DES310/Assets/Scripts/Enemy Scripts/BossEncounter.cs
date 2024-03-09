@@ -15,7 +15,6 @@ public class BossEncounter : MonoBehaviour
     [SerializeField] GameObject mainCam;
 
     float amplitude = 1.0f;
-    float maxAmplitude = 1.0f;
     float frequency = 1.0f;
     float cameraTimer = 0;
 

@@ -179,6 +179,7 @@ MonoBehaviour:
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
   <speed>k__BackingField: 5
+  <damageReduction>k__BackingField: 0
   EnemyIdleBase: {fileID: 11400000, guid: badf0331c80adf94f9ec2e60b21e84b4, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: f9875bdefa575bb4dabe66c76cae53fc, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
