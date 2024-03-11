@@ -10,6 +10,9 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     private Transform weaponTransform;
     private Transform target;
 
+    private LineRenderer lineRenderer;
+    private DistanceJoint2D distanceJoint;
+
     private float attackTimer;
 
 
@@ -25,11 +28,20 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         attackTimer = enemyBase.attackDelay;
         target = Player.transform;
         weaponTransform = enemyBase.gameObject.GetComponent<Spitter>().weaponTransfom;
+
+        distanceJoint = enemyBase.gameObject.GetComponent<DistanceJoint2D>();
+        distanceJoint.distance = 4;
+        distanceJoint.enabled = false;
+        lineRenderer = enemyBase.gameObject.GetComponentInChildren<LineRenderer>();
+        lineRenderer.enabled = false;
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+
+        distanceJoint.enabled = false;
+        lineRenderer.enabled = false;
     }
 
     public override void DoFrameUpdateLogic()
@@ -46,6 +58,13 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         {
             attackTimer += Time.deltaTime;
         }
+
+        distanceJoint.connectedBody = Player.GetComponent<Rigidbody2D>();
+        distanceJoint.enabled = true;
+
+        lineRenderer.SetPosition(0, enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position);
+        lineRenderer.SetPosition(1, Player.transform.position);
+        lineRenderer.enabled = true;
     }
 
     public override void DoPhysicsLogic()
