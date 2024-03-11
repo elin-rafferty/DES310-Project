@@ -30,6 +30,7 @@ public class BossChase : EnemyChaseSOBase
         target = Player.transform;
         UpdatePath(rb.position, target.position);
         tempTimer = 5;
+        enemyBase.enemyTimer = 0.5f;
     }
 
     public override void DoExitLogic()
@@ -59,6 +60,15 @@ public class BossChase : EnemyChaseSOBase
         else
         {
             enemyBase.StateMachine.ChangeState(enemyBase.ATTACKState);
+        }
+
+        if (enemyBase.enemyTimer > 0)
+        {
+            enemyBase.enemyTimer -= Time.deltaTime;
+        }
+        else
+        {
+            enemyBase.eventHandler.ShakeCamera.Invoke(0, 0);
         }
     }
 

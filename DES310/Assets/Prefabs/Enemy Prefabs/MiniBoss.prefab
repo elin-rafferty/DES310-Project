@@ -143,7 +143,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   <meleeDamage>k__BackingField: 5
   <rangedDamage>k__BackingField: 0
   <MaxHealth>k__BackingField: 1000
-  <aggroRange>k__BackingField: 10
+  <aggroRange>k__BackingField: 20
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
   <speed>k__BackingField: 5
@@ -186,6 +186,7 @@ MonoBehaviour:
   EnemyAttackBase: {fileID: 11400000, guid: 4edae2bbfc36a3e4ca314bab4b97bc60, type: 2}
   bossHealthSlider: {fileID: 0}
   door: {fileID: 0}
+  <Camera>k__BackingField: {fileID: 0}
 --- !u!114 &1714404285640921242
 MonoBehaviour:
   m_ObjectHideFlags: 0

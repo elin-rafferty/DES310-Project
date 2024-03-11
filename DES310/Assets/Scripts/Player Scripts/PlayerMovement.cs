@@ -230,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 // Play shoot sound
-                SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 0.3f);
+                SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);
             }
         }
     }

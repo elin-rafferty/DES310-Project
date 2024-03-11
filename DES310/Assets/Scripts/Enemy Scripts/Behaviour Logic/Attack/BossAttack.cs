@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,7 +59,9 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoEnterLogic();
 
-        currentAttackState = AttackState.READY_JUMP;
+        
+
+        currentAttackState = AttackState.WINDUP;
         chargeTimer = 2;
         enemyBase.colliderTag = string.Empty;
     }
@@ -79,9 +82,9 @@ public class BossAttack : EnemyAttackSOBase
 
         Debug.Log(currentAttackState.ToString());
 
-        //ChargeAttack();
+        ChargeAttack();
 
-        LeapAttack();
+        //LeapAttack();
 
         //TentacleAttack();
     }
@@ -105,6 +108,7 @@ public class BossAttack : EnemyAttackSOBase
                 bossScale = enemyBase.transform.localScale;
 
                 jumpTimer = 0;
+                gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
                 currentAttackState = AttackState.JUMP;
 
                 break;
@@ -135,8 +139,11 @@ public class BossAttack : EnemyAttackSOBase
 
                 if (jumpTimer <= 0)
                 {
+                    enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
+
                     enemyBase.transform.localScale = Vector2.one * 2;
 
+                    gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                     currentAttackState = AttackState.READY_JUMP;
                     enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
                 }
@@ -191,6 +198,7 @@ public class BossAttack : EnemyAttackSOBase
                 else if (enemyBase.colliderTag == "Wall")
                 {
                     enemyBase.MoveEnemy(Vector2.zero);
+                    enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
                     chargeTimer = 5;
                     currentAttackState = AttackState.STUNNED;
                 }
@@ -204,6 +212,11 @@ public class BossAttack : EnemyAttackSOBase
                 if (chargeTimer > 0)
                 {
                     chargeTimer -= Time.deltaTime;
+
+                    if (chargeTimer < 4)
+                    {
+                        enemyBase.eventHandler.ShakeCamera.Invoke(0, 0);
+                    }
                 }
                 else
                 {
