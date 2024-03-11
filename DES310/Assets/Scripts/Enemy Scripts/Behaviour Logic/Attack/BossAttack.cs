@@ -1,4 +1,3 @@
-using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,19 +10,23 @@ public class BossAttack : EnemyAttackSOBase
         NONE,
 
         // Charge
+        CHARGE_ATTACK,
         WINDUP,
         CHARGE,
         STUNNED,
 
         // Leap
+        LEAP_ATTACK,
         READY_JUMP,
         JUMP,
         SLAM,
 
         //Tenatcle
+        TENTACLE_ATTACK
     }
 
     private AttackState currentAttackState;
+    private AttackState currentAttack;
 
     // General Vars
     Vector2 targetDirection = new();
@@ -61,14 +64,37 @@ public class BossAttack : EnemyAttackSOBase
 
         
 
-        currentAttackState = AttackState.WINDUP;
+        currentAttackState = AttackState.NONE;
         chargeTimer = 2;
         enemyBase.colliderTag = string.Empty;
+
+        // Choose Random Attack
+        int rand = Random.Range(0, 2);
+
+        if (rand == 0)
+        {
+            // Leap Attack
+            currentAttack = AttackState.LEAP_ATTACK;
+            currentAttackState = AttackState.READY_JUMP;
+        }
+        else if (rand == 1)
+        {
+            // Charge Attack
+            currentAttack = AttackState.CHARGE_ATTACK;
+            currentAttackState = AttackState.WINDUP;
+        }
+        else if (rand == 2)
+        {
+            // Tentacle Attack
+        }
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+
+        currentAttack = AttackState.NONE;
+        currentAttackState = AttackState.NONE;
     }
 
     public override void DoFrameUpdateLogic()
@@ -80,11 +106,21 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoPhysicsLogic();
 
-        Debug.Log(currentAttackState.ToString());
+        //Debug.Log(currentAttackState.ToString());
 
-        ChargeAttack();
+        switch (currentAttack)
+        {
+            case AttackState.LEAP_ATTACK:
+                LeapAttack();
+                break; 
 
-        //LeapAttack();
+            case AttackState.CHARGE_ATTACK:
+                ChargeAttack();
+                break;
+
+            case AttackState.TENTACLE_ATTACK:
+                break;
+        }
 
         //TentacleAttack();
     }
