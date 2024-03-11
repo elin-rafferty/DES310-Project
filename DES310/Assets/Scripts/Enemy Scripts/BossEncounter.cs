@@ -76,6 +76,7 @@ public class BossEncounter : MonoBehaviour
             if (boss)
             {
                 boss.SetActive(true);
+                SoundManager.instance.PlaySound(SoundManager.SFX.EnemyScreech, boss.transform, 1f);
 
                 // Close Door
                 door.Lock();
