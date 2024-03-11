@@ -1,3 +1,4 @@
+using Cinemachine;
 using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;

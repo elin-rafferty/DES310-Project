@@ -14,9 +14,9 @@ public class BossChase : EnemyChaseSOBase
     private float refSpeedY;
     Vector2 currentDirection = new(0, 0);
 
-    private float pathUpdateTime = 0.5f;
+    private float pathUpdateTime = 0.25f;
     private float timer;
-    private float tempTimer;
+    private float attackCooldownTimer;
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
@@ -29,7 +29,8 @@ public class BossChase : EnemyChaseSOBase
 
         target = Player.transform;
         UpdatePath(rb.position, target.position);
-        tempTimer = 5;
+        attackCooldownTimer = Random.Range(3, 8);
+        enemyBase.enemyTimer = 0.5f;
     }
 
     public override void DoExitLogic()
@@ -52,13 +53,22 @@ public class BossChase : EnemyChaseSOBase
             timer += Time.deltaTime;
         }
 
-        if (tempTimer > 0)
+        if (attackCooldownTimer > 0)
         {
-            tempTimer -= Time.deltaTime;
+            attackCooldownTimer -= Time.deltaTime;
         }
         else
         {
             enemyBase.StateMachine.ChangeState(enemyBase.ATTACKState);
+        }
+
+        if (enemyBase.enemyTimer > 0)
+        {
+            enemyBase.enemyTimer -= Time.deltaTime;
+        }
+        else
+        {
+            enemyBase.eventHandler.ShakeCamera.Invoke(0, 0);
         }
     }
 

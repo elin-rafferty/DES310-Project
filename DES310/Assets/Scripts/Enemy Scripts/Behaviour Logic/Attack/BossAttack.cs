@@ -10,19 +10,23 @@ public class BossAttack : EnemyAttackSOBase
         NONE,
 
         // Charge
+        CHARGE_ATTACK,
         WINDUP,
         CHARGE,
         STUNNED,
 
         // Leap
+        LEAP_ATTACK,
         READY_JUMP,
         JUMP,
         SLAM,
 
         //Tenatcle
+        TENTACLE_ATTACK
     }
 
     private AttackState currentAttackState;
+    private AttackState currentAttack;
 
     // General Vars
     Vector2 targetDirection = new();
@@ -58,14 +62,39 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoEnterLogic();
 
-        currentAttackState = AttackState.READY_JUMP;
+        
+
+        currentAttackState = AttackState.NONE;
         chargeTimer = 2;
         enemyBase.colliderTag = string.Empty;
+
+        // Choose Random Attack
+        int rand = Random.Range(0, 2);
+
+        if (rand == 0)
+        {
+            // Leap Attack
+            currentAttack = AttackState.LEAP_ATTACK;
+            currentAttackState = AttackState.READY_JUMP;
+        }
+        else if (rand == 1)
+        {
+            // Charge Attack
+            currentAttack = AttackState.CHARGE_ATTACK;
+            currentAttackState = AttackState.WINDUP;
+        }
+        else if (rand == 2)
+        {
+            // Tentacle Attack
+        }
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+
+        currentAttack = AttackState.NONE;
+        currentAttackState = AttackState.NONE;
     }
 
     public override void DoFrameUpdateLogic()
@@ -77,11 +106,21 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoPhysicsLogic();
 
-        Debug.Log(currentAttackState.ToString());
+        //Debug.Log(currentAttackState.ToString());
 
-        //ChargeAttack();
+        switch (currentAttack)
+        {
+            case AttackState.LEAP_ATTACK:
+                LeapAttack();
+                break; 
 
-        LeapAttack();
+            case AttackState.CHARGE_ATTACK:
+                ChargeAttack();
+                break;
+
+            case AttackState.TENTACLE_ATTACK:
+                break;
+        }
 
         //TentacleAttack();
     }
@@ -105,6 +144,7 @@ public class BossAttack : EnemyAttackSOBase
                 bossScale = enemyBase.transform.localScale;
 
                 jumpTimer = 0;
+                gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
                 currentAttackState = AttackState.JUMP;
 
                 break;
@@ -135,8 +175,11 @@ public class BossAttack : EnemyAttackSOBase
 
                 if (jumpTimer <= 0)
                 {
+                    enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
+
                     enemyBase.transform.localScale = Vector2.one * 2;
 
+                    gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                     currentAttackState = AttackState.READY_JUMP;
                     enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
                 }
@@ -191,6 +234,7 @@ public class BossAttack : EnemyAttackSOBase
                 else if (enemyBase.colliderTag == "Wall")
                 {
                     enemyBase.MoveEnemy(Vector2.zero);
+                    enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
                     chargeTimer = 5;
                     currentAttackState = AttackState.STUNNED;
                 }
@@ -204,6 +248,11 @@ public class BossAttack : EnemyAttackSOBase
                 if (chargeTimer > 0)
                 {
                     chargeTimer -= Time.deltaTime;
+
+                    if (chargeTimer < 4)
+                    {
+                        enemyBase.eventHandler.ShakeCamera.Invoke(0, 0);
+                    }
                 }
                 else
                 {

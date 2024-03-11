@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,7 @@ public class EventHandler : ScriptableObject
     public UnityEvent<int> ChangeEnemyCount;
     public UnityEvent LevelEnter;
     public UnityEvent PlayerBulletFired;
+    public UnityEvent<float, float> ShakeCamera;
     public PersistentVariables persistentVariables;
 
     private void OnEnable()

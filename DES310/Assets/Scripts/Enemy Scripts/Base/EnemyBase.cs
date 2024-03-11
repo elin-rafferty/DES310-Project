@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public bool IsAggro { get; set; }
     public bool IsWithinAttackRange { get; set; }
     public bool IsLineOfSight { get; set; }
+    public float enemyTimer { get; set; }
 
     #region State Machine Variables
 
@@ -163,9 +165,4 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     }
 
     #endregion
-
-    void Nothing()
-    {
-
-    }
 }
