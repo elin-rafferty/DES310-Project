@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -29,6 +29,10 @@ public class Item : MonoBehaviour
     public Vector2 destination = Vector2.zero;
     private float moveSpeed = 5f;
 
+    [SerializeField] Canvas canvas;
+    [SerializeField] Text text;
+    [SerializeField] SettingsSO settings;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Set trigger true on collision with item
@@ -51,6 +55,11 @@ public class Item : MonoBehaviour
 
             Destroy(gameObject);
             inventoryItems.AddItem(InventoryItem, Quantity);
+        }
+        canvas.gameObject.SetActive(trigger);
+        if (canvas.gameObject.activeSelf)
+        {
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to take";
         }
     }
 

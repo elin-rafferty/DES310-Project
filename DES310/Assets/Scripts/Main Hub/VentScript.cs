@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class VentScript : MonoBehaviour
 {
-    public string sceneName;
+    public List<string> sceneNames = new();
     public float timeBeforeOpen = 2;
     public PersistentVariables persistentVariables;
     public InputManager inputManager;
@@ -65,7 +65,7 @@ public class VentScript : MonoBehaviour
                 while (inventory.RemoveItem(key));
             }
             // Modifier Load Screen
-            if (sceneName != "Main Hub" && loadingScreen)
+            if (sceneNames[0] != "Main Hub" && loadingScreen)
             {
                 Modifiers newModifier;
                 bool found;
@@ -87,7 +87,20 @@ public class VentScript : MonoBehaviour
                 loadingScreen.SetActive(true);
             }
             persistentVariables.exitReason = LevelExitReason.VENT_EXIT;
-            SceneManager.LoadScene(sceneName);
+            if (sceneNames.Count > 1)
+            {
+                string newScene = "";
+                do
+                {
+                    newScene = sceneNames[UnityEngine.Random.Range(0, sceneNames.Count)];
+                } while (newScene == persistentVariables.lastLevelEntered);
+                persistentVariables.lastLevelEntered = newScene;
+                SceneManager.LoadScene(newScene);
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneNames[0]);
+            }
         }
     }
 }

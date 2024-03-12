@@ -41,7 +41,13 @@ public class SoundManager : MonoBehaviour
         SpitterAttack,
         EnemyScreech,
         EnemyHit,
-        EnemyDeath
+        EnemyDeath,
+
+        PurchaseSuccessful,
+        PurchaseUnsuccessful,
+
+        DoorOpen,
+        DoorClosed
     }
 
     private void Awake()
