@@ -239,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1057306452057122702}
   - component: {fileID: 5252228200101219679}
-  - component: {fileID: 7831969146637428761}
+  - component: {fileID: 885896963052435733}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -274,7 +274,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738862106987286109}
   m_CullTransparentMesh: 1
---- !u!114 &7831969146637428761
+--- !u!114 &885896963052435733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -477,8 +477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 337.13, y: -407}
-  m_SizeDelta: {x: -354.29, y: -769.041}
+  m_AnchoredPosition: {x: 363.6, y: -407}
+  m_SizeDelta: {x: -422.24, y: -769.041}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5556059664931531820
 CanvasRenderer:
@@ -760,8 +760,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.3985, y: -89.89}
-  m_SizeDelta: {x: 276.2454, y: 120.13}
+  m_AnchoredPosition: {x: 1.507, y: -89.89}
+  m_SizeDelta: {x: 260.0534, y: 120.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2058742276508115071
 CanvasRenderer:
@@ -1296,8 +1296,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.2355, y: -89.89}
-  m_SizeDelta: {x: 264.734, y: 120.13}
+  m_AnchoredPosition: {x: 5.0236, y: -89.89}
+  m_SizeDelta: {x: 257.0394, y: 120.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &113905139953809429
 CanvasRenderer:
@@ -1646,8 +1646,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7784, y: -89.89}
-  m_SizeDelta: {x: 263.7275, y: 120.13}
+  m_AnchoredPosition: {x: 5.9894, y: -89.89}
+  m_SizeDelta: {x: 248.5173, y: 120.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1555994195071893003
 CanvasRenderer:
@@ -1910,7 +1910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1351452796579243630}
   - component: {fileID: 7525118059546272845}
-  - component: {fileID: 1549601013663563260}
+  - component: {fileID: 364767263774448198}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1945,7 +1945,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5213987921690421736}
   m_CullTransparentMesh: 1
---- !u!114 &1549601013663563260
+--- !u!114 &364767263774448198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2170,8 +2170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 332.59155, y: 284.37573}
-  m_SizeDelta: {x: -709.3313, y: -602.4435}
+  m_AnchoredPosition: {x: 359.05725, y: 284.37573}
+  m_SizeDelta: {x: -762.2627, y: -602.4435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7780863568382189323
 CanvasRenderer:
@@ -2245,7 +2245,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 526, y: 356.87677}
+  m_AnchoredPosition: {x: 488, y: 356.87677}
   m_SizeDelta: {x: 468.7967, y: 407.7535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5924066891281019429
@@ -2474,8 +2474,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148.3272, y: -5.7618}
-  m_SizeDelta: {x: 1231.97, y: 289.0287}
+  m_AnchoredPosition: {x: -128.33345, y: -5.7618}
+  m_SizeDelta: {x: 1191.9824, y: 289.0287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2740323757510199199
 CanvasRenderer:
@@ -2537,7 +2537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5819433088366769102
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2593,10 +2593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

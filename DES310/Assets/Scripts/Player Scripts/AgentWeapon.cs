@@ -38,9 +38,9 @@ public class AgentWeapon : MonoBehaviour
         overheatSlider.value = overheatSlider.maxValue;
     }
 
-    public void SetWeapon(EquippableItemSO weaponItemSO, List<ItemParameter> itemState)
+    public void SetWeapon(EquippableItemSO weaponItemSO, List<ItemParameter> itemState, bool isTheSameAsCurrentlyEquipped = false)
     {
-        if (weapon != null)
+        if (weapon != null && !isTheSameAsCurrentlyEquipped)
         {
             inventoryData.AddItem(weapon, 1, itemCurrentState);
         }

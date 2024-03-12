@@ -1,3 +1,4 @@
+using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject playButton, optionsBackButton;
     [SerializeField] private SettingsSO settings;
+    [SerializeField] private InventorySO inventory;
 
     private void OnEnable()
     {
@@ -48,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu() 
     {
+        inventory.WipeInventory();
         persistentVariables.exitReason = LevelExitReason.NONE;
         SceneManager.LoadScene("Main Menu");
     }
