@@ -10,7 +10,6 @@ public class VentPath : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     
     Transform ventTransform;
-    Transform playerTransform;
     LineRenderer lineRenderer;
     Path path;
     Seeker seeker;
@@ -36,7 +35,6 @@ public class VentPath : MonoBehaviour
             ventTransform = GameObject.FindGameObjectWithTag("Vent").transform;
         }
 
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         lineRenderer = GetComponent<LineRenderer>();
 
@@ -49,7 +47,7 @@ public class VentPath : MonoBehaviour
         {
             if (timer <= activateTime)
             {
-                UpdatePath(playerTransform.position, ventTransform.position);
+                UpdatePath(transform.position, ventTransform.position);
                 UpdateLine();
             }
             else
@@ -79,11 +77,11 @@ public class VentPath : MonoBehaviour
     {
         if (path != null)
         {
-            lineRenderer.positionCount = path.vectorPath.Count - 4;
+            lineRenderer.positionCount = path.vectorPath.Count - 1;
 
-            for (int i = 0; i < path.vectorPath.Count - 4; i++)
+            for (int i = 0; i < path.vectorPath.Count - 1; i++)
             {
-                lineRenderer.SetPosition(i, path.vectorPath[i + 3]);
+                lineRenderer.SetPosition(i, path.vectorPath[i] + Vector3.forward * 2);
             }
 
             // Set line colour
