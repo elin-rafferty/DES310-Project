@@ -57,6 +57,7 @@ public class PauseMenu : MonoBehaviour
             weapon.weaponUpgrades = WeaponUpgrades.CreateInstance<WeaponUpgrades>();
         }
         persistentVariables.exitReason = LevelExitReason.NONE;
+        persistentVariables.lastLevelEntered = "";
         SceneManager.LoadScene("Main Menu");
     }
 
