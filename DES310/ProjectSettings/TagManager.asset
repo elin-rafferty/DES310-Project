@@ -9,6 +9,7 @@ TagManager:
   - Trigger Check
   - Boss Trigger
   - Wall
+  - Vent
   layers:
   - Default
   - TransparentFX
