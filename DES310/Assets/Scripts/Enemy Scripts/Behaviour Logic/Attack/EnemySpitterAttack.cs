@@ -14,6 +14,7 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     private DistanceJoint2D distanceJoint;
 
     private float attackTimer;
+    private float grabTimer;
 
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
@@ -25,14 +26,17 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     {
         base.DoEnterLogic();
 
+        grabTimer = 7;
         attackTimer = enemyBase.attackDelay;
         target = Player.transform;
         weaponTransform = enemyBase.gameObject.GetComponent<Spitter>().weaponTransfom;
 
         distanceJoint = enemyBase.gameObject.GetComponent<DistanceJoint2D>();
-        distanceJoint.distance = 4;
+        distanceJoint.distance = enemyBase.attackRange - 0.5f;
+        distanceJoint.connectedBody = Player.GetComponent<Rigidbody2D>();
         distanceJoint.enabled = false;
         lineRenderer = enemyBase.gameObject.GetComponentInChildren<LineRenderer>();
+        lineRenderer.forceRenderingOff = false;
         lineRenderer.enabled = false;
     }
 
@@ -40,7 +44,9 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     {
         base.DoExitLogic();
 
+        distanceJoint.connectedBody = null;
         distanceJoint.enabled = false;
+        lineRenderer.forceRenderingOff = true;
         lineRenderer.enabled = false;
     }
 
@@ -48,23 +54,52 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     {
         base.DoFrameUpdateLogic();
 
-        // Do Enemy Attack
-        if (attackTimer >= enemyBase.attackDelay)
+        if (grabTimer >= 2)
         {
-            attackTimer = 0;
-            Fire();
+            // Do Enemy Basic Attack
+            if (attackTimer >= enemyBase.attackDelay)
+            {
+                attackTimer = 0;
+                Fire();
+            }
+            else
+            {
+                attackTimer += Time.deltaTime;
+            }
         }
-        else
+        else if (grabTimer > 0 && grabTimer < 2)
         {
-            attackTimer += Time.deltaTime;
+            // Grab visual targeting
+            lineRenderer.startColor = Color.Lerp(new Color(0.52f, 0.18f, 0.13f, 1), new Color(1, 1, 1, 1), grabTimer * 0.5f);
+            lineRenderer.endColor = Color.Lerp(new Color(0.52f, 0.18f, 0.13f, 1), new Color(1, 1, 1, 1), grabTimer * 0.5f);
+
+            Vector2 playerDirection = (Player.transform.position - enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position).normalized;
+            lineRenderer.positionCount = 3;
+            Vector3 source = enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position;
+
+            // Right Cone
+            lineRenderer.SetPosition(0, (Vector2)source + Vector2.Lerp(playerDirection, Quaternion.AngleAxis(30, new Vector3(0, 0, 1)) * playerDirection, grabTimer * 0.5f) * 3);
+            // Tether Position
+            lineRenderer.SetPosition(1, source);
+            // Left Cone
+            lineRenderer.SetPosition(2, (Vector2)source + Vector2.Lerp(playerDirection, Quaternion.AngleAxis(-30, new Vector3(0, 0, 1)) * playerDirection, grabTimer * 0.5f) * 3);
+
+            lineRenderer.enabled = true;
+        }
+        else if (grabTimer <= 0) 
+        {
+            // Perform Grab
+            lineRenderer.startColor = new Color(0.52f, 0.18f, 0.13f, 1);
+            lineRenderer.endColor = new Color(0.52f, 0.18f, 0.13f, 1);
+            distanceJoint.enabled = true;
+
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position);
+            lineRenderer.SetPosition(1, Player.transform.position);
+            lineRenderer.enabled = true;
         }
 
-        distanceJoint.connectedBody = Player.GetComponent<Rigidbody2D>();
-        distanceJoint.enabled = true;
-
-        lineRenderer.SetPosition(0, enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position);
-        lineRenderer.SetPosition(1, Player.transform.position);
-        lineRenderer.enabled = true;
+        grabTimer -= Time.deltaTime;
     }
 
     public override void DoPhysicsLogic()

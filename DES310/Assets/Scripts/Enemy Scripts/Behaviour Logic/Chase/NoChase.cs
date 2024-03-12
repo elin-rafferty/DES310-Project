@@ -24,7 +24,7 @@ public class NoChase : EnemyChaseSOBase
     {
         base.DoFrameUpdateLogic();
 
-        if (enemyBase.IsWithinAttackRange)
+        if (enemyBase.IsWithinAttackRange && enemyBase.IsLineOfSight)
         {
             enemyBase.StateMachine.ChangeState(enemyBase.ATTACKState);
         }
