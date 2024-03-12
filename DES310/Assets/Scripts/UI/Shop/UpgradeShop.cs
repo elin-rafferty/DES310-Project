@@ -56,7 +56,7 @@ public class UpgradeShop : MonoBehaviour
         WeaponProperties selectedWeaponProperties = weaponScriptableObjects[selectedWeapon].weaponProperties;
         WeaponUpgrades selectedWeaponUpgrades = selectedWeaponProperties.weaponUpgrades;
         oldWeaponDescription.text = "Damage: " + (selectedProjectileType.damage * selectedWeaponUpgrades.damageModifier) + "\nFire Speed: " + Mathf.Round((1 / (selectedWeaponProperties.fireDelay / selectedWeaponUpgrades.fireSpeedModifier)) * 100f) / 100f + " bullets/second\nTime To Overheat: " + Mathf.Round((selectedWeaponProperties.overheatCapacity * selectedWeaponUpgrades.overheatCapacityModifier) * 100f) / 100f + " seconds\nRange: " + (selectedProjectileType.despawnTimer * selectedWeaponUpgrades.fireRangeModifier * selectedProjectileType.speed) + " meters";
-        newWeaponDescription.text = "Damage: " + (selectedProjectileType.damage * (selectedWeaponUpgrades.damageModifier + 0.1f * damageUpgrades)) + "\nFire Speed: " + Mathf.Round((1 / (selectedWeaponProperties.fireDelay / (selectedWeaponUpgrades.fireSpeedModifier + 0.1f * fireSpeedUpgrades))) * 100f) / 100f + " bullets/second\nTime To Overheat: " + Mathf.Round((selectedWeaponProperties.overheatCapacity * (selectedWeaponUpgrades.overheatCapacityModifier + 0.1f * overheatUpgrades)) * 100f) / 100f + " seconds\nRange: " + (selectedProjectileType.despawnTimer * (selectedWeaponUpgrades.fireRangeModifier + 0.1 * rangeUpgrades) * selectedProjectileType.speed) + " meters";
+        newWeaponDescription.text = "Damage: " + (selectedProjectileType.damage * (selectedWeaponUpgrades.damageModifier + damageUpgradeMagnitude * damageUpgrades)) + "\nFire Speed: " + Mathf.Round((1 / (selectedWeaponProperties.fireDelay / (selectedWeaponUpgrades.fireSpeedModifier + fireSpeedUpgradeMagnitude * fireSpeedUpgrades))) * 100f) / 100f + " bullets/second\nTime To Overheat: " + Mathf.Round((selectedWeaponProperties.overheatCapacity * (selectedWeaponUpgrades.overheatCapacityModifier + overheatCapacityUpgradeMagnitude * overheatUpgrades)) * 100f) / 100f + " seconds\nRange: " + (selectedProjectileType.despawnTimer * (selectedWeaponUpgrades.fireRangeModifier + fireSpeedUpgradeMagnitude * rangeUpgrades) * selectedProjectileType.speed) + " meters";
     }
 
     public void AddDamageUpgrade()
@@ -118,10 +118,10 @@ public class UpgradeShop : MonoBehaviour
     public void ApplyUpgrades()
     {
         WeaponUpgrades weaponUpgrades = weaponScriptableObjects[dropdown.value].weaponProperties.weaponUpgrades;
-        weaponUpgrades.damageModifier += damageUpgrades * 0.1f;
-        weaponUpgrades.fireSpeedModifier += fireSpeedUpgrades * 0.1f;
-        weaponUpgrades.overheatCapacityModifier += overheatUpgrades * 0.1f;
-        weaponUpgrades.fireRangeModifier += rangeUpgrades * 0.1f;
+        weaponUpgrades.damageModifier += damageUpgrades * damageUpgradeMagnitude;
+        weaponUpgrades.fireSpeedModifier += fireSpeedUpgrades * fireSpeedUpgradeMagnitude;
+        weaponUpgrades.overheatCapacityModifier += overheatUpgrades * overheatCapacityUpgradeMagnitude;
+        weaponUpgrades.fireRangeModifier += rangeUpgrades * rangeUpgradeMagnitude;
         ResetUnpurchasedUpgrades();
     }
 
