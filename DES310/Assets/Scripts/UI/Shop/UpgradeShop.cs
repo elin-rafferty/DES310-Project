@@ -107,11 +107,20 @@ public class UpgradeShop : MonoBehaviour
     {
        if (inventory.HasItem(currencyItem, cost))
         {
-            if (inventory.RemoveItem(currencyItem, cost))
+            if (inventory.RemoveItem(currencyItem, cost) && cost > 0)
             {
+                SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseSuccessful, transform, 1f);
                 ApplyUpgrades();
                 agentWeapon.SetWeapon(agentWeapon.weapon, agentWeapon.weapon.DefaultParametersList, true);
             }
+            else
+            {
+                SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseUnsuccessful, transform, 1f);
+            }
+        }
+        else
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseUnsuccessful, transform, 1f);
         }
     }
 

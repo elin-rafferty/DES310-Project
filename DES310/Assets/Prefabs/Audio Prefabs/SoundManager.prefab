@@ -84,3 +84,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 3bb72f1213d2b3a49aca64dec23f1700, type: 3}
   - SoundName: 18
     Clip: {fileID: 8300000, guid: 3bb72f1213d2b3a49aca64dec23f1700, type: 3}
+  - SoundName: 19
+    Clip: {fileID: 8300000, guid: c4cafd8b78760394cb7aea268d38fb62, type: 3}
+  - SoundName: 20
+    Clip: {fileID: 8300000, guid: 9da073c4b0b981a42b8aba22f7886f42, type: 3}
