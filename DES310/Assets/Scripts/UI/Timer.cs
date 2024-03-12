@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
     public float timeLeft;
     public float maxTime = 100f;
-    public float duration = 1;
+    //public float duration = 1;
 
     public Slider slider;
 

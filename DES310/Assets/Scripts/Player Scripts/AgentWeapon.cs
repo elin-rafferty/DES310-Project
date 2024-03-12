@@ -27,7 +27,6 @@ public class AgentWeapon : MonoBehaviour
         {
             weapon = persistentVariables.equippedItem;
         }
-        overheatSlider.value = 0;
         if (weapon != null)
         {
             overheatSlider.maxValue = weapon.weaponProperties.overheatCapacity * weapon.weaponProperties.weaponUpgrades.overheatCapacityModifier;
@@ -36,6 +35,7 @@ public class AgentWeapon : MonoBehaviour
         {
             overheatSlider.maxValue = 10;
         }
+        overheatSlider.value = overheatSlider.maxValue;
     }
 
     public void SetWeapon(EquippableItemSO weaponItemSO, List<ItemParameter> itemState)
@@ -48,6 +48,7 @@ public class AgentWeapon : MonoBehaviour
         this.itemCurrentState = new List<ItemParameter>(itemState);
         ModifyParameters();
         overheatSlider.maxValue = weapon.weaponProperties.overheatCapacity * weapon.weaponProperties.weaponUpgrades.overheatCapacityModifier;
+        overheatSlider.value = overheatSlider.maxValue;
         persistentVariables.equippedItem = weapon;
     }
 
