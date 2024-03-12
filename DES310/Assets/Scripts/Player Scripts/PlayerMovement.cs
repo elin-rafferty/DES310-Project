@@ -56,11 +56,11 @@ public class PlayerMovement : MonoBehaviour
         } 
         if (!pauseMenu.activeSelf)
         {
-            Cursor.visible = inventoryOpen;
+            Cursor.visible = inventoryOpen && settings.Controls == 0;
         }
         else if (pauseMenu.activeSelf)
         {
-            Cursor.visible = true;
+            Cursor.visible = settings.Controls == 0;
         }
     }
 
@@ -220,10 +220,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
                 weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
-                timeTilNextFire = weaponProperties.fireDelay;
-                overheatLevel += weaponProperties.fireDelay;
+                timeTilNextFire = weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
+                overheatLevel += weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
                 overheatSlider.value = overheatLevel;
-                if (overheatLevel >= weaponProperties.overheatCapacity)
+                if (overheatLevel >= weaponProperties.overheatCapacity * weaponProperties.weaponUpgrades.overheatCapacityModifier)
                 {
                     overheated = true;
                     SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);

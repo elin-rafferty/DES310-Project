@@ -25,6 +25,6 @@ Shift - Dash
 
 Known Bugs:
 1. Enemies can push player through walls sometimes. *Temp solution* None. Fixes known, will be applied soon.
-2. Audio doesn't work unless you open options. *Temp solution* Open options when you first start game.
+2. Audio may not work unless you open options. *Temp solution* Open options when you first start game.
 
 
