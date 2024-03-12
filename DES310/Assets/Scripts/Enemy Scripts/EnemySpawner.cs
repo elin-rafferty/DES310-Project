@@ -10,6 +10,8 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
+    [SerializeField] private float respawnTimer;
+
     enum WallDirection
     {
         UP, DOWN, LEFT, RIGHT, NONE
@@ -31,10 +33,38 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Space))
+        // Clear dead enemies from list
+        for (int i = 0; i < spawnedEnemies.Count; i++)
         {
-            SpawnAnEnemy();
-        }*/
+            if (spawnedEnemies[i] == null) 
+            {
+                spawnedEnemies.Remove(spawnedEnemies[i]);
+                i--;
+            }
+        }
+
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        bool onScreen = screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+
+        if (onScreen)
+        {
+            // return if spawner on screen
+            respawnTimer = 10;
+            return;
+        }
+        else if (spawnedEnemies.Count == 0)
+        {
+            // Spawn Enemy after respawn timer and enemy dead
+            if (respawnTimer < 0)
+            {
+                SpawnAnEnemy();
+                respawnTimer = 10;
+            }
+            else 
+            {
+                respawnTimer -= Time.deltaTime;
+            }
+        }
     }
 
     void SpawnAnEnemy()

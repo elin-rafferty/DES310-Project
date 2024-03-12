@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      overheat_green_0: 6143116953219946054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
