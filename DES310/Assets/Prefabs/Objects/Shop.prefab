@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 3997381727081057819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.64, z: 0}
+  m_LocalPosition: {x: 0, y: -0.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +180,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.6, y: 3.84}
+  m_Size: {x: 4.48, y: 4.48}
   m_EdgeRadius: 0
 --- !u!114 &7660983394530422021
 MonoBehaviour:
@@ -195,8 +195,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5704582273851769553}
+  shopCanvas: {fileID: 0}
   text: {fileID: 1348559676012853576}
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
+  inventoryAnimation: {fileID: 0}
 --- !u!114 &7167002747647708304
 MonoBehaviour:
   m_ObjectHideFlags: 0

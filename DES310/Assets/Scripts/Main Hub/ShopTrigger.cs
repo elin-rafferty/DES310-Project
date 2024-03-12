@@ -25,7 +25,6 @@ public class ShopTrigger : MonoBehaviour
         {
             // Set trigger true on collision
             trigger = true;
-            canvas.gameObject.SetActive(true);
             text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open shop";
         }
     }
@@ -36,12 +35,12 @@ public class ShopTrigger : MonoBehaviour
         {
             // Set trigger false on collision end
             trigger = false;
-            canvas.gameObject.SetActive(false);
         }
     }
 
     void Update()
     {
+        canvas.gameObject.SetActive(trigger && !shopCanvas.gameObject.activeSelf);
         // Load shop menu
         if (inputManager.GetButtonDown("Interact") && trigger == true && !shopCanvas.gameObject.activeSelf)
         {
