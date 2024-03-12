@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,31 +6,31 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public float timeLeft;
+    public float maxTime = 100f;
+    public float duration = 1;
 
-    public Slider timerSlider;
-    public float gameTime;
+    public Slider slider;
 
-    public bool stopTimer;
-
-    // Start is called before the first frame update
-    void Start()
+    // Use this for initialization
+    private void Start()
     {
-        stopTimer = false;
-        timerSlider.maxValue = gameTime;   
-        timerSlider.value = gameTime;
+        timeLeft = maxTime;
+        slider.value = timeLeft;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float time = gameTime - Time.time;
 
-        int minutes = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time * 60);  
-
-        if (time <= 0)
+        if (timeLeft > 0)
         {
-            timerSlider.value = time;
+            timeLeft -= Time.deltaTime;
+            slider.value = timeLeft / maxTime;
+        }
+        else
+        {
+            Time.timeScale = 0;
         }
     }
 }

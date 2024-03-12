@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
                 overheatLevel = 0;
                 overheated = false;
             }
-            overheatSlider.value = overheatLevel;
+            overheatSlider.value = overheatSlider.maxValue - overheatLevel;
         }
     }
 
@@ -222,13 +222,12 @@ public class PlayerMovement : MonoBehaviour
                 weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
                 timeTilNextFire = weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
                 overheatLevel += weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
-                overheatSlider.value = overheatLevel;
+                overheatSlider.value = overheatSlider.maxValue - overheatLevel;
                 if (overheatLevel >= weaponProperties.overheatCapacity * weaponProperties.weaponUpgrades.overheatCapacityModifier)
                 {
                     overheated = true;
                     SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);
                 }
-
                 // Play shoot sound
                 SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);
             }
