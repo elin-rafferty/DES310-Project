@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -8,7 +9,8 @@ using UnityEngine.UI;
 public class TimerHandler : MonoBehaviour
 {
     [SerializeField] EventHandler eventHandler;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] private Slider oxgyen;
+    //[SerializeField] TextMeshProUGUI text;
     private float timeLeft = 300;
     bool runTimer = false;
 
@@ -16,6 +18,8 @@ public class TimerHandler : MonoBehaviour
     void Awake()
     {
         eventHandler.LevelEnter.AddListener(OnLevelEnter);
+        oxgyen.maxValue = timeLeft;
+        oxgyen.value = timeLeft;
     }
 
     // Update is called once per frame
