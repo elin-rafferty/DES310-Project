@@ -56,11 +56,11 @@ public class PlayerMovement : MonoBehaviour
         } 
         if (!pauseMenu.activeSelf)
         {
-            Cursor.visible = inventoryOpen;
+            Cursor.visible = inventoryOpen && settings.Controls == 0;
         }
         else if (pauseMenu.activeSelf)
         {
-            Cursor.visible = true;
+            Cursor.visible = settings.Controls == 0;
         }
     }
 
