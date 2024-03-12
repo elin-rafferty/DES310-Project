@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f56a7b410d46141bb0ecc8c97378ec, type: 3}
   m_Name: Persistent Variables
   m_EditorClassIdentifier: 
-  exitReason: 0
-  equippedItem: {fileID: 11400000, guid: fe0c371b82406da4ca5d2c6a4e43d501, type: 2}
+  exitReason: 2
+  equippedItem: {fileID: 11400000, guid: 4797782c414ec47438c77c1e333a1ee8, type: 2}
+  modifier: 030000000500000005000000050000000500000005000000050000000500000005000000050000000500000005000000050000000500000005000000050000000500000002000000

@@ -431,7 +431,7 @@ MonoBehaviour:
   <eventHandler>k__BackingField: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   <alertIconPrefab>k__BackingField: {fileID: 8588801196531009245, guid: 31aa6eac21ef3114792beb5866c897e5, type: 3}
   <meleeDamage>k__BackingField: 0
-  <rangedDamage>k__BackingField: 20
+  <rangedDamage>k__BackingField: 5
   <MaxHealth>k__BackingField: 100
   <aggroRange>k__BackingField: 10
   <attackRange>k__BackingField: 7

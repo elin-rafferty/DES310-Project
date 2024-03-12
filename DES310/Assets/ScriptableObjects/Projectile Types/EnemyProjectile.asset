@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: EnemyProjectile
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 20
+  damage: 5
+  despawnTimer: 0
   sprite: {fileID: 1462262062042380682, guid: 6da3f847c89350649907352b5a0a9632, type: 3}
