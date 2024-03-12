@@ -45,6 +45,9 @@ public class SoundManager : MonoBehaviour
 
         PurchaseSuccessful,
         PurchaseUnsuccessful,
+
+        DoorOpen,
+        DoorClosed
     }
 
     private void Awake()

@@ -134,6 +134,7 @@ public class HorizontalDoor : MonoBehaviour
         {
             isOpen = true;
             animating = true;
+            SoundManager.instance.PlaySound(SoundManager.SFX.DoorOpen, transform, 1f);
         }
     }
 
@@ -143,6 +144,7 @@ public class HorizontalDoor : MonoBehaviour
         {
             isOpen = false;
             animating = true;
+            SoundManager.instance.PlaySound(SoundManager.SFX.DoorClosed, transform, 1f);
         }
     }
 }
