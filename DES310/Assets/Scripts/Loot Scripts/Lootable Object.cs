@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SearchService;
+using UnityEngine.UI;
 
 public class LootableObject : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class LootableObject : MonoBehaviour
     public LootTable lootTable;
     public Item pickupPrefab;
     public float distanceToSpawn = 1.28f;
+    public Canvas canvas;
+    public Text text;
+    public SettingsSO settings;
     bool trigger = false;
     bool looted = false;
 
@@ -73,6 +77,11 @@ public class LootableObject : MonoBehaviour
                 posIndex++;
             }
             looted = true;
+        }
+        canvas.gameObject.SetActive(trigger && !looted);
+        if (canvas.gameObject.activeSelf)
+        {
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open";
         }
     }
 }
