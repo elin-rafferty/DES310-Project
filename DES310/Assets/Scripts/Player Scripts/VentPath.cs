@@ -9,18 +9,21 @@ public class VentPath : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     
     Transform ventTransform;
-    LineRenderer lineRenderer;
+    [SerializeField] LineRenderer lineRenderer;
     Path path;
     Seeker seeker;
 
     private bool inLevel;
     [SerializeField] private float timer;
 
-    void Start()
+    private void Awake()
     {
         inLevel = false;
-        eventHandler.LevelEnter.AddListener(setLevelStatus);
+        eventHandler.LevelEnter.AddListener(SetLevelStatus);
+    }
 
+    void Start()
+    {
         if (GameObject.FindGameObjectWithTag("Vent"))
         {
             ventTransform = GameObject.FindGameObjectWithTag("Vent").transform;
@@ -66,18 +69,18 @@ public class VentPath : MonoBehaviour
 
     private void UpdateLine()
     {
-        if (path.vectorPath.Count > 0)
+        if (path != null)
         {
-            lineRenderer.positionCount = path.vectorPath.Count;
+            lineRenderer.positionCount = path.vectorPath.Count - 4;
 
-            for (int i = 0; i < path.vectorPath.Count; i++)
+            for (int i = 0; i < path.vectorPath.Count - 4; i++)
             {
-                lineRenderer.SetPosition(i, path.vectorPath[i]);
+                lineRenderer.SetPosition(i, path.vectorPath[i + 3]);
             }
         }
     }
 
-    private void setLevelStatus()
+    private void SetLevelStatus()
     {
         inLevel = true;
     }

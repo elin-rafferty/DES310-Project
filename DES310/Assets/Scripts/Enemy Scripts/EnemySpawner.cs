@@ -11,6 +11,7 @@ public class SpawnEnemy : MonoBehaviour
     private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
     [SerializeField] private float respawnTimer;
+    private bool spawnedEnemy = false;
 
     enum WallDirection
     {
@@ -22,7 +23,16 @@ public class SpawnEnemy : MonoBehaviour
     {
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         renderer.enabled = false;
-        SpawnAnEnemy();
+
+        // Has an enemy Spawned
+        if (SpawnAnEnemy())
+        {
+            spawnedEnemy = true;
+        }
+        else 
+        {
+            spawnedEnemy = false;
+        }
     }
 
     private void OnDestroy()
@@ -33,41 +43,44 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Clear dead enemies from list
-        for (int i = 0; i < spawnedEnemies.Count; i++)
+        if (spawnedEnemy)
         {
-            if (spawnedEnemies[i] == null) 
+            // Clear dead enemies from list
+            for (int i = 0; i < spawnedEnemies.Count; i++)
             {
-                spawnedEnemies.Remove(spawnedEnemies[i]);
-                i--;
+                if (spawnedEnemies[i] == null)
+                {
+                    spawnedEnemies.Remove(spawnedEnemies[i]);
+                    i--;
+                }
             }
-        }
 
-        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
-        bool onScreen = screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+            Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+            bool onScreen = screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
-        if (onScreen)
-        {
-            // return if spawner on screen
-            respawnTimer = 10;
-            return;
-        }
-        else if (spawnedEnemies.Count == 0)
-        {
-            // Spawn Enemy after respawn timer and enemy dead
-            if (respawnTimer < 0)
+            if (onScreen)
             {
-                SpawnAnEnemy();
+                // return if spawner on screen
                 respawnTimer = 10;
+                return;
             }
-            else 
+            else if (spawnedEnemies.Count == 0)
             {
-                respawnTimer -= Time.deltaTime;
+                // Spawn Enemy after respawn timer and enemy dead
+                if (respawnTimer < 0)
+                {
+                    SpawnAnEnemy();
+                    respawnTimer = 10;
+                }
+                else
+                {
+                    respawnTimer -= Time.deltaTime;
+                }
             }
         }
     }
 
-    void SpawnAnEnemy()
+    bool SpawnAnEnemy()
     {
         // RNG to determine whether to spawn or not
         if (UnityEngine.Random.Range(0, 100) < modifierBehaviour.spawnPercentChance)
@@ -108,7 +121,10 @@ public class SpawnEnemy : MonoBehaviour
             newEnemy.SetModifiers(modifierBehaviour);
             spawnedEnemies.Add(newEnemy);
             eventHandler.ChangeEnemyCount.Invoke(1);
+
+            return true;
         }
+        return false;
     }
 
     // Lil bit of cleanup
