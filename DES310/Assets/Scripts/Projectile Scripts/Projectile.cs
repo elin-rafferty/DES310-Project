@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     private float damage;
     [SerializeReference] private SpriteRenderer spriteRenderer;
     private GameObject owner;
+    private WeaponUpgrades weaponUpgrades;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +41,12 @@ public class Projectile : MonoBehaviour
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
                     SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, hit.collider.transform, 1f);
-                    hit.collider.gameObject.GetComponent<EnemyBase>().Damage(damage * (1 - hit.collider.gameObject.GetComponent<EnemyBase>().damageReduction));
+                    hit.collider.gameObject.GetComponent<EnemyBase>().Damage(GetDamage() * (1 - hit.collider.gameObject.GetComponent<EnemyBase>().damageReduction));
                 }
                 if (hit.collider.gameObject.tag == "Player")
                 {
                     // Damage Player
-                    hit.collider.gameObject.GetComponent<Health>().Damage(damage);
+                    hit.collider.gameObject.GetComponent<Health>().Damage(GetDamage());
                 }
                 else if (hit.collider)
                 {
@@ -82,5 +83,15 @@ public class Projectile : MonoBehaviour
     {
         // Track owner to avoid collision with shooter
         this.owner = owner;
+    }
+
+    public void SetWeaponUpgrades(WeaponUpgrades upgrades)
+    {
+        weaponUpgrades = upgrades;
+    }
+
+    public float GetDamage()
+    {
+        return weaponUpgrades != null ? damage * weaponUpgrades.damageModifier : damage;
     }
 }

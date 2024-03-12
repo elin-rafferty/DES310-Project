@@ -7637,45 +7637,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2367990351250271037, guid: 80a668dad03d80e4eb38e1ceae0f41f4, type: 3}
   m_PrefabInstance: {fileID: 1632299302}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1907875536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 11571310084590137, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-  m_PrefabInstance: {fileID: 8555375420378527646}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1907875540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907875536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: BUY ME
 --- !u!1 &2032357706
 GameObject:
   m_ObjectHideFlags: 0
@@ -8231,30 +8192,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1812847862617995972, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542202019393365463, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5489594132768671590, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5489594132768671590, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5489594132768671590, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5489594132768671590, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5819433088366769102, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8343,17 +8280,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8755249920894871710, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 11571310084590137, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1907875540}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 667a92310070a3f4d9e34708f89c2380, type: 3}
 --- !u!223 &8555375420378527647 stripped
 Canvas:
