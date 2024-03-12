@@ -3980,6 +3980,10 @@ PrefabInstance:
       value: Upgrade Shop
       objectReference: {fileID: 0}
     - target: {fileID: 7660983394530422021, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
+      propertyPath: shopName
+      value: Upgrade Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660983394530422021, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
       propertyPath: shopCanvas
       value: 
       objectReference: {fileID: 1315539172}
@@ -7713,6 +7717,10 @@ PrefabInstance:
     - target: {fileID: 7614079513108470704, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
       propertyPath: m_Name
       value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660983394530422021, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
+      propertyPath: shopName
+      value: Item Shop
       objectReference: {fileID: 0}
     - target: {fileID: 7660983394530422021, guid: 1ca895675de394b48b4d270d2a86309d, type: 3}
       propertyPath: shopCanvas
