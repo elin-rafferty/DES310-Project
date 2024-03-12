@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject playButton, optionsBackButton;
     [SerializeField] private SettingsSO settings;
     [SerializeField] private InventorySO inventory;
+    [SerializeField] private List<WeaponProperties> weaponProperties;
 
     private void OnEnable()
     {
@@ -51,6 +52,10 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMenu() 
     {
         inventory.WipeInventory();
+        foreach (WeaponProperties weapon in weaponProperties)
+        {
+            weapon.weaponUpgrades = WeaponUpgrades.CreateInstance<WeaponUpgrades>();
+        }
         persistentVariables.exitReason = LevelExitReason.NONE;
         SceneManager.LoadScene("Main Menu");
     }
