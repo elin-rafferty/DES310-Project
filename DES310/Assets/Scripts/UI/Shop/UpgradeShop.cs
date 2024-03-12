@@ -110,7 +110,7 @@ public class UpgradeShop : MonoBehaviour
             if (inventory.RemoveItem(currencyItem, cost))
             {
                 ApplyUpgrades();
-                agentWeapon.SetWeapon(agentWeapon.weapon, agentWeapon.weapon.DefaultParametersList);
+                agentWeapon.SetWeapon(agentWeapon.weapon, agentWeapon.weapon.DefaultParametersList, true);
             }
         }
     }
