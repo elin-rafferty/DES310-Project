@@ -27,8 +27,8 @@ MonoBehaviour:
   walkerDamageMultiplier: 1
   spitterDamageMultiplier: 1
   enemySpeedMultiplier: 1
-  sprinterSpeedMultiplier: 1.1
-  walkerSpeedMultiplier: 1
+  sprinterSpeedMultiplier: 1
+  walkerSpeedMultiplier: 1.2
   enemyAttackSpeedMultiplier: 1
   sprinterAttackSpeedMultiplier: 1
   walkerAttackSpeedMultiplier: 1
