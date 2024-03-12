@@ -17,12 +17,10 @@ public class TimerHandler : MonoBehaviour
     //bool runTimer = false;
 
     //// Start is called before the first frame update
-    //void Awake()
-    //{
-    //    eventHandler.LevelEnter.AddListener(OnLevelEnter);
-    //    slider.maxValue = timeLeft;
-    //    //slider.value = timeLeft;
-    //}
+    void Awake()
+    {
+        eventHandler.LevelEnter.AddListener(OnLevelEnter);
+    }
 
     //// Update is called once per frame
     //void Update()
@@ -39,17 +37,17 @@ public class TimerHandler : MonoBehaviour
     //    }
     //}
 
-    //void OnLevelEnter()
-    //{
-    //    runTimer = true;
-    //}
+    void OnLevelEnter()
+    {
+        runTimer = true;
+    }
 
     public float timeLeft;
     public float maxTime = 100;
     public float duration = 1;
 
     public Slider slider;
-
+    bool runTimer = false;
     // Use this for initialization
     private void Start()
     {
@@ -60,7 +58,7 @@ public class TimerHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeLeft > 0)
+        if (timeLeft > 0 && runTimer)
         {
             timeLeft -= Time.deltaTime;
             slider.value = timeLeft;
