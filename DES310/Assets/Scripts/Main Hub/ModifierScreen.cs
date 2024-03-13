@@ -68,42 +68,42 @@ public class ModifierScreen : MonoBehaviour
             {
                 case Modifiers.ENEMY_HEALTH:
                     // Set Modifier
-                    modifierBehaviour.enemyHealthMultiplier = 1.2f;
+                    modifierBehaviour.enemyHealthMultiplier += 0.2f;
                     // Set Text
                     text.text = "All Enemy Health +20%";
                     break;
 
                 case Modifiers.ENEMY_DAMAGE:
                     // Set Modifier
-                    modifierBehaviour.enemyDamageMultiplier = 1.1f;
+                    modifierBehaviour.enemyDamageMultiplier += 0.1f;
                     // Set Text
                     text.text = "All Enemy Damage +10%";
                     break;
 
                 case Modifiers.WALKER_SPEED:
                     // Set Modifier
-                    modifierBehaviour.walkerSpeedMultiplier = 1.2f;
+                    modifierBehaviour.walkerSpeedMultiplier += 0.2f;
                     // Set Text
                     text.text = "Walker Speed +20%";
                     break;
 
                 case Modifiers.SPITTER_FIRE_RATE:
                     // Set Modifier
-                    modifierBehaviour.spitterAttackSpeedMultiplier = 1.2f;
+                    modifierBehaviour.spitterAttackSpeedMultiplier += 0.2f;
                     // Set Text
                     text.text = "Spitter Fire Rate +20%";
                     break;
 
                 case Modifiers.SPRINTER_SPEED:
                     // Set Modifier
-                    modifierBehaviour.sprinterSpeedMultiplier = 1.1f;
+                    modifierBehaviour.sprinterSpeedMultiplier += 0.1f;
                     // Set Text
                     text.text = "Sprinter Speed +10%";
                     break;
 
                 case Modifiers.SPITTER_RANGE:
                     // Set Modifier
-                    modifierBehaviour.spitterAttackRangeMultiplier = 1.1f;
+                    modifierBehaviour.spitterAttackRangeMultiplier += 0.1f;
                     // Set Text
                     text.text = "Spitter Range +10%";
                     break;

@@ -52,8 +52,15 @@ public class VentPath : MonoBehaviour
             }
             else
             {
+                lineRenderer.startColor = Color.clear;
+                lineRenderer.endColor = Color.clear;
                 timer -= Time.deltaTime;
             }
+        }
+        else
+        {
+            lineRenderer.startColor = Color.clear;
+            lineRenderer.endColor = Color.clear;
         }
     }
 

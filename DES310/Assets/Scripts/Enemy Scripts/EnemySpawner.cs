@@ -10,7 +10,8 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
-    [SerializeField] private float respawnTimer;
+    [SerializeField] private float respawnTime;
+    private float respawnTimer;
     private bool spawnedEnemy = false;
 
     enum WallDirection
@@ -33,6 +34,8 @@ public class SpawnEnemy : MonoBehaviour
         {
             spawnedEnemy = false;
         }
+
+        respawnTimer = respawnTime;
     }
 
     private void OnDestroy()
@@ -61,7 +64,7 @@ public class SpawnEnemy : MonoBehaviour
             if (onScreen)
             {
                 // return if spawner on screen
-                respawnTimer = 10;
+                respawnTimer = respawnTime;
                 return;
             }
             else if (spawnedEnemies.Count == 0)
@@ -70,7 +73,7 @@ public class SpawnEnemy : MonoBehaviour
                 if (respawnTimer < 0)
                 {
                     SpawnAnEnemy();
-                    respawnTimer = 10;
+                    respawnTimer = respawnTime;
                 }
                 else
                 {
