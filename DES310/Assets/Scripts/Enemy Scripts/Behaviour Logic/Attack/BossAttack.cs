@@ -236,6 +236,7 @@ public class BossAttack : EnemyAttackSOBase
                     enemyBase.MoveEnemy(Vector2.zero);
                     enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
                     chargeTimer = 5;
+                    enemyBase.damageReduction = 0;
                     currentAttackState = AttackState.STUNNED;
                 }
                 break;
@@ -256,6 +257,7 @@ public class BossAttack : EnemyAttackSOBase
                 }
                 else
                 {
+                    enemyBase.damageReduction = 0.9f;
                     currentAttackState = AttackState.WINDUP;
                     enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
                 }

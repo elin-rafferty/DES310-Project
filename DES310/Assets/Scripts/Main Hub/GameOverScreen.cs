@@ -32,6 +32,8 @@ public class GameOverScreen : MonoBehaviour
         {
             if (timer < 0)
             {
+                continueText.color = Color.white;
+
                 if (inputManager.GetButtonDown("Interact"))
                 {
                     Time.timeScale = 1;
@@ -45,7 +47,7 @@ public class GameOverScreen : MonoBehaviour
             {
                 image.color = Color.Lerp(new Color(50, 50, 50, 1), new Color(50, 50, 50, 0), timer / 2);
                 gameOverText.color = Color.Lerp(new Color(1, 0, 0, 1), new Color(1, 0, 0, 0), timer / 2);
-                continueText.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), timer / 2);
+                continueText.color = Color.clear;
 
                 timer -= Time.unscaledDeltaTime;
                 Debug.Log(timer);

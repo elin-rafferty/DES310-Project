@@ -172,21 +172,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <eventHandler>k__BackingField: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   <alertIconPrefab>k__BackingField: {fileID: 8588801196531009245, guid: 31aa6eac21ef3114792beb5866c897e5, type: 3}
-  <meleeDamage>k__BackingField: 5
+  <meleeDamage>k__BackingField: 10
   <rangedDamage>k__BackingField: 0
   <MaxHealth>k__BackingField: 1000
   <aggroRange>k__BackingField: 20
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
   <speed>k__BackingField: 5
-  <damageReduction>k__BackingField: 0
+  <damageReduction>k__BackingField: 0.9
   EnemyIdleBase: {fileID: 11400000, guid: badf0331c80adf94f9ec2e60b21e84b4, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: f9875bdefa575bb4dabe66c76cae53fc, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: 4edae2bbfc36a3e4ca314bab4b97bc60, type: 2}
   bossHealthSlider: {fileID: 0}
   door: {fileID: 0}
-  <Camera>k__BackingField: {fileID: 0}
 --- !u!114 &1714404285640921242
 MonoBehaviour:
   m_ObjectHideFlags: 0
