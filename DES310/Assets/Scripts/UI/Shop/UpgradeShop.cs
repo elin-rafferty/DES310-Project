@@ -141,4 +141,19 @@ public class UpgradeShop : MonoBehaviour
         overheatUpgrades = 0;
         rangeUpgrades = 0;
     }
+
+    public void SelectPistol()
+    {
+        dropdown.value = 0;
+    }
+
+    public void SelectRifle()
+    {
+        dropdown.value = 1;
+    }
+
+    public void SelectShotgun()
+    {
+        dropdown.value = 2;
+    }
 }
