@@ -254,7 +254,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: You Died
 --- !u!1 &3139963682132810998
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +306,7 @@ MonoBehaviour:
   continueText: {fileID: 7473835408702663663}
   canvas: {fileID: 8466201721339709540}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  musicManager: {fileID: 0}
 --- !u!114 &4205649874768403476
 MonoBehaviour:
   m_ObjectHideFlags: 0
