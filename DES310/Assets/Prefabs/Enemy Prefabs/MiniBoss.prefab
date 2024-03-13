@@ -174,7 +174,7 @@ MonoBehaviour:
   <alertIconPrefab>k__BackingField: {fileID: 8588801196531009245, guid: 31aa6eac21ef3114792beb5866c897e5, type: 3}
   <meleeDamage>k__BackingField: 10
   <rangedDamage>k__BackingField: 0
-  <MaxHealth>k__BackingField: 1000
+  <MaxHealth>k__BackingField: 2000
   <aggroRange>k__BackingField: 20
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
