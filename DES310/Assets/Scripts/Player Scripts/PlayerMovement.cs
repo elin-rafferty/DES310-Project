@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SettingsSO settings;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private OptionsMenu optionsMenu;
+    [SerializeField] private GameObject bubble, backpackPos;
 
 
     private bool inventoryOpen = false;
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private float rotateSpeed;
     private float smoothTime = 0.05f;
     private AgentWeapon agentWeapon;
+    private float bubbleTimer = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +109,10 @@ public class PlayerMovement : MonoBehaviour
                 overheated = false;
             }
             overheatSlider.value = overheatSlider.maxValue - overheatLevel;
+        }
+        if (bubbleTimer > 0)
+        {
+            bubbleTimer -= Time.deltaTime;
         }
     }
 
@@ -239,6 +245,11 @@ public class PlayerMovement : MonoBehaviour
         // Handle directional movement
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         velocity *= movementSpeed;
+        if (velocity != Vector2.zero && bubbleTimer <= 0)
+        {
+            bubbleTimer = 0.02f;
+            Destroy(Instantiate(bubble, backpackPos.gameObject.transform.position + new Vector3(0, 0, 1), Quaternion.identity), 0.1f);
+        }
         if (dashTime == 0)
         {
             rb.velocity = velocity;

@@ -16,6 +16,7 @@ public class VerticalDoor : MonoBehaviour
     bool animating = false;
     [SerializeField] bool locked = false;
     [SerializeField] ItemSO key;
+    [SerializeField] Image keyImage;
     bool allowUnlocking = false;
     Vector3 moveAmount = new Vector3(0, 1.92f, 0);
     Vector3 offset = new Vector3(0, 0.96f, 0);
@@ -29,6 +30,10 @@ public class VerticalDoor : MonoBehaviour
         {
             doorBottom.transform.position = transform.position - offset - moveAmount;
             doorTop.transform.position = transform.position + offset + moveAmount;
+        }
+        if (key != null)
+        {
+            keyImage.sprite = key.ItemImage;
         }
     }
 
@@ -66,6 +71,7 @@ public class VerticalDoor : MonoBehaviour
                     Unlock();
                     Open();
                     canvas.gameObject.SetActive(false);
+                    keyImage.gameObject.SetActive(false);
                 }
             }
         }
@@ -92,6 +98,7 @@ public class VerticalDoor : MonoBehaviour
             else
             {
                 text.text = "Requires " + key.Name + " to open";
+                keyImage.gameObject.SetActive(true);
             }
         }
         else if (key == null && collision.gameObject.CompareTag("Player") && locked)
@@ -111,6 +118,7 @@ public class VerticalDoor : MonoBehaviour
         {
             canvas.gameObject.SetActive(false);
             allowUnlocking = false;
+            keyImage.gameObject.SetActive(false);
         }
         if (respondToTrigger && (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player")))
         {
