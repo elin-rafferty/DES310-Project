@@ -135,7 +135,7 @@ public class VerticalDoor : MonoBehaviour
         {
             isOpen = true;
             animating = true;
-            SoundManager.instance.PlaySound(SoundManager.SFX.DoorOpen, transform, 1f);
+            SoundManager.instance.PlaySound(SoundManager.SFX.DoorOpen, transform, 0.5f);
         }
     }
 
@@ -145,7 +145,7 @@ public class VerticalDoor : MonoBehaviour
         {
             isOpen = false;
             animating = true;
-            SoundManager.instance.PlaySound(SoundManager.SFX.DoorClosed, transform, 1f);
+            SoundManager.instance.PlaySound(SoundManager.SFX.DoorClosed, transform, 0.5f);
         }
     }
 }

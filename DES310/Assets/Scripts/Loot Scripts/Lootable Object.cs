@@ -16,6 +16,8 @@ public class LootableObject : MonoBehaviour
     public Canvas canvas;
     public Text text;
     public SettingsSO settings;
+    public SpriteRenderer spriterenderer;
+    public Sprite openSprite;
     bool trigger = false;
     bool looted = false;
 
@@ -77,6 +79,7 @@ public class LootableObject : MonoBehaviour
                 posIndex++;
             }
             looted = true;
+            spriterenderer.sprite = openSprite;
         }
         canvas.gameObject.SetActive(trigger && !looted);
         if (canvas.gameObject.activeSelf)
