@@ -23,7 +23,6 @@ public class HealthHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(health);
         if (health <= 20)
         {
             // Set health Colour
