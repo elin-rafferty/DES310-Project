@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SetAppropriatePromptText : MonoBehaviour
+public class Set_Appropriate_Prompt_Text : MonoBehaviour
 {
-    [SerializeField] SettingsSO settings;
+    [SerializeField] Settings_SO settings;
     [SerializeField] Text text;
     // Start is called before the first frame update
     void Start()

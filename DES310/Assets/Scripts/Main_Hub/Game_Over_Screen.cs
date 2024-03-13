@@ -13,7 +13,7 @@ public class Game_Over_Screen : MonoBehaviour
 
     [SerializeField] EventHandler eventHandler;
     [SerializeField] GameObject musicManager;
-    InputManager inputManager;
+    Input_Manager inputManager;
 
     float timer = 3;
 
@@ -21,7 +21,7 @@ public class Game_Over_Screen : MonoBehaviour
     {
         eventHandler.PlayerDeath.AddListener(OnPlayerDeath);
 
-        inputManager = GetComponent<InputManager>();
+        inputManager = GetComponent<Input_Manager>();
         canvas.enabled = false;
         timer = 2;
     }

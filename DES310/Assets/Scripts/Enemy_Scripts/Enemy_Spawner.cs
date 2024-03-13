@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     // Enemy Game Objects
-    [SerializeField] private ModifierBehaviour modifierBehaviour;
+    [SerializeField] private Modifier_Behaviour modifierBehaviour;
     [SerializeField] private EventHandler eventHandler;
     private List<Enemy_Base> spawnedEnemies = new List<Enemy_Base>();
 
@@ -89,7 +89,7 @@ public class SpawnEnemy : MonoBehaviour
         if (UnityEngine.Random.Range(0, 100) < modifierBehaviour.spawnPercentChance)
         {
             // Check if a spitter can spawn
-            EnemyBase chosenEnemy = ChooseEnemyType();
+            Enemy_Base chosenEnemy = ChooseEnemyType();
             WallDirection wallDirection = IsAdjacentToWall();
             while (chosenEnemy.gameObject.GetComponent<Spitter>() && wallDirection == WallDirection.NONE)
             {
@@ -119,7 +119,7 @@ public class SpawnEnemy : MonoBehaviour
 
 
             // Spawn Enemy at spawn point location
-            EnemyBase newEnemy = Instantiate(chosenEnemy, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            Enemy_Base newEnemy = Instantiate(chosenEnemy, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             newEnemy.transform.Rotate(new Vector3(0, 0, 1), enemyRotation);
             newEnemy.SetModifiers(modifierBehaviour);
             spawnedEnemies.Add(newEnemy);
@@ -133,16 +133,16 @@ public class SpawnEnemy : MonoBehaviour
     // Lil bit of cleanup
     void DestroySpawnedEnemies()
     {
-        foreach (EnemyBase enemy in spawnedEnemies)
+        foreach (Enemy_Base enemy in spawnedEnemies)
         {
             Destroy(enemy);
         }
         spawnedEnemies.Clear();
     }
 
-    EnemyBase ChooseEnemyType()
+    Enemy_Base ChooseEnemyType()
     {
-        EnemyBase returnVal = null;
+        Enemy_Base returnVal = null;
         // Check modifier has been set up correctly
         if (modifierBehaviour.enemyTypes.Count != modifierBehaviour.enemyWeightings.Count)
         {

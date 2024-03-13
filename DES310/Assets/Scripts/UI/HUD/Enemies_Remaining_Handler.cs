@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class EnemiesRemainingHandler : MonoBehaviour
+public class Enemies_Remaining_Handler : MonoBehaviour
 {
     [SerializeField] EventHandler eventHandler;
     [SerializeField] TextMeshProUGUI text;

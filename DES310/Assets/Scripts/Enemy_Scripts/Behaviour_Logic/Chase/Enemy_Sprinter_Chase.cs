@@ -168,7 +168,7 @@ public class Enemy_Sprinter_Chase : Enemy_Chase_SO_Base
         }
     }
 
-    public override void Initialise(GameObject gameObject, EnemyBase enemyBase)
+    public override void Initialise(GameObject gameObject, Enemy_Base enemyBase)
     {
         base.Initialise(gameObject, enemyBase);
     }

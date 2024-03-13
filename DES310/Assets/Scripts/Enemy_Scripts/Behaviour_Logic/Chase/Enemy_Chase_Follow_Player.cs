@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 
 [CreateAssetMenu(fileName = "Chase - Follow", menuName = "Enemy Logic/Chase Logic/Follow")]
-public class EnemyChaseFollowPlayer : EnemyChaseSOBase
+public class EnemyChaseFollowPlayer : Enemy_Chase_SO_Base
 {
     private Transform target;
 
@@ -18,7 +18,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
     private float pathUpdateTime = 0.5f;
     private float timer;
 
-    public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
+    public override void DoAnimationTriggerEventLogic(Enemy_Base.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
     }
@@ -107,7 +107,7 @@ public class EnemyChaseFollowPlayer : EnemyChaseSOBase
         }
     }
 
-    public override void Initialise(GameObject gameObject, EnemyBase enemyBase)
+    public override void Initialise(GameObject gameObject, Enemy_Base enemyBase)
     {
         base.Initialise(gameObject, enemyBase);
     }

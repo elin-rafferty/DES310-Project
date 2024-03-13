@@ -8,12 +8,12 @@ using UnityEngine.SceneManagement;
 public class Pause_Menu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu, optionsMenu;
-    [SerializeField] private PersistentVariables persistentVariables;
+    [SerializeField] private Persistent_Variables persistentVariables;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject playButton, optionsBackButton;
     [SerializeField] private Settings_SO settings;
-    [SerializeField] private InventorySO inventory;
-    [SerializeField] private List<WeaponProperties> weaponProperties;
+    [SerializeField] private Inventory_SO inventory;
+    [SerializeField] private List<Weapon_Properties> weaponProperties;
 
     private void OnEnable()
     {
@@ -52,9 +52,9 @@ public class Pause_Menu : MonoBehaviour
     public void ReturnToMenu() 
     {
         inventory.WipeInventory();
-        foreach (WeaponProperties weapon in weaponProperties)
+        foreach (Weapon_Properties weapon in weaponProperties)
         {
-            weapon.weaponUpgrades = WeaponUpgrades.CreateInstance<WeaponUpgrades>();
+            weapon.weaponUpgrades = Weapon_Upgrades.CreateInstance<Weapon_Upgrades>();
         }
         persistentVariables.exitReason = Level_Exit_Reason.NONE;
         persistentVariables.lastLevelEntered = "";

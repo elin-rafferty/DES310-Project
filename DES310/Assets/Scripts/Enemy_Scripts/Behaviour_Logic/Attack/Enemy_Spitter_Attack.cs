@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy_Spitter_Attack : Enemy_Attack_SO_Base
 {
     [SerializeField] private Projectile projectilePrefab;
-    [SerializeField] private ProjectileType projectileType;
+    [SerializeField] private Projectile_Type projectileType;
     private Transform weaponTransform;
     private Transform target;
 

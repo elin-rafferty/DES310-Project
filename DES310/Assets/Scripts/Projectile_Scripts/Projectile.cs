@@ -6,13 +6,13 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
-    private ProjectileType type;
+    private Projectile_Type type;
     private Vector2 direction;
     private float speed;
     private float damage;
     [SerializeReference] private SpriteRenderer spriteRenderer;
     private GameObject owner;
-    private WeaponUpgrades weaponUpgrades;
+    private Weapon_Upgrades weaponUpgrades;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +40,8 @@ public class Projectile : MonoBehaviour
 
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
-                    SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, hit.collider.transform, 1f);
-                    hit.collider.gameObject.GetComponent<EnemyBase>().Damage(GetDamage() * (1 - hit.collider.gameObject.GetComponent<EnemyBase>().damageReduction));
+                    Sound_Manager.instance.PlaySound(Sound_Manager.SFX.EnemyHit, hit.collider.transform, 1f);
+                    hit.collider.gameObject.GetComponent<Enemy_Base>().Damage(GetDamage() * (1 - hit.collider.gameObject.GetComponent<Enemy_Base>().damageReduction));
                 }
                 if (hit.collider.gameObject.tag == "Player")
                 {
@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
                 else if (hit.collider)
                 {
                     // Play Laser Rebound
-                    SoundManager.instance.PlaySound(SoundManager.SFX.LaserRebound, transform, 0.1f);
+                    Sound_Manager.instance.PlaySound(Sound_Manager.SFX.LaserRebound, transform, 0.1f);
                 }
                 break;
             }
@@ -70,7 +70,7 @@ public class Projectile : MonoBehaviour
         transform.Rotate(direction);
     }
 
-    public void SetType(ProjectileType type)
+    public void SetType(Projectile_Type type)
     {
         // Update type and properties
         this.type = type;
@@ -85,7 +85,7 @@ public class Projectile : MonoBehaviour
         this.owner = owner;
     }
 
-    public void SetWeaponUpgrades(WeaponUpgrades upgrades)
+    public void SetWeaponUpgrades(Weapon_Upgrades upgrades)
     {
         weaponUpgrades = upgrades;
     }

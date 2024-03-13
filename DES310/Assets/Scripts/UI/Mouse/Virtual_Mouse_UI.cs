@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.UI;
 
-public class VirtualMouseUI : MonoBehaviour
+public class Virtual_Mouse_UI : MonoBehaviour
 {
     VirtualMouseInput virtualMouseInput;
     // Start is called before the first frame update

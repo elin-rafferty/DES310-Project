@@ -27,25 +27,25 @@ public class Enemy_Base : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCh
 
     #region State Machine Variables
 
-    public EnemyStateMachine StateMachine { get; set; }
-    public EnemyIDLEState IDLEState { get; set; }
-    public EnemyCHASEState CHASEState { get; set; }
-    public EnemySEARCHState SEARCHState { get; set; }
-    public EnemyATTACKState ATTACKState { get; set; }
+    public Enemy_State_Machine StateMachine { get; set; }
+    public Enemy_IDLE_State IDLEState { get; set; }
+    public Enemy_CHASE_State CHASEState { get; set; }
+    public Enemy_SEARCH_State SEARCHState { get; set; }
+    public Enemy_ATTACK_State ATTACKState { get; set; }
 
     #endregion
 
     #region Scriptable Object Variables
 
-    [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
-    [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
-    [SerializeField] private EnemySearchSOBase EnemySearchBase;
-    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
+    [SerializeField] private Enemy_Idle_SO_Base EnemyIdleBase;
+    [SerializeField] private Enemy_Chase_SO_Base EnemyChaseBase;
+    [SerializeField] private Enemy_Search_SO_Base EnemySearchBase;
+    [SerializeField] private Enemy_Attack_SO_Base EnemyAttackBase;
 
-    public EnemyIdleSOBase EnemyIdleBaseInstance { get; set; }
-    public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
-    public EnemySearchSOBase EnemySearchBaseInstance { get; set; }
-    public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
+    public Enemy_Idle_SO_Base EnemyIdleBaseInstance { get; set; }
+    public Enemy_Chase_SO_Base EnemyChaseBaseInstance { get; set; }
+    public Enemy_Search_SO_Base EnemySearchBaseInstance { get; set; }
+    public Enemy_Attack_SO_Base EnemyAttackBaseInstance { get; set; }
 
     #endregion
 
@@ -56,12 +56,12 @@ public class Enemy_Base : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCh
         EnemySearchBaseInstance = Instantiate(EnemySearchBase);
         EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
 
-        StateMachine = new EnemyStateMachine();
+        StateMachine = new Enemy_State_Machine();
 
-        IDLEState = new EnemyIDLEState(this, StateMachine);
-        CHASEState = new EnemyCHASEState(this, StateMachine);
-        SEARCHState = new EnemySEARCHState(this, StateMachine);
-        ATTACKState = new EnemyATTACKState(this, StateMachine);
+        IDLEState = new Enemy_IDLE_State(this, StateMachine);
+        CHASEState = new Enemy_CHASE_State(this, StateMachine);
+        SEARCHState = new Enemy_SEARCH_State(this, StateMachine);
+        ATTACKState = new Enemy_ATTACK_State(this, StateMachine);
     }
 
     private void Start()
@@ -91,7 +91,7 @@ public class Enemy_Base : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCh
 
     #region Modifier Functions;
 
-    virtual public void SetModifiers(ModifierBehaviour modifier)
+    virtual public void SetModifiers(Modifier_Behaviour modifier)
     {
         MaxHealth *= modifier.enemyHealthMultiplier;
         meleeDamage *= modifier.enemyDamageMultiplier;

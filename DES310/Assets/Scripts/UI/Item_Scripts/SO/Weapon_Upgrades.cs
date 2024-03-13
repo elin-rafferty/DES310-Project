@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponUpgrades : ScriptableObject
+public class Weapon_Upgrades : ScriptableObject
 {
     public float damageModifier = 1;
     public float fireSpeedModifier = 1;

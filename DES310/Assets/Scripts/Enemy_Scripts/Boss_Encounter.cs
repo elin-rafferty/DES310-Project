@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Boss_Encounter : MonoBehaviour
 {
     [SerializeField] GameObject boss;
-    [SerializeField] HorizontalDoor door;
+    [SerializeField] Horizontal_Door door;
     [SerializeField] Slider bossHealthSlider;
 
     [SerializeField] GameObject playerCam;

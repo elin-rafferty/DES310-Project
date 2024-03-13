@@ -3,26 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuyItem : MonoBehaviour
+public class Buy_Item : MonoBehaviour
 {
-    [SerializeField] private InventorySO playerInventory;
-    public ItemSO itemToBuy;
+    [SerializeField] private Inventory_SO playerInventory;
+    public Item_SO itemToBuy;
     public int quantity = 1;
-    public ItemSO currencyItem;
+    public Item_SO currencyItem;
     public int cost = 1;
 
     public void PurchaseItem()
     {
         if (playerInventory.RemoveItem(currencyItem, cost)) 
         {
-            SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseSuccessful, transform, 1f);
+            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.PurchaseSuccessful, transform, 1f);
             InventoryItem purchasedItem = new();
             purchasedItem.quantity = quantity;
             purchasedItem.item = itemToBuy;
             playerInventory.AddItem(purchasedItem);
         } else
         {
-            SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseUnsuccessful, transform, 1f);
+            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.PurchaseUnsuccessful, transform, 1f);
         }
     }
 }

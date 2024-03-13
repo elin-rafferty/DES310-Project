@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrosshairPosition : MonoBehaviour
+public class Crosshair_Position : MonoBehaviour
 {
     // Update is called once per frame
     void FixedUpdate()

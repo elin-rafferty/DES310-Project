@@ -6,7 +6,7 @@ using System;
 namespace Inventory.Model
 {
     [CreateAssetMenu (menuName = "Items/Item SO")]
-    public class ItemSO : ScriptableObject
+    public class Item_SO : ScriptableObject
     {
 
         [field: SerializeField]
@@ -34,7 +34,7 @@ namespace Inventory.Model
     [Serializable]
     public struct ItemParameter : IEquatable<ItemParameter>
     {
-        public ItemParameterSO itemparameter;
+        public Item_Parameter_SO itemparameter;
         public float value;
 
         public bool Equals (ItemParameter other)

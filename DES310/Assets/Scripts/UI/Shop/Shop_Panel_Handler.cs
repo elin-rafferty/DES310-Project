@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopPanelHandler : MonoBehaviour
+public class Shop_Panel_Handler : MonoBehaviour
 {
     [SerializeField] Text title, description;
     [SerializeField] Image image;
-    [SerializeField] BuyItem buyItem;
+    [SerializeField] Buy_Item buyItem;
     // Start is called before the first frame update
     void Start()
     {

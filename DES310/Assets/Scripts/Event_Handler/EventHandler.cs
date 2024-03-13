@@ -16,7 +16,7 @@ public class EventHandler : ScriptableObject
     public UnityEvent LevelEnter;
     public UnityEvent PlayerBulletFired;
     public UnityEvent<float, float> ShakeCamera;
-    public PersistentVariables persistentVariables;
+    public Persistent_Variables persistentVariables;
 
     private void OnEnable()
     {

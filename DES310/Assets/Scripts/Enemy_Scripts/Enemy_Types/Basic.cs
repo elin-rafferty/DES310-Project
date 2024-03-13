@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Basic : Enemy_Base
 {
-    public override void SetModifiers(ModifierBehaviour modifier)
+    public override void SetModifiers(Modifier_Behaviour modifier)
     {
         base.SetModifiers(modifier);
 

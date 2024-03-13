@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     private float currentHealth;
     [SerializeField] private EventHandler eventHandler;
-    [SerializeField] private ModifierBehaviour modifierBehaviour;
+    [SerializeField] private Modifier_Behaviour modifierBehaviour;
 
     float invinsibliltyTimer = 0; 
 
@@ -62,14 +62,14 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
         // Play Sound
-        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerHit, transform, 0.8f);
+        Sound_Manager.instance.PlaySound(Sound_Manager.SFX.PlayerHit, transform, 0.8f);
 
         currentHealth -= damage * modifierBehaviour.enemyDamageMultiplier;
         eventHandler.PlayerHealthChange.Invoke(currentHealth);
 
         if (currentHealth < 20)
         {
-            SoundManager.instance.PlaySound(SoundManager.SFX.PlayerHPLow, transform, 1f);
+            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.PlayerHPLow, transform, 1f);
         }
         if (currentHealth <= 0)
         {
@@ -87,7 +87,7 @@ public class Health : MonoBehaviour
         {
             if (invinsibliltyTimer >= 0.2f)
             {
-                Damage(collision.gameObject.GetComponent<EnemyBase>().meleeDamage);
+                Damage(collision.gameObject.GetComponent<Enemy_Base>().meleeDamage);
                 invinsibliltyTimer = 0;
             }
         }
