@@ -95,7 +95,7 @@ public class OptionsMenu : MonoBehaviour
     }
 
     #endregion
-
+/*
     public void SetQuality ()
     {
         settings.Graphics = graphics.value;
@@ -122,7 +122,7 @@ public class OptionsMenu : MonoBehaviour
     public void SetEnemyAggroRange(float enemyAggroRange)
     {
         modifierBehaviour.enemyAggroRangeMultiplier = enemyAggroRange;
-    }
+    }*/
     public void SetControls(TMP_Dropdown dropDown)
     {
         settings.Controls = dropDown.value;
