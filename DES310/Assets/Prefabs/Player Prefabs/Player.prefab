@@ -4717,7 +4717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137204919049372785, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: m_SortingOrder
-      value: -5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7394642057225860602, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem
