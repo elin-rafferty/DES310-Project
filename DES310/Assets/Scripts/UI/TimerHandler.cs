@@ -1,12 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
-using TMPro;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Video.VideoPlayer;
 
 public class TimerHandler : MonoBehaviour
 {
