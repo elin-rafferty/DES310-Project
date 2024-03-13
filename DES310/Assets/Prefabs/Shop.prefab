@@ -1055,7 +1055,7 @@ MonoBehaviour:
   itemToBuy: {fileID: 11400000, guid: 4797782c414ec47438c77c1e333a1ee8, type: 2}
   quantity: 1
   currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
-  cost: 100
+  cost: 200
 --- !u!114 &2416669588549204199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   itemToBuy: {fileID: 11400000, guid: 0cc3536fc962604498d0d585df7befa2, type: 2}
   quantity: 1
   currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
-  cost: 100
+  cost: 200
 --- !u!114 &4642624474886636406
 MonoBehaviour:
   m_ObjectHideFlags: 0
