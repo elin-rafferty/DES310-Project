@@ -16,3 +16,4 @@ MonoBehaviour:
   MusicVolume: 0.05
   SFXVolume: 0.5
   Graphics: 0
+  Controls: 1
