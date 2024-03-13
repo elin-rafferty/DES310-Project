@@ -430,6 +430,8 @@ MonoBehaviour:
   canvas: {fileID: 7107603888270037768}
   text: {fileID: 3729888800503467592}
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
+  spriterenderer: {fileID: 7393274054475084800}
+  openSprite: {fileID: -7275719931302257443, guid: 4cc921cd452e305449faf3f77cf614bc, type: 3}
 --- !u!114 &4106831542994268797
 MonoBehaviour:
   m_ObjectHideFlags: 0
