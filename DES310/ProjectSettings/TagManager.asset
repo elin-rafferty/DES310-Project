@@ -10,6 +10,7 @@ TagManager:
   - Boss Trigger
   - Wall
   - Vent
+  - Game Over
   layers:
   - Default
   - TransparentFX
