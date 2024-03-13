@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: GLASS_CORNER_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 4689944297843113967, guid: 5acbd64cde6433346a36470619c3b757, type: 3}
+  m_Sprite: {fileID: -8074655658716545120, guid: f6d329ebbacab3c4aab93c208a8675de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

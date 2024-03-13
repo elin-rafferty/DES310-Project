@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: GLASS_2WALLS_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2669688970077069661, guid: a54b00e0eeab3c84a9f55d98d640939d, type: 3}
+  m_Sprite: {fileID: -5396060264343107961, guid: 5ec75a48c30a53540bd8b8922ea81ad2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
