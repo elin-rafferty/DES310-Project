@@ -6835,6 +6835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8289367997120875190, guid: 1364094a2714eea4889e5aef4b50a530, type: 3}
+      propertyPath: m_UpdateMethod
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7915,13 +7919,13 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1632299302}
-  - {fileID: 538965751}
   - {fileID: 1100856003}
   - {fileID: 1195880715}
   - {fileID: 275688880}
   - {fileID: 8555375420378527646}
   - {fileID: 1596811487}
   - {fileID: 1538563019}
+  - {fileID: 538965751}
   - {fileID: 2040750117}
   - {fileID: 2080671585}
   - {fileID: 83023800}
