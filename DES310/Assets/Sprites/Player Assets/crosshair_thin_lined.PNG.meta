@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crosshair_thin_lined_0: -8364090689969494765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

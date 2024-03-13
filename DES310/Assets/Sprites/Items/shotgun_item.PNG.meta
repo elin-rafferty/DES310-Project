@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shotgun_item_0: 5858033692758074066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

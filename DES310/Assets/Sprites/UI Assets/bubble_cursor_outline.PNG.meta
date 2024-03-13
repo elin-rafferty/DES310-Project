@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bubble_cursor_outline_0: 3377398681897469159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

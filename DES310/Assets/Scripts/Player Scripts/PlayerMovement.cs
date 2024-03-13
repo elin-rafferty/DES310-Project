@@ -245,10 +245,10 @@ public class PlayerMovement : MonoBehaviour
         // Handle directional movement
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         velocity *= movementSpeed;
-        if (velocity != Vector2.zero && bubbleTimer <= 0)
+        if (bubbleTimer <= 0)
         {
-            bubbleTimer = 0.02f;
-            Destroy(Instantiate(bubble, backpackPos.gameObject.transform.position + new Vector3(0, 0, 1), Quaternion.identity), 0.1f);
+            bubbleTimer = 0.05f;
+            Destroy(Instantiate(bubble, backpackPos.gameObject.transform.position + new Vector3(0, 0, 1), Quaternion.identity), 0.5f);
         }
         if (dashTime == 0)
         {

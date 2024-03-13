@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WAITINGROOM_CIRCLETABLE_0: -2963494293092912322
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
