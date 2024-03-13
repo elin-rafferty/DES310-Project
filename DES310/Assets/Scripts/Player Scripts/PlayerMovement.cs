@@ -247,8 +247,8 @@ public class PlayerMovement : MonoBehaviour
         velocity *= movementSpeed;
         if (bubbleTimer <= 0)
         {
-            bubbleTimer = 0.05f;
-            Destroy(Instantiate(bubble, backpackPos.gameObject.transform.position + new Vector3(0, 0, 1), Quaternion.identity), 0.5f);
+            bubbleTimer = 0.1f;
+            Destroy(Instantiate(bubble, backpackPos.gameObject.transform.position + new Vector3(UnityEngine.Random.Range(0, 0.5f), UnityEngine.Random.Range(0, 0.5f), 1), Quaternion.identity), 0.8f);
         }
         if (dashTime == 0)
         {
