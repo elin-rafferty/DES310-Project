@@ -1,3 +1,4 @@
+using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject playButton, optionsBackButton;
     [SerializeField] private SettingsSO defaultSettings;
     [SerializeField] private SoundMixerManager soundMixer;
+    [SerializeField] private InventorySO inventory;
+    [SerializeField] private ItemSO scrap;
 
     private void Start()
     {
@@ -34,6 +37,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         persistentVariables.exitReason = LevelExitReason.NONE;
+        inventory.AddItem(scrap, 300);
         SceneManager.LoadScene("Main Hub");
         Time.timeScale = 1.0f;
     }
