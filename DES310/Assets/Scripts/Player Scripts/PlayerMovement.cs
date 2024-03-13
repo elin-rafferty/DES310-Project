@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
     void HandlePlayerMovement()
     {
         // Handle directional movement
-        Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         velocity *= movementSpeed;
         if (bubbleTimer <= 0)
         {
