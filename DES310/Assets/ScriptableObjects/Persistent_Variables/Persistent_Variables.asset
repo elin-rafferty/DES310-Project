@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f56a7b410d46141bb0ecc8c97378ec, type: 3}
+  m_Name: Persistent_Variables
+  m_EditorClassIdentifier: 
+  exitReason: 2
+  equippedItem: {fileID: 11400000, guid: 4797782c414ec47438c77c1e333a1ee8, type: 2}
+  modifier: 030000000500000005000000050000000500000005000000050000000500000005000000050000000500000005000000050000000500000005000000050000000500000002000000
