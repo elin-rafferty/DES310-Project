@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: GLASS_STRAIGHT_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -3113467229384083725, guid: d5acf59be601ea143bde64dec5590acd, type: 3}
+  m_Sprite: {fileID: 8717582463940578842, guid: 97e2021ae801b7c4f9600b585bb3fdff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
