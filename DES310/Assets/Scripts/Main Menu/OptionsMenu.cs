@@ -23,17 +23,18 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private TMP_Dropdown controls;
 
     // Modifiers
+    /*
     [SerializeField] private ModifierBehaviour modifierBehaviour;
     [SerializeField] private Slider spawnChanceSlider;
     [SerializeField] private Slider enemySpeedSlider;
     [SerializeField] private Slider enemyDamageSlider;
     [SerializeField] private Slider enemyHealthSlider;
-    [SerializeField] private Slider enemyAggroRangeSlider;
+    [SerializeField] private Slider enemyAggroRangeSlider;*/
 
     void Start()
     {
         eventSystem = FindAnyObjectByType<EventSystem>();
-
+        /*
         spawnChanceSlider.value = modifierBehaviour.spawnPercentChance;
         enemySpeedSlider.value = modifierBehaviour.enemySpeedMultiplier;
         enemyDamageSlider.value = modifierBehaviour.enemyDamageMultiplier;
@@ -43,7 +44,7 @@ public class OptionsMenu : MonoBehaviour
             modifierBehaviour.enemyAggroRangeMultiplier = 1;
         }
         enemyAggroRangeSlider.value = modifierBehaviour.enemyAggroRangeMultiplier;
-
+*/
         // Listen for slider value change
         masterVolumeSlider.onValueChanged.AddListener(delegate { SetMasterVolume(); });
         musicVolumeSlider.onValueChanged.AddListener(delegate { SetMusicVolume(); });
