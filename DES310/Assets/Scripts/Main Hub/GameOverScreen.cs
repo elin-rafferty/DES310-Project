@@ -38,6 +38,7 @@ public class GameOverScreen : MonoBehaviour
                 {
                     Time.timeScale = 1;
                     musicManager.GetComponent<AudioSource>().mute = false;
+                    continueText.text = "";
                     SceneManager.LoadScene("Main Hub");
                 }
             }
