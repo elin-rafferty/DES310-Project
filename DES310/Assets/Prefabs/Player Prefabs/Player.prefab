@@ -397,6 +397,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonPrefab: {fileID: 7664455272041020152, guid: d383488cd42bded439577782136404a6, type: 3}
+--- !u!1 &825903129575343761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7680411875037497024}
+  m_Layer: 0
+  m_Name: Backpack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7680411875037497024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825903129575343761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5877425663777710331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143929659722009868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -704, y: -510}
+  m_AnchoredPosition: {x: -680, y: -510}
   m_SizeDelta: {x: 512, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5575804388236137850
@@ -2205,6 +2236,7 @@ Transform:
   - {fileID: 582828877067996415}
   - {fileID: 709927765457503838}
   - {fileID: 6254867653347192045}
+  - {fileID: 7680411875037497024}
   - {fileID: 7578974498965062973}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2389,6 +2421,8 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
   pauseMenu: {fileID: 5007900693741809109}
   optionsMenu: {fileID: 4421008845974883295}
+  bubble: {fileID: 6450977793359803922, guid: 6444342221d6eea48a1fadd85c3dcb07, type: 3}
+  backpackPos: {fileID: 825903129575343761}
 --- !u!114 &4915550660991606701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4714,6 +4748,10 @@ PrefabInstance:
     - target: {fileID: 3394957114997798526, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: m_Name
       value: Pause Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137204919049372785, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7394642057225860602, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem

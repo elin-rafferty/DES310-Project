@@ -18,6 +18,7 @@ public class HorizontalDoor : MonoBehaviour
     bool animating = false;
     [SerializeField] bool locked = false;
     [SerializeField] ItemSO key;
+    [SerializeField] UnityEngine.UI.Image keyImage;
     bool allowUnlocking = false;
     Vector3 moveAmount = new Vector3(1.92f, 0, 0);
     Vector3 offset = new Vector3(0.96f, 0, 0);
@@ -30,6 +31,10 @@ public class HorizontalDoor : MonoBehaviour
         {
             doorLeft.transform.position = transform.position - offset - moveAmount;
             doorRight.transform.position = transform.position + offset +  moveAmount;
+        }
+        if (key != null)
+        {
+            keyImage.sprite = key.ItemImage;
         }
     }
 
@@ -67,6 +72,7 @@ public class HorizontalDoor : MonoBehaviour
                     Unlock();
                     Open();
                     canvas.gameObject.SetActive(false);
+                    keyImage.gameObject.SetActive(false);
                 }
             }
         }
@@ -92,6 +98,7 @@ public class HorizontalDoor : MonoBehaviour
             } else
             {
                 text.text = "Requires " + key.Name + " to open";
+                keyImage.gameObject.SetActive(true);
             }
         } else if (key == null && collision.gameObject.CompareTag("Player") && locked)
         {
@@ -109,6 +116,7 @@ public class HorizontalDoor : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && locked)
         {
             canvas.gameObject.SetActive(false);
+            keyImage.gameObject.SetActive(false);
             allowUnlocking = false;
         }
         if (respondToTrigger && (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player")))
