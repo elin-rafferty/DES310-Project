@@ -16,7 +16,7 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 99
   <Name>k__BackingField: Health Pack
   <Description>k__BackingField: This could be useful in a pinch
-  <ItemImage>k__BackingField: {fileID: -2818011823274637903, guid: 7e28d63ea85cf1445b73d8f7c0f07164, type: 3}
+  <ItemImage>k__BackingField: {fileID: 7154268773879583246, guid: 90a33e756e4ac214d887033a056468fa, type: 3}
   <DefaultParametersList>k__BackingField: []
   modifierDatas:
   - statModifier: {fileID: 11400000, guid: b553505f840048f479fc4a291be98e9f, type: 2}

@@ -14,7 +14,7 @@ public class VentPath : MonoBehaviour
 
     [SerializeField] private float timer;
     private bool inLevel;
-    private float activateTime = 120;
+    private float activateTime = 180;
     private float maxTime = 300;
     private float colourTimer = 1.0f;
     Color redColor = new Color(1, 0, 0, 0.1f);
