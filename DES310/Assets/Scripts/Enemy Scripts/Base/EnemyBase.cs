@@ -118,7 +118,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void Die()
     {
-        //eventHandler.ChangeEnemyCount.Invoke(-1);
+        eventHandler.ShakeCamera.Invoke(0, 0);
         Destroy(gameObject);
         if(alertObject) Destroy(alertObject);
     }
