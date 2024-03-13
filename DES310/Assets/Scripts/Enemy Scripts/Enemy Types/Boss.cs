@@ -1,5 +1,3 @@
-using Cinemachine;
-using Inventory.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +10,20 @@ public class Boss : EnemyBase
 
     public override void Damage(float damageAmount)
     {
-        base.Damage(damageAmount);
+        CurrentHealth -= damageAmount;
+        if (CurrentHealth <= 0)
+        {
+            Die();
+        }
+
+        if (damageReduction == 0.9)
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.LaserRebound, transform, 1f);
+        }
+        else
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, transform, 1f);
+        }
 
         bossHealthSlider.value = CurrentHealth;
         if (bossHealthSlider.value <= 0 ) 

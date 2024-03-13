@@ -112,6 +112,8 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         {
             Die();
         }
+
+        SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, transform, 1f);
     }
 
     public void Die()
