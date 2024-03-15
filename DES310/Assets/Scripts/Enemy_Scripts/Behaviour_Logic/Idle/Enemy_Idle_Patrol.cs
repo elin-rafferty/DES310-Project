@@ -108,7 +108,7 @@ public class Enemy_Idle_Patrol : Enemy_Idle_SO_Base
         }
     }
 
-    public override void Initialise(GameObject gameObject, Enemy_Base enemyBase)
+    public override void Initialise(GameObject gameObject, EnemyBase enemyBase)
     {
         base.Initialise(gameObject, enemyBase);
 

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Main_Menu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu, optionsMenu;
-    [SerializeField] private Persistent_Variables persistentVariables;
+    [SerializeField] private PersistentVariables persistentVariables;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject playButton, optionsBackButton;
     [SerializeField] private Settings_SO defaultSettings;
@@ -34,7 +34,7 @@ public class Main_Menu : MonoBehaviour
     public void PlayGame()
     {
         persistentVariables.exitReason = Level_Exit_Reason.NONE;
-        SceneManager.LoadScene("Main_Hub");
+        SceneManager.LoadScene("Main Hub");
         Time.timeScale = 1.0f;
     }
 

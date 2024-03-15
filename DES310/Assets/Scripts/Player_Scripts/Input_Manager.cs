@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Input_Manager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     Dictionary<string, bool> downLastFrame = new();
     Dictionary<string, bool> downThisFrame = new();

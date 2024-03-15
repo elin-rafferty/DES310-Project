@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Vent_Timer : MonoBehaviour
+public class VentTimer : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    private Vent_Script vent;
+    private VentScript vent;
     private bool textEnabled = false;
     public float colourChangeTime = 0.5f;
     private float colourChangeTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        vent = GetComponent<Vent_Script>();
+        vent = GetComponent<VentScript>();
     }
 
     // Update is called once per frame

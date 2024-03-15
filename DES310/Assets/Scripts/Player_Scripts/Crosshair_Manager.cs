@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crosshair_Manager : MonoBehaviour
+public class CrosshairManager : MonoBehaviour
 {
     public GameObject crosshair;
     [SerializeField] GameObject crosshairPrefab;

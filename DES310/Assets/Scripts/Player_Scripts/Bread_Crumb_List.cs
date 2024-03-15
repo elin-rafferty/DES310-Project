@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bread_Crumb_List : MonoBehaviour
+public class BreadCrumbList : MonoBehaviour
 {
     [SerializeField] GameObject BreadCrumbPrefab;
     public List<GameObject> breadCrumbs = new();

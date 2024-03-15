@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapon Properties/Shotgun Properties")]
-public class Shotgun_Properties : Weapon_Properties
+public class ShotgunProperties : WeaponProperties
 {
     public float sprayAngle = 20;
     public override void Fire(Vector2 position, Vector2 direction, GameObject owner)

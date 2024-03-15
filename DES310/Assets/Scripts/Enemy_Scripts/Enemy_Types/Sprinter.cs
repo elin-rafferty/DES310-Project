@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Sprinter : Enemy_Base
 {
-    public override void SetModifiers(Modifier_Behaviour modifier)
+    public override void SetModifiers(ModifierBehaviour modifier)
     {
         base.SetModifiers(modifier);
 

@@ -9,12 +9,12 @@ public class Item : MonoBehaviour
 {
     private bool trigger = false;
     [SerializeField]
-    Inventory_SO inventoryItems;
+    InventorySO inventoryItems;
 
     public int MyProperty { get; set; }
 
     [field: SerializeField]
-    public Item_SO InventoryItem { get; set; }
+    public ItemSO InventoryItem { get; set; }
 
     [field: SerializeField]
     public int Quantity { get; set; } = 1;
@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
 
     [SerializeField] Canvas canvas;
     [SerializeField] Text text;
-    [SerializeField] Settings_SO settings;
+    [SerializeField] SettingsSO settings;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,7 +51,7 @@ public class Item : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)) && trigger && !hasDestination)
         {
             // Play Pickup Sound
-            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.ItemPickUp, transform, 1f);
+            SoundManager.instance.PlaySound(SoundManager.SFX.ItemPickUp, transform, 1f);
 
             Destroy(gameObject);
             inventoryItems.AddItem(InventoryItem, Quantity);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mouse_Follow : MonoBehaviour
+public class MouseFollow : MonoBehaviour
 {
     [SerializeField]
     private Canvas canvas;
@@ -11,13 +11,13 @@ public class Mouse_Follow : MonoBehaviour
     private Camera mainCam;
 
     [SerializeField]
-    private Inventory_Item_UI item;
-  
+    private InventoryItemUI item;
+
     private void Awake()
     {
         canvas = transform.root.GetComponent<Canvas>();
         mainCam = Camera.main;
-        item = GetComponentInChildren<Inventory_Item_UI>();
+        item = GetComponentInChildren<InventoryItemUI>();
     }
 
     public void SetData(Sprite sprite, int quantity)

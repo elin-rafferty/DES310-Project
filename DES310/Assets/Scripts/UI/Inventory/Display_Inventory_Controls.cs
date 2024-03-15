@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Display_Inventory_Controls : MonoBehaviour
+public class DisplayInventoryControls : MonoBehaviour
 {
-    [SerializeField] Settings_SO settings;
+    [SerializeField] SettingsSO settings;
     [SerializeField] EventHandler eventHandler;
     [SerializeField] Text text;
     bool isInventoryOpen = false;

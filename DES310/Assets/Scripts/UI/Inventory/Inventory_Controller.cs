@@ -8,15 +8,15 @@ using UnityEngine;
 
 namespace Inventory
 {
-    public class Inventory_Controller : MonoBehaviour
+    public class InventoryController : MonoBehaviour
     {
         [SerializeField]
-        private UI.inventory_Main_Page inventoryUI;
+        private UI.inventoryMainPage inventoryUI;
 
         [SerializeField] private EventHandler eventHandler;
 
         [SerializeField]
-        private Model.Inventory_SO inventoryData;
+        private Model.InventorySO inventoryData;
 
         public List<InventoryItem> initialItems = new List<InventoryItem>();
 
@@ -136,7 +136,7 @@ namespace Inventory
                 inventoryUI.ResetSelection();
                 return;
             }
-            Item_SO item = inventoryItem.item;
+            ItemSO item = inventoryItem.item;
             string description = PrepareDescription(inventoryItem);
             inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.Name, description);
         }

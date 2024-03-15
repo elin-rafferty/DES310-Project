@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Attack - Boss", menuName = "Enemy Logic/Attack Logic/Boss")]
-public class Boss_Attack : Enemy_Attack_SO_Base
+public class Boss_Attack : EnemyAttackSOBase
 {
     private enum AttackState
     {
@@ -53,7 +53,7 @@ public class Boss_Attack : Enemy_Attack_SO_Base
 
     #endregion
 
-    public override void DoAnimationTriggerEventLogic(Enemy_Base.AnimationTriggerType triggerType)
+    public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
     }

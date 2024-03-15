@@ -9,23 +9,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Pathfinding.SimpleSmoothModifier;
 
-public class Player_Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float movementSpeed = 10;
     [SerializeField] private float dashStrength = 30;
     [SerializeField] private Projectile projectilePrefab;
-    [SerializeField] private Projectile_Type bulletType;
+    [SerializeField] private ProjectileType bulletType;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private EventHandler eventHandler;
-    [SerializeField] private Input_Manager inputManager;
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject barrelEnd;
     [SerializeField] private Slider overheatSlider;
     [SerializeField] private float dashCooldown = 1.5f;
-    [SerializeField] private Settings_SO settings;
+    [SerializeField] private SettingsSO settings;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private Options_Menu optionsMenu;
+    [SerializeField] private OptionsMenu optionsMenu;
 
 
     private bool inventoryOpen = false;
@@ -37,13 +37,13 @@ public class Player_Movement : MonoBehaviour
     private bool overheated;
     private float rotateSpeed;
     private float smoothTime = 0.05f;
-    private Agent_Weapon agentWeapon;
+    private AgentWeapon agentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
         eventHandler.InventoryChangeState.AddListener(InventoryStateChangeResponse);
-        agentWeapon = GetComponent<Agent_Weapon>();
+        agentWeapon = GetComponent<AgentWeapon>();
     }
 
     // Update is called once per frame
@@ -132,7 +132,7 @@ public class Player_Movement : MonoBehaviour
             SceneManager.LoadScene("Main Menu");
         }*/
 
-        crosshair = GetComponent<Crosshair_Manager>().crosshair;
+        crosshair = GetComponent<CrosshairManager>().crosshair;
         Vector2 lookDirection = lastAimPosition;
         if (settings.Controls == 1)
         {
@@ -216,9 +216,9 @@ public class Player_Movement : MonoBehaviour
     {
         if (!pauseMenu.activeSelf)
         {
-            if (GetComponent<Agent_Weapon>().weapon != null)
+            if (GetComponent<AgentWeapon>().weapon != null)
             {
-                Weapon_Properties weaponProperties = GetComponent<Agent_Weapon>().weapon.weaponProperties;
+                WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
                 weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
                 timeTilNextFire = weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
                 overheatLevel += weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
@@ -226,10 +226,10 @@ public class Player_Movement : MonoBehaviour
                 if (overheatLevel >= weaponProperties.overheatCapacity * weaponProperties.weaponUpgrades.overheatCapacityModifier)
                 {
                     overheated = true;
-                    Sound_Manager.instance.PlaySound(Sound_Manager.SFX.Overheat, transform, 0.05f);
+                    SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);
                 }
                 // Play shoot sound
-                Sound_Manager.instance.PlaySound(Sound_Manager.SFX.PlayerShoot, transform, 1f);
+                SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);
             }
         }
     }

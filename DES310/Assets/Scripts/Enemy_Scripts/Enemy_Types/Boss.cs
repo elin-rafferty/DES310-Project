@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Boss : Enemy_Base
 {
     [SerializeField] Slider bossHealthSlider;
-    [SerializeField] Horizontal_Door door;
+    [SerializeField] HorizontalDoor door;
 
     public override void Damage(float damageAmount)
     {
@@ -18,7 +18,7 @@ public class Boss : Enemy_Base
         if (bossHealthSlider.value <= 0 ) 
         {
             bossHealthSlider.gameObject.SetActive(false);
-            GetComponent<Loot_Drops>().DropItems();
+            GetComponent<LootDrops>().DropItems();
             door.Unlock();
         }
     }

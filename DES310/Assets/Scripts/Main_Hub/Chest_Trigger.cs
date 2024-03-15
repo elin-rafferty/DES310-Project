@@ -5,11 +5,11 @@ using UnityEngine;
 public class Chest_Trigger : MonoBehaviour
 {
     private bool trigger = false;
-    private Input_Manager inputManager;
+    private InputManager inputManager;
 
     private void Start()
     {
-        inputManager = GetComponent<Input_Manager>();
+        inputManager = GetComponent<InputManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Agent_Weapon : MonoBehaviour
+public class AgentWeapon : MonoBehaviour
 {
     [SerializeField]
-    public Equippable_Item_SO weapon;
+    public EquippableItemSO weapon;
 
     [SerializeField]
-    private Inventory_SO inventoryData;
+    private InventorySO inventoryData;
 
     [SerializeField]
     private List<ItemParameter> parametersToModify, itemCurrentState;
@@ -19,7 +19,7 @@ public class Agent_Weapon : MonoBehaviour
     private Slider overheatSlider;
 
     [SerializeField]
-    private Persistent_Variables persistentVariables;
+    private PersistentVariables persistentVariables;
 
     public void Start()
     {
@@ -38,7 +38,7 @@ public class Agent_Weapon : MonoBehaviour
         overheatSlider.value = overheatSlider.maxValue;
     }
 
-    public void SetWeapon(Equippable_Item_SO weaponItemSO, List<ItemParameter> itemState, bool isTheSameAsCurrentlyEquipped = false)
+    public void SetWeapon(EquippableItemSO weaponItemSO, List<ItemParameter> itemState, bool isTheSameAsCurrentlyEquipped = false)
     {
         if (weapon != null && !isTheSameAsCurrentlyEquipped)
         {

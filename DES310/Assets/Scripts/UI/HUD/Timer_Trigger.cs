@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer_Trigger : MonoBehaviour
+public class TimerTrigger : MonoBehaviour
 {
     public EventHandler eventHandler;
 

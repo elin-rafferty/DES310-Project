@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Inventory.Model
 {
-    public class Item_Action : MonoBehaviour
+    public class ItemAction : MonoBehaviour
     {
         [SerializeField]
         private GameObject buttonPrefab;

@@ -5,18 +5,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [CreateAssetMenu (menuName = "Weapon Properties/Weapon Properties")]
-public class Weapon_Properties : ScriptableObject
+public class WeaponProperties : ScriptableObject
 {
-    public Projectile_Type projectileType;
+    public ProjectileType projectileType;
     public Projectile projectilePrefab;
     public float fireDelay = 0;
     public float overheatCapacity = 0;
     public bool isSingleFire = false;
-    public Weapon_Upgrades weaponUpgrades;
+    public WeaponUpgrades weaponUpgrades;
 
     private void OnEnable()
     {
-        weaponUpgrades = CreateInstance<Weapon_Upgrades>();
+        weaponUpgrades = CreateInstance<WeaponUpgrades>();
     }
     public virtual void Fire(Vector2 position, Vector2 direction, GameObject owner)
     {

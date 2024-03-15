@@ -10,10 +10,10 @@ using Inventory.Model;
 
 namespace Inventory.UI
 {
-    public class Inventory_Item_UI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
+    public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
     {
         // https://www.youtube.com/watch?v=DS5Ss9SFHbs&list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D&index=7
-        public Item_SO item;
+        public ItemSO item;
         public int quantity;
 
         [SerializeField]
@@ -25,7 +25,7 @@ namespace Inventory.UI
         [SerializeField]
         private Image borderImage;
 
-        public event Action<Inventory_Item_UI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
+        public event Action<InventoryItemUI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
 
         private bool empty = true;
 
@@ -60,18 +60,18 @@ namespace Inventory.UI
         public void Select()
         {
             // Play Select Sound
-            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.ButtonSelect, transform, 1f);
+            SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
 
             borderImage.enabled = true;
         }
 
         // https://youtu.be/geq7lQSBDAE?si=nyx-AL0fl1oXcjaf
-        public Inventory_Item_UI(Item_SO item)
+        public InventoryItemUI(ItemSO item)
         {
             AddToStack();
         }
 
-        public Inventory_Item_UI()
+        public InventoryItemUI()
         {
             item = null;
             quantity = 0;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ProjectileType", menuName = "Types/ProjectileType")]
-public class Projectile_Type : ScriptableObject
+public class ProjectileType : ScriptableObject
 {
     public float speed;
     public float damage;

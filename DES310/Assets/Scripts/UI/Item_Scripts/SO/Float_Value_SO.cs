@@ -6,7 +6,7 @@ using UnityEngine;
 namespace FloatData
 {
     [CreateAssetMenu(menuName = "Data/FloatData")]
-    public class Float_Value_SO : ScriptableObject
+    public class FloatValueSO : ScriptableObject
     {
         [SerializeField]
         private float _value;

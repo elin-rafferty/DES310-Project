@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Modifier_Behaviour")]
-public class Modifier_Behaviour : ScriptableObject
+[CreateAssetMenu(fileName = "ModifierBehaviour")]
+public class ModifierBehaviour : ScriptableObject
 {
     [Header("Spawn Variables")]
-    [SerializeField] public List<Enemy_Base> enemyTypes = new List<Enemy_Base>();
+    [SerializeField] public List<EnemyBase> enemyTypes = new List<EnemyBase>();
     [SerializeField] public List<int> enemyWeightings = new List<int>();
     [SerializeField] public int spawnPercentChance = 50;
 

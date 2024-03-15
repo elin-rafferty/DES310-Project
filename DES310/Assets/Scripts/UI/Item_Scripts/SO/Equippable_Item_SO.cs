@@ -6,23 +6,22 @@ using UnityEngine;
 namespace Inventory.Model
 {
     [CreateAssetMenu (menuName = "Items/Equippable Item SO")]
-    public class Equippable_Item_SO : Item_SO, IDestroyableItem, IItemAction
+    public class EquippableItemSO : ItemSO, IDestroyableItem, IItemAction
     {
         public string ActionName => "Equip";
-        public Weapon_Properties weaponProperties;
-
+        public WeaponProperties weaponProperties;
 
         //public AudioClip actionSFX { get; private set; }
 
 
         public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
         {
-            Agent_Weapon weaponSystem = character.GetComponent<Agent_Weapon>();
+            AgentWeapon weaponSystem = character.GetComponent<AgentWeapon>();
             if (weaponSystem != null)
             {
                 weaponSystem.SetWeapon(this, itemState == null ?
                     DefaultParametersList : itemState);
-                inventory_Main_Page inventoryMainPage = character.GetComponentInChildren<inventory_Main_Page>();
+                inventoryMainPage inventoryMainPage = character.GetComponentInChildren<inventoryMainPage>();
                 if (inventoryMainPage != null)
                 {
                     inventoryMainPage.HideItemAction();

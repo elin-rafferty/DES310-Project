@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Main_Hub_Player_Pos_Manager : MonoBehaviour
 {
-    [SerializeField] private Persistent_Variables persistentVariables;
+    [SerializeField] private PersistentVariables persistentVariables;
 
     // Start is called before the first frame update
     void Start()

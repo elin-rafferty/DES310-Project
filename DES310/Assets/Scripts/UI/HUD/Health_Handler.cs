@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health_Handler : MonoBehaviour
+public class HealthHandler : MonoBehaviour
 {
     [SerializeField] EventHandler eventHandler;
     [SerializeField] Text text;

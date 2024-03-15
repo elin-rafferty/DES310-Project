@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_CHASE_State : Enemy_State
+public class EnemyCHASEState : Enemy_State
 {
-    public Enemy_CHASE_State(Enemy_Base enemyBase, Enemy_State_Machine enemyStateMachine) : base(enemyBase, enemyStateMachine)
+    public EnemyCHASEState(Enemy_Base enemyBase, Enemy_State_Machine enemyStateMachine) : base(enemyBase, enemyStateMachine)
     {
     }
 

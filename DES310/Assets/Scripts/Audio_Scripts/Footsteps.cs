@@ -11,8 +11,8 @@ public class Footsteps : MonoBehaviour
         GLASS
     }
 
-    [SerializeField] private Sound_Manager.SFX[] metalFootsteps;
-    [SerializeField] private Sound_Manager.SFX[] glassFootsteps;
+    [SerializeField] private SoundManager.SFX[] metalFootsteps;
+    [SerializeField] private SoundManager.SFX[] glassFootsteps;
     [SerializeField] private Rigidbody2D rb;
 
     private float footstepDelay = 0.3f;
@@ -42,11 +42,11 @@ public class Footsteps : MonoBehaviour
         }
     }
 
-    void PlayFootsteps(Sound_Manager.SFX[] footstepClips)
+    void PlayFootsteps(SoundManager.SFX[] footstepClips)
     {
         if (footstepClips.Length > 0)
         {
-            Sound_Manager.instance.PlayRandomSound(footstepClips, transform, 0.2f);
+            SoundManager.instance.PlayRandomSound(footstepClips, transform, 0.2f);
         }
     }
 }

@@ -8,15 +8,15 @@ public class Shop_Trigger : MonoBehaviour
 {
     [SerializeField] Canvas canvas, shopCanvas;
     [SerializeField] Text text;
-    [SerializeField] Settings_SO settings;
+    [SerializeField] SettingsSO settings;
     [SerializeField] Inventory_Animation inventoryAnimation;
     [SerializeField] string shopName = "shop";
     private bool trigger = false;
-    private Input_Manager inputManager;
+    private InputManager inputManager;
 
     private void Start()
     {
-        inputManager = GetComponent<Input_Manager>();
+        inputManager = GetComponent<InputManager>();
         text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open " + shopName;
     }
 
@@ -46,9 +46,9 @@ public class Shop_Trigger : MonoBehaviour
         if (inputManager.GetButtonDown("Interact") && trigger == true && !shopCanvas.gameObject.activeSelf)
         {
             shopCanvas.gameObject.SetActive(true);
-            if (shopCanvas.gameObject.GetComponentInParent<Upgrade_Shop>() != null)
+            if (shopCanvas.gameObject.GetComponentInParent<UpgradeShop>() != null)
             {
-                shopCanvas.gameObject.GetComponentInParent<Upgrade_Shop>().ResetUnpurchasedUpgrades();
+                shopCanvas.gameObject.GetComponentInParent<UpgradeShop>().ResetUnpurchasedUpgrades();
             }
             inventoryAnimation.OpenInventory();
         }

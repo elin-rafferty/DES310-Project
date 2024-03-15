@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Inventory.Model
 {
     [CreateAssetMenu (menuName = "Items/Edible Item SO")]
-    public class Edible_Item_SO : Item_SO, IDestroyableItem, IItemAction
+    public class EdibleItemSO : ItemSO, IDestroyableItem, IItemAction
     {
         [SerializeField]
         private List<ModifierData> modifierDatas = new List<ModifierData>();
@@ -39,7 +39,7 @@ namespace Inventory.Model
     [Serializable]
     public class ModifierData
     {
-        public Character_Stat_Modifier_SO statModifier;
+        public CharacterStatModifierSO statModifier;
         public float value;
     }
 }

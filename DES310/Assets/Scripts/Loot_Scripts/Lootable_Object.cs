@@ -9,13 +9,13 @@ using UnityEngine.UI;
 
 public class Lootable_Object : MonoBehaviour
 {
-    private Input_Manager inputManager;
+    private InputManager inputManager;
     public Loot_Table lootTable;
     public Item pickupPrefab;
     public float distanceToSpawn = 1.28f;
     public Canvas canvas;
     public Text text;
-    public Settings_SO settings;
+    public SettingsSO settings;
     bool trigger = false;
     bool looted = false;
 
@@ -39,7 +39,7 @@ public class Lootable_Object : MonoBehaviour
 
     private void Start()
     {
-        inputManager = GetComponent<Input_Manager>();
+        inputManager = GetComponent<InputManager>();
     }
 
     void Update()
@@ -47,7 +47,7 @@ public class Lootable_Object : MonoBehaviour
         // Pick up item
         if (inputManager.GetButtonDown("Interact") && trigger && !looted)
         {
-            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.CrateOpen, transform, 0.5f);
+            SoundManager.instance.PlaySound(SoundManager.SFX.CrateOpen, transform, 0.5f);
 
             List<InventoryItem> itemsToDrop = lootTable.getLoot();
             int posIndex = 0;

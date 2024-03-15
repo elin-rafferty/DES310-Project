@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeReference] private SpriteRenderer SpriteRenderer;
     private Enemy_Type type;
-    private Modifier_Behaviour modifierBehaviour;
+    private ModifierBehaviour modifierBehaviour;
 
     private enum State
     {
@@ -120,8 +120,8 @@ public class EnemyAI : MonoBehaviour
         if (!ranSearch)
         {
             // Copy list from player
-            breadCrumbList = player.GetComponent<Bread_Crumb_List>().breadCrumbs;
-            targetIndex = player.GetComponent<Bread_Crumb_List>().oldestCrumbIndex;
+            breadCrumbList = player.GetComponent<BreadCrumbList>().breadCrumbs;
+            targetIndex = player.GetComponent<BreadCrumbList>().oldestCrumbIndex;
 
             float distance = Vector2.Distance(transform.position, breadCrumbList[targetIndex].transform.position);
 
@@ -204,7 +204,7 @@ public class EnemyAI : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = type.sprite;
     }
 
-    public void SetModifiers(Modifier_Behaviour modifier)
+    public void SetModifiers(ModifierBehaviour modifier)
     {
         // Keep reference to modifier
         modifierBehaviour = modifier;

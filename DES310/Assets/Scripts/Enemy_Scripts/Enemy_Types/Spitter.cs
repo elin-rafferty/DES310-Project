@@ -7,7 +7,7 @@ public class Spitter : Enemy_Base
     public Transform weaponTransfom;
     public Transform tetherTransform;
 
-    public override void SetModifiers(Modifier_Behaviour modifier)
+    public override void SetModifiers(ModifierBehaviour modifier)
     {
         base.SetModifiers(modifier);
 

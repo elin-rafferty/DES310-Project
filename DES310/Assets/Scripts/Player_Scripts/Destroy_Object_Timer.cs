@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroy_Object_Timer : MonoBehaviour
+public class DestroyObjectTimer : MonoBehaviour
 {
     public float time;
 

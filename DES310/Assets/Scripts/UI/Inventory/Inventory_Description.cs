@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Inventory.UI
 {
-    public class Inventory_Description : MonoBehaviour
+    public class InventoryDescription : MonoBehaviour
     {
         [SerializeField]
         private Image itemImage;

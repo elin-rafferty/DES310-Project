@@ -7,9 +7,9 @@ public class Modifier_Screen : MonoBehaviour
 {
     [SerializeField] EventHandler eventHandler;
     [SerializeField] Text text;
-    [SerializeField] Modifier_Behaviour modifierBehaviour;
-    [SerializeField] Persistent_Variables persistentVariables;
-    Input_Manager inputManager;
+    [SerializeField] ModifierBehaviour modifierBehaviour;
+    [SerializeField] PersistentVariables persistentVariables;
+    InputManager inputManager;
 
 
     void Update()
@@ -26,7 +26,7 @@ public class Modifier_Screen : MonoBehaviour
 
     private void OnEnable()
     {
-        inputManager = GetComponent<Input_Manager>();
+        inputManager = GetComponent<InputManager>();
         Time.timeScale = 0.0f;
 
         // Default Modifier Behaviour
@@ -66,49 +66,49 @@ public class Modifier_Screen : MonoBehaviour
         {
             switch (persistentVariables.modifier[i])
             {
-                case Modifiers_Enum.ENEMY_HEALTH:
+                case Modifiers.ENEMY_HEALTH:
                     // Set Modifier
                     modifierBehaviour.enemyHealthMultiplier += 0.2f;
                     // Set Text
                     text.text = "All Enemy Health +20%";
                     break;
 
-                case Modifiers_Enum.ENEMY_DAMAGE:
+                case Modifiers.ENEMY_DAMAGE:
                     // Set Modifier
                     modifierBehaviour.enemyDamageMultiplier += 0.1f;
                     // Set Text
                     text.text = "All Enemy Damage +10%";
                     break;
 
-                case Modifiers_Enum.WALKER_SPEED:
+                case Modifiers.WALKER_SPEED:
                     // Set Modifier
                     modifierBehaviour.walkerSpeedMultiplier += 0.2f;
                     // Set Text
                     text.text = "Walker Speed +20%";
                     break;
 
-                case Modifiers_Enum.SPITTER_FIRE_RATE:
+                case Modifiers.SPITTER_FIRE_RATE:
                     // Set Modifier
                     modifierBehaviour.spitterAttackSpeedMultiplier += 0.2f;
                     // Set Text
                     text.text = "Spitter Fire Rate +20%";
                     break;
 
-                case Modifiers_Enum.SPRINTER_SPEED:
+                case Modifiers.SPRINTER_SPEED:
                     // Set Modifier
                     modifierBehaviour.sprinterSpeedMultiplier += 0.1f;
                     // Set Text
                     text.text = "Sprinter Speed +10%";
                     break;
 
-                case Modifiers_Enum.SPITTER_RANGE:
+                case Modifiers.SPITTER_RANGE:
                     // Set Modifier
                     modifierBehaviour.spitterAttackRangeMultiplier += 0.1f;
                     // Set Text
                     text.text = "Spitter Range +10%";
                     break;
 
-                case Modifiers_Enum.RESOURCE_DROPRATE:
+                case Modifiers.RESOURCE_DROPRATE:
                     // Set Modifier
                     // Set Text
                     text.text = "Resource Droprate +20%";

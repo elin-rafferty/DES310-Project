@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer_Handler : MonoBehaviour
+public class TimerHandler : MonoBehaviour
 {
     [SerializeField] EventHandler eventHandler;
     //[SerializeField] private Slider slider;

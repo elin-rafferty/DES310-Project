@@ -9,15 +9,15 @@ public class Vent_Script : MonoBehaviour
 {
     public List<string> sceneNames = new();
     public float timeBeforeOpen = 2;
-    public Persistent_Variables persistentVariables;
-    public Input_Manager inputManager;
+    public PersistentVariables persistentVariables;
+    public InputManager inputManager;
     private bool trigger = false;
     [SerializeField] GameObject loadingScreen;
     [SerializeField] Canvas canvas;
     [SerializeField] Text text;
-    [SerializeField] Settings_SO settings;
-    [SerializeField] Inventory_SO inventory;
-    [SerializeField] List<Item_SO> keys = new();
+    [SerializeField] SettingsSO settings;
+    [SerializeField] InventorySO inventory;
+    [SerializeField] List<ItemSO> keys = new();
 
     private void Start()
     {
@@ -60,21 +60,21 @@ public class Vent_Script : MonoBehaviour
         // Load new scene
         if (inputManager.GetButtonDown("Interact") && trigger && timeBeforeOpen == 0)
         {
-            foreach (Item_SO key in keys)
+            foreach (ItemSO key in keys)
             {
                 while (inventory.RemoveItem(key));
             }
             // Modifier Load Screen
-            if (sceneNames[0] != "Main_Hub" && loadingScreen)
+            if (sceneNames[0] != "Main Hub" && loadingScreen)
             {
-                Modifiers_Enum newModifier;
+                Modifiers newModifier;
                 bool found;
                 do
                 {
                     found = false;
-                    newModifier = (Modifiers_Enum)Random.Range(1, 6);
+                    newModifier = (Modifiers)Random.Range(1, 6);
 
-                    foreach (Modifiers_Enum m in persistentVariables.modifier)
+                    foreach (Modifiers m in persistentVariables.modifier)
                     {
                         if (m == newModifier)
                         {

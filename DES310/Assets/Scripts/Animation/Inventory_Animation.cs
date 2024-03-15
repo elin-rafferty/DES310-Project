@@ -11,10 +11,10 @@ public class Inventory_Animation : MonoBehaviour
     Animator anim;
     public bool InventoryOpen = false;
     public EventHandler eventHandler;
-    public Input_Manager inputManager;
-    public inventory_Main_Page inventoryMainPage;
+    public InputManager inputManager;
+    public inventoryMainPage inventoryMainPage;
     public GameObject virtualMouse;
-    public Settings_SO settings;
+    public SettingsSO settings;
 
     // Start is called before the first frame update
     void Start()

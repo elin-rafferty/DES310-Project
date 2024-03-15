@@ -23,7 +23,7 @@ public class Options_Menu : MonoBehaviour
     [SerializeField] private TMP_Dropdown controls;
 
     // Modifiers
-    [SerializeField] private Modifier_Behaviour modifierBehaviour;
+    [SerializeField] private ModifierBehaviour modifierBehaviour;
     [SerializeField] private Slider spawnChanceSlider;
     [SerializeField] private Slider enemySpeedSlider;
     [SerializeField] private Slider enemyDamageSlider;

@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Inventory.Model
 {
     [CreateAssetMenu]
-    public class Inventory_SO : ScriptableObject
+    public class InventorySO : ScriptableObject
     {
         [SerializeField]
         private List<InventoryItem> inventoryItems;
@@ -50,7 +50,7 @@ namespace Inventory.Model
             return returnVal;
         }
 
-        public int AddItem(Item_SO item, int quantity, List<ItemParameter> itemState = null)
+        public int AddItem(ItemSO item, int quantity, List<ItemParameter> itemState = null)
         {
             if (item.IsStackable == false)
             {
@@ -69,7 +69,7 @@ namespace Inventory.Model
             return quantity;
         }
 
-        private int AddItemToFirstFreeSlot(Item_SO item, int quantity, List<ItemParameter> itemState = null)
+        private int AddItemToFirstFreeSlot(ItemSO item, int quantity, List<ItemParameter> itemState = null)
         {
             InventoryItem newItem = new InventoryItem
             {
@@ -93,7 +93,7 @@ namespace Inventory.Model
             => inventoryItems.Where(item => item.IsEmpty).Any() == false;
 
 
-        private int AddStackableItem(Item_SO item, int quantity)
+        private int AddStackableItem(ItemSO item, int quantity)
         {
             for (int i = 0; i < inventoryItems.Count; i++)
             {
@@ -181,7 +181,7 @@ namespace Inventory.Model
             OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
         }
 
-        public bool HasItem(Item_SO item, int amountToFind = 1)
+        public bool HasItem(ItemSO item, int amountToFind = 1)
         {
             foreach (InventoryItem inventoryItem in inventoryItems)
             {
@@ -201,7 +201,7 @@ namespace Inventory.Model
             return false;
         }
 
-        public bool RemoveItem(Item_SO item, int count = 1)
+        public bool RemoveItem(ItemSO item, int count = 1)
         {
             int amountToRemove = count;
             if (HasItem(item, count)) {
@@ -231,7 +231,7 @@ namespace Inventory.Model
     public struct InventoryItem
     {
         public int quantity;
-        public Item_SO item;
+        public ItemSO item;
         public List<ItemParameter> itemState;
         public bool IsEmpty => item == null;
 

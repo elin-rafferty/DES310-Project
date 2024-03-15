@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vent_Path : MonoBehaviour
+public class VentPath : MonoBehaviour
 {
     [SerializeField] private EventHandler eventHandler;
     

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Vertical_Door : MonoBehaviour
+public class VerticalDoor : MonoBehaviour
 {
-    [SerializeField] Inventory_SO inventory;
-    [SerializeField] Settings_SO settings;
+    [SerializeField] InventorySO inventory;
+    [SerializeField] SettingsSO settings;
     [SerializeField] Canvas canvas;
     [SerializeField] Text text;
     [SerializeField] GameObject doorTop, doorBottom;
@@ -15,16 +15,16 @@ public class Vertical_Door : MonoBehaviour
     [SerializeField] float openSpeed = 1.5f, closeSpeed = 1.5f;
     bool animating = false;
     [SerializeField] bool locked = false;
-    [SerializeField] Item_SO key;
+    [SerializeField] ItemSO key;
     bool allowUnlocking = false;
     Vector3 moveAmount = new Vector3(0, 1.92f, 0);
     Vector3 offset = new Vector3(0, 0.96f, 0);
-    Input_Manager inputManager;
+    InputManager inputManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        inputManager = GetComponent<Input_Manager>();
+        inputManager = GetComponent<InputManager>();
         if (isOpen)
         {
             doorBottom.transform.position = transform.position - offset - moveAmount;
@@ -135,7 +135,7 @@ public class Vertical_Door : MonoBehaviour
         {
             isOpen = true;
             animating = true;
-            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.DoorOpen, transform, 1f);
+            SoundManager.instance.PlaySound(SoundManager.SFX.DoorOpen, transform, 1f);
         }
     }
 
@@ -145,7 +145,7 @@ public class Vertical_Door : MonoBehaviour
         {
             isOpen = false;
             animating = true;
-            Sound_Manager.instance.PlaySound(Sound_Manager.SFX.DoorClosed, transform, 1f);
+            SoundManager.instance.PlaySound(SoundManager.SFX.DoorClosed, transform, 1f);
         }
     }
 }

@@ -21,6 +21,6 @@ public class Go_To_Level : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Load level
-        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("PlayerMovementTestScene");
     }
 }
