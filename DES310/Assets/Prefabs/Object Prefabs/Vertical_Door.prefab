@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3640028085408141509}
   - component: {fileID: 248414364918720877}
   m_Layer: 0
-  m_Name: Vertical Door
+  m_Name: Vertical_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
