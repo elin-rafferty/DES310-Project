@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1220767296568285634}
   - component: {fileID: 3509616665964896340}
   m_Layer: 0
-  m_Name: MiniBoss
+  m_Name: Mini_Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 7103887694874621040}
   - component: {fileID: 4205649874768403476}
   m_Layer: 0
-  m_Name: Game Over Screen
+  m_Name: Game_Over_Screen
   m_TagString: Game Over
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 1037102227649646281}
   - component: {fileID: 8762616237348937191}
   m_Layer: 0
-  m_Name: Modifier Screen
+  m_Name: Modifier_Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3627134037969987160}
   - component: {fileID: 5982349082766425615}
   m_Layer: 2
-  m_Name: BossTrigger
+  m_Name: Boss_Trigger
   m_TagString: Boss Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
