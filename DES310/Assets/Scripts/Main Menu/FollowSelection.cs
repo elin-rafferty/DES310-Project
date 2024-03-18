@@ -20,7 +20,7 @@ public class FollowSelection : MonoBehaviour
             transform.position = eventSystem.currentSelectedGameObject.transform.position + new Vector3(250, 0, 0);
         } else
         {
-            transform.position = new Vector3(1000000, 100000000);
+            transform.position = new Vector3(10000, 10000);
         }
     }
 }
