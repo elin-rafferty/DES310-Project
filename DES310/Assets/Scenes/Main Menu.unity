@@ -903,6 +903,7 @@ GameObject:
   - component: {fileID: 1008678312}
   - component: {fileID: 1008678311}
   - component: {fileID: 1008678310}
+  - component: {fileID: 1008678313}
   m_Layer: 5
   m_Name: Inky
   m_TagString: Untagged
@@ -941,7 +942,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 73955f462f4700547acb812933917a10, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -989,6 +990,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008678308}
   m_CullTransparentMesh: 1
+--- !u!114 &1008678313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008678308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1f6a7c5ee548d4f88989d6562afa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1124607049
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,8 +10,6 @@ public class Footsteps : MonoBehaviour
     private float footstepDelay = 0.3f;
     private float footstepTimer = 0f;
 
-    private TileType tileType = TileType.METAL;
-
     void Update()
     {
         if (footstepTimer >= footstepDelay && (rb.velocityY != 0 || rb.velocityX != 0))
