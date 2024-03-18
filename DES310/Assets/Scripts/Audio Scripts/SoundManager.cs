@@ -58,6 +58,25 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void PlayAudioClip(AudioClip clip, Transform transform, float volume)
+    {
+        // Spawn Object
+        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
+
+        // Assign Audio Clip
+        audioSource.clip = clip;
+
+        // Change Volume
+        audioSource.volume = volume;
+
+        // Play Audio
+        audioSource.Play();
+
+        // destroy object on clip end
+        float clipLength = audioSource.clip.length;
+        Destroy(audioSource.gameObject, clipLength);
+    }
+
     public void PlaySound(SFX audioClip, Transform transform, float volume)
     {
         // Spawn Object

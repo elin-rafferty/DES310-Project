@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9947c49cab7c1814d83faa02c5cec74a, type: 3}
+  m_Name: GlassFootsteps
+  m_EditorClassIdentifier: 
+  <tiles>k__BackingField:
+  - {fileID: 11400000, guid: 1462edc6df056c442b4a0482e7c58668, type: 2}
+  - {fileID: 11400000, guid: 6c400872f0e87bb40bdbfe990fc4ab42, type: 2}
+  - {fileID: 11400000, guid: 563dbe74b97cb18458e1c55b2641c851, type: 2}
+  - {fileID: 11400000, guid: d61adcdd2eb30424e83c3f40e6ea9947, type: 2}
+  - {fileID: 11400000, guid: 9cab4ac8c77ef9f459f2d7386e76dd29, type: 2}
+  - {fileID: 11400000, guid: 15f41e7a4b44e4b4dba2b20b07597594, type: 2}
+  - {fileID: 11400000, guid: 539dd88167927e543b87290ee3f8777b, type: 2}
+  - {fileID: 11400000, guid: 0080c1b5ec35e0d4ea5ad796c99f007c, type: 2}
+  <audioClip>k__BackingField:
+  - {fileID: 8300000, guid: 8caaa470377dba6419ef09c82c0e4140, type: 3}
+  - {fileID: 8300000, guid: b00b354011cd128409c00d334b12a158, type: 3}
+  <tileType>k__BackingField: 01000000

@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour
 {
-
-    public enum TileType
-    {
-        METAL,
-        GLASS
-    }
-
-    [SerializeField] private SoundManager.SFX[] metalFootsteps;
-    [SerializeField] private SoundManager.SFX[] glassFootsteps;
+    [SerializeField] private MapManager mapManager;
     [SerializeField] private Rigidbody2D rb;
 
     private float footstepDelay = 0.3f;
@@ -24,29 +16,13 @@ public class Footsteps : MonoBehaviour
     {
         if (footstepTimer >= footstepDelay && (rb.velocityY != 0 || rb.velocityX != 0))
         {
-            switch (tileType)
-            {
-                case TileType.METAL:
-                    PlayFootsteps(metalFootsteps);
-                    break;
+            SoundManager.instance.PlayAudioClip(mapManager.GetCurrentTileClip(transform.position), transform, 0.2f);
 
-                case TileType.GLASS:
-                    PlayFootsteps(glassFootsteps);
-                    break;
-            }
             footstepTimer = 0f;
         }
         else
         {
             footstepTimer += Time.deltaTime;
-        }
-    }
-
-    void PlayFootsteps(SoundManager.SFX[] footstepClips)
-    {
-        if (footstepClips.Length > 0)
-        {
-            SoundManager.instance.PlayRandomSound(footstepClips, transform, 0.2f);
         }
     }
 }

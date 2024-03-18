@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9947c49cab7c1814d83faa02c5cec74a, type: 3}
+  m_Name: MetalFootsteps
+  m_EditorClassIdentifier: 
+  <tiles>k__BackingField:
+  - {fileID: 11400000, guid: 400a6de0bf6aa264e8b16eb32cdfd7a8, type: 2}
+  - {fileID: 11400000, guid: 080f23d2a685e204b8397883a123b5dc, type: 2}
+  - {fileID: 11400000, guid: e791ef35553349745b17d4185cd96739, type: 2}
+  - {fileID: 11400000, guid: 5bcd06f8bba578d429ea7d1c6753833d, type: 2}
+  - {fileID: 11400000, guid: f36ed88739a3ab84ea12dd6e2e59763f, type: 2}
+  <audioClip>k__BackingField:
+  - {fileID: 8300000, guid: 4a419f52b3d67fb488e5d460c7fd25ee, type: 3}
+  - {fileID: 8300000, guid: bbe5330f407320446af6706a84119251, type: 3}
+  - {fileID: 8300000, guid: 6193ba19e1c67d745aad96105ab11b2f, type: 3}
+  <tileType>k__BackingField: 00000000
