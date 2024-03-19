@@ -35,14 +35,20 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Set trigger true on collision with item
-        trigger = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Set trigger true on collision with item
+            trigger = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Set trigger false on exit with item
-        trigger = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Set trigger false on exit with item
+            trigger = false;
+        }
     }
 
     void Update()
