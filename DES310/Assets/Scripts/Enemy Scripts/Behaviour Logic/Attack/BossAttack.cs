@@ -21,6 +21,11 @@ public class BossAttack : EnemyAttackSOBase
         JUMP,
         SLAM,
 
+        // Shoot
+        SHOOT_ATTACK,
+        SHOOT,
+        SHOOT_COOLDOWN,
+
         //Tenatcle
         TENTACLE_ATTACK
     }
@@ -53,6 +58,18 @@ public class BossAttack : EnemyAttackSOBase
 
     #endregion
 
+    #region Shoot Variables
+
+    [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private ProjectileType projectileType;
+    [SerializeField] private float sprayAngle;
+    [SerializeField] private int bullets;
+    private Transform weaponTransform;
+    private float shootTimer;
+    private int shotsFired;
+
+    #endregion
+
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
@@ -65,11 +82,10 @@ public class BossAttack : EnemyAttackSOBase
         
 
         currentAttackState = AttackState.NONE;
-        chargeTimer = 2;
         enemyBase.colliderTag = string.Empty;
 
         // Choose Random Attack
-        int rand = Random.Range(0, 2);
+        int rand = Random.Range(0, 4);
 
         if (rand == 0)
         {
@@ -77,15 +93,21 @@ public class BossAttack : EnemyAttackSOBase
             currentAttack = AttackState.LEAP_ATTACK;
             currentAttackState = AttackState.READY_JUMP;
         }
-        else if (rand == 1)
+        else if (rand >= 1 && rand <= 2)
         {
             // Charge Attack
+            chargeTimer = 2;
             currentAttack = AttackState.CHARGE_ATTACK;
             currentAttackState = AttackState.WINDUP;
         }
-        else if (rand == 2)
+        else if (rand == 3)
         {
-            // Tentacle Attack
+            // Shoot Attack
+            weaponTransform = enemyBase.gameObject.GetComponent<Boss>().weaponTransform;
+            shootTimer = 0;
+            shotsFired = 0;
+            currentAttack = AttackState.SHOOT_ATTACK;
+            currentAttackState = AttackState.SHOOT;
         }
     }
 
@@ -118,11 +140,10 @@ public class BossAttack : EnemyAttackSOBase
                 ChargeAttack();
                 break;
 
-            case AttackState.TENTACLE_ATTACK:
+            case AttackState.SHOOT_ATTACK:
+                ShootAttack();
                 break;
         }
-
-        //TentacleAttack();
     }
 
     public override void ResetValues()
@@ -269,5 +290,82 @@ public class BossAttack : EnemyAttackSOBase
     void TentacleAttack()
     {
        
+    }
+
+    void SpawnEnemyAttack()
+    {
+
+    }
+
+    void ShootAttack()
+    {
+        float angle;
+
+        // Look at Player
+        targetDirection = ((Vector2)Player.transform.position - enemyBase.rb.position).normalized;
+        float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        angle = Mathf.SmoothDampAngle(enemyBase.transform.eulerAngles.z, targetAngle, ref rotateSpeed, angleSmoothTime);
+        enemyBase.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+
+        enemyBase.MoveEnemy(Vector2.zero);
+
+        switch (currentAttackState) 
+        {
+            case AttackState.SHOOT:
+
+                // Player Direction
+                Vector2 direction = (Player.transform.position - weaponTransform.position).normalized;
+
+                for (int i = 0; i < bullets; i++)
+                {
+                    float interval = sprayAngle / bullets;
+
+                    float firingAngle = Mathf.Atan2(direction.y, direction.x) + (interval * i * Mathf.Deg2Rad) - ((sprayAngle / 2) * Mathf.Deg2Rad);
+                    Vector2 firingDirection = new Vector2(Mathf.Cos(firingAngle), Mathf.Sin(firingAngle));
+
+                    Fire(firingDirection);
+                }
+
+                shootTimer = enemyBase.attackDelay;
+                shotsFired++;
+                currentAttackState = AttackState.SHOOT_COOLDOWN;
+
+                if (shotsFired >= 5)
+                {
+                    enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
+                }
+
+                break;
+
+            case AttackState.SHOOT_COOLDOWN:
+
+                if (shootTimer > 0)
+                {
+                    // Decremnet timer
+                    shootTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    // Shoot again
+                    currentAttackState = AttackState.SHOOT;
+                }
+
+                break;
+        }
+    }
+
+    void Fire(Vector2 direction)
+    {
+        // Fire
+        Projectile newProjectile = Instantiate(projectilePrefab, weaponTransform.position, Quaternion.identity);
+        newProjectile.SetType(projectileType);
+        newProjectile.SetDirection(direction);
+        newProjectile.SetOwner(enemyBase.gameObject);
+        newProjectile.transform.Rotate(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        // Set projectile to despawn after a certain time has elapsed
+        Destroy(newProjectile.gameObject, 10);
+
+        // Play shoot sound
+        SoundManager.instance.PlaySound(SoundManager.SFX.SpitterAttack, transform, 1f);
     }
 }

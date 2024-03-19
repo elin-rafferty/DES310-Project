@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spitter : EnemyBase
 {
-    public Transform weaponTransfom;
+    public Transform weaponTransform;
     public Transform tetherTransform;
 
     public override void SetModifiers(ModifierBehaviour modifier)

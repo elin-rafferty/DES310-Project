@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4af7f7b38609da4491c03213e1315df, type: 3}
   m_Name: Attack - Boss
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
+  projectileType: {fileID: 11400000, guid: 0f26be3736936104282942e532a6d2b5, type: 2}
+  sprayAngle: 50
+  bullets: 7

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Boss : EnemyBase
 {
+    public Transform weaponTransform;
+
     [SerializeField] Slider bossHealthSlider;
     [SerializeField] HorizontalDoor door;
 

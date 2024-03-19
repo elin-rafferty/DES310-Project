@@ -29,7 +29,7 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         grabTimer = 7;
         attackTimer = enemyBase.attackDelay;
         target = Player.transform;
-        weaponTransform = enemyBase.gameObject.GetComponent<Spitter>().weaponTransfom;
+        weaponTransform = enemyBase.gameObject.GetComponent<Spitter>().weaponTransform;
 
         distanceJoint = enemyBase.gameObject.GetComponent<DistanceJoint2D>();
         distanceJoint.distance = enemyBase.attackRange - 0.5f;

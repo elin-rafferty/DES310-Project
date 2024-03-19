@@ -442,7 +442,7 @@ MonoBehaviour:
   EnemyChaseBase: {fileID: 11400000, guid: fe33eca18f11c014a837ff3cbf5c07ec, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: 573448d7b809523499416624798d42bf, type: 2}
-  weaponTransfom: {fileID: 1800823763557809388}
+  weaponTransform: {fileID: 1800823763557809388}
   tetherTransform: {fileID: 7558736578779173480}
 --- !u!1 &5470175983574779326
 GameObject:
