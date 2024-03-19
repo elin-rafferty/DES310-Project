@@ -18,6 +18,7 @@ public class EventHandler : ScriptableObject
     public UnityEvent<float, float> ShakeCamera;
     public UnityEvent<bool> TimescaleFreeze;
     public PersistentVariables persistentVariables;
+    public ActiveBuffs activeBuffs;
 
     private void OnEnable()
     {
@@ -30,5 +31,6 @@ public class EventHandler : ScriptableObject
         
         persistentVariables.exitReason = LevelExitReason.DEATH;
         persistentVariables.modifier.Clear();
+        activeBuffs.ResetBuffs();
     }
 }
