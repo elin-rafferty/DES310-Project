@@ -7,7 +7,12 @@ using UnityEngine;
 public class ActiveBuffs : ScriptableObject
 {
     [SerializeField] public List<Buff> activeBuffs = new();
-    
+
+    private void OnEnable()
+    {
+        ResetBuffs();
+    }
+
     public void ReduceTimers(float deltaTime)
     {
         foreach (var buff in activeBuffs)
@@ -18,6 +23,11 @@ public class ActiveBuffs : ScriptableObject
                 buff.time = 0;
             }
         }
+    }
+
+    public void ResetBuffs()
+    {
+        activeBuffs.Clear();
     }
 
     public void ApplyBuff(BuffType buffType, float time)

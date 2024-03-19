@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float movementSpeed = 10;
+    [SerializeField] private float buffedMovementSpeed = 20;
     [SerializeField] private float dashStrength = 30;
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private ProjectileType bulletType;
@@ -115,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
         {
             bubbleTimer -= Time.deltaTime;
         }
-        activeBuffs.ReduceTimers(Time.fixedUnscaledDeltaTime);
     }
 
     void HandleInput()
@@ -252,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.Normalize();
         }
-        velocity *= movementSpeed;
+        velocity *= activeBuffs.IsBuffActive(BuffType.SPEED_BOOST) ? buffedMovementSpeed : movementSpeed;
         if (bubbleTimer <= 0)
         {
             bubbleTimer = 0.25f;

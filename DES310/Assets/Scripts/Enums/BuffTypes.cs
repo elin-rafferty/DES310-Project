@@ -6,7 +6,9 @@ using UnityEngine;
 [Serializable]
 public enum BuffType
 {
-    NO_OVERHEAT
+    NO_OVERHEAT,
+    SPEED_BOOST,
+    SLOW_TIME
 }
 
 [Serializable]

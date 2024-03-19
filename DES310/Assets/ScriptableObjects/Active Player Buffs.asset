@@ -15,3 +15,7 @@ MonoBehaviour:
   activeBuffs:
   - type: 0
     time: 0
+  - type: 1
+    time: 0
+  - type: 2
+    time: 0

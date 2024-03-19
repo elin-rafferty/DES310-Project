@@ -470,14 +470,14 @@ PrefabInstance:
     - target: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: <InventoryItem>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: fe0c371b82406da4ca5d2c6a4e43d501, type: 2}
+      objectReference: {fileID: 11400000, guid: 31ff3c6e7b3cb4c4fb3a4b6cfd51d10d, type: 2}
     - target: {fileID: 5984169167012943267, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: m_Name
       value: Sosig
       objectReference: {fileID: 0}
     - target: {fileID: 5984169167012943267, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8959272982939205794, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2457,14 +2457,14 @@ PrefabInstance:
     - target: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: <InventoryItem>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 4797782c414ec47438c77c1e333a1ee8, type: 2}
+      objectReference: {fileID: 11400000, guid: 1d7454b8fde24d442a1a96fcc6ac0809, type: 2}
     - target: {fileID: 5984169167012943267, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: m_Name
       value: Sosig
       objectReference: {fileID: 0}
     - target: {fileID: 5984169167012943267, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8959272982939205794, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
       propertyPath: m_LocalPosition.x
