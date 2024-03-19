@@ -68,21 +68,7 @@ public class VentScript : MonoBehaviour
             if (sceneNames[0] != "Main Hub" && loadingScreen)
             {
                 Modifiers newModifier;
-                bool found;
-                do
-                {
-                    found = false;
-                    newModifier = (Modifiers)Random.Range(1, 6);
-
-                    foreach (Modifiers m in persistentVariables.modifier)
-                    {
-                        if (m == newModifier)
-                        {
-                            found = true;
-                        }
-                    }
-                }
-                while (found == true || persistentVariables.modifier.Count == 7);
+                newModifier = (Modifiers)Random.Range(1, 6);
                 persistentVariables.modifier.Add(newModifier);
                 loadingScreen.SetActive(true);
             }
