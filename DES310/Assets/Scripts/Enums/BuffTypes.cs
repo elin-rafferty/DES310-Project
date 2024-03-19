@@ -8,7 +8,8 @@ public enum BuffType
 {
     NO_OVERHEAT,
     SPEED_BOOST,
-    SLOW_TIME
+    SLOW_TIME,
+    DAMAGE_BOOST
 }
 
 [Serializable]

@@ -132,7 +132,6 @@ public class PlayerMovement : MonoBehaviour
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
             }
 
-            if(!pauseMenu.activeSelf) Time.timeScale = 1.0f;
         }
         /*//THIS IS SUPER TEMPORARY DELETE LATER PLZ
         if (Input.GetKeyDown(KeyCode.M) || inputManager.GetButtonDown("StartButton"))

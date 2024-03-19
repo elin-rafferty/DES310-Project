@@ -13,6 +13,7 @@ public class BossEncounter : MonoBehaviour
     [SerializeField] GameObject playerCam;
     [SerializeField] GameObject bossCam;
     [SerializeField] GameObject mainCam;
+    [SerializeField] EventHandler eventHandler;
 
     float amplitude = 1.0f;
     float frequency = 1.0f;
@@ -53,6 +54,7 @@ public class BossEncounter : MonoBehaviour
         {
             mainCam.GetComponent<CinemachineBrain>().m_UpdateMethod = CinemachineBrain.UpdateMethod.FixedUpdate;
             Time.timeScale = 1f;
+            eventHandler.TimescaleFreeze.Invoke(false);
             bossHealthSlider.gameObject.SetActive(true);
             Destroy(gameObject);
         }
@@ -90,6 +92,7 @@ public class BossEncounter : MonoBehaviour
                 mainCam.GetComponent<CinemachineBrain>().m_UpdateMethod = CinemachineBrain.UpdateMethod.LateUpdate;
 
                 Time.timeScale = 0f;
+                eventHandler.TimescaleFreeze.Invoke(true);
             }
         }
     }

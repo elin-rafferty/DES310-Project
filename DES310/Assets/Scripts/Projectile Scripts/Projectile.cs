@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeReference] private SpriteRenderer spriteRenderer;
     private GameObject owner;
     private WeaponUpgrades weaponUpgrades;
+    private float damageMultiplier = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -89,8 +90,13 @@ public class Projectile : MonoBehaviour
         weaponUpgrades = upgrades;
     }
 
+    public void SetDamageMultiplier(float multiplier)
+    {
+        damageMultiplier *= multiplier;
+    }
+
     public float GetDamage()
     {
-        return weaponUpgrades != null ? damage * weaponUpgrades.damageModifier : damage;
+        return weaponUpgrades != null ? damage * weaponUpgrades.damageModifier * damageMultiplier : damage * damageMultiplier;
     }
 }

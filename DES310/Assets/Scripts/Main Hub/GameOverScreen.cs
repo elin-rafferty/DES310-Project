@@ -37,6 +37,7 @@ public class GameOverScreen : MonoBehaviour
                 if (inputManager.GetButtonDown("Interact"))
                 {
                     Time.timeScale = 1;
+                    eventHandler.TimescaleFreeze.Invoke(false);
                     musicManager.GetComponent<AudioSource>().mute = false;
                     continueText.text = "";
                     SceneManager.LoadScene("Main Hub");
@@ -60,6 +61,7 @@ public class GameOverScreen : MonoBehaviour
     {
         musicManager.GetComponent<AudioSource>().mute = true;
         Time.timeScale = 0.0f;
+        eventHandler.TimescaleFreeze.Invoke(true);
         canvas.enabled = true;
     }
 }

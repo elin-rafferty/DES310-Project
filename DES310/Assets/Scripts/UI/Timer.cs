@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     //public float duration = 1;
 
     public Slider slider;
+    public EventHandler eventHandler;
 
     // Use this for initialization
     private void Start()
@@ -31,6 +32,7 @@ public class Timer : MonoBehaviour
         else
         {
             Time.timeScale = 0;
+            eventHandler.TimescaleFreeze.Invoke(true);
         }
     }
 }
