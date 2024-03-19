@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float movementSpeed = 10;
+    [SerializeField] private float buffedMovementSpeed = 20;
     [SerializeField] private float dashStrength = 30;
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private ProjectileType bulletType;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private GameObject bubble, backpackPos;
+    [SerializeField] private ActiveBuffs activeBuffs;
 
 
     private bool inventoryOpen = false;
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleTimers();
-        if (!inventoryOpen)
+        if (!inventoryOpen && !pauseMenu.activeSelf)
         {
             HandleInput();
         } 
@@ -130,7 +132,6 @@ public class PlayerMovement : MonoBehaviour
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
             }
 
-            if(!pauseMenu.activeSelf) Time.timeScale = 1.0f;
         }
         /*//THIS IS SUPER TEMPORARY DELETE LATER PLZ
         if (Input.GetKeyDown(KeyCode.M) || inputManager.GetButtonDown("StartButton"))
@@ -167,7 +168,6 @@ public class PlayerMovement : MonoBehaviour
         float targetAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
 
-        // WHAT DOES THIS DO
         lastAimPosition = lookDirection;
         transform.rotation = Quaternion.identity;
 
@@ -227,12 +227,15 @@ public class PlayerMovement : MonoBehaviour
                 WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
                 weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
                 timeTilNextFire = weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
-                overheatLevel += weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
-                overheatSlider.value = overheatSlider.maxValue - overheatLevel;
-                if (overheatLevel >= weaponProperties.overheatCapacity * weaponProperties.weaponUpgrades.overheatCapacityModifier)
+                if (!activeBuffs.IsBuffActive(BuffType.NO_OVERHEAT))
                 {
-                    overheated = true;
-                    SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);
+                    overheatLevel += weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
+                    overheatSlider.value = overheatSlider.maxValue - overheatLevel;
+                    if (overheatLevel >= weaponProperties.overheatCapacity * weaponProperties.weaponUpgrades.overheatCapacityModifier)
+                    {
+                        overheated = true;
+                        SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);
+                    }
                 }
                 // Play shoot sound
                 SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);
@@ -248,7 +251,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.Normalize();
         }
-        velocity *= movementSpeed;
+        velocity *= activeBuffs.IsBuffActive(BuffType.SPEED_BOOST) ? buffedMovementSpeed : movementSpeed;
         if (bubbleTimer <= 0)
         {
             bubbleTimer = 0.25f;

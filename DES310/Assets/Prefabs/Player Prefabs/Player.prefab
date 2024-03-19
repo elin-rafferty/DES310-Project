@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2211,6 +2211,7 @@ GameObject:
   - component: {fileID: 8065663312008827745}
   - component: {fileID: 3430792486964445431}
   - component: {fileID: 2898859774348542171}
+  - component: {fileID: 6000658683130661583}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2410,6 +2411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  buffedMovementSpeed: 20
   dashStrength: 30
   projectilePrefab: {fileID: 3949905970072338568, guid: 5f121973e54470842987e7497ba06987, type: 3}
   bulletType: {fileID: 11400000, guid: 7107aa10a80a69b4d9b214c2724bb202, type: 2}
@@ -2425,6 +2427,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 4421008845974883295}
   bubble: {fileID: 6450977793359803922, guid: 6444342221d6eea48a1fadd85c3dcb07, type: 3}
   backpackPos: {fileID: 825903129575343761}
+  activeBuffs: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
 --- !u!114 &4915550660991606701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2618,6 +2621,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+--- !u!114 &6000658683130661583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603b658c8f54bec429e5efac711ece0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeBuffs: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
+  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  slowedTimescale: 0.5
 --- !u!1 &5651329949300888773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,7 +3304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4014,6 +4032,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_NumberOfSteps
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
+      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591491120081061527, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
@@ -5066,20 +5088,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 11400000, guid: 3159a824a09c3824b8be83d7dd8a45ae, type: 2}
-    - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 5373378258914130720}
+    - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: eventHandler
+      value: 
+      objectReference: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
     - target: {fileID: 3394957114997798526, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: m_Name
       value: Pause Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137204919049372785, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7394642057225860602, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem

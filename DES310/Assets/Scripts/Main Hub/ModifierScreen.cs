@@ -21,6 +21,7 @@ public class ModifierScreen : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 Time.timeScale = 1.0f;
+                eventHandler.TimescaleFreeze.Invoke(false);
             }
         }
     }
@@ -29,6 +30,7 @@ public class ModifierScreen : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         Time.timeScale = 0.0f;
+        eventHandler.TimescaleFreeze.Invoke(true);
 
         // Default Modifier Behaviour
         modifierBehaviour.spawnPercentChance = 50;

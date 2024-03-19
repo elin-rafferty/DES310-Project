@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private SettingsSO settings;
     [SerializeField] private InventorySO inventory;
     [SerializeField] private List<WeaponProperties> weaponProperties;
+    [SerializeField] private EquippableItemSO startingWeaponSO;
+    [SerializeField] private EventHandler eventHandler;
 
     private void OnEnable()
     {
@@ -25,6 +27,7 @@ public class PauseMenu : MonoBehaviour
             eventSystem.SetSelectedGameObject(playButton);
         }
         Time.timeScale = 0f;
+        eventHandler.TimescaleFreeze.Invoke(true);
     }
 
     private void Update()
@@ -40,6 +43,7 @@ public class PauseMenu : MonoBehaviour
         gameObject.SetActive(false);
         eventSystem.SetSelectedGameObject(playButton);
         Time.timeScale = 1f;
+        eventHandler.TimescaleFreeze.Invoke(false);
     }
 
     public void OpenOptionsMenu()
@@ -59,6 +63,7 @@ public class PauseMenu : MonoBehaviour
         persistentVariables.exitReason = LevelExitReason.NONE;
         persistentVariables.modifier.Clear();
         persistentVariables.lastLevelEntered = "";
+        persistentVariables.equippedItem = startingWeaponSO;
         SceneManager.LoadScene("Main Menu");
     }
 

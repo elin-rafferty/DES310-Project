@@ -13,6 +13,7 @@ public class WeaponProperties : ScriptableObject
     public float overheatCapacity = 0;
     public bool isSingleFire = false;
     public WeaponUpgrades weaponUpgrades;
+    public ActiveBuffs activeBuffs;
 
     private void OnEnable()
     {
@@ -26,6 +27,7 @@ public class WeaponProperties : ScriptableObject
         newProjectile.SetWeaponUpgrades(weaponUpgrades);
         newProjectile.SetDirection(direction);
         newProjectile.transform.Rotate(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        newProjectile.SetDamageMultiplier(activeBuffs.IsBuffActive(BuffType.DAMAGE_BOOST) ? 2 : 1);
         newProjectile.SetOwner(owner);
         // Set projectile to despawn after a certain time has elapsed
         Destroy(newProjectile.gameObject, projectileType.despawnTimer * weaponUpgrades.fireRangeModifier);

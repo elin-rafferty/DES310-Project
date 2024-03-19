@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b1159d5bc4391479f1b8bcb6664bd0, type: 3}
+  m_Name: No Overheat Powerup
+  m_EditorClassIdentifier: 
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  <Name>k__BackingField: No Overheat
+  <Description>k__BackingField: Using this powerup will stop weapons from overheating
+    for 30 seconds
+  <ItemImage>k__BackingField: {fileID: -7565680500916149320, guid: 077117b3da3e00547bad13aa60350711, type: 3}
+  <DefaultParametersList>k__BackingField: []
+  buffToApply:
+    type: 0
+    time: 30
+  activeBuffs: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
