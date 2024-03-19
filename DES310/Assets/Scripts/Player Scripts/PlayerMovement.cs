@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private GameObject bubble, backpackPos;
+    [SerializeField] private ActiveBuffs activeBuffs;
 
 
     private bool inventoryOpen = false;
@@ -114,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
         {
             bubbleTimer -= Time.deltaTime;
         }
+        activeBuffs.ReduceTimers(Time.fixedUnscaledDeltaTime);
     }
 
     void HandleInput()
@@ -167,7 +169,6 @@ public class PlayerMovement : MonoBehaviour
         float targetAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref rotateSpeed, smoothTime);
 
-        // WHAT DOES THIS DO
         lastAimPosition = lookDirection;
         transform.rotation = Quaternion.identity;
 
@@ -227,12 +228,15 @@ public class PlayerMovement : MonoBehaviour
                 WeaponProperties weaponProperties = GetComponent<AgentWeapon>().weapon.weaponProperties;
                 weaponProperties.Fire(barrelEnd.transform.position, mouseDirection, this.gameObject);
                 timeTilNextFire = weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
-                overheatLevel += weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
-                overheatSlider.value = overheatSlider.maxValue - overheatLevel;
-                if (overheatLevel >= weaponProperties.overheatCapacity * weaponProperties.weaponUpgrades.overheatCapacityModifier)
+                if (!activeBuffs.IsBuffActive(BuffType.NO_OVERHEAT))
                 {
-                    overheated = true;
-                    SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);
+                    overheatLevel += weaponProperties.fireDelay / weaponProperties.weaponUpgrades.fireSpeedModifier;
+                    overheatSlider.value = overheatSlider.maxValue - overheatLevel;
+                    if (overheatLevel >= weaponProperties.overheatCapacity * weaponProperties.weaponUpgrades.overheatCapacityModifier)
+                    {
+                        overheated = true;
+                        SoundManager.instance.PlaySound(SoundManager.SFX.Overheat, transform, 0.05f);
+                    }
                 }
                 // Play shoot sound
                 SoundManager.instance.PlaySound(SoundManager.SFX.PlayerShoot, transform, 1f);

@@ -2425,6 +2425,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 4421008845974883295}
   bubble: {fileID: 6450977793359803922, guid: 6444342221d6eea48a1fadd85c3dcb07, type: 3}
   backpackPos: {fileID: 825903129575343761}
+  activeBuffs: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
 --- !u!114 &4915550660991606701
 MonoBehaviour:
   m_ObjectHideFlags: 0
