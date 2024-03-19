@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Projectile : MonoBehaviour
 {
@@ -77,6 +78,10 @@ public class Projectile : MonoBehaviour
         speed = type.speed;
         damage = type.damage;
         spriteRenderer.sprite = type.sprite;
+        if (type.name == "EnemyProjectile")
+        {
+            gameObject.GetComponent<Light2D>().enabled = false;
+        }
     }
 
     public void SetOwner(GameObject owner)
