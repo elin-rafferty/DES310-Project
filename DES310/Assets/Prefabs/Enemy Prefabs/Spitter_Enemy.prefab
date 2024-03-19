@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 2387328028656089188}
   - component: {fileID: 5351855494407294825}
   - component: {fileID: 3108813626426328733}
+  - component: {fileID: 7594556232630317881}
   m_Layer: 0
   m_Name: Spitter_Enemy
   m_TagString: Enemy
@@ -262,7 +263,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -444,6 +445,55 @@ MonoBehaviour:
   EnemyAttackBase: {fileID: 11400000, guid: 573448d7b809523499416624798d42bf, type: 2}
   weaponTransform: {fileID: 1800823763557809388}
   tetherTransform: {fileID: 7558736578779173480}
+--- !u!114 &7594556232630317881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5156996015433250199}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 3
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.63999987, y: -0.6399994, z: 0}
+  - {x: -0.63999987, y: 0.6399994, z: 0}
+  - {x: 0.63999987, y: 0.6399994, z: 0}
+  - {x: 0.63999987, y: -0.6399994, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 8458260628439373124}
+  m_ShadowShape2DProvider:
+    rid: 5526921043346456603
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.4699936, y: 0.013961792, z: 0}
+      m_Extent: {x: 0.11000824, y: 0.56604004, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.06
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.06
+  m_CastingOption: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 5526921043346456603
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!1 &5470175983574779326
 GameObject:
   m_ObjectHideFlags: 0
