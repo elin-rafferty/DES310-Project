@@ -41,6 +41,7 @@ Transform:
   m_Children:
   - {fileID: 1213346162882386254}
   - {fileID: 5512999028837355999}
+  - {fileID: 6852282094855049438}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7913848000732432934
@@ -177,13 +178,14 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 2000
   <aggroRange>k__BackingField: 20
   <attackRange>k__BackingField: 2
-  <attackDelay>k__BackingField: 1
+  <attackDelay>k__BackingField: 0.4
   <speed>k__BackingField: 5
   <damageReduction>k__BackingField: 0.9
   EnemyIdleBase: {fileID: 11400000, guid: badf0331c80adf94f9ec2e60b21e84b4, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: f9875bdefa575bb4dabe66c76cae53fc, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: 4edae2bbfc36a3e4ca314bab4b97bc60, type: 2}
+  weaponTransform: {fileID: 6852282094855049438}
   bossHealthSlider: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1714404285640921242
@@ -305,6 +307,37 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7612688729125735084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6702442316219111712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6852282094855049438}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6852282094855049438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702442316219111712}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.33, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7612688729125735084}
