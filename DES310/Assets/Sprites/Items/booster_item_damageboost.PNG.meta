@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      booster_item_damageboost_0: -6447309172611805833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

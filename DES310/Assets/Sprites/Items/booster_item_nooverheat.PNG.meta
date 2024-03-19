@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      booster_item_nooverheat_0: -7565680500916149320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
