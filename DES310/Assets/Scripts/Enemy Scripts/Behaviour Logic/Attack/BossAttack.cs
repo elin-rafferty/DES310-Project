@@ -324,6 +324,8 @@ public class BossAttack : EnemyAttackSOBase
                     Vector2 firingDirection = new Vector2(Mathf.Cos(firingAngle), Mathf.Sin(firingAngle));
 
                     Fire(firingDirection);
+                    // Play shoot sound
+                    SoundManager.instance.PlaySound(SoundManager.SFX.SpitterAttack, transform, 1f);
                 }
 
                 shootTimer = enemyBase.attackDelay;
@@ -364,8 +366,5 @@ public class BossAttack : EnemyAttackSOBase
         newProjectile.transform.Rotate(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         // Set projectile to despawn after a certain time has elapsed
         Destroy(newProjectile.gameObject, 10);
-
-        // Play shoot sound
-        SoundManager.instance.PlaySound(SoundManager.SFX.SpitterAttack, transform, 1f);
     }
 }
