@@ -780,6 +780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3647364595445375917, guid: d316c6d693336464f8e33ccf2bef9f8c, type: 3}
+      propertyPath: m_TagString
+      value: Music Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 8200701773407475645, guid: d316c6d693336464f8e33ccf2bef9f8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

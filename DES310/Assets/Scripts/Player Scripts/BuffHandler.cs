@@ -7,6 +7,7 @@ public class BuffHandler : MonoBehaviour
     [SerializeField] ActiveBuffs activeBuffs;
     [SerializeField] EventHandler eventHandler;
     [SerializeField] float slowedTimescale = 0.5f;
+    
     bool isFrozen = false;
 
     private void Awake()
@@ -27,6 +28,7 @@ public class BuffHandler : MonoBehaviour
             activeBuffs.ReduceTimers(Time.deltaTime);
             Time.timeScale = activeBuffs.IsBuffActive(BuffType.SLOW_TIME) ? slowedTimescale : 1f;
         }
+        GameObject.FindGameObjectWithTag("Music Manager").GetComponent<AudioSource>().pitch = activeBuffs.IsBuffActive(BuffType.SLOW_TIME) ? slowedTimescale : 1f;
     }
 
     void TimescaleChangeResponse(bool frozen)

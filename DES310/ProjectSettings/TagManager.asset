@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Vent
   - Game Over
+  - Music Manager
   layers:
   - Default
   - TransparentFX
