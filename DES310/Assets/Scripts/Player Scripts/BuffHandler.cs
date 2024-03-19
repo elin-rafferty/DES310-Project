@@ -29,6 +29,7 @@ public class BuffHandler : MonoBehaviour
             Time.timeScale = activeBuffs.IsBuffActive(BuffType.SLOW_TIME) ? slowedTimescale : 1f;
         }
         GameObject.FindGameObjectWithTag("Music Manager").GetComponent<AudioSource>().pitch = activeBuffs.IsBuffActive(BuffType.SLOW_TIME) ? slowedTimescale : 1f;
+        SoundManager.instance.pitchModifier = activeBuffs.IsBuffActive(BuffType.SLOW_TIME) ? slowedTimescale : 1f;
     }
 
     void TimescaleChangeResponse(bool frozen)

@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource soundObject;
     [SerializeField] private SFXClips[] audioClips;
+    public float pitchModifier = 1;
 
     [System.Serializable]
     public class SFXClips
@@ -68,6 +69,9 @@ public class SoundManager : MonoBehaviour
 
         // Change Volume
         audioSource.volume = volume;
+
+        // Change Pitch
+        audioSource.pitch = pitchModifier;
 
         // Play Audio
         audioSource.Play();
