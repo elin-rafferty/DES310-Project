@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a5b9f7b63d26b4b9f8a07b33445a7f, type: 3}
+  m_Name: Default Stock Table
+  m_EditorClassIdentifier: 
+  itemsToReturn: 3
+  offers:
+  - itemToBuy: {fileID: 11400000, guid: bfa17d5a9b64c6d439bcca79d6c1a39c, type: 2}
+    quantityToBuy: 1
+    currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+    cost: 100
+    weighting: 1
+  - itemToBuy: {fileID: 11400000, guid: fe0c371b82406da4ca5d2c6a4e43d501, type: 2}
+    quantityToBuy: 1
+    currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+    cost: 200
+    weighting: 1
+  - itemToBuy: {fileID: 11400000, guid: 4797782c414ec47438c77c1e333a1ee8, type: 2}
+    quantityToBuy: 1
+    currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+    cost: 200
+    weighting: 1
+  - itemToBuy: {fileID: 11400000, guid: 0cc3536fc962604498d0d585df7befa2, type: 2}
+    quantityToBuy: 1
+    currencyItem: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+    cost: 200
+    weighting: 1

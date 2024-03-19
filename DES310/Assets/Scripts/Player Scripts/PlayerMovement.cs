@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleTimers();
-        if (!inventoryOpen)
+        if (!inventoryOpen && !pauseMenu.activeSelf)
         {
             HandleInput();
         } 
