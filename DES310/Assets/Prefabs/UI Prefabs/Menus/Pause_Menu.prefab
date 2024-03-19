@@ -281,6 +281,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0597bba96632bf647b98f2cb9953e6ce, type: 2}
   - {fileID: 11400000, guid: fbcb2e15e03d0e641a517ff80d79dc40, type: 2}
   - {fileID: 11400000, guid: ff0b4a25e27bc1445846f9dbe2e04d0f, type: 2}
+  startingWeaponSO: {fileID: 11400000, guid: fe0c371b82406da4ca5d2c6a4e43d501, type: 2}
 --- !u!1 &4462744870151028394
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +906,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &313466720452084756
 MonoBehaviour:

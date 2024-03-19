@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private SettingsSO settings;
     [SerializeField] private InventorySO inventory;
     [SerializeField] private List<WeaponProperties> weaponProperties;
+    [SerializeField] private EquippableItemSO startingWeaponSO;
 
     private void OnEnable()
     {
@@ -59,6 +60,7 @@ public class PauseMenu : MonoBehaviour
         persistentVariables.exitReason = LevelExitReason.NONE;
         persistentVariables.modifier.Clear();
         persistentVariables.lastLevelEntered = "";
+        persistentVariables.equippedItem = startingWeaponSO;
         SceneManager.LoadScene("Main Menu");
     }
 

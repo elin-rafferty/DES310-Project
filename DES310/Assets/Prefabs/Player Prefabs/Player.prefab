@@ -5066,20 +5066,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 11400000, guid: 3159a824a09c3824b8be83d7dd8a45ae, type: 2}
-    - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 5373378258914130720}
     - target: {fileID: 3394957114997798526, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: m_Name
       value: Pause Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137204919049372785, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7394642057225860602, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem
