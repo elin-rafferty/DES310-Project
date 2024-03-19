@@ -24,6 +24,8 @@ public class UpgradeShop : MonoBehaviour
     int rangeUpgrades = 0;
     int cost = 0;
 
+
+
     private void Start()
     {
         foreach (var weapon in weaponScriptableObjects)
@@ -35,6 +37,7 @@ public class UpgradeShop : MonoBehaviour
 
     private void Update()
     {
+        SelectWeapon();
         UpdateVisuals();
     }
 
@@ -155,5 +158,22 @@ public class UpgradeShop : MonoBehaviour
     public void SelectShotgun()
     {
         dropdown.value = 2;
+    }
+
+    public void SelectWeapon()
+    {
+        EquippableItemSO equippedWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentWeapon>().weapon;
+        switch (equippedWeapon.Name)
+        {
+            case "Laser Pistol":
+                SelectPistol();
+                break;
+            case "Laser Rifle":
+                SelectRifle();
+                break;
+            case "Laser Shotgun":
+                SelectShotgun();
+                break;
+        }
     }
 }
