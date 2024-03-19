@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 758515896802247994}
   - component: {fileID: 7895694222084400623}
   - component: {fileID: 7064637114123715454}
+  - component: {fileID: 8813954745529364949}
   m_Layer: 0
   m_Name: Default_Enemy
   m_TagString: Enemy
@@ -123,7 +124,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -239,6 +240,7 @@ MonoBehaviour:
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
   <speed>k__BackingField: 3
+  <damageReduction>k__BackingField: 0
   EnemyIdleBase: {fileID: 11400000, guid: 4f037ece1089f014ba33abb6d9516181, type: 2}
   EnemyChaseBase: {fileID: 11400000, guid: fbdd20d836a63014492007f315c17ef8, type: 2}
   EnemySearchBase: {fileID: 11400000, guid: bef74bf9d10be5d4f960949f0cadc814, type: 2}
@@ -309,3 +311,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fcb345588a1ec4d8abefe19d540df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8813954745529364949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908213203280251588}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 3
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.64, y: -0.47, z: 0}
+  - {x: -0.64, y: 0.47, z: 0}
+  - {x: 0.64, y: 0.47, z: 0}
+  - {x: 0.64, y: -0.47, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 6884456261612356129}
+  m_ShadowShape2DProvider:
+    rid: 5526921043346456601
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.6000061, y: 0.42999268, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.04
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.04
+  m_CastingOption: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 5526921043346456601
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
