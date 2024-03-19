@@ -32,10 +32,6 @@ public class BossEncounter : MonoBehaviour
             {
                 amplitude = 1 - ((cameraTimer - 4f) / (5f - 4f));
             }
-            else
-            {
-                amplitude = 0;
-            }
 
             cameraTimer += Time.unscaledDeltaTime;
         }

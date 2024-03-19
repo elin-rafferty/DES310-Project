@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private List<WeaponProperties> weaponProperties;
     [SerializeField] private EquippableItemSO startingWeaponSO;
     [SerializeField] private EventHandler eventHandler;
+    [SerializeField] private ActiveBuffs buffs;
 
     private void OnEnable()
     {
@@ -64,6 +65,7 @@ public class PauseMenu : MonoBehaviour
         persistentVariables.modifier.Clear();
         persistentVariables.lastLevelEntered = "";
         persistentVariables.equippedItem = startingWeaponSO;
+        buffs.ResetBuffs();
         SceneManager.LoadScene("Main Menu");
     }
 

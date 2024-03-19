@@ -5088,6 +5088,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: buffs
+      value: 
+      objectReference: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
+    - target: {fileID: 2999740278886545327, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 5373378258914130720}

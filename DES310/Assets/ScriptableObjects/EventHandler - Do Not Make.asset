@@ -27,4 +27,17 @@ MonoBehaviour:
   ChangeEnemyCount:
     m_PersistentCalls:
       m_Calls: []
+  LevelEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerBulletFired:
+    m_PersistentCalls:
+      m_Calls: []
+  ShakeCamera:
+    m_PersistentCalls:
+      m_Calls: []
+  TimescaleFreeze:
+    m_PersistentCalls:
+      m_Calls: []
   persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
+  activeBuffs: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
