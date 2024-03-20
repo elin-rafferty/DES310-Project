@@ -200,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
 
-                if (pauseMenu.activeSelf)
+                if (!pauseMenu.activeSelf)
                 {
                     Time.timeScale = 1.0f;
                     eventHandler.TimescaleFreeze.Invoke(false);
