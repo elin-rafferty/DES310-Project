@@ -1,13 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static Pathfinding.SimpleSmoothModifier;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -54,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleTimers();
+        HandleUnconditionalInput();
         if (!inventoryOpen && !pauseMenu.activeSelf)
         {
             HandleInput();
@@ -120,19 +115,6 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInput()
     {
-        // Pause Menu
-        if (inputManager.GetButtonDown("Pause"))
-        {
-            if (optionsMenu.gameObject.activeSelf)
-            {
-                optionsMenu.OpenMainMenu();
-            }
-            if (pauseMenu)
-            {
-                pauseMenu.SetActive(!pauseMenu.activeSelf);
-            }
-
-        }
         /*//THIS IS SUPER TEMPORARY DELETE LATER PLZ
         if (Input.GetKeyDown(KeyCode.M) || inputManager.GetButtonDown("StartButton"))
         {
@@ -202,6 +184,28 @@ public class PlayerMovement : MonoBehaviour
         if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
         {
             Dash(rb.velocity);
+        }
+    }
+
+    void HandleUnconditionalInput()
+    {
+        // Pause Menu
+        if (inputManager.GetButtonDown("Pause"))
+        {
+            if (optionsMenu.gameObject.activeSelf)
+            {
+                optionsMenu.OpenMainMenu();
+            }
+            else if (pauseMenu)
+            {
+                pauseMenu.SetActive(!pauseMenu.activeSelf);
+
+                if (pauseMenu.activeSelf)
+                {
+                    Time.timeScale = 1.0f;
+                    eventHandler.TimescaleFreeze.Invoke(false);
+                }
+            }
         }
     }
 
