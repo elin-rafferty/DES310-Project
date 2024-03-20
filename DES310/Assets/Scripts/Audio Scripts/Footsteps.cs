@@ -14,7 +14,16 @@ public class Footsteps : MonoBehaviour
     {
         if (footstepTimer >= footstepDelay && (rb.velocityY != 0 || rb.velocityX != 0))
         {
-            SoundManager.instance.PlayAudioClip(mapManager.GetCurrentTileClip(transform.position), transform, 0.2f);
+            AudioClip clip = mapManager.GetCurrentTileClip(transform.position);
+            if (mapManager.GetTileType(transform.position) == TileType.METAL)
+            {
+                SoundManager.instance.PlayAudioClip(mapManager.GetCurrentTileClip(transform.position), transform, 0.2f);
+            }
+            else
+            {
+                SoundManager.instance.PlayAudioClip(mapManager.GetCurrentTileClip(transform.position), transform, 0.05f);
+            }
+            
 
             footstepTimer = 0f;
         }
