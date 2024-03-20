@@ -272,7 +272,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spitter_attack_128x128_0: 6566752934650506499
+      spitter_attack_128x128_1: -3032929843780081309
+      spitter_attack_128x128_2: -1324674838977153453
+      spitter_attack_128x128_3: 4304966474701344879
+      spitter_attack_128x128_4: 5268318737955858744
+      spitter_attack_128x128_5: -2021696626062901775
+      spitter_attack_128x128_6: 4012254060412793187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

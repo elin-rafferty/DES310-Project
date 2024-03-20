@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5780978267076369934}
+  animator: {fileID: 0}
 --- !u!212 &5780978267076369934
 SpriteRenderer:
   m_ObjectHideFlags: 0

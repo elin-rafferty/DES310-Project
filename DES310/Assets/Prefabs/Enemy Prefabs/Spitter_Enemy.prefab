@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 5351855494407294825}
   - component: {fileID: 3108813626426328733}
   - component: {fileID: 7594556232630317881}
+  - component: {fileID: 5384433261087627136}
   m_Layer: 0
   m_Name: Spitter_Enemy
   m_TagString: Enemy
@@ -486,7 +487,7 @@ MonoBehaviour:
     m_TrimEdge: 0.06
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.06
+    m_InitialTrim: 0
   m_CastingOption: 1
   references:
     version: 2
@@ -494,6 +495,28 @@ MonoBehaviour:
     - rid: 5526921043346456603
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!95 &5384433261087627136
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5156996015433250199}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0e0152db9703e449a2099b657838fb5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5470175983574779326
 GameObject:
   m_ObjectHideFlags: 0
