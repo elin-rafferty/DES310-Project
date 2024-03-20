@@ -40,20 +40,4 @@ public class MapManager : MonoBehaviour
             return null;
         }
     }
-
-    public TileType GetTileType(Vector2 worldPosition) 
-    {
-        if (tilemap)
-        {
-            Vector3Int gridPosition = tilemap.WorldToCell(worldPosition);
-            TileBase tile = tilemap.GetTile(gridPosition);
-
-            return dataFromTiles[tile].tileType[0];
-        }
-        else
-        {
-            Debug.Log("No tilemap assigned to Map Manager");
-            return TileType.METAL;
-        }
-    }
 }
