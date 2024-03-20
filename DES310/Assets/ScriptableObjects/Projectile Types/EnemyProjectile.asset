@@ -15,4 +15,6 @@ MonoBehaviour:
   speed: 10
   damage: 5
   despawnTimer: 0
-  sprite: {fileID: 1462262062042380682, guid: 6da3f847c89350649907352b5a0a9632, type: 3}
+  sprites:
+  - {fileID: -9168205740969341056, guid: e1b084bb3ced6d34ca14b9f5a92125bd, type: 3}
+  - {fileID: 3251418022504550147, guid: e1b084bb3ced6d34ca14b9f5a92125bd, type: 3}

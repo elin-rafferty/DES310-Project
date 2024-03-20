@@ -104,12 +104,12 @@ TextureImporter:
       name: spitter_projectile_128x128_0
       rect:
         serializedVersion: 2
-        x: 39
+        x: 27
         y: 39
         width: 62
         height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5151313, y: 0.5000002}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,12 +125,12 @@ TextureImporter:
       name: spitter_projectile_128x128_1
       rect:
         serializedVersion: 2
-        x: 167
+        x: 155
         y: 39
         width: 62
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,14 +145,16 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a54393f5ca52a6e42b0a8899192bdf7d
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spitter_projectile_128x128_0: -9168205740969341056
+      spitter_projectile_128x128_1: 3251418022504550147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

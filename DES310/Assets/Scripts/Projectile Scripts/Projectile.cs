@@ -12,9 +12,11 @@ public class Projectile : MonoBehaviour
     private float speed;
     private float damage;
     [SerializeReference] private SpriteRenderer spriteRenderer;
+    private List<Sprite> sprites = new();
     private GameObject owner;
     private WeaponUpgrades weaponUpgrades;
     private float damageMultiplier = 1;
+    private float animationTimer = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +61,26 @@ public class Projectile : MonoBehaviour
         }
         // Move to new position
         transform.position = newPos;
+
+
+        // Animate enemy sprites
+        if (type.name == "EnemyProjectile")
+        {
+            if (animationTimer <= 0.2f)
+            {
+                spriteRenderer.sprite = sprites[0];
+            }
+            if (animationTimer <= 0.1f)
+            {
+                spriteRenderer.sprite = sprites[1];
+            }
+            if (animationTimer <= 0)
+            {
+                animationTimer = 0.2f;
+            }
+
+            animationTimer -= Time.deltaTime;
+        }
     }
 
     public void SetDirection(Vector2 newDirection)
@@ -77,7 +99,13 @@ public class Projectile : MonoBehaviour
         this.type = type;
         speed = type.speed;
         damage = type.damage;
-        spriteRenderer.sprite = type.sprite;
+
+        for (int i = 0; i < type.sprites.Length; i++)
+        {
+            sprites.Add(type.sprites[i]);
+        }
+        spriteRenderer.sprite = sprites[0];
+        
         if (type.name == "EnemyProjectile")
         {
             gameObject.GetComponent<Light2D>().enabled = false;
