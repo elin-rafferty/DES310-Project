@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         persistentVariables.exitReason = LevelExitReason.NONE;
-        inventory.AddItem(scrap, 300);
+        inventory.AddItem(scrap, 3000);
         SceneManager.LoadScene("Main Hub");
         Time.timeScale = 1.0f;
     }
