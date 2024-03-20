@@ -325,7 +325,7 @@ public class BossAttack : EnemyAttackSOBase
 
                     Fire(firingDirection);
                     // Play shoot sound
-                    SoundManager.instance.PlaySound(SoundManager.SFX.SpitterAttack, transform, 1f);
+                    SoundManager.instance.PlaySound(SoundManager.SFX.SpitterAttack, transform, 0.2f);
                 }
 
                 shootTimer = enemyBase.attackDelay;
