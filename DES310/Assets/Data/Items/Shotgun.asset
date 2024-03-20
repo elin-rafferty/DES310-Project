@@ -16,6 +16,6 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Laser Shotgun
   <Description>k__BackingField: Shotgun that fires a spray of bullets
-  <ItemImage>k__BackingField: {fileID: 5858033692758074066, guid: 2a8960357c7f1c8478eddc0d972f5aad, type: 3}
+  <ItemImage>k__BackingField: {fileID: -7546785522240706648, guid: 2f5425c4760ec444a84709f34bdad16a, type: 3}
   <DefaultParametersList>k__BackingField: []
   weaponProperties: {fileID: 11400000, guid: ff0b4a25e27bc1445846f9dbe2e04d0f, type: 2}
