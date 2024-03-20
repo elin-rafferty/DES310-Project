@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4dbae53c8db41f44a532dd7cddc0677, type: 3}
-  m_Name: Orange Keycard
+  m_Name: Red Keycard
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 0
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Keycard (Orange)
+  <Name>k__BackingField: Keycard (Red)
   <Description>k__BackingField: A keycard for opening a door
-  <ItemImage>k__BackingField: {fileID: -6978584672027515760, guid: 43f33b62a34b4644793ec9d1508dae13, type: 3}
+  <ItemImage>k__BackingField: {fileID: 4584183615158838036, guid: f5dba89fa12a12944be29c84dfe3348c, type: 3}
   <DefaultParametersList>k__BackingField: []

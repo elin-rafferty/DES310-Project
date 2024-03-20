@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class Item : MonoBehaviour
@@ -92,6 +93,7 @@ public class Item : MonoBehaviour
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = InventoryItem.ItemImage;
+        GetComponent<Light2D>().lightCookieSprite = InventoryItem.ItemImage;
     }
 
     internal void DestoryItem()

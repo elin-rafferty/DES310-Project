@@ -16,6 +16,6 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 1
   <Name>k__BackingField: Laser Pistol
   <Description>k__BackingField: Powerful hand cannon
-  <ItemImage>k__BackingField: {fileID: -64689667511162775, guid: a40a8b8dd2d1c6042a046634a0e8dabf, type: 3}
+  <ItemImage>k__BackingField: {fileID: 7283389675873812851, guid: db46fb71a90ecbf42a40b1319eb41737, type: 3}
   <DefaultParametersList>k__BackingField: []
   weaponProperties: {fileID: 11400000, guid: 0597bba96632bf647b98f2cb9953e6ce, type: 2}

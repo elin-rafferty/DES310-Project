@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7c709cc0b1fdb6d4695722bbcb4592b5
+guid: 135948e90545c0748aafae0e14b7ab44
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6287148914130030213
-    second: sprinter_enemy_asset_0
+      213: -7782339244895934905
+    second: keycard_item_yellow_new_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -83,7 +83,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -95,7 +95,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -158,22 +158,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprinter_enemy_asset_0
+      name: keycard_item_yellow_new_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 27
+        y: 11
+        width: 74
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58e04bc60a0704750800000000000000
-      internalID: 6287148914130030213
+      spriteID: 746656a70b39ff390800000000000000
+      internalID: -7782339244895934905
       vertices: []
       indices: 
       edges: []
@@ -181,15 +181,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7b8aa57e8c8a62b42b3247abeff3f677
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sprinter_enemy_asset_0: 6287148914130030213
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
