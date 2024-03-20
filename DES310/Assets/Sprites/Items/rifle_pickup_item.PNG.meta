@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rifle_pickup_item_0: -8887233096054729646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
