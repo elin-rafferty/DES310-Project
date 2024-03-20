@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      keycard_item_yellow_new_0: -7782339244895934905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
