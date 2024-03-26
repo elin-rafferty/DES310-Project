@@ -84,7 +84,7 @@ public class LootableObject : MonoBehaviour
         canvas.gameObject.SetActive(trigger && !looted);
         if (canvas.gameObject.activeSelf)
         {
-            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open";
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open";
         }
     }
 }

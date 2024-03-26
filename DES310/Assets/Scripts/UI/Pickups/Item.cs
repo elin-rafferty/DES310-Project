@@ -55,7 +55,7 @@ public class Item : MonoBehaviour
     void Update()
     {
         // Pick up item
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)) && trigger && !hasDestination && !GameObject.FindGameObjectWithTag("Inventory Animation").GetComponent<InventoryAnimation>().InventoryOpen)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton0)) && trigger && !hasDestination && !GameObject.FindGameObjectWithTag("Inventory Animation").GetComponent<InventoryAnimation>().InventoryOpen)
         {
             // Play Pickup Sound
             SoundManager.instance.PlaySound(SoundManager.SFX.ItemPickUp, transform, 1f);
@@ -66,7 +66,7 @@ public class Item : MonoBehaviour
         canvas.gameObject.SetActive(trigger && !GameObject.FindGameObjectWithTag("Inventory Animation").GetComponent<InventoryAnimation>().InventoryOpen);
         if (canvas.gameObject.activeSelf)
         {
-            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to take";
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to take";
         }
     }
 
