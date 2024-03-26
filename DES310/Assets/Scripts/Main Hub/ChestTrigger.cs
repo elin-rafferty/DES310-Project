@@ -16,7 +16,7 @@ public class ChestTrigger : MonoBehaviour
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
-        text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open " + storageName;
+        text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open " + storageName;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,7 +24,7 @@ public class ChestTrigger : MonoBehaviour
         {
             // Set trigger true on collision
             trigger = true;
-            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open " + storageName;
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open " + storageName;
         }
     }
 
