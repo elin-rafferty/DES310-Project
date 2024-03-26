@@ -212,6 +212,8 @@ public class PlayerMovement : MonoBehaviour
     void InventoryStateChangeResponse(bool open)
     {
         inventoryOpen = open;
+
+        SoundManager.instance.PlaySound(SoundManager.SFX.InventoryOpen, transform, 0.3f);
     }
 
     void Dash(Vector2 inputDir)
