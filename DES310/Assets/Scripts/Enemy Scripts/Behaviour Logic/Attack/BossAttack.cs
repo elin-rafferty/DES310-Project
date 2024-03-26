@@ -93,7 +93,7 @@ public class BossAttack : EnemyAttackSOBase
             currentAttack = AttackState.LEAP_ATTACK;
             currentAttackState = AttackState.READY_JUMP;
         }
-        else if (rand == 1 || rand == 2)
+        else if (rand >= 1 && rand <= 2)
         {
             // Charge Attack
             chargeTimer = 2;
@@ -186,7 +186,7 @@ public class BossAttack : EnemyAttackSOBase
                 {
                     jumpTimer += Time.deltaTime;
                     enemyBase.MoveEnemy(targetDirection * enemyBase.speed * 2);
-                    enemyBase.transform.localScale = Vector2.Lerp(bossScale, Vector2.one * 1.5f, jumpTimer);
+                    enemyBase.transform.localScale = Vector2.Lerp(bossScale, Vector2.one * 2.5f, jumpTimer);
                 }
 
                 break;
@@ -196,11 +196,9 @@ public class BossAttack : EnemyAttackSOBase
 
                 if (jumpTimer <= 0)
                 {
-                    SoundManager.instance.PlaySound(SoundManager.SFX.BossImpact, transform, 1f);
-
                     enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
 
-                    enemyBase.transform.localScale = Vector2.one;
+                    enemyBase.transform.localScale = Vector2.one * 2;
 
                     gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                     currentAttackState = AttackState.READY_JUMP;
@@ -209,7 +207,7 @@ public class BossAttack : EnemyAttackSOBase
                 else
                 {
                     // Scale down over time
-                    enemyBase.transform.localScale = Vector2.Lerp(Vector2.one, bossScale, jumpTimer * 2.5f);
+                    enemyBase.transform.localScale = Vector2.Lerp(Vector2.one * 2, bossScale, jumpTimer * 2.5f);
 
                     jumpTimer -= Time.deltaTime;
                 }
@@ -241,7 +239,6 @@ public class BossAttack : EnemyAttackSOBase
                 }
                 else
                 {
-                    SoundManager.instance.PlaySound(SoundManager.SFX.BossImpact, transform, 1f);
                     currentAttackState = AttackState.CHARGE;
                 }
                 break;

@@ -92,22 +92,4 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: e7ed953e99ce31340b5a4017884885e6, type: 3}
   - SoundName: 22
     Clip: {fileID: 8300000, guid: ae9682101d1090742a6b277100a2dac8, type: 3}
-  - SoundName: 23
-    Clip: {fileID: 8300000, guid: 8fd3b3a9cdea58a4984c1ee5e4662b36, type: 3}
-  - SoundName: 24
-    Clip: {fileID: 8300000, guid: 974482d3565d64348a89a0a37e781f24, type: 3}
-  - SoundName: 25
-    Clip: {fileID: 8300000, guid: fb6805452fe46f74d8d8b0acfde3bd56, type: 3}
-  - SoundName: 26
-    Clip: {fileID: 8300000, guid: da407943acae71a41b21e8cea5d85199, type: 3}
-  - SoundName: 27
-    Clip: {fileID: 8300000, guid: 736a631dd11630240a8fa17237a77fd4, type: 3}
-  - SoundName: 28
-    Clip: {fileID: 8300000, guid: aec60034ea0a0a74283002edc4a1f3d1, type: 3}
-  - SoundName: 29
-    Clip: {fileID: 8300000, guid: 7dad270055329f946a2875ca4436a265, type: 3}
-  - SoundName: 30
-    Clip: {fileID: 8300000, guid: e22956db932e7754b959a83edc0d53fa, type: 3}
-  - SoundName: 31
-    Clip: {fileID: 8300000, guid: 88a35f1cb635e01489d6f575f9caeb71, type: 3}
   pitchModifier: 1

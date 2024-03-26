@@ -48,19 +48,7 @@ public class SoundManager : MonoBehaviour
         PurchaseUnsuccessful,
 
         DoorOpen,
-        DoorClosed,
-        VentOpen,
-        OxygenRefill,
-
-        PistolFire,
-        RifleFire,
-        ShotgunFire,
-
-        InventoryOpen,
-        InventoryClose,
-
-        BossImpact,
-        BossScream
+        DoorClosed
     }
 
     private void Awake()
