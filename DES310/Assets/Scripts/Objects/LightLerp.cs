@@ -8,15 +8,15 @@ public class LightLerp : MonoBehaviour
     private float lerpTimer;
     [SerializeField] private bool lerp;
     [SerializeField] private float lerpTime;
-    [SerializeField] private Color startColour;
     [SerializeField] private Color endColour;
+    private Color startColour;
 
     Light2D lightColour;
 
     void Start()
     {
         lightColour = GetComponent<Light2D>();
-        lightColour.color = startColour;
+        startColour = lightColour.color;
     }
 
     void Update()
