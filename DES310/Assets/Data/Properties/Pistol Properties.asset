@@ -19,3 +19,4 @@ MonoBehaviour:
   isSingleFire: 1
   weaponUpgrades: {fileID: 0}
   activeBuffs: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
+  sound: 25
