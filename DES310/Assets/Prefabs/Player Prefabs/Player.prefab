@@ -2500,6 +2500,7 @@ GameObject:
   - component: {fileID: 2898859774348542171}
   - component: {fileID: 6000658683130661583}
   - component: {fileID: 4697320519817100903}
+  - component: {fileID: 8459059628952392754}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2945,6 +2946,19 @@ MonoBehaviour:
   shotgunSprite: {fileID: -5017642897360255602, guid: 5facc065cf5debd498e7cfc2d8ee3a2a, type: 3}
   spriteRenderer: {fileID: 2352360200557903544}
   agentWeapon: {fileID: 772383854847497066}
+--- !u!114 &8459059628952392754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b867b6f8458234baa534550553495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 2943519245926618163}
 --- !u!1 &5651329949300888773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5060,12 +5074,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4085214735864539480, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
   m_PrefabInstance: {fileID: 2688233788487841506}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2943519245926618163}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdf439daa60181a4892b7bb5519b19c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2943519245926618163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 979529946416177873, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
+  m_PrefabInstance: {fileID: 2688233788487841506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4651926348159901451 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7331983607556008425, guid: b9ee7716a65ca094a95109483eac2662, type: 3}

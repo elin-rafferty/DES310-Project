@@ -17,7 +17,7 @@ namespace Inventory.UI
         public int quantity;
 
         [SerializeField]
-        private Image itemImage;
+        public Image itemImage;
 
         [SerializeField]
         private Text quantityTxt;
@@ -27,7 +27,7 @@ namespace Inventory.UI
 
         public event Action<InventoryItemUI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
 
-        private bool empty = true;
+        public bool empty = true;
 
 
 

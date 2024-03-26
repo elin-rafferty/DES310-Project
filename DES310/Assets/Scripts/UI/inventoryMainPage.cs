@@ -33,6 +33,8 @@ namespace Inventory.UI
         [SerializeField]
         public ItemAction itemAction;
 
+        public int selectedSlot = -1;
+
         private void Awake()
         {
             Hide();
@@ -117,13 +119,17 @@ namespace Inventory.UI
         {
             mouseFollow.Toggle(false);
             currentlyDraggedItemIndex = -1;
+            selectedSlot = -1;
         }
 
         private void HandleBeginDrag(InventoryItemUI inventoryItemUI)
         {
             int index = listOfUiItems.IndexOf(inventoryItemUI);
             if (index == -1)
+            {
+                selectedSlot = index;
                 return;
+            }
             currentlyDraggedItemIndex = index;
 
             OnStartDragging?.Invoke(index);
@@ -139,8 +145,23 @@ namespace Inventory.UI
         {
             int index = listOfUiItems.IndexOf(inventoryItemUI);
             if (index == -1)
+            {
+                selectedSlot = index;
                 return;
+            }
             OnDescriptionRequest?.Invoke(index);
+            if (!inventoryItemUI.empty)
+            {
+                selectedSlot = index;
+            } else
+            {
+                selectedSlot = -1;
+            }
+            StorageVisualsController storageVisuals = FindFirstObjectByType<StorageVisualsController>();
+            if (storageVisuals != null)
+            {
+                storageVisuals.DeselectAllItems();
+            }
         }
 
         public void Show()
@@ -153,6 +174,7 @@ namespace Inventory.UI
         {
             itemDescription.ResetDescription();
             DeselectAllItems();
+            selectedSlot = -1;
         }
 
         public void AddAction (string actionName, Action performAction)
@@ -166,13 +188,14 @@ namespace Inventory.UI
             itemAction.transform.position = listOfUiItems[itemIndex].transform.position; 
         }
 
-        private void DeselectAllItems()
+        public void DeselectAllItems()
         {
             foreach (InventoryItemUI item in listOfUiItems)
             {
                 item.Deselect();
             }
             itemAction.Toggle(false);
+            selectedSlot = -1;
         }
 
         public void Hide()
