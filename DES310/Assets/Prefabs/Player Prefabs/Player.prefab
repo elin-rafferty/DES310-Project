@@ -2428,6 +2428,8 @@ MonoBehaviour:
   inputManager: {fileID: 6918064253512207645}
   inventoryMainPage: {fileID: 2161480753922219962}
   virtualMouse: {fileID: 3118953798489715910}
+  virtualMouseInput: {fileID: 8583807323006246091}
+  virtualMouseImage: {fileID: 5594942528148842376}
   settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
 --- !u!114 &6918064253512207645
 MonoBehaviour:
@@ -5684,3 +5686,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5223982885601452768, guid: 5efe32f32628b9b4e8825daa72d6a6b7, type: 3}
   m_PrefabInstance: {fileID: 9174417010509272680}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5594942528148842376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3672449374886916576, guid: 5efe32f32628b9b4e8825daa72d6a6b7, type: 3}
+  m_PrefabInstance: {fileID: 9174417010509272680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8583807323006246091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 598377187398896291, guid: 5efe32f32628b9b4e8825daa72d6a6b7, type: 3}
+  m_PrefabInstance: {fileID: 9174417010509272680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118953798489715910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424b6720ff5999446843ba414e58a907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
