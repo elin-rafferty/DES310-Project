@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Storage
   m_EditorClassIdentifier: 
   inventoryItems:
-  - quantity: 100
-    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+  - quantity: 0
+    item: {fileID: 0}
     itemState: []
-  - quantity: 1
-    item: {fileID: 11400000, guid: fe0c371b82406da4ca5d2c6a4e43d501, type: 2}
+  - quantity: 0
+    item: {fileID: 0}
     itemState: []
-  - quantity: 100
-    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+  - quantity: 0
+    item: {fileID: 0}
     itemState: []
-  - quantity: 999999
-    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+  - quantity: 0
+    item: {fileID: 0}
     itemState: []
   - quantity: 0
     item: {fileID: 0}
