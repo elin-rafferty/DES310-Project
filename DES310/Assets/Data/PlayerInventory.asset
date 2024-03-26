@@ -13,101 +13,102 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   inventoryItems:
-  - quantity: 300
+  - quantity: 899
     item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
-  - quantity: 0
-    item: {fileID: 0}
+  - quantity: 999
+    item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
+  itemPickupPrefab: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
   <Size>k__BackingField: 32
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
