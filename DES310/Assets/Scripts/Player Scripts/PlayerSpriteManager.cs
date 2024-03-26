@@ -31,7 +31,7 @@ public class PlayerSpriteManager : MonoBehaviour
                 case "Laser Rifle":
                     sprite = rifleSprite;
                     break;
-                case "Shotgun Sprite":
+                case "Laser Shotgun":
                     sprite = shotgunSprite;
                     break;
             }
