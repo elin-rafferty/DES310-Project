@@ -20,7 +20,7 @@ public class DisplayInventoryControls : MonoBehaviour
     {
         if (isInventoryOpen)
         {
-            text.text = (settings.Controls == 0 ? "LMB" : "A") + ": Select Item\n" + (settings.Controls == 0 ? "RMB" : "A") + ": Use / Equip Item";
+            text.text = (settings.Controls == 0 ? "LMB" : "A") + ": Select Item\n" + (settings.Controls == 0 ? "RMB" : "X") + ": Use / Equip Item";
         } else
         {
             text.text = "";

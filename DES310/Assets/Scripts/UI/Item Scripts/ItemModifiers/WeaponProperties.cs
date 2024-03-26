@@ -14,7 +14,6 @@ public class WeaponProperties : ScriptableObject
     public bool isSingleFire = false;
     public WeaponUpgrades weaponUpgrades;
     public ActiveBuffs activeBuffs;
-    public SoundManager.SFX sound;
 
     private void OnEnable()
     {
