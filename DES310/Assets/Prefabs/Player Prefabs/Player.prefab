@@ -2236,7 +2236,7 @@ GameObject:
   - component: {fileID: 4959274666098546581}
   m_Layer: 5
   m_Name: InGameMenu
-  m_TagString: Untagged
+  m_TagString: Inventory Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4315,6 +4315,10 @@ PrefabInstance:
     - target: {fileID: 1221463716746200697, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -474.92346
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Spacing.x

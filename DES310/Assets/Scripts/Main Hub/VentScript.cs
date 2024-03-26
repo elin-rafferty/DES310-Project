@@ -21,7 +21,7 @@ public class VentScript : MonoBehaviour
 
     private void Start()
     {
-        text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to enter";
+        text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to enter";
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,7 +55,7 @@ public class VentScript : MonoBehaviour
         canvas.gameObject.SetActive(trigger && timeBeforeOpen == 0);
         if (canvas.gameObject.activeSelf)
         {
-            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to enter";
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to enter";
         }
         // Load new scene
         if (inputManager.GetButtonDown("Interact") && trigger && timeBeforeOpen == 0)
