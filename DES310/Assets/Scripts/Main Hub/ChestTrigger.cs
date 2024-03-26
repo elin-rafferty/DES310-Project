@@ -46,9 +46,9 @@ public class ChestTrigger : MonoBehaviour
         //    Debug.Log("Chest will open here eventually");
         //}
 
-        canvas.gameObject.SetActive(trigger && !storageCanvas.gameObject.activeSelf);
+        canvas.gameObject.SetActive(trigger && !storageCanvas.gameObject.activeSelf && !inventoryAnimation.InventoryOpen);
         // Load shop menu
-        if (inputManager.GetButtonDown("Interact") && trigger == true && !storageCanvas.gameObject.activeSelf)
+        if (inputManager.GetButtonDown("Interact") && trigger == true && !storageCanvas.gameObject.activeSelf && !inventoryAnimation.InventoryOpen)
         {
             storageCanvas.gameObject.SetActive(true);
             if (storageCanvas.gameObject.GetComponentInParent<UpgradeShop>() != null)
