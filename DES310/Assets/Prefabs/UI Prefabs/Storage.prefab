@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130.1502, y: -23.15501}
-  m_SizeDelta: {x: 190.897, y: 67.6861}
+  m_AnchoredPosition: {x: -130.1502, y: -10.7292}
+  m_SizeDelta: {x: 190.897, y: 42.8344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7411205377703277962
 CanvasRenderer:
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3962264, g: 0.34202564, b: 0.34202564, a: 1}
+  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -462,7 +462,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move to Storage
+  m_Text: 'Move '
 --- !u!1 &4556346885482834466
 GameObject:
   m_ObjectHideFlags: 0
