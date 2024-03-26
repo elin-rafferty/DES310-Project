@@ -16,7 +16,7 @@ public class ChestTrigger : MonoBehaviour
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
-        text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open " + storageName;
+        text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open " + storageName;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,7 +24,7 @@ public class ChestTrigger : MonoBehaviour
         {
             // Set trigger true on collision
             trigger = true;
-            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open " + storageName;
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open " + storageName;
         }
     }
 
@@ -46,9 +46,9 @@ public class ChestTrigger : MonoBehaviour
         //    Debug.Log("Chest will open here eventually");
         //}
 
-        canvas.gameObject.SetActive(trigger && !storageCanvas.gameObject.activeSelf);
+        canvas.gameObject.SetActive(trigger && !storageCanvas.gameObject.activeSelf && !inventoryAnimation.InventoryOpen);
         // Load shop menu
-        if (inputManager.GetButtonDown("Interact") && trigger == true && !storageCanvas.gameObject.activeSelf)
+        if (inputManager.GetButtonDown("Interact") && trigger == true && !storageCanvas.gameObject.activeSelf && !inventoryAnimation.InventoryOpen)
         {
             storageCanvas.gameObject.SetActive(true);
             if (storageCanvas.gameObject.GetComponentInParent<UpgradeShop>() != null)

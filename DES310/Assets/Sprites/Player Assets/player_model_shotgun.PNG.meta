@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7dd48688945cd994a9adfcc231fb4ac5
+guid: 5facc065cf5debd498e7cfc2d8ee3a2a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2931021272497934354
-    second: inventory_ui_base 1_0
+      213: -5017642897360255602
+    second: player_model_shotgun_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,22 +158,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inventory_ui_base 1_0
+      name: player_model_shotgun_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 71
-        width: 649
-        height: 938
+        y: 0
+        width: 256
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2105a5071541da820800000000000000
-      internalID: 2931021272497934354
+      spriteID: e8584159e50cd5ab0800000000000000
+      internalID: -5017642897360255602
       vertices: []
       indices: 
       edges: []
@@ -181,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8ddbee52aa1e2fe47832f03250f2bd34
     internalID: 0
     vertices: []
     indices: 
@@ -189,7 +189,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      inventory_ui_base 1_0: 2931021272497934354
+      player_model_shotgun_0: -5017642897360255602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

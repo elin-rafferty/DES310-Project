@@ -161,11 +161,11 @@ TextureImporter:
       name: store_supply_0
       rect:
         serializedVersion: 2
-        x: 749
-        y: 431
-        width: 1130
-        height: 649
-      alignment: 0
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -181,14 +181,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fe6d061089644814482c4eff07d147c6
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      store_supply_0: -1622140362107908311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
