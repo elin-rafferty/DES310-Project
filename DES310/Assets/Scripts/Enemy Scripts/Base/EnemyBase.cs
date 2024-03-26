@@ -162,8 +162,8 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public enum AnimationTriggerType
     {
-        SpitterShoot,
-        SpitterShootEnd
+        EnemyDamaged,
+        PlayFootsteps
     }
 
     #endregion
