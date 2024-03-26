@@ -447,6 +447,7 @@ MonoBehaviour:
   weaponTransform: {fileID: 1800823763557809388}
   tetherTransform: {fileID: 7558736578779173480}
   animator: {fileID: 8288547785128421728}
+  attackAngle: 60
 --- !u!114 &7594556232630317881
 MonoBehaviour:
   m_ObjectHideFlags: 0
