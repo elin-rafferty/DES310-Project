@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 5351855494407294825}
   - component: {fileID: 3108813626426328733}
   - component: {fileID: 7594556232630317881}
-  - component: {fileID: 5384433261087627136}
+  - component: {fileID: 8288547785128421728}
   m_Layer: 0
   m_Name: Spitter_Enemy
   m_TagString: Enemy
@@ -285,7 +285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1363814532245400595, guid: 2c9f59ecb73e9ac4d972ed4e99d2fcf1, type: 3}
+  m_Sprite: {fileID: 6566752934650506499, guid: 86514210b42b6eb4799729c63a8d6c50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -357,8 +357,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.48, y: 0.019860268}
-  m_Size: {x: 0.33225155, y: 1.44}
+  m_Offset: {x: 0.4119048, y: 0.019860268}
+  m_Size: {x: 0.46844196, y: 1.44}
   m_Direction: 0
 --- !u!232 &6205905311394468740
 DistanceJoint2D:
@@ -446,6 +446,7 @@ MonoBehaviour:
   EnemyAttackBase: {fileID: 11400000, guid: 573448d7b809523499416624798d42bf, type: 2}
   weaponTransform: {fileID: 1800823763557809388}
   tetherTransform: {fileID: 7558736578779173480}
+  animator: {fileID: 8288547785128421728}
 --- !u!114 &7594556232630317881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,7 +496,7 @@ MonoBehaviour:
     - rid: 5526921043346456603
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
---- !u!95 &5384433261087627136
+--- !u!95 &8288547785128421728
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -503,9 +504,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5156996015433250199}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0e0152db9703e449a2099b657838fb5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 70bbd01cb1c529b4aac918d9845635d7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
