@@ -4317,6 +4317,10 @@ PrefabInstance:
       value: -474.92346
       objectReference: {fileID: 0}
     - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Spacing.x
       value: 15
       objectReference: {fileID: 0}
