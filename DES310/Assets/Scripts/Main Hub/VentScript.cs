@@ -86,6 +86,7 @@ public class VentScript : MonoBehaviour
             else
             {
                 SceneManager.LoadScene(sceneNames[0]);
+
             }
         }
     }
