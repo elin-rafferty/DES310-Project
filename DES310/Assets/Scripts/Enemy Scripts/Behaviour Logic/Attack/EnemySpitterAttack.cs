@@ -9,36 +9,27 @@ public class EnemySpitterAttack : EnemyAttackSOBase
     [SerializeField] private ProjectileType projectileType;
     private Transform weaponTransform;
     private Transform target;
-    private Animator animator;
 
     private LineRenderer lineRenderer;
     private DistanceJoint2D distanceJoint;
 
     private float attackTimer;
-    //private float grabTimer;
+    private float grabTimer;
 
 
     public override void DoAnimationTriggerEventLogic(EnemyBase.AnimationTriggerType triggerType)
     {
-        if (triggerType == EnemyBase.AnimationTriggerType.SpitterShoot) 
-        {
-            Fire();
-        }
-        if (triggerType == EnemyBase.AnimationTriggerType.SpitterShootEnd)
-        {
-            animator.SetBool("isShooting", false);
-        }
+        base.DoAnimationTriggerEventLogic(triggerType);
     }
 
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
 
-        //grabTimer = 7;
+        grabTimer = 7;
         attackTimer = enemyBase.attackDelay;
         target = Player.transform;
         weaponTransform = enemyBase.gameObject.GetComponent<Spitter>().weaponTransform;
-        animator = enemyBase.GetComponent<Spitter>().animator;
 
         distanceJoint = enemyBase.gameObject.GetComponent<DistanceJoint2D>();
         distanceJoint.distance = enemyBase.attackRange - 0.5f;
@@ -57,65 +48,58 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         distanceJoint.enabled = false;
         lineRenderer.forceRenderingOff = true;
         lineRenderer.enabled = false;
-
-        animator.SetBool("isShooting", false);
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
 
-        Vector2 targetDirection = target.position - weaponTransform.position;
-        Vector2 fwdDirection = -enemyBase.gameObject.transform.right;
-        float angle = Vector2.Angle(fwdDirection, targetDirection);
-        Debug.Log(angle);
-
-        if (angle < enemyBase.GetComponent<Spitter>().attackAngle)
+        if (grabTimer >= 2)
         {
             // Do Enemy Basic Attack
             if (attackTimer >= enemyBase.attackDelay)
             {
-                animator.SetBool("isShooting", true);
                 attackTimer = 0;
+                Fire();
             }
             else
             {
                 attackTimer += Time.deltaTime;
             }
         }
-        //else if (grabTimer > 0 && grabTimer < 2)
-        //{
-        //    // Grab visual targeting
-        //    lineRenderer.startColor = Color.Lerp(new Color(0.52f, 0.18f, 0.13f, 1), new Color(1, 1, 1, 1), grabTimer * 0.5f);
-        //    lineRenderer.endColor = Color.Lerp(new Color(0.52f, 0.18f, 0.13f, 1), new Color(1, 1, 1, 1), grabTimer * 0.5f);
+        else if (grabTimer > 0 && grabTimer < 2)
+        {
+            // Grab visual targeting
+            lineRenderer.startColor = Color.Lerp(new Color(0.52f, 0.18f, 0.13f, 1), new Color(1, 1, 1, 1), grabTimer * 0.5f);
+            lineRenderer.endColor = Color.Lerp(new Color(0.52f, 0.18f, 0.13f, 1), new Color(1, 1, 1, 1), grabTimer * 0.5f);
 
-        //    Vector2 playerDirection = (Player.transform.position - enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position).normalized;
-        //    lineRenderer.positionCount = 3;
-        //    Vector3 source = enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position;
+            Vector2 playerDirection = (Player.transform.position - enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position).normalized;
+            lineRenderer.positionCount = 3;
+            Vector3 source = enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position;
 
-        //    // Right Cone
-        //    lineRenderer.SetPosition(0, (Vector2)source + Vector2.Lerp(playerDirection, Quaternion.AngleAxis(30, new Vector3(0, 0, 1)) * playerDirection, grabTimer * 0.5f) * 3);
-        //    // Tether Position
-        //    lineRenderer.SetPosition(1, source);
-        //    // Left Cone
-        //    lineRenderer.SetPosition(2, (Vector2)source + Vector2.Lerp(playerDirection, Quaternion.AngleAxis(-30, new Vector3(0, 0, 1)) * playerDirection, grabTimer * 0.5f) * 3);
+            // Right Cone
+            lineRenderer.SetPosition(0, (Vector2)source + Vector2.Lerp(playerDirection, Quaternion.AngleAxis(30, new Vector3(0, 0, 1)) * playerDirection, grabTimer * 0.5f) * 3);
+            // Tether Position
+            lineRenderer.SetPosition(1, source);
+            // Left Cone
+            lineRenderer.SetPosition(2, (Vector2)source + Vector2.Lerp(playerDirection, Quaternion.AngleAxis(-30, new Vector3(0, 0, 1)) * playerDirection, grabTimer * 0.5f) * 3);
 
-        //    lineRenderer.enabled = true;
-        //}
-        //else if (grabTimer <= 0) 
-        //{
-        //    // Perform Grab
-        //    lineRenderer.startColor = new Color(0.52f, 0.18f, 0.13f, 1);
-        //    lineRenderer.endColor = new Color(0.52f, 0.18f, 0.13f, 1);
-        //    distanceJoint.enabled = true;
+            lineRenderer.enabled = true;
+        }
+        else if (grabTimer <= 0) 
+        {
+            // Perform Grab
+            lineRenderer.startColor = new Color(0.52f, 0.18f, 0.13f, 1);
+            lineRenderer.endColor = new Color(0.52f, 0.18f, 0.13f, 1);
+            distanceJoint.enabled = true;
 
-        //    lineRenderer.positionCount = 2;
-        //    lineRenderer.SetPosition(0, enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position);
-        //    lineRenderer.SetPosition(1, Player.transform.position);
-        //    lineRenderer.enabled = true;
-        //}
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, enemyBase.gameObject.GetComponent<Spitter>().tetherTransform.position);
+            lineRenderer.SetPosition(1, Player.transform.position);
+            lineRenderer.enabled = true;
+        }
 
-        //grabTimer -= Time.deltaTime;
+        grabTimer -= Time.deltaTime;
     }
 
     public override void DoPhysicsLogic()
