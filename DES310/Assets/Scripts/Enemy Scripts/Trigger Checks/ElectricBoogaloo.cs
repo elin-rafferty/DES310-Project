@@ -12,6 +12,7 @@ public class ElectricBoogaloo : MonoBehaviour
     float change = 0.2f;
     Color target;
     Color current;
+    Color original;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class ElectricBoogaloo : MonoBehaviour
         timer = change;
         target = Random.ColorHSV();
         current = playerLight.color;
-
+        original = playerLight.color;
     }
 
     void Update()
@@ -62,7 +63,7 @@ public class ElectricBoogaloo : MonoBehaviour
         }
         else if (!isRave)
         {
-            playerLight.color = new Color(1, 1, 1, 0.4f);
+            playerLight.color = original;
         }
     }
 }
