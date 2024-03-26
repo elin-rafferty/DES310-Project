@@ -19,6 +19,9 @@ public class ModifierScreen : MonoBehaviour
         {
             if (inputManager.GetButtonDown("Interact")) 
             {
+                // Vent Sound
+                SoundManager.instance.PlaySound(SoundManager.SFX.VentOpen, transform, 0.7f);
+
                 gameObject.SetActive(false);
                 Time.timeScale = 1.0f;
                 eventHandler.TimescaleFreeze.Invoke(false);

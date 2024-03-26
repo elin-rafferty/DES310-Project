@@ -244,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
                 // Play shoot sound
-                SoundManager.instance.PlaySound(weaponProperties.sound, transform, 1f);
+                SoundManager.instance.PlaySound(weaponProperties.sound, transform, 0.3f);
             }
         }
     }
