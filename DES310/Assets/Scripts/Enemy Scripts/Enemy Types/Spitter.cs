@@ -6,6 +6,8 @@ public class Spitter : EnemyBase
 {
     public Transform weaponTransform;
     public Transform tetherTransform;
+    public Animator animator;
+    public float attackAngle;
 
     public override void SetModifiers(ModifierBehaviour modifier)
     {
