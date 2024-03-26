@@ -93,7 +93,7 @@ public class HorizontalDoor : MonoBehaviour
             canvas.gameObject.SetActive(true);
             if (inventory.HasItem(key))
             {
-                text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open";
+                text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open";
                 allowUnlocking = true;
             } else
             {

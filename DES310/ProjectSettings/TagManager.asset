@@ -12,7 +12,6 @@ TagManager:
   - Vent
   - Game Over
   - Music Manager
-  - Inventory Animation
   layers:
   - Default
   - TransparentFX

@@ -14,8 +14,6 @@ namespace Inventory.Model
     {
         [SerializeField]
         private List<InventoryItem> inventoryItems;
-        [SerializeField]
-        private Item itemPickupPrefab;
 
         [field: SerializeField]
         public int Size { get; private set; } = 10;
@@ -68,13 +66,6 @@ namespace Inventory.Model
             }
             quantity = AddStackableItem(item, quantity);
             InformAboutChange();
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null && quantity != 0)
-            {
-                Item newPickup = Instantiate(itemPickupPrefab, player.transform.position + new Vector3(0, 0, 1), Quaternion.identity);
-                newPickup.InventoryItem = item;
-                newPickup.Quantity = quantity;
-            }
             return quantity;
         }
 

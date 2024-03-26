@@ -17,7 +17,7 @@ public class ShopTrigger : MonoBehaviour
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
-        text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open " + shopName;
+        text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open " + shopName;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +26,7 @@ public class ShopTrigger : MonoBehaviour
         {
             // Set trigger true on collision
             trigger = true;
-            text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to open " + shopName;
+            text.text = "Press " + (settings.Controls == 0 ? "E" : "X") + " to open " + shopName;
         }
     }
 

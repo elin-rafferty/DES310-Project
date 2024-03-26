@@ -2236,7 +2236,7 @@ GameObject:
   - component: {fileID: 4959274666098546581}
   m_Layer: 5
   m_Name: InGameMenu
-  m_TagString: Inventory Animation
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2403,7 +2403,6 @@ GameObject:
   - component: {fileID: 3430792486964445431}
   - component: {fileID: 2898859774348542171}
   - component: {fileID: 6000658683130661583}
-  - component: {fileID: 3514029684622207956}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2830,24 +2829,6 @@ MonoBehaviour:
   activeBuffs: {fileID: 11400000, guid: 6870ffcf492796243bcbb12ce9af39a8, type: 2}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   slowedTimescale: 0.5
---- !u!114 &3514029684622207956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5510123066543379324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5011b128340a68c4bbb6c06bb5e90fc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprite: {fileID: 4525960502308093273, guid: 644eccddb342c1b48baf64190f835ef1, type: 3}
-  pistolSprite: {fileID: 8372196876306169838, guid: 8fbc225f354b14b489f3ecd0f2cc7ce7, type: 3}
-  rifleSprite: {fileID: -5008672921025934112, guid: e10dd22a4dd54c84bbba3dccdff169ec, type: 3}
-  shotgunSprite: {fileID: -5017642897360255602, guid: 5facc065cf5debd498e7cfc2d8ee3a2a, type: 3}
-  spriteRenderer: {fileID: 2352360200557903544}
-  agentWeapon: {fileID: 772383854847497066}
 --- !u!1 &5651329949300888773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4067,7 +4048,7 @@ Transform:
   m_GameObject: {fileID: 8877960124969393563}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -0.066, z: 0}
+  m_LocalPosition: {x: -0.311, y: -0.066, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4334,10 +4315,6 @@ PrefabInstance:
     - target: {fileID: 1221463716746200697, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -474.92346
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548970164622074430, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Spacing.x
