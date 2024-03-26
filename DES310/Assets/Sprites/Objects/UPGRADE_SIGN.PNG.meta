@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7dd48688945cd994a9adfcc231fb4ac5
+guid: 7df5305a07d736d42b42bb6c3952ff74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2931021272497934354
-    second: inventory_ui_base 1_0
+      213: -6211041825178825483
+    second: UPGRADE_SIGN_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inventory_ui_base 1_0
+      name: UPGRADE_SIGN_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 71
-        width: 649
-        height: 938
+        x: 23
+        y: 31
+        width: 214
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2105a5071541da820800000000000000
-      internalID: 2931021272497934354
+      spriteID: 5fc4f151e52fdc9a0800000000000000
+      internalID: -6211041825178825483
       vertices: []
       indices: 
       edges: []
@@ -188,8 +188,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      inventory_ui_base 1_0: 2931021272497934354
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
