@@ -196,6 +196,8 @@ public class BossAttack : EnemyAttackSOBase
 
                 if (jumpTimer <= 0)
                 {
+                    SoundManager.instance.PlaySound(SoundManager.SFX.BossImpact, transform, 1f);
+
                     enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
 
                     enemyBase.transform.localScale = Vector2.one * 2;
@@ -239,6 +241,7 @@ public class BossAttack : EnemyAttackSOBase
                 }
                 else
                 {
+                    SoundManager.instance.PlaySound(SoundManager.SFX.BossImpact, transform, 1f);
                     currentAttackState = AttackState.CHARGE;
                 }
                 break;
