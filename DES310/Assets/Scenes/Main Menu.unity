@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc3795d7b85ebd47ad0517d8e813f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 0}
+  eventSystem: {fileID: 451074656}
 --- !u!114 &230482871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,6 +2242,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3963196824709135858, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 451074656}
     - target: {fileID: 5916090516915302143, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
