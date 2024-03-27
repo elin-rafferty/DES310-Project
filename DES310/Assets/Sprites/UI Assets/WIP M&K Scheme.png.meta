@@ -344,7 +344,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WIP M&K Scheme_0: 1812726905358746368
+      WIP M&K Scheme_1: -7392628644375762362
+      WIP M&K Scheme_2: 3654507611316166824
+      WIP M&K Scheme_3: -1414670186996333379
+      WIP M&K Scheme_4: 4914400790893243779
+      WIP M&K Scheme_5: 8660549599428716225
+      WIP M&K Scheme_6: -7880411784807703434
+      WIP M&K Scheme_7: 1619564967838596972
+      WIP M&K Scheme_8: -1105553979113638206
+      WIP M&K Scheme_9: 4108878569146568226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
