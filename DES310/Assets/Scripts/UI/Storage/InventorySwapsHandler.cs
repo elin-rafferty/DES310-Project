@@ -7,7 +7,7 @@ public class InventorySwapsHandler : MonoBehaviour
     [SerializeField] Inventory.Model.InventorySO playerInventory, storageSO;
     [SerializeField] Inventory.UI.inventoryMainPage inventoryMainPage;
     [SerializeField] StorageVisualsController storageVisuals;
-    [SerializeField] List<GameObject> buttons = new();
+    [SerializeField] GameObject depositButtons, withdrawButtons;
 
     bool inventorySelected = false;
     bool storageSelected = false;
@@ -16,6 +16,14 @@ public class InventorySwapsHandler : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        inventoryMainPage.DeselectAllItems();
+        storageVisuals.DeselectAllItems();
+        CheckSelected();
+        HandleButtons();
     }
 
     // Update is called once per frame
@@ -30,13 +38,36 @@ public class InventorySwapsHandler : MonoBehaviour
         int slot = inventoryMainPage.selectedSlot;
         if (slot != -1)
         {
-            Inventory.Model.InventoryItem newStack = new();
-            Inventory.Model.InventoryItem oldStack = playerInventory.GetItemAt(slot);
-            newStack.item = oldStack.item;
-            newStack.quantity = oldStack.quantity;
-            storageSO.AddItem(newStack);
-            playerInventory.RemoveItem(slot, playerInventory.GetItemAt(slot).quantity);
-            inventoryMainPage.ResetSelection();
+            int amount = playerInventory.GetItemAt(slot).quantity;
+            Deposit(slot, amount);
+        }
+    }
+
+    public void DepositQuantity(int amount)
+    {
+        int slot = inventoryMainPage.selectedSlot;
+        if (slot != -1)
+        {
+            Deposit(slot, amount);
+        }
+    }
+
+    public void WithdrawAll()
+    {
+        int slot = storageVisuals.selectedSlot;
+        if (slot != -1)
+        {
+            int amount = storageSO.GetItemAt(slot).quantity;
+            Withdraw(slot, amount);
+        }
+    }
+
+    public void WithdrawQuantity(int amount)
+    {
+        int slot = storageVisuals.selectedSlot;
+        if (slot != -1)
+        {
+            Withdraw(slot, amount);
         }
     }
 
@@ -69,9 +100,38 @@ public class InventorySwapsHandler : MonoBehaviour
 
     void HandleButtons()
     {
-        foreach (var button in buttons)
+        depositButtons.SetActive(inventorySelected);
+        withdrawButtons.SetActive(storageSelected);
+    }
+
+    void Deposit(int slot, int amount)
+    {
+        Inventory.Model.InventoryItem newStack = new();
+        Inventory.Model.InventoryItem oldStack = playerInventory.GetItemAt(slot);
+        newStack.item = oldStack.item;
+        newStack.quantity = amount <= oldStack.quantity ? amount : oldStack.quantity;
+        storageSO.AddItem(newStack);
+        playerInventory.RemoveItem(slot, newStack.quantity);
+        if (playerInventory.GetItemAt(slot).quantity == 0)
         {
-            button.SetActive(inventorySelected || storageSelected);
+            inventoryMainPage.ResetSelection();
+        }
+    }
+
+    void Withdraw(int slot, int amount)
+    {
+        Inventory.Model.InventoryItem newStack = new();
+        Inventory.Model.InventoryItem oldStack = storageSO.GetItemAt(slot);
+        int maxStackSize = oldStack.item.MaxStackSize;
+        int newStackSize = maxStackSize < amount ? maxStackSize : amount;
+        newStackSize = newStackSize < oldStack.quantity ? newStackSize : oldStack.quantity;
+        newStack.item = oldStack.item;
+        newStack.quantity = newStackSize;
+        storageSO.RemoveItem(slot, newStackSize);
+        playerInventory.AddItem(newStack);
+        if (storageSO.GetItemAt(slot).quantity == 0)
+        {
+            storageVisuals.DeselectAllItems();
         }
     }
 }
