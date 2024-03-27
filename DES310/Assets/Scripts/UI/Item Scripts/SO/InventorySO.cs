@@ -23,9 +23,14 @@ namespace Inventory.Model
         public event Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
         public EventHandler eventHandler;
 
+        public bool resetOnDeath = true;
+
         public void OnEnable()
         {
-            eventHandler.PlayerDeath.AddListener(WipeInventory);
+            if (resetOnDeath)
+            {
+                eventHandler.PlayerDeath.AddListener(WipeInventory);
+            }
             WipeInventory();
         }
 
