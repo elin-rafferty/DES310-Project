@@ -2,17 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ControlsMenu : MonoBehaviour
 {
     // Menu objects
     private EventSystem eventSystem;
+    [SerializeField] private SettingsSO settings;
     [SerializeField] private GameObject optionsMenu, controlsMenu;
     [SerializeField] private GameObject backButton, controlsButton;
+    [SerializeField] private RawImage controllerImage, keyboardImage; 
 
     void Start()
     {
         eventSystem = FindAnyObjectByType<EventSystem>();
+    }
+
+    private void OnEnable()
+    {
+        if (settings.Controls == 0)
+        {
+            // M&K Image
+            keyboardImage.enabled = true;
+            controllerImage.enabled = false;
+        }
+        else 
+        {
+            // Controller Image
+            controllerImage.enabled = true;
+            keyboardImage.enabled = false;
+        }
     }
 
     // Update is called once per frame
