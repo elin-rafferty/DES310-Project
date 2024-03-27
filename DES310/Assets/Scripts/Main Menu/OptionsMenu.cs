@@ -11,8 +11,8 @@ public class OptionsMenu : MonoBehaviour
 {
     // Menu objects
     private EventSystem eventSystem;
-    [SerializeField] private GameObject mainMenu, optionsMenu;
-    [SerializeField] private GameObject optionsButton, backButton;
+    [SerializeField] private GameObject mainMenu, optionsMenu, controlsMenu;
+    [SerializeField] private GameObject optionsButton, backButton, controlsButton, controlsBackButton;
 
     // Settings
     [SerializeField] private SettingsSO settings;
@@ -20,7 +20,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
-    [SerializeField] private TMP_Dropdown controls;
+    [SerializeField] private TMP_Dropdown controls; 
 
     // Modifiers
     /*
@@ -77,6 +77,13 @@ public class OptionsMenu : MonoBehaviour
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
         eventSystem.SetSelectedGameObject(optionsButton);
+    }
+
+    public void OpenControlsMenu()
+    {
+        controlsMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+        eventSystem.SetSelectedGameObject(controlsBackButton);
     }
 
     #region Volume Slider Functions

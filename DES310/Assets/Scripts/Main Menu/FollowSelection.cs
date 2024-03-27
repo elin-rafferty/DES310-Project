@@ -9,7 +9,7 @@ public class FollowSelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = eventSystem.currentSelectedGameObject.transform.position + new Vector3(250, 0, 0);
+        transform.position = eventSystem.currentSelectedGameObject.transform.position + new Vector3(270, 0, 0);
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class FollowSelection : MonoBehaviour
     {
         if (eventSystem.currentSelectedGameObject != null)
         {
-            transform.position = eventSystem.currentSelectedGameObject.transform.position + new Vector3(250, 0, 0);
+            transform.position = eventSystem.currentSelectedGameObject.transform.position + new Vector3(270, 0, 0);
         } else
         {
             transform.position = new Vector3(10000, 10000);
