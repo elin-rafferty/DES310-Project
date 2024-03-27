@@ -11,6 +11,7 @@ public class InventoryAnimation : MonoBehaviour
 
     Animator anim;
     public bool InventoryOpen = false;
+    public bool allowInventoryClose = true;
     public EventHandler eventHandler;
     public InputManager inputManager;
     public inventoryMainPage inventoryMainPage;
@@ -64,19 +65,22 @@ public class InventoryAnimation : MonoBehaviour
 
     public void CloseInventory()
     {
-        if (settings.Controls == 1)
+        if (allowInventoryClose)
         {
-            Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.value;
-            virtualMousePos.x = Screen.width / 2;
-            virtualMousePos.y = Screen.height / 2;
-            virtualMouseImage.transform.position = virtualMousePos;
-            InputState.Change(virtualMouseInput.virtualMouse.position, virtualMousePos);
+            if (settings.Controls == 1)
+            {
+                Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.value;
+                virtualMousePos.x = Screen.width / 2;
+                virtualMousePos.y = Screen.height / 2;
+                virtualMouseImage.transform.position = virtualMousePos;
+                InputState.Change(virtualMouseInput.virtualMouse.position, virtualMousePos);
+            }
+            virtualMouse.SetActive(false);
+            inventoryMainPage.HideItemAction();
+            anim.Play("Close");
+            InventoryOpen = false;
+            eventHandler.InventoryChangeState.Invoke(false);
         }
-        virtualMouse.SetActive(false);
-        inventoryMainPage.HideItemAction();
-        anim.Play("Close");
-        InventoryOpen = false;
-        eventHandler.InventoryChangeState.Invoke(false);
     }
 
 }

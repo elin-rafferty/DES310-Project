@@ -24,16 +24,20 @@ public class PlayerSpriteManager : MonoBehaviour
         // Gotta assign something cause C# doesn't trust me
         Sprite sprite = idleSprite;
         {
-            switch(agentWeapon.weapon.Name) {
-                case "Laser Pistol":
-                    sprite = pistolSprite;
-                    break;
-                case "Laser Rifle":
-                    sprite = rifleSprite;
-                    break;
-                case "Laser Shotgun":
-                    sprite = shotgunSprite;
-                    break;
+            if (agentWeapon.weapon != null)
+            {
+                switch (agentWeapon.weapon.Name)
+                {
+                    case "Laser Pistol":
+                        sprite = pistolSprite;
+                        break;
+                    case "Laser Rifle":
+                        sprite = rifleSprite;
+                        break;
+                    case "Laser Shotgun":
+                        sprite = shotgunSprite;
+                        break;
+                }
             }
         }
         return sprite;
