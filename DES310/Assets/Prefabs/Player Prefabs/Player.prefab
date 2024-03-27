@@ -2424,6 +2424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryOpen: 0
+  allowInventoryClose: 1
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   inputManager: {fileID: 6918064253512207645}
   inventoryMainPage: {fileID: 2161480753922219962}
@@ -2576,7 +2577,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -4970990212287679941, guid: 6b9ae0d0946f4d34588345534dc8a28f, type: 3}
+  m_Sprite: {fileID: -5008672921025934112, guid: e10dd22a4dd54c84bbba3dccdff169ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3594,7 +3595,7 @@ Transform:
   m_GameObject: {fileID: 6796015444636642066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0.008, z: -1}
+  m_LocalPosition: {x: 0.6, y: -0.1, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
