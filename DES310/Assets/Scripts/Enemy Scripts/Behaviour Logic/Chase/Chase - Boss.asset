@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a039e3e13c4d74b80d08894ae03f22, type: 3}
   m_Name: Chase - Boss
   m_EditorClassIdentifier: 
+  bobBlobPrefab: {fileID: 1561839909999727373, guid: 4b050686b7340054591f7011e00d65f8, type: 3}
+  bobBlobSpawnInterval: 2

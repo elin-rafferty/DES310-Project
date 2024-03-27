@@ -14,11 +14,11 @@ public class Health : MonoBehaviour
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private ModifierBehaviour modifierBehaviour;
 
-    float invinsibliltyTimer = 0; 
+    float invincibilityTimer = 0; 
 
     public void Update()
     {
-        invinsibliltyTimer += Time.deltaTime;
+        invincibilityTimer += Time.deltaTime;
     }
 
     private void Start()
@@ -85,10 +85,10 @@ public class Health : MonoBehaviour
     {
         if (collision.collider.CompareTag("Enemy"))
         {
-            if (invinsibliltyTimer >= 0.2f)
+            if (invincibilityTimer >= 0.2f)
             {
                 Damage(collision.gameObject.GetComponent<EnemyBase>().meleeDamage);
-                invinsibliltyTimer = 0;
+                invincibilityTimer = 0;
             }
         }
     }
