@@ -13,7 +13,7 @@ namespace Inventory.Model
     public class InventorySO : ScriptableObject
     {
         [SerializeField]
-        private List<InventoryItem> inventoryItems;
+        public List<InventoryItem> inventoryItems;
         [SerializeField]
         private Item itemPickupPrefab;
 

@@ -104,13 +104,39 @@ public class InventorySwapsHandler : MonoBehaviour
         withdrawButtons.SetActive(storageSelected);
     }
 
-    void Deposit(int slot, int amount)
+    /*void Deposit(int slot, int amount)
     {
         Inventory.Model.InventoryItem newStack = new();
         Inventory.Model.InventoryItem oldStack = playerInventory.GetItemAt(slot);
         newStack.item = oldStack.item;
         newStack.quantity = amount <= oldStack.quantity ? amount : oldStack.quantity;
         storageSO.AddItem(newStack);
+        playerInventory.RemoveItem(slot, newStack.quantity);
+        if (playerInventory.GetItemAt(slot).quantity == 0)
+        {
+            inventoryMainPage.ResetSelection();
+        }
+    }*/
+    void Deposit(int slot, int amount)
+    {
+        Inventory.Model.InventoryItem newStack = new();
+        Inventory.Model.InventoryItem oldStack = playerInventory.GetItemAt(slot);
+        int quantity = amount <= oldStack.quantity ? amount : oldStack.quantity;
+        newStack.item = oldStack.item;
+        newStack.quantity = quantity;
+        bool foundExistingSlot = false;
+        for (int i = 0; i < storageSO.inventoryItems.Count; i++)
+        {
+            if (storageSO.inventoryItems[i].item == oldStack.item)
+            {
+                foundExistingSlot = true;
+                storageSO.inventoryItems[i] = storageSO.inventoryItems[i].ChangeQuantity(storageSO.inventoryItems[i].quantity + quantity);
+            }
+        }
+        if (!foundExistingSlot)
+        {
+            storageSO.AddItem(newStack);
+        }
         playerInventory.RemoveItem(slot, newStack.quantity);
         if (playerInventory.GetItemAt(slot).quantity == 0)
         {

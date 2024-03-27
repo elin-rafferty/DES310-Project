@@ -2222,7 +2222,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: withdraw all
+  m_Text: withdraw 999
 --- !u!1 &6546499650308770656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,7 +3148,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: deposit all
+  m_Text: deposit 999
 --- !u!1 &8342858754029682626
 GameObject:
   m_ObjectHideFlags: 0
