@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Chase - Boss", menuName = "Enemy Logic/Chase Logic/Boss")]
 public class BossChase : EnemyChaseSOBase
 {
+    [SerializeField] private GameObject bobBlobPrefab;
+    [SerializeField] private float bobBlobSpawnInterval;
+    private float bobBlobTimer = 0;
     private Transform target;
 
     private float angleSmoothTime = 0.25f;
@@ -31,6 +34,7 @@ public class BossChase : EnemyChaseSOBase
         UpdatePath(rb.position, target.position);
         attackCooldownTimer = Random.Range(3, 8);
         enemyBase.enemyTimer = 0.5f;
+        bobBlobTimer = bobBlobSpawnInterval;
     }
 
     public override void DoExitLogic()
@@ -69,6 +73,18 @@ public class BossChase : EnemyChaseSOBase
         else
         {
             enemyBase.eventHandler.ShakeCamera.Invoke(0, 0);
+        }
+
+        // Bob Blob Spawning
+        if (bobBlobTimer <= 0)
+        {
+            // Spawn Bob Blob
+            DropBobBlob();
+            bobBlobTimer = bobBlobSpawnInterval;
+        }
+        else
+        {
+            bobBlobTimer -= Time.deltaTime;
         }
     }
 
@@ -129,5 +145,10 @@ public class BossChase : EnemyChaseSOBase
     public override void ResetValues()
     {
         base.ResetValues();
+    }
+
+    private void DropBobBlob()
+    {
+        GameObject bobBlob = Instantiate(bobBlobPrefab, transform.position, Quaternion.identity);
     }
 }
