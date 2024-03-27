@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject playButton, optionsBackButton;
     [SerializeField] private SettingsSO settings;
-    [SerializeField] private InventorySO inventory;
+    [SerializeField] private InventorySO inventory, storage;
     [SerializeField] private List<WeaponProperties> weaponProperties;
     [SerializeField] private EquippableItemSO startingWeaponSO;
     [SerializeField] private EventHandler eventHandler;
@@ -57,6 +57,7 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMenu() 
     {
         inventory.WipeInventory();
+        storage.WipeInventory();
         foreach (WeaponProperties weapon in weaponProperties)
         {
             weapon.weaponUpgrades = WeaponUpgrades.CreateInstance<WeaponUpgrades>();
