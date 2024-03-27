@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private float smoothTime = 0.05f;
     private AgentWeapon agentWeapon;
     private float bubbleTimer = 0.1f;
+    private bool doBubbles = false;
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
             dashCooldownTimer -= Time.deltaTime;
             if (dashCooldownTimer < 0)
             {
+                doBubbles = false;
                 dashCooldownTimer = 0;
             }
         }
@@ -183,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
         // Player Dash
         if (inputManager.GetButtonDown("Dash") && rb.velocity != Vector2.zero && dashCooldownTimer == 0)
         {
+            doBubbles = true;
             Dash(rb.velocity);
         }
     }
@@ -261,7 +264,10 @@ public class PlayerMovement : MonoBehaviour
         if (bubbleTimer <= 0)
         {
             bubbleTimer = 0.25f;
-            Instantiate(bubble, backpackPos.gameObject.transform.position + new Vector3(UnityEngine.Random.Range(0, 0.5f), UnityEngine.Random.Range(0, 0.5f), 1), Quaternion.identity);
+            if (doBubbles)
+            {
+                Instantiate(bubble, backpackPos.gameObject.transform.position + new Vector3(UnityEngine.Random.Range(0, 0.5f), UnityEngine.Random.Range(0, 0.5f), 1), Quaternion.identity);
+            }
         }
         if (dashTime == 0)
         {
