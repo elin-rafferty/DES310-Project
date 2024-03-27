@@ -8,11 +8,13 @@ public class BobBlobLogic : MonoBehaviour
     [SerializeField] private float damagePerSecond;
     private float timer;
     private SpriteRenderer spriteRenderer;
+    private float hitTimer;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         timer = lifeSpan;
+        hitTimer = 1;
         Destroy(gameObject, lifeSpan);
     }
 
@@ -30,7 +32,13 @@ public class BobBlobLogic : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Health>().Damage(damagePerSecond * Time.deltaTime);
+            if (hitTimer < 0)
+            {
+                collision.gameObject.GetComponent<Health>().Damage(damagePerSecond);
+                hitTimer = 1;
+            }
+
+            hitTimer -= Time.deltaTime;
         }
     }
 }
