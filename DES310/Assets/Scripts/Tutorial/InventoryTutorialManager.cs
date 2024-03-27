@@ -65,7 +65,7 @@ public class InventoryTutorialManager : MonoBehaviour
                 Cursor.visible = true;
             }
             inventoryDescriptionCanvas.gameObject.SetActive(true);
-            inventoryDescriptionText.text = "This is the inventory\nhere you can see the items you've scavenged\n\nYou can also equip or use items from here\n\n" + (settings.Controls == 0 ? "Right click " : "Press X ") + " on the pistol, then " + (settings.Controls == 0 ? "left click " : "press A ") + "on the equip button to equip it";
+            inventoryDescriptionText.text = "This is the inventory\nhere you can see the items you've scavenged\n\nYou can also equip or use items from here\n\n" + (settings.Controls == 0 ? "Right click " : "Press X ") + "on the pistol, then " + (settings.Controls == 0 ? "left click " : "press A ") + "on the equip button to equip it";
         } else
         {
             inventoryDescriptionCanvas.gameObject.SetActive(false);

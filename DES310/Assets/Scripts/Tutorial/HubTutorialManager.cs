@@ -34,6 +34,7 @@ public class HubTutorialManager : MonoBehaviour
         {
             case 1:
                 playermovement.enabled = true;
+                gameObject.SetActive(false);
                 break;
         }
     }
