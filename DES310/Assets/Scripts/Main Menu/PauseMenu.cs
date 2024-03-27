@@ -66,6 +66,7 @@ public class PauseMenu : MonoBehaviour
         persistentVariables.modifier.Clear();
         persistentVariables.lastLevelEntered = "";
         persistentVariables.equippedItem = startingWeaponSO;
+        persistentVariables.tutorialStage = 0;
         buffs.ResetBuffs();
         SceneManager.LoadScene("Main Menu");
     }

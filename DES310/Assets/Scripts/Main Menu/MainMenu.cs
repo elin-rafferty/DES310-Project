@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private SettingsSO defaultSettings;
     [SerializeField] private SoundMixerManager soundMixer;
     [SerializeField] private InventorySO inventory;
-    [SerializeField] private ItemSO scrap;
+    [SerializeField] private ItemSO scrap, pistol;
 
     private void Start()
     {
@@ -37,6 +37,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         persistentVariables.exitReason = LevelExitReason.NONE;
+        inventory.AddItem(pistol, 1);
         inventory.AddItem(scrap, 300);
         SceneManager.LoadScene("Main Hub");
         Time.timeScale = 1.0f;

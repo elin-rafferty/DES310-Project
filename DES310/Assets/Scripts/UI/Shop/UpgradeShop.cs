@@ -162,18 +162,21 @@ public class UpgradeShop : MonoBehaviour
 
     public void SelectWeapon()
     {
-        EquippableItemSO equippedWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentWeapon>().weapon;
-        switch (equippedWeapon.Name)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<AgentWeapon>().weapon != null)
         {
-            case "Laser Pistol":
-                SelectPistol();
-                break;
-            case "Laser Rifle":
-                SelectRifle();
-                break;
-            case "Laser Shotgun":
-                SelectShotgun();
-                break;
+            EquippableItemSO equippedWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentWeapon>().weapon;
+            switch (equippedWeapon.Name)
+            {
+                case "Laser Pistol":
+                    SelectPistol();
+                    break;
+                case "Laser Rifle":
+                    SelectRifle();
+                    break;
+                case "Laser Shotgun":
+                    SelectShotgun();
+                    break;
+            }
         }
     }
 }

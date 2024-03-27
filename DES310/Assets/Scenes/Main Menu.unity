@@ -895,6 +895,7 @@ MonoBehaviour:
   soundMixer: {fileID: 586816807}
   inventory: {fileID: 11400000, guid: 3159a824a09c3824b8be83d7dd8a45ae, type: 2}
   scrap: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
+  pistol: {fileID: 11400000, guid: fe0c371b82406da4ca5d2c6a4e43d501, type: 2}
 --- !u!1 &1008678308
 GameObject:
   m_ObjectHideFlags: 0

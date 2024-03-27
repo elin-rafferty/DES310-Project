@@ -10,6 +10,7 @@ public class PersistentVariables : ScriptableObject
     public EquippableItemSO equippedItem = null;
     public List<Modifiers> modifier;
     public string lastLevelEntered;
+    public int tutorialStage = 0;
 
     public void OnEnable()
     {
@@ -17,5 +18,6 @@ public class PersistentVariables : ScriptableObject
         equippedItem = null;
         modifier = new();
         lastLevelEntered = "";
+        tutorialStage = 0;
     }
 }
