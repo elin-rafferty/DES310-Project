@@ -38,5 +38,5 @@ MonoBehaviour:
     item: {fileID: 0}
     itemState: []
   itemPickupPrefab: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
-  <Size>k__BackingField: 8
+  <Size>k__BackingField: 12
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
