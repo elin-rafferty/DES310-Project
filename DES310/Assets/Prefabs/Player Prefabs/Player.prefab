@@ -2502,6 +2502,7 @@ GameObject:
   - component: {fileID: 6000658683130661583}
   - component: {fileID: 4697320519817100903}
   - component: {fileID: 8459059628952392754}
+  - component: {fileID: 7946958442261878271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2960,6 +2961,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 2943519245926618163}
+--- !u!114 &7946958442261878271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc327fd1f982afc41bfc9b7a5d86567a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
+  pauseMenu: {fileID: 5007900693741809109}
+  optionsMenu: {fileID: 4421008845974883295}
+  controlsMenu: {fileID: 3642274536248491031}
+  inputManager: {fileID: 4915550660991606701}
 --- !u!1 &5651329949300888773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,6 +5599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 6137204919049372785, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7394642057225860602, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
       propertyPath: eventSystem
       value: 
@@ -5590,6 +5612,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+--- !u!114 &3642274536248491031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6406680270225008572, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}
+  m_PrefabInstance: {fileID: 7665949720489581483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7626c600597aadb42856f9f02452434e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4421008845974883295 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6284906014197682292, guid: dfc389eb072efe947a1f2bfa60cab9ca, type: 3}

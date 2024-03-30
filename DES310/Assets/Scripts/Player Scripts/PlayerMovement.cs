@@ -192,24 +192,6 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleUnconditionalInput()
     {
-        // Pause Menu
-        if (inputManager.GetButtonDown("Pause"))
-        {
-            if (optionsMenu.gameObject.activeSelf)
-            {
-                optionsMenu.OpenMainMenu();
-            }
-            else if (pauseMenu)
-            {
-                pauseMenu.SetActive(!pauseMenu.activeSelf);
-
-                if (!pauseMenu.activeSelf)
-                {
-                    Time.timeScale = 1.0f;
-                    eventHandler.TimescaleFreeze.Invoke(false);
-                }
-            }
-        }
     }
 
     void InventoryStateChangeResponse(bool open)

@@ -3,14 +3,13 @@ using FloatData;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
-    private float currentHealth;
+    public float currentHealth { get; private set; }
     [SerializeField] private EventHandler eventHandler;
     [SerializeField] private ModifierBehaviour modifierBehaviour;
 
@@ -21,7 +20,7 @@ public class Health : MonoBehaviour
         invincibilityTimer += Time.deltaTime;
     }
 
-    private void Start()
+    private void Awake()
     {
         currentHealth = maxHealth;
     }
@@ -62,7 +61,10 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
         // Play Sound
-        SoundManager.instance.PlaySound(SoundManager.SFX.PlayerHit, transform, 0.8f);
+        if (damage > 0)
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.PlayerHit, transform, 0.8f);
+        }
 
         currentHealth -= damage * modifierBehaviour.enemyDamageMultiplier;
         eventHandler.PlayerHealthChange.Invoke(currentHealth);

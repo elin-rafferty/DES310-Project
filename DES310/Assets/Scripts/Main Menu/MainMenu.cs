@@ -50,6 +50,13 @@ public class MainMenu : MonoBehaviour
         eventSystem.SetSelectedGameObject(optionsBackButton);
     }
 
+    public void PlayTutorial()
+    {
+        persistentVariables.exitReason = LevelExitReason.NONE;
+        SceneManager.LoadScene("Tutorial");
+        Time.timeScale = 1.0f;
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT");
