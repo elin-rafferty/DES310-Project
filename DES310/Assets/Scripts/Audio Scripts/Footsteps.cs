@@ -7,7 +7,7 @@ public class Footsteps : MonoBehaviour
     [SerializeField] private MapManager mapManager;
     [SerializeField] private Rigidbody2D rb;
 
-    private float footstepDelay = 0.3f;
+    private float footstepDelay = 0.625f;
     private float footstepTimer = 0f;
 
     void Update()
