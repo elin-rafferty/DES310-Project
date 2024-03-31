@@ -61,23 +61,26 @@ public class SpawnEnemy : MonoBehaviour
             Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
             bool onScreen = screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
-            if (onScreen)
+            if (respawnTime != 0)
             {
-                // return if spawner on screen
-                respawnTimer = respawnTime;
-                return;
-            }
-            else if (spawnedEnemies.Count == 0)
-            {
-                // Spawn Enemy after respawn timer and enemy dead
-                if (respawnTimer < 0)
+                if (onScreen)
                 {
-                    SpawnAnEnemy();
+                    // return if spawner on screen
                     respawnTimer = respawnTime;
+                    return;
                 }
-                else
+                else if (spawnedEnemies.Count == 0)
                 {
-                    respawnTimer -= Time.deltaTime;
+                    // Spawn Enemy after respawn timer and enemy dead
+                    if (respawnTimer < 0)
+                    {
+                        SpawnAnEnemy();
+                        respawnTimer = respawnTime;
+                    }
+                    else
+                    {
+                        respawnTimer -= Time.deltaTime;
+                    }
                 }
             }
         }
