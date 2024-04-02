@@ -13,6 +13,7 @@ TagManager:
   - Game Over
   - Music Manager
   - Inventory Animation
+  - Item
   layers:
   - Default
   - TransparentFX

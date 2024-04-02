@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryTutorialManager : MonoBehaviour
 {
-    [SerializeField] HubTutorialManager tutorialManager;
+    [SerializeField] TutorialManager tutorialManager;
     [SerializeField] InputManager inputManager;
     [SerializeField] SettingsSO settings;
     [SerializeField] Canvas openInventoryCanvas, inventoryDescriptionCanvas, healCanvas, closeInventoryCanvas;

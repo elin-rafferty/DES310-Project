@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HubTutorialManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour
 {
     [SerializeField] PersistentVariables persistentVariables;
     [SerializeField] PlayerMovement playermovement;

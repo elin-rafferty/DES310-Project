@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class EnemyEncounter : MonoBehaviour
 {
-    [SerializeField] EventHandler eventHandler;
     [SerializeField] InputManager inputManager;
     [SerializeField] SettingsSO settings;
     [SerializeField] PlayerMovement playerMovement;

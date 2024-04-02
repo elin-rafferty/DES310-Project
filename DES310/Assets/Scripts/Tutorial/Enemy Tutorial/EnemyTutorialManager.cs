@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyTutorialManager : MonoBehaviour
 {
-    [SerializeField] HubTutorialManager hubTutorialManager;
+    [SerializeField] TutorialManager hubTutorialManager;
     [SerializeField] InputManager inputManager;
     [SerializeField] SettingsSO settings;
     [SerializeField] GameObject enemyTrigger;
