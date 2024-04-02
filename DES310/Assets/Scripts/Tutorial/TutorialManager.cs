@@ -3,16 +3,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class HubTutorialManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour
 {
     [SerializeField] PersistentVariables persistentVariables;
-    [SerializeField] GameObject inventoryTutorial;
     [SerializeField] PlayerMovement playermovement;
     [SerializeField] Health health;
-
     [SerializeField] InventorySO inventory;
+
+    [SerializeField] List<GameObject> tutorials;
     [SerializeField] List<ItemSO> tutorialItems = new();
     [SerializeField] List<int> itemQuantities = new();
 
@@ -32,8 +31,8 @@ public class HubTutorialManager : MonoBehaviour
             health.Damage(20);
 
             playermovement.enabled = false;
-            inventoryTutorial.SetActive(true);
-            UnityEngine.Cursor.visible = false;
+            tutorials[0].SetActive(true);
+            Cursor.visible = false;
         } else
         {
             gameObject.SetActive(false);
@@ -49,10 +48,33 @@ public class HubTutorialManager : MonoBehaviour
     public void IncrementTutorialStage()
     {
         persistentVariables.tutorialStage++;
+
         switch (persistentVariables.tutorialStage)
         {
             case 1:
+                // Start Enemy Tutorial
                 playermovement.enabled = true;
+                tutorials[persistentVariables.tutorialStage - 1].SetActive(false);
+                tutorials[persistentVariables.tutorialStage].SetActive(true);
+                break;
+            case 2:
+                // Start UI Tutorial
+                tutorials[persistentVariables.tutorialStage - 1].SetActive(false);
+                tutorials[persistentVariables.tutorialStage].SetActive(true);
+                break;
+            case 3:
+                // Start Crate Tutorial
+                tutorials[persistentVariables.tutorialStage - 1].SetActive(false);
+                tutorials[persistentVariables.tutorialStage].SetActive(true);
+                break;
+            case 4:
+                // Start Vent Tutorial
+                tutorials[persistentVariables.tutorialStage - 1].SetActive(false);
+                tutorials[persistentVariables.tutorialStage].SetActive(true);
+                break;
+            case 5:
+                // End Tutorial
+                tutorials[persistentVariables.tutorialStage - 1].SetActive(false);
                 gameObject.SetActive(false);
                 break;
         }
