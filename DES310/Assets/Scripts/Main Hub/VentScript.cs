@@ -52,6 +52,7 @@ public class VentScript : MonoBehaviour
                 timeBeforeOpen = 0;
             }
         }
+
         canvas.gameObject.SetActive(trigger && timeBeforeOpen == 0);
         if (canvas.gameObject.activeSelf)
         {

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Boss : EnemyBase
 {
     public Transform weaponTransform;
+    public VentScript vent;
 
     [SerializeField] Slider bossHealthSlider;
     [SerializeField] HorizontalDoor door;
@@ -15,6 +16,7 @@ public class Boss : EnemyBase
         CurrentHealth -= damageAmount;
         if (CurrentHealth <= 0)
         {
+            vent.timeBeforeOpen = 0;
             Die();
         }
 

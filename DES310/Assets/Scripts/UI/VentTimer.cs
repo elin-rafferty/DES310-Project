@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class VentTimer : MonoBehaviour
 {
+    [SerializeField] private VentPath ventPath; 
     public TextMeshProUGUI text;
     private VentScript vent;
     private bool textEnabled = false;
@@ -21,6 +22,8 @@ public class VentTimer : MonoBehaviour
     {
         if (vent.timeBeforeOpen == 0 && !textEnabled)
         {
+            ventPath.SetVisible(true);
+
             text.text = "Vent Open!!!!!";
             text.color = Color.red;
             colourChangeTimer = colourChangeTime;
@@ -33,6 +36,13 @@ public class VentTimer : MonoBehaviour
                 colourChangeTimer = colourChangeTime;
                 text.color = text.color == Color.red ? Color.yellow : Color.red;
             }
+        }
+
+        if (vent.timeBeforeOpen > 0)
+        {
+            ventPath.SetVisible(false);
+            text.text = "";
+            textEnabled = false;
         }
     }
 }
