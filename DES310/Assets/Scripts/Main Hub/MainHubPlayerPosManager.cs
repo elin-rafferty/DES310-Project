@@ -20,6 +20,9 @@ public class MainHubPlayerPosManager : MonoBehaviour
             case LevelExitReason.NONE:
                 pos = new Vector2(-0.5f, -0.5f);
                 break;
+            case LevelExitReason.TUTORIAL:
+                pos = new Vector2(-0.5f, -0.5f);
+                break;
         }
         GameObject.FindGameObjectWithTag("Player").transform.position = pos;
         persistentVariables.exitReason = LevelExitReason.NONE;
