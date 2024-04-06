@@ -68,7 +68,6 @@ public class EnemySpitterAttack : EnemyAttackSOBase
         Vector2 targetDirection = target.position - weaponTransform.position;
         Vector2 fwdDirection = -enemyBase.gameObject.transform.right;
         float angle = Vector2.Angle(fwdDirection, targetDirection);
-        Debug.Log(angle);
 
         if (angle < enemyBase.GetComponent<Spitter>().attackAngle)
         {

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2159160429941045276}
   - component: {fileID: -4033033012280705217}
   - component: {fileID: 3899551673688981253}
+  - component: {fileID: 570926774191059053}
+  - component: {fileID: 166148903702388472}
   m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
@@ -182,3 +184,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef20d9e81c916804aae51c901b910677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &570926774191059053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122121686507304927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c0eaf4c4c718f48aa882e576a661df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &166148903702388472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122121686507304927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3686550defc42408fe906c72d46ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: rave
+  active: 0

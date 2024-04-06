@@ -460,13 +460,14 @@ GameObject:
   - component: {fileID: 7910524564906977346}
   - component: {fileID: 4387523261521503300}
   - component: {fileID: 3477034025072801975}
+  - component: {fileID: 2529339284997564274}
   m_Layer: 5
   m_Name: FPS Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &447429300504205270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -541,6 +542,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 4387523261521503300}
+--- !u!114 &2529339284997564274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922368089916349761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3686550defc42408fe906c72d46ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: fps
+  active: 0
 --- !u!1 &1053260131785880207
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +732,7 @@ GameObject:
   - component: {fileID: 8700737007468143858}
   - component: {fileID: 6592203872358024593}
   - component: {fileID: 6611272222022092375}
+  - component: {fileID: 2439891087019066379}
   m_Layer: 0
   m_Name: Player Light
   m_TagString: Untagged
@@ -803,6 +819,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c0eaf4c4c718f48aa882e576a661df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2439891087019066379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378038427151376295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3686550defc42408fe906c72d46ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: rave
+  active: 0
 --- !u!1 &1774087456732360439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,6 +3532,7 @@ GameObject:
   - component: {fileID: 8117607825641295557}
   - component: {fileID: 6225211681048046358}
   - component: {fileID: 5233604280686994173}
+  - component: {fileID: 3932926959721392343}
   m_Layer: 0
   m_Name: Torch Light
   m_TagString: Untagged
@@ -3588,6 +3619,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c0eaf4c4c718f48aa882e576a661df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3932926959721392343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705367675663794649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3686550defc42408fe906c72d46ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: rave
+  active: 0
 --- !u!1 &6796015444636642066
 GameObject:
   m_ObjectHideFlags: 0

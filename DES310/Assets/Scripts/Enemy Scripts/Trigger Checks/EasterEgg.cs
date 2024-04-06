@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EasterEgg : MonoBehaviour
 {
+    StringDetector detector;
+
     int count = 0;
     bool isRave = false;
     Image inky;
@@ -15,6 +17,8 @@ public class EasterEgg : MonoBehaviour
 
     void Start()
     {
+        detector = GetComponent<StringDetector>();
+
         inky = gameObject.GetComponent<Image>();
         count = 0;
         isRave = false;
@@ -45,7 +49,7 @@ public class EasterEgg : MonoBehaviour
             count = 0;
         }
 
-        if (isRave)
+        if (detector.active)
         {
             if (timer > 0)
             {
@@ -60,7 +64,7 @@ public class EasterEgg : MonoBehaviour
                 target = Random.ColorHSV();
             }
         }
-        else if(!isRave)
+        else if(!detector.active)
         {
             inky.color = new Color(1, 1, 1, 0.4f);
         }
