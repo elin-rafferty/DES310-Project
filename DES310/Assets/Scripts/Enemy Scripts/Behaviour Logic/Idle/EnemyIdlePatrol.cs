@@ -84,6 +84,7 @@ public class EnemyIdlePatrol : EnemyIdleSOBase
         else
         {
             reachedEndOfPath = false;
+            if (reachedEndOfPath) { }
         }
 
         if (newPathTimer > 2)

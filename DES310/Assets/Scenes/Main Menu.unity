@@ -1060,6 +1060,7 @@ GameObject:
   - component: {fileID: 1008678311}
   - component: {fileID: 1008678310}
   - component: {fileID: 1008678313}
+  - component: {fileID: 1008678314}
   m_Layer: 5
   m_Name: Inky
   m_TagString: Untagged
@@ -1158,6 +1159,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1f6a7c5ee548d4f88989d6562afa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1008678314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008678308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3686550defc42408fe906c72d46ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: rave
+  active: 0
 --- !u!1001 &1124607049
 PrefabInstance:
   m_ObjectHideFlags: 0

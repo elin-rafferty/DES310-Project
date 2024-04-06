@@ -5,6 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class ElectricBoogaloo : MonoBehaviour
 {
+    StringDetector detector;
+
     int count = 0;
     bool isRave = false;
     Light2D playerLight;
@@ -16,6 +18,8 @@ public class ElectricBoogaloo : MonoBehaviour
 
     void Start()
     {
+        detector = GetComponent<StringDetector>();
+
         playerLight = gameObject.GetComponent<Light2D>();
         count = 0;
         isRave = false;
@@ -46,7 +50,7 @@ public class ElectricBoogaloo : MonoBehaviour
             count = 0;
         }
 
-        if (isRave)
+        if (detector.active)
         {
             if (timer > 0)
             {
@@ -61,7 +65,7 @@ public class ElectricBoogaloo : MonoBehaviour
                 target = Random.ColorHSV();
             }
         }
-        else if (!isRave)
+        else if (!detector.active)
         {
             playerLight.color = original;
         }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6080428281924943673}
   - component: {fileID: 2924404614681899990}
   - component: {fileID: -9170391966691099464}
+  - component: {fileID: 7936526707491230033}
   m_Layer: 0
   m_Name: Boss Room Light
   m_TagString: Untagged
@@ -69,8 +70,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0015499592, y: 0.0045999885, z: 0}
-    m_Extent: {x: 0.99885, y: 0.9314, z: 0}
+    m_Center: {x: -0.0035499632, y: -0.0015000105, z: 0}
+    m_Extent: {x: 0.99755, y: 0.9372, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -99,3 +100,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c0eaf4c4c718f48aa882e576a661df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7936526707491230033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994465588299859136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3686550defc42408fe906c72d46ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: poo
+  active: 0
