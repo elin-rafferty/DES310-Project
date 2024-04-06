@@ -15,8 +15,7 @@ public class VentTutorialManager : MonoBehaviour
 
     [SerializeField] Canvas ventCanvas;
     [SerializeField] Text ventText, ventOpenText;
-
-    [SerializeField] VentPath path;
+    [SerializeField] VentScript vent;
 
     float timer;
     private void OnEnable()
@@ -39,6 +38,9 @@ public class VentTutorialManager : MonoBehaviour
             ventOpenText.gameObject.SetActive(true);
             ventText.gameObject.SetActive(false);
             ventVirtCam.SetActive(false);
+
+            // Open vent
+            vent.timeBeforeOpen = 0;
 
             playerMovement.enabled = true;
         }

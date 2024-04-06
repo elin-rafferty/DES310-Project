@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class CrateTutorialManager : MonoBehaviour
 {
@@ -19,10 +18,12 @@ public class CrateTutorialManager : MonoBehaviour
     [SerializeField] Text crateText, crateOpenText;
 
     float timer;
+    int count;
 
     private void OnEnable()
     {
         timer = 1;
+        count = 0;
 
         playerMovement.GetComponentInParent<Rigidbody2D>().velocity = Vector3.zero;
         playerMovement.enabled = false;
@@ -39,11 +40,21 @@ public class CrateTutorialManager : MonoBehaviour
         {
             if (!GameObject.FindGameObjectWithTag("Item") && playerMovement.enabled == true)
             {
-                crateOpenText.gameObject.SetActive(false);
-                crateCanvas.gameObject.SetActive(false);
+                if (count == 1)
+                {
+                    crateOpenText.gameObject.SetActive(false);
+                    crateCanvas.gameObject.SetActive(false);
 
-                tutorialManager.IncrementTutorialStage();
-                return;
+                    tutorialManager.IncrementTutorialStage();
+                    return;
+                }
+            }
+            else if (GameObject.FindGameObjectWithTag("Item") && playerMovement.enabled == true)
+            {
+                if (count == 0)
+                {
+                    count++;
+                }
             }
 
             crateOpenText.gameObject.SetActive(true);

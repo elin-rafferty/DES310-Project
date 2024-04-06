@@ -6,5 +6,6 @@ public enum LevelExitReason
 {
     NONE,
     DEATH,
-    VENT_EXIT
+    VENT_EXIT,
+    TUTORIAL
 }

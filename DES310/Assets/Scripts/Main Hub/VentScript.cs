@@ -52,6 +52,7 @@ public class VentScript : MonoBehaviour
                 timeBeforeOpen = 0;
             }
         }
+
         canvas.gameObject.SetActive(trigger && timeBeforeOpen == 0);
         if (canvas.gameObject.activeSelf)
         {
@@ -72,7 +73,17 @@ public class VentScript : MonoBehaviour
                 persistentVariables.modifier.Add(newModifier);
                 loadingScreen.SetActive(true);
             }
-            persistentVariables.exitReason = LevelExitReason.VENT_EXIT;
+            
+            // Check if loading from tutorial
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                persistentVariables.exitReason = LevelExitReason.TUTORIAL;
+            }
+            else
+            {
+                persistentVariables.exitReason = LevelExitReason.VENT_EXIT;
+            }
+
             if (sceneNames.Count > 1)
             {
                 string newScene = "";

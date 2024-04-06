@@ -12,10 +12,8 @@ public class VentPath : MonoBehaviour
     Path path;
     Seeker seeker;
 
-    [SerializeField] private float timer;
     private bool inLevel;
-    private float activateTime = 180;
-    private float maxTime = 300;
+    private bool isVisible;
     private float colourTimer = 1.0f;
     Color redColor = new Color(1, 0, 0, 0.1f);
     Color yellowColor = new Color(1, 1, 0, 0.1f);
@@ -23,6 +21,7 @@ public class VentPath : MonoBehaviour
     private void Awake()
     {
         inLevel = false;
+        isVisible = false;
         eventHandler.LevelEnter.AddListener(SetLevelStatus);
     }
 
@@ -35,25 +34,14 @@ public class VentPath : MonoBehaviour
 
         seeker = GetComponent<Seeker>();
         lineRenderer = GetComponent<LineRenderer>();
-
-        timer = maxTime;
     }
 
     void Update()
     {
-        if (inLevel && ventTransform)
+        if (inLevel && ventTransform && isVisible)
         {
-            if (timer <= activateTime)
-            {
-                UpdatePath(transform.position, ventTransform.position);
-                UpdateLine();
-            }
-            else
-            {
-                lineRenderer.startColor = Color.clear;
-                lineRenderer.endColor = Color.clear;
-                timer -= Time.deltaTime;
-            }
+            UpdatePath(transform.position, ventTransform.position);
+            UpdateLine();
         }
         else
         {
@@ -116,5 +104,10 @@ public class VentPath : MonoBehaviour
     private void SetLevelStatus()
     {
         inLevel = true;
+    }
+
+    public void SetVisible(bool visible) 
+    {
+        isVisible = visible;
     }
 }
