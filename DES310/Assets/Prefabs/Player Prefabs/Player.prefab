@@ -2533,6 +2533,8 @@ GameObject:
   - component: {fileID: 4697320519817100903}
   - component: {fileID: 8459059628952392754}
   - component: {fileID: 7946958442261878271}
+  - component: {fileID: 921096426500252140}
+  - component: {fileID: 7180718681422752600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3008,6 +3010,34 @@ MonoBehaviour:
   optionsMenu: {fileID: 4421008845974883295}
   controlsMenu: {fileID: 3642274536248491031}
   inputManager: {fileID: 4915550660991606701}
+--- !u!114 &921096426500252140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56b99ccd1d05f74781f912a491a13c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifierBehaviour: {fileID: 11400000, guid: cf50298846d1e9b4c8c6b2789fcf265a, type: 2}
+  detector: {fileID: 7180718681422752600}
+--- !u!114 &7180718681422752600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510123066543379324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3686550defc42408fe906c72d46ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: squid
+  active: 0
 --- !u!1 &5651329949300888773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,11 +4578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Size
-      value: 0.28315443
+      value: 0.2831544
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_Value
-      value: 1.0000006
+      value: 1.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 1577966579202853124, guid: b9ee7716a65ca094a95109483eac2662, type: 3}
       propertyPath: m_NumberOfSteps

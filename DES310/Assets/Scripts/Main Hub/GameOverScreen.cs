@@ -52,7 +52,6 @@ public class GameOverScreen : MonoBehaviour
                 continueText.color = Color.clear;
 
                 timer -= Time.unscaledDeltaTime;
-                Debug.Log(timer);
             }
         }
     }
