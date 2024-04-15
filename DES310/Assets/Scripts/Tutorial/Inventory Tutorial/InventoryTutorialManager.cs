@@ -52,7 +52,8 @@ public class InventoryTutorialManager : MonoBehaviour
             inventoryAnimation.allowInventoryClose = false;
             inventoryTutorialStage++;
             openInventoryCanvas.gameObject.SetActive(false);
-        } else
+        }
+        else
         {
             openInventoryCanvas.gameObject.SetActive(true);
             openInventoryText.text = "Press " + (settings.Controls == 0 ? "TAB" : "Y") + " to open your inventory.";
@@ -70,7 +71,8 @@ public class InventoryTutorialManager : MonoBehaviour
             inventoryDescriptionCanvas.gameObject.SetActive(true);
             //inventoryDescriptionText.text = "This is the inventory\nhere you can see the items you've scavenged\n\nYou can also equip or use items from here\n\n" + (settings.Controls == 0 ? "Right click " : "Press X ") + "on the pistol, then " + (settings.Controls == 0 ? "left click " : "press A ") + "on the equip button to equip it";
             inventoryDescriptionText.text = (settings.Controls == 0 ? "Right Click " : "Press X ") + "on the pistol, then " + (settings.Controls == 0 ? "Left Click " : "press A ") + "on the equip button to equip it.";
-        } else
+        }
+        else
         {
             inventoryDescriptionCanvas.gameObject.SetActive(false);
             inventoryTutorialStage++;
@@ -84,7 +86,7 @@ public class InventoryTutorialManager : MonoBehaviour
             healCanvas.gameObject.SetActive(true);
             healText.text = "You seem hurt. " + (settings.Controls == 0 ? "Right Click " : "Press X ") + "on the health pack, then " + (settings.Controls == 0 ? "Left Click " : "press A ") + "on the use button to use it.";
         }
-        else 
+        else
         {
             healCanvas.gameObject.SetActive(false);
             inventoryAnimation.allowInventoryClose = true;
@@ -98,7 +100,8 @@ public class InventoryTutorialManager : MonoBehaviour
         {
             closeInventoryCanvas.gameObject.SetActive(true);
             closeInventoryText.text = "Close the inventory with " + (settings.Controls == 0 ? "Tab" : "Y or B") + ", or by pressing the cross.";
-        } else
+        }
+        else
         {
             closeInventoryCanvas.gameObject.SetActive(false);
             inventoryTutorialStage++;
