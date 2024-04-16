@@ -12,6 +12,7 @@ public class HotkeyListener : MonoBehaviour
     [SerializeField] inventoryMainPage inventoryMainPage;
     [SerializeField] InventoryAnimation inventoryAnimation;
     [SerializeField] PersistentVariables persistentVariables;
+    [SerializeField] InventoryItemUI inventoryItemUI1, inventoryItemUI2;
 
     [SerializeField] int hotkeySlot1, hotkeySlot2;
     // Start is called before the first frame update
@@ -23,6 +24,14 @@ public class HotkeyListener : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        HandleInput();
+        persistentVariables.hotkeySlot1 = hotkeySlot1;
+        persistentVariables.hotkeySlot2 = hotkeySlot2;
+        UpdateVisuals();
+    }
+
+    void HandleInput()
     {
         if (inputManager.GetButtonDown("Hotkey1"))
         {
@@ -39,7 +48,8 @@ public class HotkeyListener : MonoBehaviour
                         }
                     }
                 }
-            } else
+            }
+            else
             {
                 if (hotkeySlot1 != -1)
                 {
@@ -79,7 +89,8 @@ public class HotkeyListener : MonoBehaviour
                         }
                     }
                 }
-            } else
+            }
+            else
             {
                 if (hotkeySlot2 != -1)
                 {
@@ -104,7 +115,38 @@ public class HotkeyListener : MonoBehaviour
                 }
             }
         }
-        persistentVariables.hotkeySlot1 = hotkeySlot1;
-        persistentVariables.hotkeySlot2 = hotkeySlot2;
+    }
+
+    void UpdateVisuals()
+    {
+        bool hasItemInSlot = false;
+        if (hotkeySlot1 != -1)
+        {
+            InventoryItem item = playerInventory.GetItemAt(hotkeySlot1);
+            if (!item.IsEmpty)
+            {
+                inventoryItemUI1.SetData(item.item.ItemImage, item.quantity);
+                hasItemInSlot = true;
+            }
+        }
+        if (!hasItemInSlot)
+        {
+            inventoryItemUI1.ResetData();
+        }
+        hasItemInSlot = false;
+        if (hotkeySlot2 != -1)
+        {
+            InventoryItem item = playerInventory.GetItemAt(hotkeySlot2);
+            if (!item.IsEmpty)
+            {
+                inventoryItemUI2.SetData(item.item.ItemImage, item.quantity);
+                hasItemInSlot = true;
+            }
+        }
+        if (!hasItemInSlot)
+        {
+            inventoryItemUI2.ResetData();
+        }
+
     }
 }
