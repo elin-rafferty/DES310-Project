@@ -59,7 +59,7 @@ public class VentScript : MonoBehaviour
             text.text = "Press " + (settings.Controls == 0 ? "E" : "A") + " to enter";
         }
         // Load new scene
-        if (inputManager.GetButtonDown("Interact") && trigger && timeBeforeOpen == 0)
+        if (inputManager.GetButtonDown("Interact") && trigger && timeBeforeOpen == 0 && Time.timeScale != 0)
         {
             foreach (ItemSO key in keys)
             {
