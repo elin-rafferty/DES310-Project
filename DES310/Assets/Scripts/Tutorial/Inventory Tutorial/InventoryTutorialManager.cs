@@ -70,7 +70,7 @@ public class InventoryTutorialManager : MonoBehaviour
             }
             inventoryDescriptionCanvas.gameObject.SetActive(true);
             //inventoryDescriptionText.text = "This is the inventory\nhere you can see the items you've scavenged\n\nYou can also equip or use items from here\n\n" + (settings.Controls == 0 ? "Right click " : "Press X ") + "on the pistol, then " + (settings.Controls == 0 ? "left click " : "press A ") + "on the equip button to equip it";
-            inventoryDescriptionText.text = (settings.Controls == 0 ? "Right Click " : "Press X ") + "on the pistol, then " + (settings.Controls == 0 ? "Left Click " : "press A ") + "on the equip button to equip it.";
+            inventoryDescriptionText.text = (settings.Controls == 0 ? "Left Click " : "Press A ") + "on the pistol, then " + (settings.Controls == 0 ? "Left Click " : "Press A ") + "on the equip button to equip it.";
         }
         else
         {
@@ -84,7 +84,7 @@ public class InventoryTutorialManager : MonoBehaviour
         if (playerHealth.currentHealth < 100)
         {
             healCanvas.gameObject.SetActive(true);
-            healText.text = "You seem hurt. " + (settings.Controls == 0 ? "Right Click " : "Press X ") + "on the health pack, then " + (settings.Controls == 0 ? "Left Click " : "press A ") + "on the use button to use it.";
+            healText.text = "You seem hurt. " + (settings.Controls == 0 ? "Left Click " : "Press A ") + "on the health pack, then " + (settings.Controls == 0 ? "Left Click " : "press A ") + "on the use button to use it.";
         }
         else
         {
