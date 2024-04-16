@@ -101,12 +101,12 @@ TextureImporter:
       name: DOCOFFTABLE_LEFT_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 7
-        width: 121
-        height: 114
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,14 +121,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a448c311c56b67e4bb21e85d6c389369
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DOCOFFTABLE_LEFT_0: 4824452773495464698
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

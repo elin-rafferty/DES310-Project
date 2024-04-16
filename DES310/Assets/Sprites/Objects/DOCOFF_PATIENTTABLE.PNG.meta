@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DOCOFF_PATIENTTABLE_0: 6728976171628931663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

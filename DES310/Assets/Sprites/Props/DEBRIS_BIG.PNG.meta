@@ -101,12 +101,12 @@ TextureImporter:
       name: DEBRIS_BIG_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 15
-        width: 250
-        height: 110
+        x: 0
+        y: 0
+        width: 256
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,14 +121,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6dfe122c434224749aabd72bcc6f52e2
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DEBRIS_BIG_0: -3546191970518828406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

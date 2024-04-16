@@ -101,12 +101,12 @@ TextureImporter:
       name: PILL_TRAY_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 35
-        width: 82
-        height: 58
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,14 +121,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e7a723b5a3e10dd42a3aa12804db9694
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PILL_TRAY_0: -3269202545162916413
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

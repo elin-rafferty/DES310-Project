@@ -101,12 +101,12 @@ TextureImporter:
       name: STETHOSCOPE_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 31
-        width: 62
-        height: 62
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,14 +121,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d80927aef2d1fcb459bae3d5ac91fce8
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      STETHOSCOPE_0: -5531661363744508115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
