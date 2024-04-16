@@ -15,6 +15,8 @@ public class HotkeyListener : MonoBehaviour
     [SerializeField] InventoryItemUI inventoryItemUI1, inventoryItemUI2;
 
     [SerializeField] int hotkeySlot1, hotkeySlot2;
+
+    bool hotkey1ControllerThisFrame = false, hotkey2ControllerThisFrame = false, hotkey1ControllerLastFrame = false, hotkey2ControllerLastFrame = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class HotkeyListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckForMissing();
         HandleInput();
         persistentVariables.hotkeySlot1 = hotkeySlot1;
         persistentVariables.hotkeySlot2 = hotkeySlot2;
@@ -33,7 +36,8 @@ public class HotkeyListener : MonoBehaviour
 
     void HandleInput()
     {
-        if (inputManager.GetButtonDown("Hotkey1"))
+        UpdateControllerControls();
+        if (inputManager.GetButtonDown("Hotkey1") || (hotkey1ControllerThisFrame && !hotkey1ControllerLastFrame))
         {
             if (inventoryAnimation.InventoryOpen)
             {
@@ -74,7 +78,7 @@ public class HotkeyListener : MonoBehaviour
                 }
             }
         }
-        if (inputManager.GetButtonDown("Hotkey2"))
+        if (inputManager.GetButtonDown("Hotkey2") || (hotkey2ControllerThisFrame && !hotkey2ControllerLastFrame))
         {
             if (inventoryAnimation.InventoryOpen)
             {
@@ -148,5 +152,31 @@ public class HotkeyListener : MonoBehaviour
             inventoryItemUI2.ResetData();
         }
 
+    }
+
+    void UpdateControllerControls()
+    {
+        hotkey1ControllerLastFrame = hotkey1ControllerThisFrame;
+        hotkey2ControllerLastFrame = hotkey2ControllerThisFrame;
+        hotkey1ControllerThisFrame = Input.GetAxisRaw("DPadHorizontal") < -0.5;
+        hotkey2ControllerThisFrame = Input.GetAxisRaw("DPadHorizontal") > 0.5;
+    }
+
+    void CheckForMissing()
+    {
+        if (hotkeySlot1 != -1)
+        {
+            if (playerInventory.GetItemAt(hotkeySlot1).IsEmpty)
+            {
+                hotkeySlot1 = -1;
+            }
+        }
+        if (hotkeySlot2 != -1)
+        {
+            if (playerInventory.GetItemAt(hotkeySlot2).IsEmpty)
+            {
+                hotkeySlot2 = -1;
+            }
+        }
     }
 }
