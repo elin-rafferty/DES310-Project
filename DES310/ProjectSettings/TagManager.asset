@@ -14,6 +14,7 @@ TagManager:
   - Music Manager
   - Inventory Animation
   - Item
+  - Inventory Tutorial
   layers:
   - Default
   - TransparentFX

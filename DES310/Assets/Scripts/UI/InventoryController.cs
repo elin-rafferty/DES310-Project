@@ -24,6 +24,7 @@ namespace Inventory
 
         [SerializeField] InventorySwapsHandler inventorySwapsHandler;
 
+
         public void Awake()
         {
             PrepareUI();
@@ -86,17 +87,23 @@ namespace Inventory
                 {
                     inventoryUI.ShowItemAction(itemIndex);
                 }
-                if (inventorySwapsHandler == null)
+                GameObject inventoryTutorialManager = GameObject.FindGameObjectWithTag("Inventory Tutorial");
+                if (inventoryTutorialManager == null)
                 {
-                    inventoryUI.AddAction("Drop", () => DropItem(itemIndex, inventoryItem.quantity));
-                } else
-                {
-                    if (inventorySwapsHandler.gameObject.activeSelf)
-                    {
-                        inventoryUI.AddAction("Store", () => inventorySwapsHandler.DepositAll());
-                    } else
+                    if (inventorySwapsHandler == null)
                     {
                         inventoryUI.AddAction("Drop", () => DropItem(itemIndex, inventoryItem.quantity));
+                    }
+                    else
+                    {
+                        if (inventorySwapsHandler.gameObject.activeSelf)
+                        {
+                            inventoryUI.AddAction("Store", () => inventorySwapsHandler.DepositAll());
+                        }
+                        else
+                        {
+                            inventoryUI.AddAction("Drop", () => DropItem(itemIndex, inventoryItem.quantity));
+                        }
                     }
                 }
             }
