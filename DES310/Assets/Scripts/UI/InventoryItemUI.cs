@@ -92,10 +92,11 @@ namespace Inventory.UI
         {
             if (pointerData.button == PointerEventData.InputButton.Right)
             {
-                OnItemClicked?.Invoke(this);
+                
             }
             else
             {
+                OnItemClicked?.Invoke(this);
                 OnRightMouseBtnClick?.Invoke(this);
             }
         }

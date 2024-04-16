@@ -1863,6 +1863,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 2091100440178981762}
+  playerInventory: {fileID: 11400000, guid: 3159a824a09c3824b8be83d7dd8a45ae, type: 2}
+  inventoryMainPage: {fileID: 2161480753922219962}
+  inventoryAnimation: {fileID: 1506384952409356424}
+  persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
+  hotkeySlot1: 0
+  hotkeySlot2: 0
 --- !u!1 &3486042966028444370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,6 +2904,7 @@ MonoBehaviour:
     - itemparameter: {fileID: 11400000, guid: 632681c663091144cbb80e1ba4cfde79, type: 2}
       value: 80
   itemPickupPrefab: {fileID: 4497167517916249016, guid: 2c691083d19cd354aaad38c71fdbfa2c, type: 3}
+  inventorySwapsHandler: {fileID: 0}
 --- !u!114 &7521459502205102297
 MonoBehaviour:
   m_ObjectHideFlags: 0
