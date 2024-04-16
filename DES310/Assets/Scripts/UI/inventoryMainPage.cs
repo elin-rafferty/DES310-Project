@@ -51,6 +51,8 @@ namespace Inventory.UI
                 listOfUiItems.Add(UIItem);
 
                 UIItem.OnItemClicked += HandleItemSelection;
+                UIItem.OnMouseHover += HandleItemSelection;
+                //UIItem.OnMouseStopHover += ResetSelection;
                 UIItem.OnItemBeginDrag += HandleBeginDrag;
                 UIItem.OnItemDropped += HandleSwap;
                 UIItem.OnItemEndDrag += HandleEndDrad;

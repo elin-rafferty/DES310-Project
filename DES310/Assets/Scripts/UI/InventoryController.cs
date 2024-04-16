@@ -80,6 +80,10 @@ namespace Inventory
             IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
             if (destroyableItem != null)
             {
+                if (itemAction == null)
+                {
+                    inventoryUI.ShowItemAction(itemIndex);
+                }
                 inventoryUI.AddAction("Drop", () => DropItem(itemIndex, inventoryItem.quantity));
             }
 
