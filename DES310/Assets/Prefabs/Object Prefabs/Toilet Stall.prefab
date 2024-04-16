@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2296964861335777114}
   - component: {fileID: 2699034506025981948}
   - component: {fileID: 7991349694465727404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Toilet Stall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: -125728466952508457, guid: 35dba8ae3beeb3746b2d9b39b585cfea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

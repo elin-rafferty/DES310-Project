@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4205711031917713469}
   - component: {fileID: 3128255517505009087}
   - component: {fileID: 6680321149756314614}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: IV Drip
   m_TagString: Untagged
   m_Icon: {fileID: 0}

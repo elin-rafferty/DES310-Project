@@ -101,12 +101,12 @@ TextureImporter:
       name: TOILET_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 15
-        width: 90
-        height: 102
+        x: 0
+        y: 0
+        width: 127
+        height: 116
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,7 +121,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d1fd7a5cf291b8442a8c9873ee1a964e
     internalID: 0
     vertices: []
     indices: 
