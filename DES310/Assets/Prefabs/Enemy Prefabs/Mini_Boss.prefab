@@ -86,7 +86,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: -5092138147512460071, guid: 1d3886089b6509142808bbc9945d58a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   EnemySearchBase: {fileID: 11400000, guid: bc4fd83e3c4f2b54a8449c35b2a4b24f, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: 4edae2bbfc36a3e4ca314bab4b97bc60, type: 2}
   weaponTransform: {fileID: 6852282094855049438}
+  vent: {fileID: 0}
   bossHealthSlider: {fileID: 0}
   door: {fileID: 0}
 --- !u!114 &1714404285640921242
