@@ -55,7 +55,7 @@ public class Item : MonoBehaviour
     void Update()
     {
         // Pick up item
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton0)) && trigger && !hasDestination && !GameObject.FindGameObjectWithTag("Inventory Animation").GetComponent<InventoryAnimation>().InventoryOpen)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton0)) && trigger && !hasDestination && !GameObject.FindGameObjectWithTag("Inventory Animation").GetComponent<InventoryAnimation>().InventoryOpen && Time.timeScale != 0)
         {
             // Play Pickup Sound
             SoundManager.instance.PlaySound(SoundManager.SFX.ItemPickUp, transform, 1f);
