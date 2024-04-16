@@ -43,7 +43,7 @@ public class ShopTrigger : MonoBehaviour
     {
         canvas.gameObject.SetActive(trigger && !shopCanvas.gameObject.activeSelf && !inventoryAnimation.InventoryOpen);
         // Load shop menu
-        if (inputManager.GetButtonDown("Interact") && trigger == true && !shopCanvas.gameObject.activeSelf && !inventoryAnimation.InventoryOpen && Time.timeScale != 0)
+        if (inputManager.GetButtonDown("Interact") && trigger == true && !shopCanvas.gameObject.activeSelf && !inventoryAnimation.InventoryOpen)
         {
             shopCanvas.gameObject.SetActive(true);
             if (shopCanvas.gameObject.GetComponentInParent<UpgradeShop>() != null)

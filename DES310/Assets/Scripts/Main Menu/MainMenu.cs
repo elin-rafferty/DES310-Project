@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         persistentVariables.exitReason = LevelExitReason.NONE;
-        persistentVariables.equippedItem = pistol as EquippableItemSO;
+        inventory.AddItem(pistol, 1);
         inventory.AddItem(scrap, 300);
         SceneManager.LoadScene("Main Hub");
         Time.timeScale = 1.0f;

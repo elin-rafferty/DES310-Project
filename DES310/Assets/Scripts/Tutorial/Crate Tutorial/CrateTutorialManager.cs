@@ -42,7 +42,7 @@ public class CrateTutorialManager : MonoBehaviour
         {
             crateOpenText.gameObject.SetActive(false);
             crateCanvas.gameObject.SetActive(false);
-            crateVirtCam.SetActive(false);
+
             tutorialManager.IncrementTutorialStage();
             return;
         }

@@ -47,7 +47,7 @@ public class LootableObject : MonoBehaviour
     void Update()
     {
         // Pick up item
-        if (inputManager.GetButtonDown("Interact") && trigger && !looted && Time.timeScale != 0 && !GameObject.FindGameObjectWithTag("Inventory Animation").GetComponent<InventoryAnimation>().InventoryOpen)
+        if (inputManager.GetButtonDown("Interact") && trigger && !looted)
         {
             SoundManager.instance.PlaySound(SoundManager.SFX.CrateOpen, transform, 0.5f);
 
