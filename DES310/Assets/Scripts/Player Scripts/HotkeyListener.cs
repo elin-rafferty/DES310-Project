@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HotkeyListener : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class HotkeyListener : MonoBehaviour
     [SerializeField] InventoryAnimation inventoryAnimation;
     [SerializeField] PersistentVariables persistentVariables;
     [SerializeField] InventoryItemUI inventoryItemUI1, inventoryItemUI2;
+    [SerializeField] Text hotkey1Text, hotkey2Text;
+    [SerializeField] SettingsSO settings;
 
     [SerializeField] int hotkeySlot1, hotkeySlot2;
 
@@ -151,6 +154,8 @@ public class HotkeyListener : MonoBehaviour
         {
             inventoryItemUI2.ResetData();
         }
+        hotkey1Text.text = settings.Controls == 0 ? "1" : "DPAD LEFT";
+        hotkey2Text.text = settings.Controls == 0 ? "2" : "DPAD RIGHT";
 
     }
 
