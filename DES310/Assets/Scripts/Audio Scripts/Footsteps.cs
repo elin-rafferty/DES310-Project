@@ -21,7 +21,7 @@ public class Footsteps : MonoBehaviour
             }
             else
             {
-                SoundManager.instance.PlayAudioClip(mapManager.GetCurrentTileClip(transform.position), transform, 0.05f);
+                SoundManager.instance.PlayAudioClip(mapManager.GetCurrentTileClip(transform.position), transform, 0.1f);
             }
             
 
