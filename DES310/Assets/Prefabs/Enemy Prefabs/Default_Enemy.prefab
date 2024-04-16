@@ -374,7 +374,7 @@ MonoBehaviour:
   <meleeDamage>k__BackingField: 5
   <rangedDamage>k__BackingField: 0
   <MaxHealth>k__BackingField: 100
-  <aggroRange>k__BackingField: 7
+  <aggroRange>k__BackingField: 12
   <attackRange>k__BackingField: 2
   <attackDelay>k__BackingField: 1
   <speed>k__BackingField: 3

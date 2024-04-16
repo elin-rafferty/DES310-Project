@@ -19,7 +19,7 @@ public class LootableObject : MonoBehaviour
     public SpriteRenderer spriterenderer;
     public Sprite openSprite;
     bool trigger = false;
-    bool looted = false;
+    public bool looted = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

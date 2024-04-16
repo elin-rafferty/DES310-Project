@@ -17,6 +17,8 @@ public class CrateTutorialManager : MonoBehaviour
     [SerializeField] Canvas crateCanvas;
     [SerializeField] Text crateText, crateOpenText;
 
+    [SerializeField] LootableObject lootCrate;
+
     float timer;
     int count;
 
@@ -36,6 +38,15 @@ public class CrateTutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lootCrate.looted && !GameObject.FindGameObjectWithTag("Item"))
+        {
+            crateOpenText.gameObject.SetActive(false);
+            crateCanvas.gameObject.SetActive(false);
+
+            tutorialManager.IncrementTutorialStage();
+            return;
+        }
+
         if (inputManager.GetButtonDown("Interact") && timer < 0)
         {
             if (!GameObject.FindGameObjectWithTag("Item") && playerMovement.enabled == true)
