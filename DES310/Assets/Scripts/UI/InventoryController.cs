@@ -22,6 +22,8 @@ namespace Inventory
 
         [SerializeField] private Item itemPickupPrefab;
 
+        [SerializeField] InventorySwapsHandler inventorySwapsHandler;
+
         public void Awake()
         {
             PrepareUI();
@@ -80,7 +82,23 @@ namespace Inventory
             IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
             if (destroyableItem != null)
             {
-                inventoryUI.AddAction("Drop", () => DropItem(itemIndex, inventoryItem.quantity));
+                if (itemAction == null)
+                {
+                    inventoryUI.ShowItemAction(itemIndex);
+                }
+                if (inventorySwapsHandler == null)
+                {
+                    inventoryUI.AddAction("Drop", () => DropItem(itemIndex, inventoryItem.quantity));
+                } else
+                {
+                    if (inventorySwapsHandler.gameObject.activeSelf)
+                    {
+                        inventoryUI.AddAction("Store", () => inventorySwapsHandler.DepositAll());
+                    } else
+                    {
+                        inventoryUI.AddAction("Drop", () => DropItem(itemIndex, inventoryItem.quantity));
+                    }
+                }
             }
 
         }

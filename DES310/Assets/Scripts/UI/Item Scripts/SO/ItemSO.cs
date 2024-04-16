@@ -6,7 +6,7 @@ using System;
 namespace Inventory.Model
 {
     [CreateAssetMenu (menuName = "Items/Item SO")]
-    public class ItemSO : ScriptableObject
+    public class ItemSO : ScriptableObject, IDestroyableItem
     {
 
         [field: SerializeField]
@@ -29,6 +29,11 @@ namespace Inventory.Model
 
         [field: SerializeField]
         public List<ItemParameter> DefaultParametersList { get; set; }
+
+        public interface IDestroyableItem
+        {
+
+        }
     }
 
     [Serializable]
@@ -41,5 +46,7 @@ namespace Inventory.Model
         {
             return other.itemparameter == itemparameter;
         }
+
+
     }
 }

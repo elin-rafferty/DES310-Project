@@ -10,7 +10,7 @@ using Inventory.Model;
 
 namespace Inventory.UI
 {
-    public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
+    public class InventoryItemUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
         // https://www.youtube.com/watch?v=DS5Ss9SFHbs&list=PLcRSafycjWFegXSGBBf4fqIKWkHDw_G8D&index=7
         public ItemSO item;
@@ -25,7 +25,8 @@ namespace Inventory.UI
         [SerializeField]
         private Image borderImage;
 
-        public event Action<InventoryItemUI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
+        public event Action<InventoryItemUI> OnItemClicked, OnItemDropped, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick, OnMouseHover;
+        public event Action OnMouseStopHover;
 
         public bool empty = true;
 
@@ -91,11 +92,12 @@ namespace Inventory.UI
         {
             if (pointerData.button == PointerEventData.InputButton.Right)
             {
-                OnRightMouseBtnClick?.Invoke(this);
+                
             }
             else
             {
                 OnItemClicked?.Invoke(this);
+                OnRightMouseBtnClick?.Invoke(this);
             }
         }
 
@@ -122,7 +124,14 @@ namespace Inventory.UI
             OnItemDropped?.Invoke(this);
         }
 
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            OnMouseHover?.Invoke(this);
+        }
 
-
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            OnMouseStopHover?.Invoke();
+        }
     }
 }

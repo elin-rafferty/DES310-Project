@@ -10,7 +10,7 @@ public class PersistentVariables : ScriptableObject
     public EquippableItemSO equippedItem = null;
     public List<Modifiers> modifier;
     public string lastLevelEntered;
-    public int tutorialStage = 0;
+    public int tutorialStage = 0, hotkeySlot1 = -1, hotkeySlot2 = -1;
 
     public void OnEnable()
     {
@@ -19,5 +19,7 @@ public class PersistentVariables : ScriptableObject
         modifier = new();
         lastLevelEntered = "";
         tutorialStage = 0;
+        hotkeySlot1 = -1;
+        hotkeySlot2 = -1;
     }
 }

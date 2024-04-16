@@ -100,7 +100,7 @@ public class InventorySwapsHandler : MonoBehaviour
 
     void HandleButtons()
     {
-        depositButtons.SetActive(inventorySelected);
+        //depositButtons.SetActive(inventorySelected);
         withdrawButtons.SetActive(storageSelected);
     }
 
