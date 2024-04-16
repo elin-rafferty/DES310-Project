@@ -436,7 +436,7 @@ MonoBehaviour:
   <rangedDamage>k__BackingField: 5
   <MaxHealth>k__BackingField: 100
   <aggroRange>k__BackingField: 10
-  <attackRange>k__BackingField: 7
+  <attackRange>k__BackingField: 8
   <attackDelay>k__BackingField: 1
   <speed>k__BackingField: 0
   <damageReduction>k__BackingField: 0
