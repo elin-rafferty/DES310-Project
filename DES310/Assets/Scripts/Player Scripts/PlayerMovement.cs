@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private GameObject bubble, backpackPos;
     [SerializeField] private ActiveBuffs activeBuffs;
+    [SerializeField] private GameObject pistolMuzzleFlash, rifleMuzzleFlash, shotgunMuzzleFlash;
 
 
     private bool inventoryOpen = false;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private AgentWeapon agentWeapon;
     private float bubbleTimer = 0.1f;
     private bool doBubbles = false;
+    private float muzzleFlashTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -112,6 +114,17 @@ public class PlayerMovement : MonoBehaviour
         if (bubbleTimer > 0)
         {
             bubbleTimer -= Time.deltaTime;
+        }
+        if (muzzleFlashTimer > 0)
+        {
+            muzzleFlashTimer -= Time.deltaTime;
+            if (muzzleFlashTimer < 0)
+            {
+                muzzleFlashTimer = 0;
+                pistolMuzzleFlash.SetActive(false);
+                rifleMuzzleFlash.SetActive(false);
+                shotgunMuzzleFlash.SetActive(false);
+            }
         }
     }
 
@@ -230,6 +243,19 @@ public class PlayerMovement : MonoBehaviour
                 }
                 // Play shoot sound
                 SoundManager.instance.PlaySound(weaponProperties.sound, transform, 0.3f);
+                switch (GetComponent<AgentWeapon>().weapon.Name)
+                {
+                    case "Laser Pistol":
+                        pistolMuzzleFlash.SetActive(true);
+                        break;
+                    case "Laser Rifle":
+                        rifleMuzzleFlash.SetActive(true);
+                        break;
+                    case "Laser Shotgun":
+                        shotgunMuzzleFlash.SetActive(true);
+                        break;
+                }
+                muzzleFlashTimer = 0.1f;
             }
         }
     }
