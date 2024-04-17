@@ -32,6 +32,7 @@ public class HotkeyListener : MonoBehaviour
     {
         CheckForMissing();
         HandleInput();
+        TryToFill();
         persistentVariables.hotkeySlot1 = hotkeySlot1;
         persistentVariables.hotkeySlot2 = hotkeySlot2;
         UpdateVisuals();
@@ -204,6 +205,40 @@ public class HotkeyListener : MonoBehaviour
                 if (itemAction == null)
                 {
                     hotkeySlot2 = -1;
+                }
+            }
+        }
+    }
+
+    void TryToFill()
+    {
+        if (hotkeySlot1 == -1)
+        {
+            for (int i = 0; i < playerInventory.Size; i++)
+            {
+                if (!playerInventory.GetItemAt(i).IsEmpty && i != hotkeySlot2)
+                {
+                    IItemAction itemAction = playerInventory.GetItemAt(i).item as IItemAction;
+                    if (itemAction != null)
+                    {
+                        hotkeySlot1 = i;
+                        break;
+                    }
+                }
+            }
+        }
+        if (hotkeySlot2 == -1)
+        {
+            for (int i = 0; i < playerInventory.Size; i++)
+            {
+                if (!playerInventory.GetItemAt(i).IsEmpty && i != hotkeySlot1)
+                {
+                    IItemAction itemAction = playerInventory.GetItemAt(i).item as IItemAction;
+                    if (itemAction != null)
+                    {
+                        hotkeySlot2 = i;
+                        break;
+                    }
                 }
             }
         }
