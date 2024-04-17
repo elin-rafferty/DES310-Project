@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     private float speed;
     private float damage;
     [SerializeReference] private SpriteRenderer spriteRenderer;
+    [SerializeField] private ParticleSystem sparkParticle;
     private List<Sprite> sprites = new();
     private GameObject owner;
     private WeaponUpgrades weaponUpgrades;
@@ -54,7 +55,11 @@ public class Projectile : MonoBehaviour
                 else if (hit.collider)
                 {
                     // Play Laser Rebound
-                    SoundManager.instance.PlaySound(SoundManager.SFX.LaserRebound, transform, 0.1f);
+                    SoundManager.instance.PlaySound(SoundManager.SFX.LaserRebound, transform, 0.5f);
+                }
+                if (!hit.collider.gameObject.CompareTag("Enemy") && sparkParticle && type.name != "EnemyProjectile")
+                {
+                    Destroy(Instantiate(sparkParticle, transform.position, transform.rotation), 2);
                 }
                 break;
             }

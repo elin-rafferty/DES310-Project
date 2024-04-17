@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5780978267076369934}
-  animator: {fileID: 0}
+  sparkParticle: {fileID: 6177405374770528628, guid: 926fecf9ae4d8ff40a373416060e1c47, type: 3}
 --- !u!212 &5780978267076369934
 SpriteRenderer:
   m_ObjectHideFlags: 0
