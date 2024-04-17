@@ -119,7 +119,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
         if (damageParticle)
         {
-            Destroy(Instantiate(damageParticle, transform.position, Quaternion.identity), 2);
+            Instantiate(damageParticle, transform.position, Quaternion.identity);
         }
 
         SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, transform, 1f);
