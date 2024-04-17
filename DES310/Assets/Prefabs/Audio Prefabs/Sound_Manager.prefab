@@ -110,4 +110,9 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: e22956db932e7754b959a83edc0d53fa, type: 3}
   - SoundName: 31
     Clip: {fileID: 8300000, guid: 88a35f1cb635e01489d6f575f9caeb71, type: 3}
+  - SoundName: 32
+    Clip: {fileID: 8300000, guid: 83ecab3c0b97ccb4ba3ec1455f9f5ec3, type: 3}
+  - SoundName: 33
+    Clip: {fileID: 8300000, guid: 3cbc46b3c8e23124b881ede414d32547, type: 3}
   pitchModifier: 1
+  maxDistance: 100

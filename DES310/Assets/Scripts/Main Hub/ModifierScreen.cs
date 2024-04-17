@@ -20,13 +20,23 @@ public class ModifierScreen : MonoBehaviour
             if (inputManager.GetButtonDown("Interact")) 
             {
                 // Vent Sound
-                SoundManager.instance.PlaySound(SoundManager.SFX.VentOpen, transform, 0.7f);
+                SoundManager.instance.PlaySound(SoundManager.SFX.VentOpen, transform, 0.35f);
 
                 gameObject.SetActive(false);
                 Time.timeScale = 1.0f;
                 eventHandler.TimescaleFreeze.Invoke(false);
             }
         }
+    }
+
+    private void Awake()
+    {
+        eventHandler.TimescaleFreeze.Invoke(true);
+    }
+
+    private void Start()
+    {
+        eventHandler.TimescaleFreeze.Invoke(true);
     }
 
     private void OnEnable()

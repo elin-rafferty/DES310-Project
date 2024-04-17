@@ -14,6 +14,11 @@ public class BuffHandler : MonoBehaviour
     {
         eventHandler.TimescaleFreeze.AddListener(TimescaleChangeResponse);
     }
+
+    private void OnEnable()
+    {
+        eventHandler.TimescaleFreeze.AddListener(TimescaleChangeResponse);
+    }
     // Start is called before the first frame update
     void Start()
     {
