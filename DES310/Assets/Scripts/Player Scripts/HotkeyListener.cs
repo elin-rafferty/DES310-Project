@@ -32,6 +32,7 @@ public class HotkeyListener : MonoBehaviour
     {
         CheckForMissing();
         HandleInput();
+        TryToFill();
         persistentVariables.hotkeySlot1 = hotkeySlot1;
         persistentVariables.hotkeySlot2 = hotkeySlot2;
         UpdateVisuals();
@@ -51,6 +52,10 @@ public class HotkeyListener : MonoBehaviour
                         IItemAction itemAction = playerInventory.GetItemAt(inventoryMainPage.selectedSlot).item as IItemAction;
                         if (itemAction != null)
                         {
+                            if (hotkeySlot2 == inventoryMainPage.selectedSlot)
+                            {
+                                hotkeySlot2 = hotkeySlot1;
+                            }
                             hotkeySlot1 = inventoryMainPage.selectedSlot;
                         }
                     }
@@ -92,6 +97,10 @@ public class HotkeyListener : MonoBehaviour
                         IItemAction itemAction = playerInventory.GetItemAt(inventoryMainPage.selectedSlot).item as IItemAction;
                         if (itemAction != null)
                         {
+                            if (hotkeySlot1 == inventoryMainPage.selectedSlot)
+                            {
+                                hotkeySlot1 = hotkeySlot2;
+                            }
                             hotkeySlot2 = inventoryMainPage.selectedSlot;
                         }
                     }
@@ -175,12 +184,62 @@ public class HotkeyListener : MonoBehaviour
             {
                 hotkeySlot1 = -1;
             }
+            else
+            {
+                IItemAction itemAction = playerInventory.GetItemAt(hotkeySlot1).item as IItemAction;
+                if (itemAction == null)
+                {
+                    hotkeySlot1 = -1;
+                }
+            }
         }
         if (hotkeySlot2 != -1)
         {
             if (playerInventory.GetItemAt(hotkeySlot2).IsEmpty)
             {
                 hotkeySlot2 = -1;
+            }
+            else
+            {
+                IItemAction itemAction = playerInventory.GetItemAt(hotkeySlot2).item as IItemAction;
+                if (itemAction == null)
+                {
+                    hotkeySlot2 = -1;
+                }
+            }
+        }
+    }
+
+    void TryToFill()
+    {
+        if (hotkeySlot1 == -1)
+        {
+            for (int i = 0; i < playerInventory.Size; i++)
+            {
+                if (!playerInventory.GetItemAt(i).IsEmpty && i != hotkeySlot2)
+                {
+                    IItemAction itemAction = playerInventory.GetItemAt(i).item as IItemAction;
+                    if (itemAction != null)
+                    {
+                        hotkeySlot1 = i;
+                        break;
+                    }
+                }
+            }
+        }
+        if (hotkeySlot2 == -1)
+        {
+            for (int i = 0; i < playerInventory.Size; i++)
+            {
+                if (!playerInventory.GetItemAt(i).IsEmpty && i != hotkeySlot1)
+                {
+                    IItemAction itemAction = playerInventory.GetItemAt(i).item as IItemAction;
+                    if (itemAction != null)
+                    {
+                        hotkeySlot2 = i;
+                        break;
+                    }
+                }
             }
         }
     }
