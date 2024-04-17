@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprinter_run_vfx_0: -8629427511086728908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
