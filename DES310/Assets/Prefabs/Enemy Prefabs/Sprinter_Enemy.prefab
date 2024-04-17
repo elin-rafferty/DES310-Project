@@ -371,6 +371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <eventHandler>k__BackingField: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
   <alertIconPrefab>k__BackingField: {fileID: 8588801196531009245, guid: 31aa6eac21ef3114792beb5866c897e5, type: 3}
+  <oxygenPrefab>k__BackingField: {fileID: 3744088063754797322, guid: e2f8b5e0b68a3774799320322d171f97, type: 3}
+  <oxygenValue>k__BackingField: 20
+  <oxygenDropChance>k__BackingField: 50
   <meleeDamage>k__BackingField: 5
   <rangedDamage>k__BackingField: 0
   <MaxHealth>k__BackingField: 80

@@ -8,6 +8,9 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     [field: SerializeField] public EventHandler eventHandler { get; set; }
     [field: SerializeField] public GameObject alertIconPrefab { get; set; }
     public GameObject alertObject { get; set; }
+    [field: SerializeField] public GameObject oxygenPrefab { get; set; }
+    [field: SerializeField] public float oxygenValue { get; set; }
+    [field: SerializeField] public float oxygenDropChance { get; set; }
     [field: SerializeField] public float meleeDamage { get; set; } = 5f;
     [field: SerializeField] public float rangedDamage { get; set; } = 0f;
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
@@ -119,8 +122,20 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
     public void Die()
     {
         eventHandler.ShakeCamera.Invoke(0, 0);
+        // Drop Oxygen
+        if (oxygenPrefab)
+        {
+            int rand = Random.Range(0, 100);
+            if (rand < oxygenDropChance)
+            {
+                GameObject oxygen = Instantiate(oxygenPrefab, transform.position, Quaternion.identity);
+                oxygen.GetComponent<OxygenLogic>().replenishedOxygen = oxygenValue;
+            }
+
+        }
+        // Destroy objects
         Destroy(gameObject);
-        if(alertObject) Destroy(alertObject);
+        if (alertObject) Destroy(alertObject);
     }
 
     #endregion
