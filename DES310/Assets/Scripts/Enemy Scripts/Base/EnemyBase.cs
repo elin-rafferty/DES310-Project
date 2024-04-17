@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
     [field: SerializeField] public EventHandler eventHandler { get; set; }
+    [field: SerializeField] public ParticleSystem damageParticle { get; set; }
     [field: SerializeField] public GameObject alertIconPrefab { get; set; }
     public GameObject alertObject { get; set; }
     [field: SerializeField] public GameObject oxygenPrefab { get; set; }
@@ -114,6 +115,11 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         if (CurrentHealth <= 0)
         {
             Die();
+        }
+
+        if (damageParticle)
+        {
+            Destroy(Instantiate(damageParticle, transform.position, Quaternion.identity), 2);
         }
 
         SoundManager.instance.PlaySound(SoundManager.SFX.EnemyHit, transform, 1f);
