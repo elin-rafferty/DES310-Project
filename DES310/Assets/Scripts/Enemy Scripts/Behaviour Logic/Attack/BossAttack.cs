@@ -83,6 +83,7 @@ public class BossAttack : EnemyAttackSOBase
 
         currentAttackState = AttackState.NONE;
         enemyBase.colliderTag = string.Empty;
+        weaponTransform = enemyBase.gameObject.GetComponent<Boss>().weaponTransform;
 
         // Choose Random Attack
         int rand = Random.Range(0, 4);
@@ -100,10 +101,9 @@ public class BossAttack : EnemyAttackSOBase
             currentAttack = AttackState.CHARGE_ATTACK;
             currentAttackState = AttackState.WINDUP;
         }
-        else if (rand == 3)
+        else if (rand == 4)
         {
             // Shoot Attack
-            weaponTransform = enemyBase.gameObject.GetComponent<Boss>().weaponTransform;
             shootTimer = 0;
             shotsFired = 0;
             currentAttack = AttackState.SHOOT_ATTACK;
@@ -197,6 +197,25 @@ public class BossAttack : EnemyAttackSOBase
                 if (jumpTimer <= 0)
                 {
                     SoundManager.instance.PlaySound(SoundManager.SFX.BossImpact, transform, 1f);
+
+                    // 360 circle of projectiles
+                    // Player Direction
+                    Vector2 direction = (Player.transform.position - weaponTransform.position).normalized;
+
+                    float slamSprayAngle = 360f;
+                    int slamBullets = 14;
+
+                    for (int i = 0; i < slamBullets; i++)
+                    {
+                        float interval = slamSprayAngle / slamBullets;
+
+                        float firingAngle = Mathf.Atan2(direction.y, direction.x) + (interval * i * Mathf.Deg2Rad) - ((slamSprayAngle / 2) * Mathf.Deg2Rad);
+                        Vector2 firingDirection = new Vector2(Mathf.Cos(firingAngle), Mathf.Sin(firingAngle));
+
+                        Fire(firingDirection);
+                        // Play shoot sound
+                        SoundManager.instance.PlaySound(SoundManager.SFX.SpitterAttack, transform, 0.05f);
+                    }
 
                     enemyBase.eventHandler.ShakeCamera.Invoke(2, 100);
 

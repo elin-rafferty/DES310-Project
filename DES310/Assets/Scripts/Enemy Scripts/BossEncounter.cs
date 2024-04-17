@@ -14,6 +14,7 @@ public class BossEncounter : MonoBehaviour
     [SerializeField] GameObject bossCam;
     [SerializeField] GameObject mainCam;
     [SerializeField] EventHandler eventHandler;
+    [SerializeField] Vector2 bossSpawnPos;
 
     float amplitude = 1.0f;
     float frequency = 1.0f;
@@ -31,6 +32,13 @@ public class BossEncounter : MonoBehaviour
             else if (cameraTimer > 2 && cameraTimer < 5)
             {
                 amplitude = 1 - ((cameraTimer - 4f) / (5f - 4f));
+            }
+
+            // Force Position
+            if (cameraTimer < 5)
+            {
+                boss.transform.position = bossSpawnPos;
+                boss.transform.rotation = Quaternion.Euler(0, 0, -90);
             }
 
             cameraTimer += Time.unscaledDeltaTime;
@@ -56,6 +64,11 @@ public class BossEncounter : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        boss.transform.position = bossSpawnPos;
+    }
+
     private void OnEnable()
     {
         if (bossCam.activeSelf)
@@ -74,6 +87,7 @@ public class BossEncounter : MonoBehaviour
             if (boss)
             {
                 boss.SetActive(true);
+
                 SoundManager.instance.PlaySound(SoundManager.SFX.BossScream, boss.transform, 1f);
 
                 // Close Door
@@ -87,6 +101,7 @@ public class BossEncounter : MonoBehaviour
                 bossCam.SetActive(true);
                 mainCam.GetComponent<CinemachineBrain>().m_UpdateMethod = CinemachineBrain.UpdateMethod.LateUpdate;
 
+                boss.transform.position = bossSpawnPos;
                 Time.timeScale = 0f;
                 eventHandler.TimescaleFreeze.Invoke(true);
             }
