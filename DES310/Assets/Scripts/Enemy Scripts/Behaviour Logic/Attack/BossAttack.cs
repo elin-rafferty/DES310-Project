@@ -128,7 +128,7 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoPhysicsLogic();
 
-        Debug.Log(currentAttackState.ToString());
+        //Debug.Log(currentAttackState.ToString());
 
         switch (currentAttack)
         {
