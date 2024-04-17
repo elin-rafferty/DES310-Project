@@ -107,7 +107,6 @@ public class SoundManager : MonoBehaviour
         audioSource.clip = GetAudioClip(audioClip);
 
         // Change Volume
-        Debug.Log("Playing sound: " + audioClip);
         audioSource.volume = useDistanceDropoff ? ApplyDistanceToVolume(volume, transform) : volume;
 
         // Change Pitch
@@ -152,7 +151,6 @@ public class SoundManager : MonoBehaviour
                 return clip.Clip;
             }
         }
-        Debug.LogError("Sound " + sound + " not found");
         return null;
     }
 
@@ -168,7 +166,6 @@ public class SoundManager : MonoBehaviour
         float distance = Vector3.Distance(audioSourceTransform.position, playerTransform.position);
         float multiplier = Mathf.Clamp01(Mathf.Pow(1 - (distance / maxDistance), 2));
         newVolume = volume * multiplier;
-        Debug.Log("Original volume was: " + volume + ", new is: " + newVolume + ", distance was: " + distance);
 
         return newVolume;
     }
