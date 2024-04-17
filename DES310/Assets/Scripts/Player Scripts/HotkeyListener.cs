@@ -51,6 +51,10 @@ public class HotkeyListener : MonoBehaviour
                         IItemAction itemAction = playerInventory.GetItemAt(inventoryMainPage.selectedSlot).item as IItemAction;
                         if (itemAction != null)
                         {
+                            if (hotkeySlot2 == inventoryMainPage.selectedSlot)
+                            {
+                                hotkeySlot2 = hotkeySlot1;
+                            }
                             hotkeySlot1 = inventoryMainPage.selectedSlot;
                         }
                     }
@@ -92,6 +96,10 @@ public class HotkeyListener : MonoBehaviour
                         IItemAction itemAction = playerInventory.GetItemAt(inventoryMainPage.selectedSlot).item as IItemAction;
                         if (itemAction != null)
                         {
+                            if (hotkeySlot1 == inventoryMainPage.selectedSlot)
+                            {
+                                hotkeySlot1 = hotkeySlot2;
+                            }
                             hotkeySlot2 = inventoryMainPage.selectedSlot;
                         }
                     }
