@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource soundObject;
     [SerializeField] private SFXClips[] audioClips;
     public float pitchModifier = 1;
+    [SerializeField] private float maxDistance = 100;
 
     [System.Serializable]
     public class SFXClips
@@ -60,7 +62,10 @@ public class SoundManager : MonoBehaviour
         InventoryClose,
 
         BossImpact,
-        BossScream
+        BossScream,
+
+        PowerupActivated,
+        PowerupDeactivated
     }
 
     private void Awake()
@@ -93,7 +98,7 @@ public class SoundManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
-    public void PlaySound(SFX audioClip, Transform transform, float volume)
+    public void PlaySound(SFX audioClip, Transform transform, float volume, bool useDistanceDropoff = false)
     {
         // Spawn Object
         AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
@@ -102,7 +107,11 @@ public class SoundManager : MonoBehaviour
         audioSource.clip = GetAudioClip(audioClip);
 
         // Change Volume
-        audioSource.volume = volume;
+        Debug.Log("Playing sound: " + audioClip);
+        audioSource.volume = useDistanceDropoff ? ApplyDistanceToVolume(volume, transform) : volume;
+
+        // Change Pitch
+        audioSource.pitch = pitchModifier;
 
         // Play Audio
         audioSource.Play();
@@ -145,5 +154,22 @@ public class SoundManager : MonoBehaviour
         }
         Debug.LogError("Sound " + sound + " not found");
         return null;
+    }
+
+    private float ApplyDistanceToVolume(float volume, Transform audioSourceTransform)
+    {
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        if (Player == null)
+        {
+            return volume;
+        }
+        Transform playerTransform = Player.transform;
+        float newVolume = 0;
+        float distance = Vector3.Distance(audioSourceTransform.position, playerTransform.position);
+        float multiplier = Mathf.Clamp01(Mathf.Pow(1 - (distance / maxDistance), 2));
+        newVolume = volume * multiplier;
+        Debug.Log("Original volume was: " + volume + ", new is: " + newVolume + ", distance was: " + distance);
+
+        return newVolume;
     }
 }

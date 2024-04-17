@@ -21,6 +21,8 @@ public class ActiveBuffs : ScriptableObject
             if (buff.time < 0)
             {
                 buff.time = 0;
+                activeBuffs.Remove(buff);
+                SoundManager.instance.PlaySound(SoundManager.SFX.PowerupDeactivated, GameObject.FindGameObjectWithTag("Player").transform, 1.0f);
             }
         }
     }
@@ -48,6 +50,7 @@ public class ActiveBuffs : ScriptableObject
             newBuff.time = time;
             activeBuffs.Add(newBuff);
         }
+        SoundManager.instance.PlaySound(SoundManager.SFX.PowerupActivated, GameObject.FindGameObjectWithTag("Player").transform, 1.0f);
     }
 
     public bool IsBuffActive(BuffType buff)
