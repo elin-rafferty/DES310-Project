@@ -15,6 +15,7 @@ TagManager:
   - Inventory Animation
   - Item
   - Inventory Tutorial
+  - Oxygen
   layers:
   - Default
   - TransparentFX
