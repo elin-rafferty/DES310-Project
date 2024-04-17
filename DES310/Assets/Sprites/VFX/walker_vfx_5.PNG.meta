@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      walker_vfx_5_0: -2701283821474808888
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
