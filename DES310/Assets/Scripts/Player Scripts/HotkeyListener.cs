@@ -183,12 +183,28 @@ public class HotkeyListener : MonoBehaviour
             {
                 hotkeySlot1 = -1;
             }
+            else
+            {
+                IItemAction itemAction = playerInventory.GetItemAt(hotkeySlot1).item as IItemAction;
+                if (itemAction == null)
+                {
+                    hotkeySlot1 = -1;
+                }
+            }
         }
         if (hotkeySlot2 != -1)
         {
             if (playerInventory.GetItemAt(hotkeySlot2).IsEmpty)
             {
                 hotkeySlot2 = -1;
+            }
+            else
+            {
+                IItemAction itemAction = playerInventory.GetItemAt(hotkeySlot2).item as IItemAction;
+                if (itemAction == null)
+                {
+                    hotkeySlot2 = -1;
+                }
             }
         }
     }
