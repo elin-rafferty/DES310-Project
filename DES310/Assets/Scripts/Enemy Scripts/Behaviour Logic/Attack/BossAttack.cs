@@ -101,7 +101,7 @@ public class BossAttack : EnemyAttackSOBase
             currentAttack = AttackState.CHARGE_ATTACK;
             currentAttackState = AttackState.WINDUP;
         }
-        else if (rand == 4)
+        else if (rand == 3)
         {
             // Shoot Attack
             shootTimer = 0;
@@ -128,7 +128,7 @@ public class BossAttack : EnemyAttackSOBase
     {
         base.DoPhysicsLogic();
 
-        //Debug.Log(currentAttackState.ToString());
+        Debug.Log(currentAttackState.ToString());
 
         switch (currentAttack)
         {
