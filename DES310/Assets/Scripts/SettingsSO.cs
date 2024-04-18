@@ -10,4 +10,5 @@ public class SettingsSO : ScriptableObject
     public float SFXVolume = 0.5f;
     public int Graphics = 2;
     public int Controls = 0;
+    public bool particleLights = false;
 }
