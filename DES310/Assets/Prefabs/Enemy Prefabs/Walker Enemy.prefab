@@ -217,8 +217,10 @@ GameObject:
   - component: {fileID: 7895694222084400623}
   - component: {fileID: 7064637114123715454}
   - component: {fileID: 8813954745529364949}
+  - component: {fileID: 2438653636310924923}
+  - component: {fileID: 6904126799187758150}
   m_Layer: 0
-  m_Name: Default_Enemy
+  m_Name: Walker Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: -751448578914088416, guid: 8589ee77478463e4f824530c8b24f0ec, type: 3}
+  m_Sprite: {fileID: -1420823256, guid: 82e12e013ccfbd940a3f26407ab0916d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -502,3 +504,37 @@ MonoBehaviour:
     - rid: 5526921043346456601
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &2438653636310924923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908213203280251588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d46b5ecf7b4464db00d4a8563b6a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &6904126799187758150
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908213203280251588}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e85d7ffa1eee0ce48bbef365a5261c37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
