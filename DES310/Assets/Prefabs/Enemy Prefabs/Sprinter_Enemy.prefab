@@ -217,6 +217,8 @@ GameObject:
   - component: {fileID: 7895694222084400623}
   - component: {fileID: 7064637114123715454}
   - component: {fileID: 5540325353490389055}
+  - component: {fileID: 7114323238089280713}
+  - component: {fileID: 3782887417524112721}
   m_Layer: 0
   m_Name: Sprinter_Enemy
   m_TagString: Enemy
@@ -503,6 +505,40 @@ MonoBehaviour:
     - rid: 5526921043346456604
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &7114323238089280713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908213203280251588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d46b5ecf7b4464db00d4a8563b6a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &3782887417524112721
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908213203280251588}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ece211011b960d4a978b4cf931ab302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3813622815023386652
 PrefabInstance:
   m_ObjectHideFlags: 0
