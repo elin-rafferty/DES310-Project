@@ -20,7 +20,8 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
-    [SerializeField] private TMP_Dropdown controls; 
+    [SerializeField] private TMP_Dropdown controls;
+    [SerializeField] private Toggle particleLights;
 
     // Modifiers
     /*
@@ -58,6 +59,8 @@ public class OptionsMenu : MonoBehaviour
         sfxVolumeSlider.value = settings.SFXVolume;
         //graphics.value = settings.Graphics;
         controls.value = settings.Controls;
+
+        particleLights.isOn = settings.particleLights;
     }
 
     private void Update()
@@ -139,5 +142,10 @@ public class OptionsMenu : MonoBehaviour
     public void PlaySelectSound()
     {
         SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+    }
+
+    public void SetParticleLights()
+    {
+        settings.particleLights = particleLights.isOn;
     }
 }

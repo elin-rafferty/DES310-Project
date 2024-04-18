@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4955663999567638251}
   - component: {fileID: 6177405374770528628}
   - component: {fileID: 8109532629789523193}
+  - component: {fileID: 4027792393660818225}
   m_Layer: 0
   m_Name: Sparks FX
   m_TagString: Untagged
@@ -116,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.8
+      scalar: 0.5
       minScalar: 0.25
       maxCurve:
         serializedVersion: 2
@@ -1392,7 +1393,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 42983
+        atime1: 39128
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -4895,3 +4896,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4027792393660818225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601105664165606610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af2c7f7b9ac49d4fb309fded09213ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: eed8b952351198f4cb813522fc59cd99, type: 2}
+  m_Prefab: {fileID: 9907450741169361, guid: a3380dbbdd7ce3047aeafdf809268a55, type: 3}

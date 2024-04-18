@@ -1184,7 +1184,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 233538318905180027, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 479468428459645052, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: mainMenu
@@ -1199,6 +1199,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5667901298349614752}
     - target: {fileID: 479468428459645052, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
+      propertyPath: particleLights
+      value: 
+      objectReference: {fileID: 8448551198135717785}
+    - target: {fileID: 479468428459645052, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: controlsBackButton
       value: 
       objectReference: {fileID: 872852866872394504}
@@ -1212,15 +1216,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2810355131265365215, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3372599498195330422, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5916090516915302143, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6341147002536109226, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_LocalScale.x
@@ -1276,11 +1280,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6753906386694412292, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8927087504359373792, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1307,3 +1311,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2555774943746645267, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
   m_PrefabInstance: {fileID: 5881438632218331144}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8448551198135717785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2639208111096104849, guid: 67d988a8436bdee4891ad56663badacf, type: 3}
+  m_PrefabInstance: {fileID: 5881438632218331144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
