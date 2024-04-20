@@ -9,6 +9,9 @@ public class UITutorialManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] GameObject goodWorkCanvas, overheatCanvas, oxygenCanvas;
     GameObject enemy;
+
+    [SerializeField] GameObject oxygenPrefab;
+    Vector3 enemyTransform;
     
 
     int tutorialStage = 0;
@@ -26,9 +29,16 @@ public class UITutorialManager : MonoBehaviour
                 // Wait for enemy death
                 if (enemy == null)
                 {
+                    // Force Drop 02
+                    Instantiate(oxygenPrefab, enemyTransform, Quaternion.identity);
+
                     playerMovement.GetComponentInParent<Rigidbody2D>().velocity = Vector3.zero;
                     playerMovement.enabled = false;
                     tutorialStage++;
+                }
+                else
+                {
+                    enemyTransform = enemy.transform.position;
                 }
                 break;
 
