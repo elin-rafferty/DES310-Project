@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VentTimer : MonoBehaviour
 {
     [SerializeField] private VentPath ventPath; 
-    public TextMeshProUGUI text;
+    public Text text;
     private VentScript vent;
     private bool textEnabled = false;
     public float colourChangeTime = 0.5f;
