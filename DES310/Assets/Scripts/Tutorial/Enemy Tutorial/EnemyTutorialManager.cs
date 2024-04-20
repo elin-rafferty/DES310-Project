@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyTutorialManager : MonoBehaviour
 {
-    [SerializeField] TutorialManager hubTutorialManager;
+    [SerializeField] TutorialManager tutorialManager;
     [SerializeField] InputManager inputManager;
     [SerializeField] SettingsSO settings;
     [SerializeField] GameObject enemyTrigger;
@@ -13,7 +13,7 @@ public class EnemyTutorialManager : MonoBehaviour
     {
         if (enemyTrigger == null) 
         { 
-            hubTutorialManager.IncrementTutorialStage();
+            tutorialManager.IncrementTutorialStage();
             gameObject.SetActive(false);
         }
     }
