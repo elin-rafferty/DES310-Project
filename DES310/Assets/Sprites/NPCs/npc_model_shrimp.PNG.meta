@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      npc_model_shrimp_0: -689556660045167845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

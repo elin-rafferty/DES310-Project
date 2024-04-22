@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      npc_model_dory_0: -4345538913506817217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

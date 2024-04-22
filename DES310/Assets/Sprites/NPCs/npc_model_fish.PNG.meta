@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      npc_model_fish_0: -2299114568202095644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

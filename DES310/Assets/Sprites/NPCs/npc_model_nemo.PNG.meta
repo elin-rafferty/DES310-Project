@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      npc_model_nemo_0: -6878594642361442516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
