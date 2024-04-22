@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4205711031917713469}
   - component: {fileID: 3128255517505009087}
   m_Layer: 2
-  m_Name: Tarp
+  m_Name: Computer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,13 +72,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 5938023657441267873, guid: b79594b4c5e86c040a5b7648d7ff8c1f, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 8091521316497603991, guid: bd7f3613f9bf39c4abf5403df12b17fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.46, y: 2.46}
+  m_Size: {x: 0.74, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

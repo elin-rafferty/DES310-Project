@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 32d9438490b621f4db6cf11244f78267
+guid: bd7f3613f9bf39c4abf5403df12b17fe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1573073293184708009
-    second: npc_model_blobfish_0
+      213: 8091521316497603991
+    second: COMPUTER_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,22 +98,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npc_model_blobfish_0
+      name: COMPUTER_0
       rect:
         serializedVersion: 2
-        x: 67
-        y: 15
-        width: 102
-        height: 98
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9adaded53dda4d510800000000000000
-      internalID: 1573073293184708009
+      spriteID: 79d375244cbda4070800000000000000
+      internalID: 8091521316497603991
       vertices: []
       indices: 
       edges: []
@@ -121,7 +121,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c45d7f98ee77d0142a6661185ace5620
     internalID: 0
     vertices: []
     indices: 
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      npc_model_blobfish_0: 1573073293184708009
+      COMPUTER_0: 8091521316497603991
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
