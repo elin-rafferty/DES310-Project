@@ -15,7 +15,6 @@ public class BossEncounter : MonoBehaviour
     [SerializeField] GameObject mainCam;
     [SerializeField] EventHandler eventHandler;
     [SerializeField] Vector2 bossSpawnPos;
-    [SerializeField] GameObject pauseMenu;
 
     float amplitude = 1.0f;
     float frequency = 1.0f;
@@ -23,51 +22,45 @@ public class BossEncounter : MonoBehaviour
 
     void Update()
     {
-        if (!pauseMenu.activeSelf)
+        if (boss.activeSelf)
         {
-            if (boss.activeSelf)
+            // Increase Shake
+            if (cameraTimer <= 2)
             {
-                Time.timeScale = 0;
-                eventHandler.TimescaleFreeze.Invoke(true);
-
-                // Increase Shake
-                if (cameraTimer <= 2)
-                {
-                    amplitude = cameraTimer / 2f;
-                }
-                else if (cameraTimer > 2 && cameraTimer < 5)
-                {
-                    amplitude = 1 - ((cameraTimer - 4f) / (5f - 4f));
-                }
-
-                // Force Position
-                if (cameraTimer < 5)
-                {
-                    boss.transform.position = bossSpawnPos;
-                    boss.transform.rotation = Quaternion.Euler(0, 0, -90);
-                }
-
-                cameraTimer += Time.unscaledDeltaTime;
+                amplitude = cameraTimer / 2f;
+            }
+            else if (cameraTimer > 2 && cameraTimer < 5)
+            {
+                amplitude = 1 - ((cameraTimer - 4f) / (5f - 4f));
             }
 
-            if (!boss)
+            // Force Position
+            if (cameraTimer < 5)
             {
-                door.Unlock();
+                boss.transform.position = bossSpawnPos;
+                boss.transform.rotation = Quaternion.Euler(0, 0, -90);
             }
 
-            if (cameraTimer >= 4)
-            {
-                bossCam.SetActive(false);
-            }
+            cameraTimer += Time.unscaledDeltaTime;
+        }
 
-            if (cameraTimer >= 5)
-            {
-                mainCam.GetComponent<CinemachineBrain>().m_UpdateMethod = CinemachineBrain.UpdateMethod.FixedUpdate;
-                Time.timeScale = 1f;
-                eventHandler.TimescaleFreeze.Invoke(false);
-                bossHealthSlider.gameObject.SetActive(true);
-                Destroy(gameObject);
-            }
+        if (!boss)
+        {
+            door.Unlock();
+        }
+
+        if (cameraTimer >= 4)
+        {
+            bossCam.SetActive(false);
+        }
+
+        if (cameraTimer >= 5) 
+        {
+            mainCam.GetComponent<CinemachineBrain>().m_UpdateMethod = CinemachineBrain.UpdateMethod.FixedUpdate;
+            Time.timeScale = 1f;
+            eventHandler.TimescaleFreeze.Invoke(false);
+            bossHealthSlider.gameObject.SetActive(true);
+            Destroy(gameObject);
         }
     }
 
@@ -78,13 +71,12 @@ public class BossEncounter : MonoBehaviour
 
     private void OnEnable()
     {
-        cameraTimer = 0;
-
         if (bossCam.activeSelf)
         {
             amplitude = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain;
             frequency = bossCam.GetComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain;
         }
+        cameraTimer = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
