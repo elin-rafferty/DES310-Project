@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ResolutionHandler : MonoBehaviour
 {
+    [SerializeField] PersistentVariables persistentVariables;
     void Start()
     {
-        Screen.SetResolution(1920, 1080, true);
+        if (!persistentVariables.hasForcedResolution)
+        {
+            Screen.SetResolution(1920, 1080, Screen.fullScreenMode);
+            persistentVariables.hasForcedResolution = true;
+        }
     }
 }

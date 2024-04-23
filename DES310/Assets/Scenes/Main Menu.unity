@@ -1739,6 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75434e11ad959a4c8b0a97ef8bea26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistentVariables: {fileID: 11400000, guid: 063ab25e66004f94e87f78214cff2399, type: 2}
 --- !u!4 &1579903016
 Transform:
   m_ObjectHideFlags: 0

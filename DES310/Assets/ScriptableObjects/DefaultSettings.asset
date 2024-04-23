@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DefaultSettings
   m_EditorClassIdentifier: 
   MasterVolume: 0.5
-  MusicVolume: 0.05
+  MusicVolume: 0.1
   SFXVolume: 0.5
   Graphics: 0
   Controls: 0
+  particleLights: 1
