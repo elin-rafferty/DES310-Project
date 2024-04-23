@@ -16,7 +16,7 @@ MonoBehaviour:
   dropchance: 100
   itemQuantityVariation: 0
   items:
-  - quantity: 100
+  - quantity: 50
     item: {fileID: 11400000, guid: ea3d28ec50f68b44e92230cd4f41b9e9, type: 2}
     itemState: []
   weightings: 01000000

@@ -11,15 +11,17 @@ public class PersistentVariables : ScriptableObject
     public List<Modifiers> modifier;
     public string lastLevelEntered;
     public int tutorialStage = 0, hotkeySlot1 = -1, hotkeySlot2 = -1;
+    public bool hasForcedResolution = false;
 
     public void OnEnable()
     {
         exitReason = LevelExitReason.NONE;
         equippedItem = null;
         modifier = new();
-        lastLevelEntered = "";
+        lastLevelEntered = "Communal Level";
         tutorialStage = 0;
         hotkeySlot1 = -1;
         hotkeySlot2 = -1;
+        hasForcedResolution = false;
     }
 }

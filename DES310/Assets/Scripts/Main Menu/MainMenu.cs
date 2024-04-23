@@ -38,7 +38,6 @@ public class MainMenu : MonoBehaviour
     {
         persistentVariables.exitReason = LevelExitReason.NONE;
         persistentVariables.equippedItem = pistol as EquippableItemSO;
-        inventory.AddItem(scrap, 300);
         SceneManager.LoadScene("Main Hub");
         Time.timeScale = 1.0f;
     }

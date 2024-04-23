@@ -64,7 +64,7 @@ public class PauseMenu : MonoBehaviour
         }
         persistentVariables.exitReason = LevelExitReason.NONE;
         persistentVariables.modifier.Clear();
-        persistentVariables.lastLevelEntered = "";
+        persistentVariables.lastLevelEntered = "Communal Level";
         persistentVariables.equippedItem = null;
         persistentVariables.tutorialStage = 0;
         buffs.ResetBuffs();
