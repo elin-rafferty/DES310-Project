@@ -7,6 +7,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 {
     [field: SerializeField] public EventHandler eventHandler { get; set; }
     [field: SerializeField] public ParticleSystem damageParticle { get; set; }
+    [field: SerializeField] public ParticleSystem dieParticle { get; set; }
     [field: SerializeField] public GameObject alertIconPrefab { get; set; }
     public GameObject alertObject { get; set; }
     [field: SerializeField] public GameObject oxygenPrefab { get; set; }
@@ -127,7 +128,11 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
 
     public void Die()
     {
-        eventHandler.ShakeCamera.Invoke(0, 0);
+        if (GetComponent<Boss>())
+        {
+            eventHandler.ShakeCamera.Invoke(0, 0);
+        }
+           
         // Drop Oxygen
         if (oxygenPrefab)
         {
@@ -142,6 +147,11 @@ public class EnemyBase : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerChe
         // Destroy objects
         Destroy(gameObject);
         if (alertObject) Destroy(alertObject);
+
+        if (dieParticle)
+        {
+            Instantiate(dieParticle, transform.position, Quaternion.identity);
+        }
     }
 
     #endregion

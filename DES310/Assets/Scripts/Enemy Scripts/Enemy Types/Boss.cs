@@ -36,5 +36,11 @@ public class Boss : EnemyBase
             GetComponent<LootDrops>().DropItems();
             door.Unlock();
         }
+
+        // Damage effects
+        if (damageParticle)
+        {
+            Instantiate(damageParticle, transform.position, Quaternion.identity);
+        }
     }
 }
