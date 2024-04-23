@@ -18,7 +18,7 @@ public class BossEncounter : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
 
     float amplitude = 1.0f;
-    float frequency = 1.0f;
+    float frequency = 100.0f;
     float cameraTimer = 0;
 
     void Update()
@@ -34,10 +34,14 @@ public class BossEncounter : MonoBehaviour
                 if (cameraTimer <= 2)
                 {
                     amplitude = cameraTimer / 2f;
+                    bossCam.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = amplitude;
+                    bossCam.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = frequency;
                 }
                 else if (cameraTimer > 2 && cameraTimer < 5)
                 {
                     amplitude = 1 - ((cameraTimer - 4f) / (5f - 4f));
+                    bossCam.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = amplitude;
+                    bossCam.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = frequency;
                 }
 
                 // Force Position
