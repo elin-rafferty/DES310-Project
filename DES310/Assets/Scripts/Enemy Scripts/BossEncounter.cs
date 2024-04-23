@@ -73,6 +73,7 @@ public class BossEncounter : MonoBehaviour
 
     private void Awake()
     {
+        cameraTimer = 0;
         boss.transform.position = bossSpawnPos;
     }
 

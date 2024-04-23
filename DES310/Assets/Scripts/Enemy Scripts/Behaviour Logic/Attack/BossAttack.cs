@@ -166,6 +166,7 @@ public class BossAttack : EnemyAttackSOBase
 
                 jumpTimer = 0;
                 gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                gameObject.GetComponent<SpriteRenderer>().sortingOrder = 12;
                 currentAttackState = AttackState.JUMP;
 
                 break;
@@ -222,6 +223,7 @@ public class BossAttack : EnemyAttackSOBase
                     enemyBase.transform.localScale = Vector2.one * 2;
 
                     gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+                    gameObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
                     currentAttackState = AttackState.READY_JUMP;
                     enemyBase.StateMachine.ChangeState(enemyBase.CHASEState);
                 }
