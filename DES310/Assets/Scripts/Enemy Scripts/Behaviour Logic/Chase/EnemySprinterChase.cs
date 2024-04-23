@@ -128,8 +128,6 @@ public class EnemySprinterChase : EnemyChaseSOBase
                     canDodge = false;
 
                     UpdatePath(rb.position, target.position);
-                    
-                    dodgeCooldownTimer = 2;
                 }
 
                 // Direction Damping
@@ -139,8 +137,9 @@ public class EnemySprinterChase : EnemyChaseSOBase
             }
             
             // Dodge for 0.1s
-            if (dodgeTimer <= 0.1f && enemyBase.IsLineOfSight && canDodge) 
+            if (dodgeTimer <= 0.1f && enemyBase.IsLineOfSight && canDodge)
             {
+                dodgeCooldownTimer = 2;
                 Dodge();
                 direction = dodgeDirection.normalized + direction.normalized;
                 enemyBase.MoveEnemy(1.5f * enemyBase.speed * direction);
