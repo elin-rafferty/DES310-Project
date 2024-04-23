@@ -197,6 +197,7 @@ MonoBehaviour:
   itemImage: {fileID: 3161715969566925265}
   quantityTxt: {fileID: 2927291056639572951}
   borderImage: {fileID: 4309953001449087679}
+  empty: 1
 --- !u!1 &2490914886870212765
 GameObject:
   m_ObjectHideFlags: 0
