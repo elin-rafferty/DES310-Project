@@ -282,6 +282,14 @@ public class BossAttack : EnemyAttackSOBase
                     enemyBase.damageReduction = 0;
                     currentAttackState = AttackState.STUNNED;
                 }
+
+                else if (enemyBase.colliderTag == "Enemy")
+                {
+                    enemyBase.MoveEnemy(Vector2.zero);
+                    chargeTimer = 1;
+                    enemyBase.damageReduction = 0;
+                    currentAttackState = AttackState.STUNNED;
+                }
                 break;
 
             // Stun on collision with wall
