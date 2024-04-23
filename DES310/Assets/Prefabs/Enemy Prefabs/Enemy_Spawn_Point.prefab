@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifierBehaviour: {fileID: 11400000, guid: cf50298846d1e9b4c8c6b2789fcf265a, type: 2}
   eventHandler: {fileID: 11400000, guid: 42e9aca12f582314eb187cb8f8fa02b5, type: 2}
-  respawnTime: 40
+  respawnTime: 15
 --- !u!212 &-5116524638962561997
 SpriteRenderer:
   m_ObjectHideFlags: 0

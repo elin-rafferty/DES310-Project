@@ -65,45 +65,81 @@ public class UpgradeShop : MonoBehaviour
     public void AddDamageUpgrade()
     {
         damageUpgrades++;
+        SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
     }
 
     public void RemoveDamageUpgrade()
     {
         damageUpgrades--;
-        if (damageUpgrades < 0) damageUpgrades = 0;
+        if (damageUpgrades < 0)
+        {
+            damageUpgrades = 0;
+            SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseUnsuccessful, transform, 1f);
+        }
+        else
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+        }
     }
 
     public void AddFireSpeedUpgrade()
     {
         fireSpeedUpgrades++;
+        SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
     }
 
     public void RemoveFireSpeedUpgrade()
     {
         fireSpeedUpgrades--;
-        if (fireSpeedUpgrades < 0) fireSpeedUpgrades = 0;
+        if (fireSpeedUpgrades < 0)
+        {
+            fireSpeedUpgrades = 0;
+            SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseUnsuccessful, transform, 1f);
+        }
+        else
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+        }
     }
 
     public void AddOverheatCapacityUpgrade()
     {
         overheatUpgrades++;
+        SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
     }
 
     public void RemoveOverheatCapacityUpgrade()
     {
         overheatUpgrades--;
-        if (overheatUpgrades < 0) overheatUpgrades = 0;
+        if (overheatUpgrades < 0)
+        {
+            overheatUpgrades = 0;
+            SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseUnsuccessful, transform, 1f);
+        }
+        else
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+        }
     }
 
     public void AddRangeUpgrade()
     {
         rangeUpgrades++;
+        SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
     }
 
     public void RemoveRangeUpgrade()
     {
         rangeUpgrades--;
-        if (rangeUpgrades < 0) rangeUpgrades = 0;
+        if (rangeUpgrades < 0)
+        {
+            rangeUpgrades = 0;
+            SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseUnsuccessful, transform, 1f);
+        }
+        else
+        {
+            SoundManager.instance.PlaySound(SoundManager.SFX.ButtonSelect, transform, 1f);
+        }
     }
 
     public void PurchaseUpgrades()

@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
                 }
                 if (!hit.collider.gameObject.CompareTag("Enemy") && sparkParticle && type.name != "EnemyProjectile")
                 {
-                    Instantiate(sparkParticle, transform.position, transform.rotation);
+                    Instantiate(sparkParticle, newPos - direction * 0.2f, transform.rotation);
                 }
                 break;
             }

@@ -20,6 +20,7 @@ namespace Inventory.Model
             {
                 data.statModifier.AffectCharacter(character, data.value);
             }
+            SoundManager.instance.PlaySound(SoundManager.SFX.PowerupActivated, character.transform, 1f);
             return true;
         }    
     }
