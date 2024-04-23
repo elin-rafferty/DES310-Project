@@ -41,13 +41,14 @@ public class TimerHandler : MonoBehaviour
     public float timeLeft;
     public float maxTime = 100;
     public float duration = 1;
+    public float initialTime = 120;
 
     public Slider slider;
     bool runTimer = false;
     // Use this for initialization
     private void Start()
     {
-        timeLeft = maxTime;
+        timeLeft = initialTime;
         slider.value = timeLeft;
     }
 
