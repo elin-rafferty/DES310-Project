@@ -50,3 +50,11 @@ A - Interact with items, shop, and vent/click on buttons
 Left Trigger - Dash
 Left/Right DPAD - Assign item to hotkey/use item assigned to hotkey
 Start - Open pause menu
+
+Known issues:
+
+Issue: If the control scheme is changed while the inventory is open, the virtual cursor won't appear/disappear to match the new control scheme
+Workaround: Either close the inventory before changing control schemes, or simply close and re-open the inventory and the virtual cursor will appear/disappear correctly
+
+Issue: The scrollbar in the storage menu doesn't match the background for the scrollbar
+Workaround: Purely visual bug, can ignore
