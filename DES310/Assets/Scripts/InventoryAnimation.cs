@@ -54,7 +54,7 @@ public class InventoryAnimation : MonoBehaviour
             virtualMouse.SetActive(true);
             Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.value;
             virtualMousePos.x = Screen.width / 2;
-            virtualMousePos.y = Screen.height / 2;
+            virtualMousePos.y = Screen.height / 2 + 80;
             virtualMouseImage.transform.position = virtualMousePos;
             InputState.Change(virtualMouseInput.virtualMouse.position, virtualMousePos);
         }
@@ -71,7 +71,7 @@ public class InventoryAnimation : MonoBehaviour
             {
                 Vector2 virtualMousePos = virtualMouseInput.virtualMouse.position.value;
                 virtualMousePos.x = Screen.width / 2;
-                virtualMousePos.y = Screen.height / 2;
+                virtualMousePos.y = Screen.height / 2 + 80;
                 virtualMouseImage.transform.position = virtualMousePos;
                 InputState.Change(virtualMouseInput.virtualMouse.position, virtualMousePos);
             }
