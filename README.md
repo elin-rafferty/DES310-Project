@@ -1,46 +1,52 @@
 # DES310-Project
 Our professional DES310 project with a client from Modern Wolf. Our name is Squid Kid Studios and our game is called Operation Exodus.
 
+
 About:
-The game is a top down rogue like with element of survival and resource management. The game utilises tilemaps to create a seamless environment. It will have a detailed pixelated art style.
-Our game will consist of three runs which each last a maximum of 5 minutes. Each run is different with one being an indoor map, one being an outdoor map and last being a boss match. Between each run is a hub where you can relax and sort your inventory, storage and buy possibly items from the traders shop.
+The game is a top down rogue-like with elements of resource management. The game utilises tilemaps to create a seamless environment. It has a detailed pixelated art style.
+Our game consits of an infinite series of runs where you fight enemies and gather resources. Between each run is a hub where you can relax and sort your inventory, storage and buy items/upgrades from the trader shop.
 
 Currently it contains the main hub and two level layouts.
 
+
 To Play:
 Extract Operation Exodus.zip
-You double left-click on Operation Exodus.exe. It will then take you to the main menu. 
-You should click play when you are ready and you will be launched in the main hub. Here you 
-can explore the shops and buy useful items to help pass the level.
-Once you are ready you can walk to the vent and press E (or X on the controller) to get to the first run.
-You have a timer on the right, a weapon cooldown and health on the bottom right. Keep an eye on these!
-You can collect medkits, scrap and consumable items while adventuring around the map from the loot crates scattered around the map.
-Once 120 seconds have passed the exit vent will open, allowing you to travel back to the hub by 
-pressing E (or X on controller) again. Here you can spend any gathered resources on gear and 
-upgrades in their dedicated shops. 
+Double left-click on Operation Exodus.exe. It will then take you to the main menu. 
+From here you can click Play or Tutorial to enter the game, or change settings/controls scheme in the Settings menu.
+From the main hub, walk over to the vent on the right and press the interact button (E on keyboard, A on controller) to enter a level.
+Once 120 seconds have passed, or the boss of that level is defeated, the exit vent will open, allowing you to travel back to the hub.
+Here you can spend any gathered resources on gear and upgrades in their dedicated shops. 
 
-Cheatcodes:
 
-rave(disco mode)
-squid(God mode)
-gimmegimme(spawns max stack of all items)
-fps(Shows fps counter)
+Cheat Codes:
+
+rave(enables disco mode for the rest of that level)
+squid(enables god mode for the rest of that level)
+gimmegimme(spawns a max stack of all items)
+fps(displays fps counter for the rest of that level)
+
 
 Controls:
+
+Keyboard:
+
 WASD - Walk
+Mouse - Aim
+Left-Click - To click on buttons/fire weapon
 TAB - Open/Close Inventory
-Left-Click - To click on buttons and shoot
-Right-Click - On inventory slot with item to equip, eat or drop
-E - Pick up items
+E - Interact with items, shop, and vent
 Shift - Dash
+1/2 - Assign item to hotkey/use item assigned to hotkey
+Escape - Open pause menu
 
 Xbox Controller:
+
 Left Analog Stick - Walk
-Y - Open/Close Inventory
+Right Analog Stick - Aim
 Right Trigger - Fire weapon
-X - Interact with items, shop, and vent
+Y - Open/Close Inventory
+B - Back/Close Inventory/Close Menu
+A - Interact with items, shop, and vent/click on buttons
 Left Trigger - Dash
-
-Known Bugs:
-
-
+Left/Right DPAD - Assign item to hotkey/use item assigned to hotkey
+Start - Open pause menu
