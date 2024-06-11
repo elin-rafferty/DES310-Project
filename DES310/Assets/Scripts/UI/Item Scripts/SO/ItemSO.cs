@@ -5,7 +5,7 @@ using System;
 
 namespace Inventory.Model
 {
-    [CreateAssetMenu (menuName = "Items/Item SO")]
+    [CreateAssetMenu(menuName = "Items/Item SO")]
     public class ItemSO : ScriptableObject, IDestroyableItem
     {
 
@@ -30,6 +30,16 @@ namespace Inventory.Model
         public interface IDestroyableItem
         {
 
+        }
+
+        public virtual void onItemAddedToInventory(int quantity)
+        {
+            return;
+        }
+
+        public virtual void onItemDropped(int quantity)
+        {
+            return;
         }
     }
 }

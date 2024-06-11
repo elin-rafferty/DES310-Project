@@ -74,8 +74,7 @@ public class LootableObject : MonoBehaviour
                 Item pickup = Instantiate(pickupPrefab, gameObject.transform.position, Quaternion.identity);
                 pickup.hasDestination = true;
                 pickup.destination = pickup.transform.position + offset;
-                pickup.Quantity = item.quantity;
-                pickup.InventoryItem = item.item;
+                pickup.SetItem(item);
                 posIndex++;
             }
             looted = true;

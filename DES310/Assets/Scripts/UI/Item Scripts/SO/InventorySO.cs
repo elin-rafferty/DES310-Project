@@ -59,6 +59,7 @@ namespace Inventory.Model
 
         public int AddItem(ItemSO item, int quantity)
         {
+            int initialQuantity = quantity;
             if (item.IsStackable == false)
             {
                 for (int i = 0; i < inventoryItems.Count; i++)
@@ -77,9 +78,9 @@ namespace Inventory.Model
             if (player != null && quantity != 0)
             {
                 Item newPickup = Instantiate(itemPickupPrefab, player.transform.position + new Vector3(0, 0, 1), Quaternion.identity);
-                newPickup.InventoryItem = item;
-                newPickup.Quantity = quantity;
+                newPickup.SetItem(item, quantity);
             }
+            item.onItemAddedToInventory(initialQuantity);
             return quantity;
         }
 

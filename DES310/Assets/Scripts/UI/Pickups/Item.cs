@@ -14,8 +14,8 @@ public class Item : MonoBehaviour
 
     public int MyProperty { get; set; }
 
-    [SerializeField]
-    public ItemSO InventoryItem;
+    [field: SerializeField]
+    public ItemSO InventoryItem { get; private set; }
 
     [field: SerializeField]
     public int Quantity { get; set; } = 1;
@@ -124,6 +124,23 @@ public class Item : MonoBehaviour
         }
         transform.localScale = endScale;
         Destroy(gameObject);
+    }
+
+    public void SetItem(InventoryItem item)
+    {
+        SetItem(item.item, item.quantity);
+    }
+
+    public void SetItem(ItemSO item, int quantitiy)
+    {
+        Quantity = quantitiy;
+        SetItem(item);
+    }
+
+    public void SetItem(ItemSO item)
+    {
+        InventoryItem = new InventoryItem(item, Quantity).item;
+        InventoryItem.onItemDropped(Quantity);
     }
 
 }

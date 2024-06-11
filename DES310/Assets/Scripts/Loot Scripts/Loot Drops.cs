@@ -14,8 +14,7 @@ public class LootDrops : MonoBehaviour
         foreach (InventoryItem item in itemsToDrop)
         {
             Item pickup = Instantiate(pickupPrefab, gameObject.transform.position, Quaternion.identity);
-            pickup.Quantity = item.quantity;
-            pickup.InventoryItem = item.item;
+            pickup.SetItem(item.item, item.quantity);
         }
     }
 }

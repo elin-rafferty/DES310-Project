@@ -113,8 +113,7 @@ namespace Inventory
         private void DropItem(int itemIndex, int quantity)
         {
             Item newPickup = Instantiate(itemPickupPrefab, GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(0, 0, 1), Quaternion.identity);
-            newPickup.InventoryItem = inventoryData.GetItemAt(itemIndex).item;
-            newPickup.Quantity = inventoryData.GetItemAt(itemIndex).quantity;
+            newPickup.SetItem(inventoryData.GetItemAt(itemIndex));
             inventoryData.RemoveItem(itemIndex, quantity);
             inventoryUI.ResetSelection();
         }
