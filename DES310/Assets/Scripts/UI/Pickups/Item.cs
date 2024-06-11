@@ -14,8 +14,8 @@ public class Item : MonoBehaviour
 
     public int MyProperty { get; set; }
 
-    [field: SerializeField]
-    public ItemSO InventoryItem { get; set; }
+    [SerializeField]
+    public ItemSO InventoryItem;
 
     [field: SerializeField]
     public int Quantity { get; set; } = 1;
@@ -33,6 +33,14 @@ public class Item : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] Text text;
     [SerializeField] SettingsSO settings;
+
+    private void Awake()
+    {
+        if (InventoryItem != null)
+        {
+            InventoryItem = new InventoryItem(InventoryItem, Quantity).item;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
