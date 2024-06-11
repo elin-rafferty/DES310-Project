@@ -12,7 +12,7 @@ namespace Inventory.Model
         public Buff buffToApply;
         public ActiveBuffs activeBuffs;
 
-        public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
+        public bool PerformAction(GameObject character)
         {
             if (activeBuffs != null)
             {

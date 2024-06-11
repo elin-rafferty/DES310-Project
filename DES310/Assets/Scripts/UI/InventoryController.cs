@@ -40,7 +40,7 @@ namespace Inventory
             {
                 foreach (InventoryItem item in initialItems)
                 {
-                    if (item.IsEmpty)
+                    if (item.isEmpty)
                         continue;
                     inventoryData.AddItem(item);
                 }
@@ -69,7 +69,7 @@ namespace Inventory
         private void HandleItemActionRequired(int itemIndex)
         {
             InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-            if (inventoryItem.IsEmpty)
+            if (inventoryItem.isEmpty)
                 return;
 
             IItemAction itemAction = inventoryItem.item as IItemAction;
@@ -122,7 +122,7 @@ namespace Inventory
         public void PerformAction(int itemIndex)
         {
             InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-            if (inventoryItem.IsEmpty)
+            if (inventoryItem.isEmpty)
                 return;
 
             IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
@@ -134,8 +134,8 @@ namespace Inventory
             IItemAction itemAction = inventoryItem.item as IItemAction;
             if (itemAction != null)
             {
-                itemAction.PerformAction(gameObject, inventoryItem.itemState);
-                if (inventoryData.GetItemAt(itemIndex).IsEmpty)
+                itemAction.PerformAction(gameObject);
+                if (inventoryData.GetItemAt(itemIndex).isEmpty)
                     inventoryUI.ResetSelection();
             }
         }
@@ -143,7 +143,7 @@ namespace Inventory
         private void HandleDragging(int itemIndex)
         {
             InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-            if (inventoryItem.IsEmpty)
+            if (inventoryItem.isEmpty)
                 return;
             inventoryUI.CreatedDraggedItem(inventoryItem.item.ItemImage, inventoryItem.quantity);
         }
@@ -156,7 +156,7 @@ namespace Inventory
         private void HandleDescriptionRequest(int itemIndex)
         {
             InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-            if (inventoryItem.IsEmpty)
+            if (inventoryItem.isEmpty)
             {
                 inventoryUI.ResetSelection();
                 return;
@@ -171,10 +171,6 @@ namespace Inventory
             StringBuilder sb = new StringBuilder();
             sb.Append(inventoryItem.item.Description);
             sb.AppendLine();
-            for (int i = 0; i < inventoryItem.itemState.Count; i++)
-            {
-                sb.Append($"{inventoryItem.itemState[i].itemparameter.ParameterName} " + $": {inventoryItem.itemState[i].value} / {inventoryItem.item.DefaultParametersList[i].value}");
-            }
             return sb.ToString();
         }
 

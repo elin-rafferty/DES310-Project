@@ -12,15 +12,14 @@ namespace Inventory.Model
         public WeaponProperties weaponProperties;
 
         //public AudioClip actionSFX { get; private set; }
+        public bool isOriginalSO = true;
 
-
-        public bool PerformAction(GameObject character, List<ItemParameter> itemState = null)
+        public bool PerformAction(GameObject character)
         {
             AgentWeapon weaponSystem = character.GetComponent<AgentWeapon>();
             if (weaponSystem != null)
             {
-                weaponSystem.SetWeapon(this, itemState == null ?
-                    DefaultParametersList : itemState);
+                weaponSystem.SetWeapon(this);
                 inventoryMainPage inventoryMainPage = character.GetComponentInChildren<inventoryMainPage>();
                 if (inventoryMainPage != null)
                 {

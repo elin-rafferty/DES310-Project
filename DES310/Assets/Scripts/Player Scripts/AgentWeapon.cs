@@ -13,9 +13,6 @@ public class AgentWeapon : MonoBehaviour
     private InventorySO inventoryData;
 
     [SerializeField]
-    private List<ItemParameter> parametersToModify, itemCurrentState;
-
-    [SerializeField]
     private Slider overheatSlider;
 
     [SerializeField]
@@ -38,34 +35,15 @@ public class AgentWeapon : MonoBehaviour
         overheatSlider.value = overheatSlider.maxValue;
     }
 
-    public void SetWeapon(EquippableItemSO weaponItemSO, List<ItemParameter> itemState, bool isTheSameAsCurrentlyEquipped = false)
+    public void SetWeapon(EquippableItemSO weaponItemSO, bool isTheSameAsCurrentlyEquipped = false)
     {
         if (weapon != null && !isTheSameAsCurrentlyEquipped)
         {
-            inventoryData.AddItem(weapon, 1, itemCurrentState);
+            inventoryData.AddItem(weapon, 1);
         }
         this.weapon = weaponItemSO;
-        this.itemCurrentState = new List<ItemParameter>(itemState);
-        ModifyParameters();
         overheatSlider.maxValue = weapon.weaponProperties.overheatCapacity * weapon.weaponProperties.weaponUpgrades.overheatCapacityModifier;
         overheatSlider.value = overheatSlider.maxValue;
         persistentVariables.equippedItem = weapon;
-    }
-
-    private void ModifyParameters()
-    {
-        foreach (var parameter in parametersToModify)
-        {
-            if (itemCurrentState.Contains(parameter))
-            {
-                int index = itemCurrentState.IndexOf(parameter);
-                float newValue = itemCurrentState[index].value + parameter.value;
-                itemCurrentState[index] = new ItemParameter
-                {
-                    itemparameter = parameter.itemparameter,
-                    value = newValue
-                };
-            }
-        }
     }
 }

@@ -34,7 +34,7 @@ public class StorageVisualsController : MonoBehaviour
     {
         for (int i = 0; i < storageSO.Size; i++)
         {
-            if (!storageSO.GetItemAt(i).IsEmpty)
+            if (!storageSO.GetItemAt(i).isEmpty)
             {
                 slots[i].SetData(storageSO.GetItemAt(i).item.ItemImage, storageSO.GetItemAt(i).quantity);
             } else
@@ -63,7 +63,7 @@ public class StorageVisualsController : MonoBehaviour
         {
             inventoryMainPage.DeselectAllItems();
             DeselectAllItems();
-            if (!storageSO.GetItemAt(index).IsEmpty)
+            if (!storageSO.GetItemAt(index).isEmpty)
             {
                 inventoryItem.Select();
                 selectedSlot = index;

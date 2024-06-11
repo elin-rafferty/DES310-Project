@@ -44,8 +44,8 @@ public class UpgradeShop : MonoBehaviour
     void UpdateVisuals()
     {
         int selectedWeapon = dropdown.value;
-        oldWeaponName.text = weaponNames[selectedWeapon].text;
-        newWeaponName.text = weaponNames[selectedWeapon].text;
+        oldWeaponName.text = agentWeapon.weapon.Name;
+        newWeaponName.text = agentWeapon.weapon.Name + "+";
         oldImage.sprite = weaponScriptableObjects[selectedWeapon].ItemImage;
         newImage.sprite = weaponScriptableObjects[selectedWeapon].ItemImage;
         currencyImage.sprite = currencyItem.ItemImage;
@@ -57,7 +57,7 @@ public class UpgradeShop : MonoBehaviour
         rangeUpgradeText.text = rangeUpgrades.ToString();
         ProjectileType selectedProjectileType = associatedProjectileTypes[selectedWeapon];
         WeaponProperties selectedWeaponProperties = weaponScriptableObjects[selectedWeapon].weaponProperties;
-        WeaponUpgrades selectedWeaponUpgrades = selectedWeaponProperties.weaponUpgrades;
+        WeaponUpgrades selectedWeaponUpgrades = agentWeapon.weapon.weaponProperties.weaponUpgrades;
         oldWeaponDescription.text = "Damage: " + (selectedProjectileType.damage * selectedWeaponUpgrades.damageModifier) + "\n\nFire Speed: " + Mathf.Round((1 / (selectedWeaponProperties.fireDelay / selectedWeaponUpgrades.fireSpeedModifier)) * 100f) / 100f + " bullets/sec\n\nTime To Overheat: " + Mathf.Round((selectedWeaponProperties.overheatCapacity * selectedWeaponUpgrades.overheatCapacityModifier) * 100f) / 100f + " secs\n\nRange: " + (selectedProjectileType.despawnTimer * selectedWeaponUpgrades.fireRangeModifier * selectedProjectileType.speed) + " meters";
         newWeaponDescription.text = "Damage: " + (selectedProjectileType.damage * (selectedWeaponUpgrades.damageModifier + damageUpgradeMagnitude * damageUpgrades)) + "\n\nFire Speed: " + Mathf.Round((1 / (selectedWeaponProperties.fireDelay / (selectedWeaponUpgrades.fireSpeedModifier + fireSpeedUpgradeMagnitude * fireSpeedUpgrades))) * 100f) / 100f + " bullets/sec\n\nTime To Overheat: " + Mathf.Round((selectedWeaponProperties.overheatCapacity * (selectedWeaponUpgrades.overheatCapacityModifier + overheatCapacityUpgradeMagnitude * overheatUpgrades)) * 100f) / 100f + " secs\n\nRange: " + (selectedProjectileType.despawnTimer * (selectedWeaponUpgrades.fireRangeModifier + fireSpeedUpgradeMagnitude * rangeUpgrades) * selectedProjectileType.speed) + " meters";
     }
@@ -150,7 +150,7 @@ public class UpgradeShop : MonoBehaviour
             {
                 SoundManager.instance.PlaySound(SoundManager.SFX.PurchaseSuccessful, transform, 1f);
                 ApplyUpgrades();
-                agentWeapon.SetWeapon(agentWeapon.weapon, agentWeapon.weapon.DefaultParametersList, true);
+                agentWeapon.SetWeapon(agentWeapon.weapon, true);
             }
             else
             {
@@ -165,11 +165,12 @@ public class UpgradeShop : MonoBehaviour
 
     public void ApplyUpgrades()
     {
-        WeaponUpgrades weaponUpgrades = weaponScriptableObjects[dropdown.value].weaponProperties.weaponUpgrades;
+        WeaponUpgrades weaponUpgrades = agentWeapon.weapon.weaponProperties.weaponUpgrades;
         weaponUpgrades.damageModifier += damageUpgrades * damageUpgradeMagnitude;
         weaponUpgrades.fireSpeedModifier += fireSpeedUpgrades * fireSpeedUpgradeMagnitude;
         weaponUpgrades.overheatCapacityModifier += overheatUpgrades * overheatCapacityUpgradeMagnitude;
         weaponUpgrades.fireRangeModifier += rangeUpgrades * rangeUpgradeMagnitude;
+        agentWeapon.weapon.Name = agentWeapon.weapon.Name + "+";
         ResetUnpurchasedUpgrades();
     }
 

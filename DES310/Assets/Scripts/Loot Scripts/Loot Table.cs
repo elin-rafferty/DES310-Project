@@ -54,7 +54,6 @@ public class LootTable : ScriptableObject
                             }
                             // Copy item data
                             newItem.item = items[i].item;
-                            newItem.itemState = items[i].itemState;
                             if (newItem.item != null && newItem.quantity != 0)
                             {
                                 // Add to item list

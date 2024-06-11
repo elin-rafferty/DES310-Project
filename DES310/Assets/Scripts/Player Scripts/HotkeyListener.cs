@@ -47,7 +47,7 @@ public class HotkeyListener : MonoBehaviour
             {
                 if (inventoryMainPage.selectedSlot != -1)
                 {
-                    if (!playerInventory.GetItemAt(inventoryMainPage.selectedSlot).IsEmpty)
+                    if (!playerInventory.GetItemAt(inventoryMainPage.selectedSlot).isEmpty)
                     {
                         IItemAction itemAction = playerInventory.GetItemAt(inventoryMainPage.selectedSlot).item as IItemAction;
                         if (itemAction != null)
@@ -65,15 +65,15 @@ public class HotkeyListener : MonoBehaviour
             {
                 if (hotkeySlot1 != -1)
                 {
-                    if (!playerInventory.GetItemAt(hotkeySlot1).IsEmpty)
+                    if (!playerInventory.GetItemAt(hotkeySlot1).isEmpty)
                     {
                         IItemAction itemAction = playerInventory.GetItemAt(hotkeySlot1).item as IItemAction;
                         if (itemAction != null)
                         {
                             InventoryItem item = playerInventory.GetItemAt(hotkeySlot1);
                             playerInventory.RemoveItem(hotkeySlot1, 1);
-                            itemAction.PerformAction(GameObject.FindGameObjectWithTag("Player"), item.itemState);
-                            if (playerInventory.GetItemAt(hotkeySlot1).IsEmpty)
+                            itemAction.PerformAction(GameObject.FindGameObjectWithTag("Player"));
+                            if (playerInventory.GetItemAt(hotkeySlot1).isEmpty)
                             {
                                 hotkeySlot1 = -1;
                             }
@@ -92,7 +92,7 @@ public class HotkeyListener : MonoBehaviour
             {
                 if (inventoryMainPage.selectedSlot != -1)
                 {
-                    if (!playerInventory.GetItemAt(inventoryMainPage.selectedSlot).IsEmpty)
+                    if (!playerInventory.GetItemAt(inventoryMainPage.selectedSlot).isEmpty)
                     {
                         IItemAction itemAction = playerInventory.GetItemAt(inventoryMainPage.selectedSlot).item as IItemAction;
                         if (itemAction != null)
@@ -110,15 +110,15 @@ public class HotkeyListener : MonoBehaviour
             {
                 if (hotkeySlot2 != -1)
                 {
-                    if (!playerInventory.GetItemAt(hotkeySlot2).IsEmpty)
+                    if (!playerInventory.GetItemAt(hotkeySlot2).isEmpty)
                     {
                         IItemAction itemAction = playerInventory.GetItemAt(hotkeySlot2).item as IItemAction;
                         if (itemAction != null)
                         {
                             InventoryItem item = playerInventory.GetItemAt(hotkeySlot2);
                             playerInventory.RemoveItem(hotkeySlot2, 1);
-                            itemAction.PerformAction(GameObject.FindGameObjectWithTag("Player"), item.itemState);
-                            if (playerInventory.GetItemAt(hotkeySlot2).IsEmpty)
+                            itemAction.PerformAction(GameObject.FindGameObjectWithTag("Player"));
+                            if (playerInventory.GetItemAt(hotkeySlot2).isEmpty)
                             {
                                 hotkeySlot2 = -1;
                             }
@@ -139,7 +139,7 @@ public class HotkeyListener : MonoBehaviour
         if (hotkeySlot1 != -1)
         {
             InventoryItem item = playerInventory.GetItemAt(hotkeySlot1);
-            if (!item.IsEmpty)
+            if (!item.isEmpty)
             {
                 inventoryItemUI1.SetData(item.item.ItemImage, item.quantity);
                 hasItemInSlot = true;
@@ -153,7 +153,7 @@ public class HotkeyListener : MonoBehaviour
         if (hotkeySlot2 != -1)
         {
             InventoryItem item = playerInventory.GetItemAt(hotkeySlot2);
-            if (!item.IsEmpty)
+            if (!item.isEmpty)
             {
                 inventoryItemUI2.SetData(item.item.ItemImage, item.quantity);
                 hasItemInSlot = true;
@@ -180,7 +180,7 @@ public class HotkeyListener : MonoBehaviour
     {
         if (hotkeySlot1 != -1)
         {
-            if (playerInventory.GetItemAt(hotkeySlot1).IsEmpty)
+            if (playerInventory.GetItemAt(hotkeySlot1).isEmpty)
             {
                 hotkeySlot1 = -1;
             }
@@ -195,7 +195,7 @@ public class HotkeyListener : MonoBehaviour
         }
         if (hotkeySlot2 != -1)
         {
-            if (playerInventory.GetItemAt(hotkeySlot2).IsEmpty)
+            if (playerInventory.GetItemAt(hotkeySlot2).isEmpty)
             {
                 hotkeySlot2 = -1;
             }
@@ -216,7 +216,7 @@ public class HotkeyListener : MonoBehaviour
         {
             for (int i = 0; i < playerInventory.Size; i++)
             {
-                if (!playerInventory.GetItemAt(i).IsEmpty && i != hotkeySlot2)
+                if (!playerInventory.GetItemAt(i).isEmpty && i != hotkeySlot2)
                 {
                     IItemAction itemAction = playerInventory.GetItemAt(i).item as IItemAction;
                     if (itemAction != null)
@@ -231,7 +231,7 @@ public class HotkeyListener : MonoBehaviour
         {
             for (int i = 0; i < playerInventory.Size; i++)
             {
-                if (!playerInventory.GetItemAt(i).IsEmpty && i != hotkeySlot1)
+                if (!playerInventory.GetItemAt(i).isEmpty && i != hotkeySlot1)
                 {
                     IItemAction itemAction = playerInventory.GetItemAt(i).item as IItemAction;
                     if (itemAction != null)

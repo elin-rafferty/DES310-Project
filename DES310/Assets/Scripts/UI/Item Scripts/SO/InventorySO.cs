@@ -57,7 +57,7 @@ namespace Inventory.Model
             return returnVal;
         }
 
-        public int AddItem(ItemSO item, int quantity, List<ItemParameter> itemState = null)
+        public int AddItem(ItemSO item, int quantity)
         {
             if (item.IsStackable == false)
             {
@@ -65,7 +65,7 @@ namespace Inventory.Model
                 {
                     while (quantity > 0 && IsInventoryFull() == false)
                     {
-                        quantity -= AddItemToFirstFreeSlot(item, 1, itemState);
+                        quantity -= AddItemToFirstFreeSlot(item, 1);
                     }
                     //InformAboutChange();
                     //return quantity;
@@ -83,18 +83,13 @@ namespace Inventory.Model
             return quantity;
         }
 
-        private int AddItemToFirstFreeSlot(ItemSO item, int quantity, List<ItemParameter> itemState = null)
+        private int AddItemToFirstFreeSlot(ItemSO item, int quantity)
         {
-            InventoryItem newItem = new InventoryItem
-            {
-                item = item,
-                quantity = quantity,
-                itemState = new List<ItemParameter>(itemState == null ? item.DefaultParametersList : itemState)
-            };
+            InventoryItem newItem = new InventoryItem(item, quantity);
 
             for (int i = 0; i < inventoryItems.Count; i++)
             {
-                if (inventoryItems[i].IsEmpty)
+                if (inventoryItems[i].isEmpty)
                 {
                     inventoryItems[i] = newItem;
                     return quantity;
@@ -104,14 +99,14 @@ namespace Inventory.Model
         }
 
         private bool IsInventoryFull()
-            => inventoryItems.Where(item => item.IsEmpty).Any() == false;
+            => inventoryItems.Where(item => item.isEmpty).Any() == false;
 
 
         private int AddStackableItem(ItemSO item, int quantity)
         {
             for (int i = 0; i < inventoryItems.Count; i++)
             {
-                if (inventoryItems[i].IsEmpty)
+                if (inventoryItems[i].isEmpty)
                     continue;
                 if (inventoryItems[i].item.ID == item.ID)
                 {
@@ -144,7 +139,7 @@ namespace Inventory.Model
         {
             if (inventoryItems.Count > itemIndex)
             {
-                if (inventoryItems[itemIndex].IsEmpty)
+                if (inventoryItems[itemIndex].isEmpty)
                     return;
                 int reminder = inventoryItems[itemIndex].quantity - amount;
                 if (reminder <= 0)
@@ -168,7 +163,7 @@ namespace Inventory.Model
 
             for (int i = 0; i < inventoryItems.Count; i++)
             {
-                if (inventoryItems[i].IsEmpty)
+                if (inventoryItems[i].isEmpty)
                     continue;
                 returnValue[i] = inventoryItems[i];
             }
@@ -239,30 +234,5 @@ namespace Inventory.Model
                 return false;
             } else { return false; }
         }
-    }
-
-    [Serializable]
-    public struct InventoryItem
-    {
-        public int quantity;
-        public ItemSO item;
-        public List<ItemParameter> itemState;
-        public bool IsEmpty => item == null;
-
-        public InventoryItem ChangeQuantity(int newQuantity)
-        {
-            return new InventoryItem
-            {
-                item = this.item,
-                quantity = newQuantity,
-                itemState = new List<ItemParameter>(this.itemState)
-            };
-        }
-        public static InventoryItem GetEmptyItem() => new InventoryItem
-            {
-                item = null,
-                quantity = 0,
-                itemState = new List<ItemParameter>()
-            };
     }
 }

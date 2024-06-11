@@ -119,8 +119,8 @@ public class InventorySwapsHandler : MonoBehaviour
     }*/
     void Deposit(int slot, int amount)
     {
-        Inventory.Model.InventoryItem newStack = new();
-        Inventory.Model.InventoryItem oldStack = playerInventory.GetItemAt(slot);
+        InventoryItem newStack = new();
+        InventoryItem oldStack = playerInventory.GetItemAt(slot);
         int quantity = amount <= oldStack.quantity ? amount : oldStack.quantity;
         newStack.item = oldStack.item;
         newStack.quantity = quantity;
@@ -146,8 +146,8 @@ public class InventorySwapsHandler : MonoBehaviour
 
     void Withdraw(int slot, int amount)
     {
-        Inventory.Model.InventoryItem newStack = new();
-        Inventory.Model.InventoryItem oldStack = storageSO.GetItemAt(slot);
+        InventoryItem newStack = new();
+        InventoryItem oldStack = storageSO.GetItemAt(slot);
         int maxStackSize = oldStack.item.MaxStackSize;
         int newStackSize = maxStackSize < amount ? maxStackSize : amount;
         newStackSize = newStackSize < oldStack.quantity ? newStackSize : oldStack.quantity;
